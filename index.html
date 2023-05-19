@@ -1,0 +1,379 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Dream Calculator</title>
+</head>
+<body>
+  <h1>Dream Calculator</h1>
+  <div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+      <p class="active" data-tab-target="#personal">Personal</p>
+      <p data-tab-target="#aum">AUM</p>
+      <p data-tab-target="#activity">Activity</p>
+      <p data-tab-target="#baseshop">Baseshop</p>
+    </div>
+    <!-- Underline -->
+    <div class="line"></div>
+
+  <!-- Tab Content - show different content based on what tab is selected -->
+    <div class="tab-content">
+
+      <!-- Personal Details -->
+      <div id="personal" data-tab-content class="active">
+        <div class="personal-inputs" id="input">
+          
+    <!-- Input Boxes for contract, income goals, duration, and additional contributions -->
+    
+            <!-- drop-down 
+                  consider adding form element... 
+                
+                TODO: how are these ordered? in senority?-->
+                <!-- do i need the label? -->
+            <!-- <label for="contract-select">Select Contract</label>  -->
+            <div class="select">
+              <select name="" id="contract-select" required>
+                <option value="Training Associate">Training Associate</option>
+                <option value="Associate">Associate</option>
+                <option value="Marketing Director">Marketing Director</option>
+                <option value="Senior Marketing Director">Senior Marketing Director</option>
+                <option value="Executive Marketing Director">Executive Marketing Director</option>
+                <option value="CEO Marketing Director">CEO Marketing Director</option>
+                <option value="Executive Vice Chairman">Executive Vice Chairman</option>
+              </select>
+              <span class="focus"></span>
+            </div>
+            <!-- todo: are you a lead adviser -->
+          <div class="inputBox currency">
+            <input type="text" required="required" id="interest">
+            <span>Passive Income Goal (dollars)</span>
+          </div>
+          <div class="inputBox">
+            <input type="text" required="required" id="years">
+            <span>Goal Duration (years)</span>
+          </div>
+          <div class="inputBox currency">
+            <input type="text" required="required" id="contribution">
+            <span>Additional Contributions</span>
+          </div>
+        </div>
+        <!-- todo: when pressed switch to aum tab -->
+        <button>Next</button>
+      </div>
+
+      <!-- AUM Tab -->
+      <div id="aum" data-tab-content>
+        <!-- Calculation Section -->
+        <div class="calculations">
+          <div calcuations-titles>
+            <h2>Current Personal Assets Under Management (AUM)</h2>
+            <h3 id="contract-level"></h3>
+            <p id="percent"></p>
+           </div>
+        </div>
+    
+    
+        <!-- inputs -->
+        <div class="inputs-container">
+          <p class="headers" id="c-7">Deposited within 0 to 12 months</p>
+          <div class="grid-group" id="c-9">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finl0" type="text" required>
+              <span>NL (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnl0" type="text" required>
+              <span>NL (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-10">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finlcb0" type="text" required>
+              <span>NL-CB (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnlcb0" type="text" required>
+              <span>NL-CB (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-11">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finlcb50" type="text" required>
+              <span>NL-CB5 (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnlcb50" type="text" required>
+              <span>NL-CB5 (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-12">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="fill0" type="text" required>
+              <span>LL (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofll0" type="text" required>
+              <span>LL (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-13">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="fidsc0" type="text" required>
+              <span>DSC (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofdsc0" type="text" required>
+              <span>DSC (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+    
+    
+          <p id="c-14">Deposited within 13 to 36 months</p>
+          <div class="grid-group" id="c-16">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finl13" type="text" required>
+              <span>NL (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnl13" type="text" required>
+              <span>NL (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-17">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finlcb13" type="text" required>
+              <span>NL-CB (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnlcb13" type="text" required>
+              <span>NL-CB (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-18">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finlcb513" type="text" required>
+              <span>NL-CB5 (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnlcb513" type="text" required>
+              <span>NL-CB5 (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-19">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="fill13" type="text" required>
+              <span>LL (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofll13" type="text" required>
+              <span>LL (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-20">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="fidsc13" type="text" required>
+              <span>DSC (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency" id="c-21">
+              <input class="small-input" id="ofdsc13" type="text" required>
+              <span>DSC (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+    
+    
+          <p id="c-22">Deposited within 37 to 48 months</p>
+          <div class="grid-group" id="c-23">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finl37" type="text" required>
+              <span>NL (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnl37" type="text" required>
+              <span>NL (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-24">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finlcb37" type="text" required>
+              <span>NL-CB (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnlcb37" type="text" required>
+              <span>NL-CB (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-25">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finlcb537" type="text" required>
+              <span>NL-CB5 (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnlcb537" type="text" required>
+              <span>NL-CB5 (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-26">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="fill37" type="text" required>
+              <span>LL (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofll37" type="text" required>
+              <span>LL (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-27">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="fidsc37" type="text" required>
+              <span>DSC (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofdsc37" type="text" required>
+              <span>DSC (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+    
+    
+          <p id="c-28">Deposited after 48 months</p>
+          <div class="grid-group" id="c-29">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finl49" type="text" required>
+              <span>NL (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnl49" type="text" required>
+              <span>NL (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-30">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finlcb49" type="text" required>
+              <span>NL-CB (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnlcb49" type="text" required>
+              <span>NL-CB (Balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-31">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="finlcb549" type="text" required>
+              <span>NL-CB5 (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofnlcb549" type="text" required>
+              <span>NL-CB5 (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-32">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="fill49" type="text" required>
+              <span>LL (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofll49" type="text" required>
+              <span>LL (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+          <div class="grid-group" id="c-33">
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="fidsc49" type="text" required>
+              <span>DSC (fixed)</span>
+              <!-- <i>$</i> -->
+            </div>
+            <div class="sm-box small-input-currency">
+              <input class="small-input" id="ofdsc49" type="text" required>
+              <span>DSC (balanced, equity)</span>
+              <!-- <i>$</i> -->
+            </div>
+          </div>
+    
+          <!-- calculate Button -->
+          <button id="aum-button">Calculate</button>
+    
+          <!-- Stacked Bar Chart -->
+          <div id="chartContainer" style="display: none;">
+            <svg id="chart"></svg>
+          </div>
+        </div>
+      </div>
+      <div id="activity" data-tab-content>
+        <p class="coming-soon">coming soon</p>
+      </div>
+      <div id="baseshop" data-tab-content>
+        <p class="coming-soon">coming soon</p>
+      </div>
+    </div> 
+  </div>
+</body>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="./script.js"></script>
+</html>
+
+
+<!-- <div class="column-titles">
+  <p>NL</p>
+  <p>NLCB</p>
+  <p>NLCB5</p>
+  <p>LL</p>
+  <p>DSC</p>
+</div>
+<div class="0-12">
+  <p>Deposited in the last 0 to 12 months</p>
+  <div class="income-rows">
+    <p>Fixed Income</p>
+    <p>Other Funds</p>
+    <input class="small-input" type="text">
+    <input class="small-input" type="text">
+  </div>
+  
+</div>
+<div class="13-36">
+
+</div>
+<div class="37-48">
+
+</div>
+<div class="49+"></div>
+</div>  -->

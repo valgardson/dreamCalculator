@@ -1,0 +1,230 @@
+/* https://www.youtube.com/watch?v=BMphVl9suxA&t=75s */
+/* button https://www.youtube.com/watch?v=ANLgG1RtFVM */
+
+:root {
+  --primary-background: #121212;
+  --card-background: #1e1e1e;
+  --accent-green: #00dfc4;
+  --off-white: #e2e2e2;
+}
+/* 
+-- old-background: #1f242d;
+
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 30px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  min-height: 100vh;
+  /* flex-direction: column; */
+  gap: 30px;
+  /* background: #1d2b3a; */
+  background: var(--primary-background);
+}
+
+h1 {
+  margin: 30px 0px;
+  text-transform: uppercase;
+  color: var(--off-white);
+}
+
+.input-output {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* flex-direction: column; */
+  gap: 30px;
+
+}
+.input-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: var(--card-background);
+  padding: 30px;
+  border-radius: 5%;
+
+}
+
+.inputBox {
+  position: relative;
+  width: 275px;
+}
+
+.inputBox input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: var(--card-background);
+  border-radius: 5px;
+  outline: none;
+  color: var(--off-white);
+  font-size: 1em;
+  transition: 0.5s;
+}
+
+.inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.25);
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.inputBox input:valid ~ span, 
+.inputBox input:focus ~ span {
+  color: var(--accent-green);
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #1f242d;;
+  border-left: 1px solid var(--accent-green);
+  border-right: 1px solid var(--accent-green);
+  letter-spacing: 0.2em;
+}
+
+/* .inputBox:nth-child(3) input:valid ~ span, 
+.inputBox:nth-child(3) input:focus ~ span {
+  background: #00dfc4;
+  color: #1d2b3a;
+  border-radius: 2px;
+} */
+
+.inputBox input:valid, 
+.inputBox input:focus {
+  border: 1px solid var(--accent-green);
+}
+
+.output {
+  color: var(--off-white);
+  background: var(--card-background);
+  padding: 0px 30px;
+  border-radius: 5%;
+  min-width: 300px;
+  /* min-height: 200px; */
+}
+
+output, p {
+  margin: 30px 0px;
+}
+
+h2 {
+  margin: 30px 0px;
+}
+
+#total-text {
+  float: right;
+}
+
+#interest-text {
+  float: right;
+}
+
+#contribution-text {
+  float: right;
+}
+a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--off-white);
+  background: var(--card-background);
+  letter-spacing: 2px;
+  font-size: 16px;
+  transition: 0.5s;
+  border-radius: 5%;
+}
+
+a:hover {
+  color: var(--off-white);
+}
+
+a span {
+  display: block;
+  position: absolute;
+  background: var(--accent-green);
+}
+
+a span:nth-child(1) {
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s;
+}
+
+a:hover span:nth-child(1) {
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 0.5s;
+}
+
+a span:nth-child(2) {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+a:hover span:nth-child(2) {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+a span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s;
+}
+
+a:hover span:nth-child(3) {
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 0.5s;
+}
+
+a span:nth-child(4) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+a:hover span:nth-child(4) {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.5s;
+  transition-delay: 0.5s;
+}
+
+#calculate-button {
+  margin: 30px 0px;
+}

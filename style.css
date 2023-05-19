@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@300;500;700&display=swap');
+:root {
+  
+  /* Colors - Primary */
+/* #005596; */
+  --primary-blue: #005596;  
+  --primary-green: #8CC53F;
+  --primary-text: rgb(44, 44, 44);
+  
+  
+  /* Colors - Secondary */
+  --light-blue: #429dce;
+  --dark-blue: #001540;
+  --secondary-text: rgb(121, 121, 121);
+  
+  /* Other Colors */
+  --white: #fff;
+  --card-background: #f9f9f9;
+
+  /* select colors */
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+  font-family: 'Noto Sans Display', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: var(--primary-text);
+}
+
+/* this is using a tag target
+making tabs appear and disapear 
+*/
+[data-tab-content] {
+  display: none;
+}
+
+.active[data-tab-content] {
+  display: block;
+}
+
+h1 {
+  color: var(--primary-blue);
+}
+
+.container {
+  background-color: var(--white);
+  margin: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 0px 64px 64px 64px;
+  position: relative;
+}
+
+/* Trying to align left */
+/* .container .personal-inputs {
+  align-items: flex-start;
+} */
+
+.tabs {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--light-blue);
+  padding: 16px;
+}
+
+.tabs p {
+  padding: 8px;
+}
+
+.tabs p:hover {
+  color: var(--primary-blue);
+  cursor: pointer;
+}
+
+.tabs p.active {
+  color: var(--primary-blue);
+  position: relative;
+}
+
+.line {
+  height: 3px;
+  width:100%;
+  position: absolute;
+  top: 98px;
+  background-color: rgb(231, 231, 231);
+
+}
+
+.tabs .active::before {
+  content: "";
+  width: 200%;
+  height: 4px;
+  background-color: var(--primary-blue);
+  position: absolute;
+  bottom: -47px;
+  left: -50%;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+
+/* INPUT BOXES */
+.personal-inputs {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  
+  /* border-radius: 5%; */
+  /* todo: fix the alignment here - maybe add some padding or margin */
+  
+
+}
+
+.inputBox {
+  position: relative;
+  width: 275px;
+}
+
+.sm-box {
+  position: relative;
+  width: 150px;
+  font-size: .7em;
+}
+
+.inputBox input,
+.sm-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--light-blue);
+  background: var(--white);
+  border-radius: 5px;
+  outline: none;
+  color: var(--primary-text);
+  font-size: 1rem;
+  transition: 0.5s;
+}
+
+.inputBox span,
+.sm-box span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 0.85em;
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.inputBox span {
+  text-transform: uppercase;
+}
+
+/* .sm-box span { */
+  /* did this to move the placeholder/span to the right of the $ */
+  /* left: 15; */
+/* } */
+
+.inputBox input:valid ~ span, 
+.inputBox input:focus ~ span,
+.sm-box input:valid ~ span, 
+.sm-box input:focus ~ span {
+  color: var(--light-blue);
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #fff;
+  border-left: 1px solid var(--light-blue);
+  border-right: 1px solid var(--light-blue);
+  letter-spacing: 0.2em;
+}
+
+.inputBox input:valid, 
+.inputBox input:focus,
+.sm-box input:valid,
+.sm-box input:focus  {
+  border: 1px solid var(--light-blue);
+}
+
+/***** style the SELECT level/position drop down 
+ @url https://moderncss.dev/custom-select-styles-with-pure-css/ *****/
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  text-transform: uppercase;
+  color: var(--secondary-text);
+  appearance: none;
+  font-family: inherit;
+  
+  cursor: inherit;
+  line-height: inherit; 
+
+  outline: none;
+  /* stack abov custom arrow */
+  z-index: 1;
+
+}
+
+.select {
+  width: 100%;
+  width: 275px;
+  border: 1px solid var(--light-blue);
+  border-radius: 5px;
+  padding: 0.25em 0.2em;
+  /* todo: this may not match the other boxes exactly em vs px*/
+  font-size: 0.85em;
+  cursor: pointer;
+  line-height: 1.1;
+  /* don't know if i need backgound-color or background-image */
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+  position: relative;
+  display: grid;
+  grid-template-areas: "select";
+  
+  align-items: center;
+}
+
+.select::after {
+  content: "";
+  width: 1em;
+  height: 0.625em;
+  margin-right: 10px;
+  background-color: var(--light-blue);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  
+
+  justify-self: end;
+}
+
+
+select,
+.select:after {
+  grid-area: select;
+}
+
+/* i don't particluarly care for this focus state. Move the contract level above when focused */
+select:focus + .focus {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid var(--primary-blue);
+  border-radius: inherit;
+}
+
+
+/* current assets under management */
+.calculations {
+  width: 100%;
+  margin-top: 30px;
+  padding: 30px;
+}
+
+.inputs-container {
+  width: 100%;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* grid-template-rows: repeat(3, 1fr); */
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+/* todo: delete border */
+
+}
+
+#c-7,
+#c-14,
+#c-22,
+#c-28 {
+  justify-self: flex-start;
+  margin-top: 2rem;
+  margin-bottom: -1.5rem;
+  grid-column: 1/7;
+}
+
+#aum-button {
+  margin-top: 2rem;
+  grid-column: 1/7;
+  /* display: grid; */
+  /* justify-items: flex-start; */
+  justify-self: flex-start;
+  font-size: 1.25rem;
+
+}
+
+.grid-group {
+  display: grid;
+  gap: 5px;
+}
+
+/* todo: might not need this if i get rid of the column with fixed income and other income */
+.grid-group p {
+  height: 40px;
+  margin-top: 10px;
+  font-weight: 300;
+  font-size: .9rem;
+  /* margin-bottom: 10px; */
+}
+
+.small-input {
+  width: 100%;
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--light-blue);
+  background: var(--white);
+  border-radius: 5px;
+  outline: none;
+  color: var(--primary-text);
+  font-size: .8em;
+  /* what is being transitioned? */
+  transition: 0.5s;
+
+}
+
+.small-input-currency {
+  position: relative;
+  margin-top: 19px;
+  margin-bottom: 5px;
+}
+
+/* This is for the $ when i put it in the box before user inputs */
+ /* .small-input-currency > i {
+  position: absolute;
+  display: block;
+  transform: translate(0, -50%);
+  top: 50%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+	font-style: normal;
+ }
+
+ .small-input-currency > input {
+  padding-left: 25px;
+	padding-right: 0;
+} */
+
+#aum-button {
+  padding: 15px 35px;
+  border: none;
+  border-radius: 5%;
+  /* margin-left: 20px; */
+}
+
+
+.coming-soon {
+  margin-top: 100px;
+  font-size: 2rem;
+}
+
+
+
+/* 
+TODO: 
+change the background when select contract level
+change focus state of select to match other input boxes
+change the select contract level drop down arrow to something like https://www.ratehub.ca/alberta-mortgage-calculator
+change input boxes to - on hover - change border color to light blue, otherwise light grey for border color
+Add a drop-down / expand for each section of the table. 
+add a team logo
+personal - name / team name
+
+Do we ever use the passive income goal or time frame?
+*/
