@@ -26,7 +26,7 @@
             <!-- Input Boxes for contract, income goals, duration, and additional contributions -->
             <div class="inputBox currency">
               <input type="text" required="required" id="team-name">
-              <span>Team Name</span>
+              <span>Your Name / Team Name</span>
             </div>
             <!-- <label for="contract-select">Select Contract</label>  -->
             <div class="select">
@@ -38,15 +38,15 @@
                 <option value="Associate">Associate</option>
                 <option value="Marketing Director">Marketing Director</option>
                 <option value="Senior Marketing Director">Senior Marketing Director</option>
-                <option value="Executive Marketing Director">Executive Marketing Director</option>
+                <!-- <option value="Executive Marketing Director">Executive Marketing Director</option>
                 <option value="CEO Marketing Director">CEO Marketing Director</option>
-                <option value="Executive Vice Chairman">Executive Vice Chairman</option>
+                <option value="Executive Vice Chairman">Executive Vice Chairman</option> -->
               </select>
               <span class="focus"></span>
             </div>
             <!-- todo: are you a lead adviser checkbox -->
             <div class="inputBox currency">
-              <input type="text" required="required" id="interest">
+              <input class="currency-input" type="text" required="required" id="interest">
               <span>Passive Income Goal (dollars)</span>
             </div>
             <div class="inputBox">
@@ -59,13 +59,18 @@
             <div class="slider-container">
               <input 
                 type="range" 
-                id="yearSlider"
+                id="year-slider"
                 min="1"
                 max="50"
                 value="5"
                 oninput="slider()"
               >
-              <input type="text" id="yearInput" value="5" oninput="goalInput()">
+              <input 
+                type="text" 
+                class="slider-input"
+                id="year-input" 
+                value="5" 
+                oninput="goalInput()">
             </div>
             <!-- Elite Advisor Radial buttons -->
             <!-- https://codepen.io/phusum/pen/VQrQqy -->
@@ -88,7 +93,7 @@
       </div>
     </div>
   </div>
-  <!-- ----- AUM Tab ----- -->
+  <!-- ----- Personal AUM Tab ----- -->
   <div id="aum" data-tab-content>
     <div class="aum-container" >
       <h1 class="page-title">Personal Assets Under Management (AUM)</h1>
@@ -160,7 +165,7 @@
 
           <button class="collapsible" onclick="toggle_plus('toggle14');">
             <span class="show-plus" id="toggle14"></span>
-            Deposited In Last 13 to 36 months
+            Deposited In Last 13 to 36 Months
           </button>
           <div class="collapsible-content">
             <div class="grid-group">
@@ -221,7 +226,7 @@
 
           <button class="collapsible" onclick="toggle_plus('toggle22');">
             <span class="show-plus" id="toggle22"></span>
-            Deposited In Last 37 to 48 months
+            Deposited In Last 37 to 48 Months
           </button>
           <div class="collapsible-content">
             <div class="grid-group">
@@ -282,7 +287,7 @@
     
           <button class="collapsible" onclick="toggle_plus('toggle28');">
             <span class="show-plus" id="toggle28"></span>
-            Deposited In Last 49+ months
+            Deposited 49+ Months
           </button>
           <div class="collapsible-content">
             <div class="grid-group">
@@ -434,7 +439,7 @@
             <!-- inner collapsible 1-2 Associate -->
             <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-1-2');">
               <span class="show-plus" id="toggle-inner-1-2"></span>
-              Training Associate
+              Associate
             </button>
             <div class="inner-collapsible-content">
               <div class="grid-group">
@@ -624,7 +629,7 @@
             <!-- inner collapsible 2-1 training associate-->
             <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-2-1');">
               <span class="show-plus" id="toggle-inner-2-1"></span>
-              Associate
+              Training Associate
             </button>
             <div class="inner-collapsible-content">
               <div class="grid-group">
@@ -1120,7 +1125,7 @@
         <!-- Main Collapsible 4 ... 49+ months-->
         <button class="collapsible" onclick="toggle_plus('toggle3-1');">
           <span class="show-plus" id="toggle3-1"></span>
-          Deposited In Last 37 to 48 Months
+          Deposited 49+ Months
         </button>
         <div class="collapsible-content" id="third">
           <!-- inner collapsible 4-1 Training Associate -->
@@ -1375,32 +1380,687 @@
           <button class="btn btn-next" data-tab-target="aum">
             Previous 
           </button>
-          <button class="btn btn-next" data-tab-target="baseshop">
+          <button class="btn btn-next" data-tab-target="personal-monthly">
             Next 
           </button>
         </div>
       </div>
     </div>
   </div>
-
-
-
-
-
-  <div id="baseshop" data-tab-content>
-    <p class="coming-soon">baseshop coming soon</p>
-    <div class="nav-btns">
-      <button class="btn btn-next" data-tab-target="baseshop-aum">
-        Previous 
-      </button>
-      <button class="btn btn-next" data-tab-target="results">
-        Next 
-      </button>
+  <!----- Personal Monthly Activity ----->
+  <div id="personal-monthly" data-tab-content>
+    <div class="monthly-container">
+      <h1 class="page-title">Personal Monthly Activity</h1>
+      <div class="container">
+        <h3>Input Your Personal Monthly Activity</h3>
+        <div class="container-content"></div>
+        <!-- inputs -->
+        <div class="inputs-container">
+          <!-- first collapsibl -->
+          <button class="collapsible" onclick="toggle_plus('pm-toggle1');">
+            <span class="show-plus" id="pm-toggle1"></span>
+            Monthly Lump Sum
+          </button>
+          <div class="collapsible-content">
+            <div class="pm-row">
+              <p>Contribution Amount</p>
+              <div class="sm-box small-input-currency">
+                <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                <span>NL</span>
+              </div>
+              <div class="sm-box small-input-currency">
+                <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                <span>NL-CB</span>
+              </div>
+              <div class="sm-box small-input-currency">
+                <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                <span>NL-CB5</span>
+              </div>
+              <div class="sm-box small-input-currency">
+                <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                <span>LL</span>
+              </div>
+              <div class="sm-box small-input-currency">
+                <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                <span>DSC</span>
+              </div>
+            </div>
+            <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+            <div class="pm-row">
+              <!-- slider -->
+              <div class="slider-container">
+                <input 
+                  type="range" 
+                  id="pm-slider"
+                  min="0"
+                  max="100000"
+                  value="10000"
+                  oninput="slider()"
+                >
+                <input 
+                  type="text" 
+                  class="slider-input"
+                  id="pm-input" 
+                  value="10000" 
+                  oninput="goalInput()">
+              </div>
+            </div>
+            <!-- adding height -->
+            <div class="add-height"></div>
+            </div>
+            <!-- Second Collapsible -->
+            <div class="container-content">
+            <!-- inputs -->
+            <button class="collapsible" onclick="toggle_plus('mpa-toggle1');">
+              <span class="show-plus" id="mpa-toggle1"></span>
+              Monthly Pre-Authorized Debit
+            </button>
+            <div class="collapsible-content">
+              <div class="pm-row">
+                <p>Contribution Amount</p>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
+              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+              <div class="pm-row">
+                <!-- slider -->
+                <div class="slider-container">
+                  <input 
+                    type="range" 
+                    id="mpa-slider"
+                    min="0"
+                    max="100000"
+                    value="10000"
+                    oninput="slider()"
+                  >
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="mpa-input" 
+                    value="10000" 
+                    oninput="goalInput()">
+                </div>
+              </div>
+              <!-- adding height -->
+              <div class="add-height"></div>
+            </div>
+          </div>
+          </div>
+          <!-- Nav Buttons -->
+          <div class="nav-btns">
+            <button class="btn btn-next" data-tab-target="baseshop-aum">
+              Previous 
+            </button>
+            <button class="btn btn-next" data-tab-target="baseshop-monthly">
+              Next 
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> 
+  <!----- Baseshop Monthly Activity ----->
+  <div id="baseshop-monthly" data-tab-content>
+    <div class="baseshop-monthly-container">
+      <h1 class="page-title">Baseshop Monthly Activity</h1>
+      <div class="container">
+        <h3>Input Your Baseshop Monthly Activity</h3>
+        <!-- do i need container-content? -->
+        <div class="container-content"></div>
+        <!-- inputs -->
+        <div class="inputs-container">
+          <!-- Main Collabsible 1 ... Monthly Lump Sum -->
+          <button class="collapsible" onclick="toggle_plus('mls-toggle');">
+            <span class="show-plus" id="mls-toggle"></span>
+            Monthly Lump Sum
+          </button>
+          <!-- not sure if I need the id in the collapsible-content div below -->
+          <div class="collapsible-content" id="mls-1">
+            <!-- inner collapsible mls-1 Training Associate (monthly lump sum trainning associate)-->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-mls-ta');">
+              <span class="show-plus" id="toggle-inner-mls-ta"></span>
+              Training Associate
+            </button>
+            <div class="inner-collapsible-content flex-rows">
+              <div class="pm-row">
+                <p class="bma-title">Number of Downline Agents</p>
+                <!-- bls-ta-agents baseshop lump sum training associate agents -->
+                <input 
+                type="text" 
+                class="slider-input"
+                id="bls-ta-agents"
+                value="0" 
+                >
+              </div>
+              <div class="pm-row">
+                <p>Contribution Amount</p>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
+              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+              <div class="pm-row">
+                <!-- slider  -->
+                <div class="slider-container">
+                  <input 
+                    type="range" 
+                    id="mls-ta-slider"
+                    min="0"
+                    max="100000"
+                    value="10000"
+                    oninput="slider()"
+                  >
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="mls-ta-input" 
+                    value="10000" 
+                    oninput="goalInput()"
+                  >
+                </div>
+              </div>
+              <!-- adding height -->
+              <div class="add-height"></div>
+            </div>
+            <!-- inner collapsible mls-1  Associate -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-mls-a');">
+              <span class="show-plus" id="toggle-inner-mls-a"></span>
+              Associate
+            </button>
+            <div class="inner-collapsible-content flex-rows">
+              <div class="pm-row">
+                <p class="bma-title">Number of Downline Agents</p>
+                <input 
+                type="text" 
+                class="slider-input"
+                id="bls-a-agents"
+                value="0" 
+                >
+              </div>
+              <div class="pm-row">
+                <p>Contribution Amount</p>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
+              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+              <div class="pm-row">
+                <!-- slider  -->
+                <div class="slider-container">
+                  <input 
+                    type="range" 
+                    id="mls-a-slider"
+                    min="0"
+                    max="100000"
+                    value="10000"
+                    oninput="slider()"
+                  >
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="mls-a-input" 
+                    value="10000" 
+                    oninput="goalInput()"
+                  >
+                </div>
+              </div>
+              <!-- adding height -->
+              <div class="add-height"></div>
+            </div>
+            <!-- inner collapsible mls-1  Marketing Director -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-mls-md');">
+              <span class="show-plus" id="toggle-inner-mls-md"></span>
+              Marketing Director
+            </button>
+            <div class="inner-collapsible-content flex-rows">
+              <div class="pm-row">
+                <p class="bma-title">Number of Downline Agents</p>
+                <input 
+                type="text" 
+                class="slider-input"
+                id="bls-md-agents"
+                value="0" 
+                >
+              </div>
+              <div class="pm-row">
+                <p>Contribution Amount</p>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
+              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+              <div class="pm-row">
+                <!-- slider  -->
+                <div class="slider-container">
+                  <input 
+                    type="range" 
+                    id="mls-md-slider"
+                    min="0"
+                    max="100000"
+                    value="10000"
+                    oninput="slider()"
+                  >
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="mls-md-input" 
+                    value="10000" 
+                    oninput="goalInput()"
+                  >
+                </div>
+              </div>
+              <!-- adding height -->
+              <div class="add-height"></div>
+            </div>
+            <!-- inner collapsible mls-1 Senior Marketing Director (monthly lump sum Senior Marketing Director)-->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-mls-smd');">
+              <span class="show-plus" id="toggle-inner-mls-smd"></span>
+              Senior Marketing Director
+            </button>
+            <div class="inner-collapsible-content flex-rows">
+              <div class="pm-row">
+                <p class="bma-title">Number of Downline Agents</p>
+                <input 
+                type="text" 
+                class="slider-input"
+                id="bls-smd-agents"
+                value="0" 
+                >
+              </div>
+              <div class="pm-row">
+                <p>Contribution Amount</p>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
+              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+              <div class="pm-row">
+                <!-- slider  -->
+                <div class="slider-container">
+                  <input 
+                    type="range" 
+                    id="mls-smd-slider"
+                    min="0"
+                    max="100000"
+                    value="10000"
+                    oninput="slider()"
+                  >
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="mls-smd-input" 
+                    value="10000" 
+                    oninput="goalInput()"
+                  >
+                </div>
+              </div>
+              <!-- adding height -->
+              <div class="add-height"></div>
+            </div>
+          </div>
+          <!--  -->
+          <!-- Baseshop Monthly Activity Second Collapsible Pre-authorized debit -->
+          <!--  -->
+          <div class="container-content">
+          <!-- inputs -->
+          <button class="collapsible" onclick="toggle_plus('toggle-inner-bpa');">
+            <span class="show-plus" id="toggle-inner-bpa"></span>
+            Monthly Pre-Authorized Debit
+          </button>
+            <!-- not sure if I need the id in the collapsible-content div below -->
+          <div class="collapsible-content" id="bpa-1">
+            <!-- inner collapsible bpa-1 Training Associate (monthly lump sum trainning associate)-->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-ta');">
+              <span class="show-plus" id="toggle-inner-bpa-ta"></span>
+              Training Associate
+            </button>
+            <div class="inner-collapsible-content flex-rows">
+              <div class="pm-row">
+                <p class="bma-title">Number of Downline Agents</p>
+                <input 
+                type="text" 
+                class="slider-input"
+                id="bpa-ta-agents"
+                value="0" 
+                >
+              </div>
+              <div class="pm-row">
+                <p>Contribution Amount</p>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
+              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+              <div class="pm-row">
+                <!-- slider  -->
+                <div class="slider-container">
+                  <input 
+                    type="range" 
+                    id="bpa-ta-slider"
+                    min="0"
+                    max="100000"
+                    value="10000"
+                    oninput="slider()"
+                  >
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="bpa-ta-input" 
+                    value="10000" 
+                    oninput="goalInput()"
+                  >
+                </div>
+              </div>
+              <!-- adding height -->
+              <div class="add-height"></div>
+            </div>
+            <!-- inner collapsible bpa-1  Associate -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-a');">
+              <span class="show-plus" id="toggle-inner-bpa-a"></span>
+              Associate
+            </button>
+            <div class="inner-collapsible-content flex-rows">
+              <div class="pm-row">
+                <p class="bma-title">Number of Downline Agents</p>
+                <input 
+                type="text" 
+                class="slider-input"
+                id="bpa-a-agents"
+                value="0" 
+                >
+              </div>
+              <div class="pm-row">
+                <p>Contribution Amount</p>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
+              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+              <div class="pm-row">
+                <!-- slider  -->
+                <div class="slider-container">
+                  <input 
+                    type="range" 
+                    id="bpa-a-slider"
+                    min="0"
+                    max="100000"
+                    value="10000"
+                    oninput="slider()"
+                  >
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="bpa-a-input" 
+                    value="10000" 
+                    oninput="goalInput()"
+                  >
+                </div>
+              </div>
+              <!-- adding height -->
+              <div class="add-height"></div>
+            </div>
+            <!-- inner collapsible bpa-1  Marketing Director -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-md');">
+              <span class="show-plus" id="toggle-inner-bpa-md"></span>
+              Marketing Director
+            </button>
+            <div class="inner-collapsible-content flex-rows">
+              <div class="pm-row">
+                <p class="bma-title">Number of Downline Agents</p>
+                <input 
+                type="text" 
+                class="slider-input"
+                id="bpa-md-agents"
+                value="0" 
+                >
+              </div>
+              <div class="pm-row">
+                <p>Contribution Amount</p>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
+              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+              <div class="pm-row">
+                <!-- slider  -->
+                <div class="slider-container">
+                  <input 
+                    type="range" 
+                    id="bpa-md-slider"
+                    min="0"
+                    max="100000"
+                    value="10000"
+                    oninput="slider()"
+                  >
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="bpa-md-input" 
+                    value="10000" 
+                    oninput="goalInput()"
+                  >
+                </div>
+              </div>
+              <!-- adding height -->
+              <div class="add-height"></div>
+            </div>
+            <!-- inner collapsible bpa-1 Senior Marketing Director (monthly lump sum Senior Marketing Director)-->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-smd');">
+              <span class="show-plus" id="toggle-inner-bpa-smd"></span>
+              SeniorMarketing Director
+            </button>
+            <div class="inner-collapsible-content flex-rows">
+              <div class="pm-row">
+                <p class="bma-title">Number of Downline Agents</p>
+                <input 
+                type="text" 
+                class="slider-input"
+                id="bpa-smd-agents"
+                value="0" 
+                >
+              </div>
+              <div class="pm-row">
+                <p>Contribution Amount</p>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
+              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+              <div class="pm-row">
+                <!-- slider  -->
+                <div class="slider-container">
+                  <input 
+                    type="range" 
+                    id="bpa-smd-slider"
+                    min="0"
+                    max="100000"
+                    value="10000"
+                    oninput="slider()"
+                  >
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="bpa-smd-input" 
+                    value="10000" 
+                    oninput="goalInput()"
+                  >
+                </div>
+              </div>
+              <!-- adding height -->
+              <div class="add-height"></div>
+            </div>
+          </div>
+          </div>
+          </div>
+          <!-- Nav Buttons -->
+      <div class="nav-btns">
+        <button class="btn btn-next" data-tab-target="personal-monthly">
+          Previous 
+        </button>
+        <button class="btn btn-next" data-tab-target="results">
+          Next 
+        </button>
+      </div>
     </div>
   </div>
+  </div>
+
   <div id="results" data-tab-content>
     <p class="coming-soon">Dashboard coming soon</p>
-    <button class="btn btn-next" data-tab-target="baseshop">
+    <button class="btn btn-next" data-tab-target="baseshop-monthly">
       Previous 
     </button>
   </div>
@@ -1410,28 +2070,8 @@
 </html>
 
 
-<!-- <div class="column-titles">
-  <p>NL</p>
-  <p>NLCB</p>
-  <p>NLCB5</p>
-  <p>LL</p>
-  <p>DSC</p>
-</div>
-<div class="0-12">
-  <p>Deposited in the last 0 to 12 months</p>
-  <div class="income-rows">
-    <p>Fixed Income</p>
-    <p>Other Funds</p>
-    <input class="small-input personal-aum-input" type="text">
-    <input class="small-input personal-aum-input" type="text">
-  </div>
-  
-</div>
-<div class="13-36">
 
-</div>
-<div class="37-48">
-
-</div>
-<div class="49+"></div>
-</div>  -->
+<!-- TODO -->
+<!-- the following code where there is an id for baseshop AUM the id's are inconsistent or missing, why is 
+the id there? Is it for the inner collapsible? -->
+<!-- <div class="collapsible-content" id="first"></div> -->
