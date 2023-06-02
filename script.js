@@ -356,6 +356,14 @@ function formatUserCurrency(input) {
   return "$ " + input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+const currencyInputs = [...document.getElementsByClassName('currency-input')];
+currencyInputs.forEach((el) => {
+  el.addEventListener('input', function() {
+    el.value = formatUserCurrency(el.value);
+  });
+});
+
+
 // watch for input on cells to update currency format
 const personalAumEls = [
   finl0, ofnl0, finlcb0, ofnlcb0, finlcb50, ofnlcb50, fill0, ofll0, 
@@ -367,7 +375,6 @@ const personalAumEls = [
 ]
 
 personalAumEls.forEach((el) => {
-  console.log(el);
   el.addEventListener('input', function() {
     el.value = formatUserCurrency(el.value);
   })
@@ -393,16 +400,10 @@ const baseshopAumEls = [
 ]
   
 baseshopAumEls.forEach((el) => {
-  console.log(el);
   el.addEventListener('input', function() {
     el.value = formatUserCurrency(el.value);
-  })
+  });
 });
-
-
-
-
-
 
 
 
@@ -490,56 +491,6 @@ const cleanCurrency = input => {
 // });
 
 
-// function drawBarChart() {
-//   const data = [
-//     { category: 'NL', value: 10 },
-//     { category: 'NL-CB', value: 20 },
-//     { category: 'NL-CB5', value: 15 },
-//     { category: 'LL', value: 8 },
-//     { category: 'DSC', value: 12 }
-//   ];
-
-//   const chartContainer = d3.select('#chartContainer');
-
-//   // Clear any existing chart
-//   chartContainer.selectAll('*').remove();
-
-//   // Set the dimensions of the chart
-//   const width = 400;
-//   const height = 200;
-
-//   // Create the SVG element
-//   const svg = chartContainer.append('svg')
-//     .attr('width', width)
-//     .attr('height', height);
-
-//   // Define the scale for the x-axis
-//   const xScale = d3.scaleLinear()
-//     .domain([0, d3.max(data, d => d.value)])
-//     .range([0, width]);
-
-//   // Create the horizontal bars
-//   const bars = svg.selectAll('rect')
-//     .data(data)
-//     .enter()
-//     .append('rect')
-//     .attr('y', (d, i) => i * 30)
-//     .attr('width', d => xScale(d.value))
-//     .attr('height', 20)
-//     .attr('fill', 'steelblue');
-
-//   // Add labels to the bars
-//   svg.selectAll('text')
-//     .data(data)
-//     .enter()
-//     .append('text')
-//     .attr('x', d => xScale(d.value) + 5)
-//     .attr('y', (d, i) => i * 30 + 14)
-//     .text(d => d.category);
-// }
-
-
-
 
 // TODO
 // need to account for cells that have nothing entered into them. Maybe I should have a default $0.00
@@ -548,33 +499,264 @@ const cleanCurrency = input => {
 
 
 
-// slider
+/////////////////////////////
+// Slider and Input logic //
+///////////////////////////
 const primaryBlue = '#005596';
 
-const yearSlider = document.getElementById("yearSlider");
-const inputYear = document.getElementById("yearInput");
+// RANGE (SLIDER) DOM ELEMENTS
+const yearSlider = document.getElementById("year-slider");
+const pmSlider = document.getElementById("pm-slider");
+const mpaSlider = document.getElementById("mpa-slider");
+// baseshop monthly lump sum
+const bMlsTaSlider = document.getElementById("mls-ta-slider");
+const bMlsASlider = document.getElementById("mls-a-slider");
+const bMlsMdSlider = document.getElementById("mls-md-slider");
+const bMlsSmdSlider = document.getElementById("mls-smd-slider");
+// baseshop monthly pre-authorized debits
+const bPaTaSlider = document.getElementById("bpa-ta-slider");
+const bPaASlider = document.getElementById("bpa-a-slider");
+const bPaMdSlider = document.getElementById("bpa-md-slider");
+const bPaSmdSlider = document.getElementById("bpa-smd-slider");
 
+// INPUTS DOM ELEMENTS
+const inputYear = document.getElementById("year-input");
+const inputPm = document.getElementById("pm-input");
+const inputMpa = document.getElementById("mpa-input");
+// baseshop monthly lump sum
+const inputBMlsTa = document.getElementById("mls-ta-input");
+const inputBMlsA = document.getElementById("mls-a-input");
+const inputBMlsMd = document.getElementById("mls-md-input");
+const inputBMlsSmd = document.getElementById("mls-smd-input");
+// baseshop monthly pre-authorized debits todo: capitalized B for monthly lump sum, but not for the pre-authorized
+const inputbPaTa = document.getElementById("bpa-ta-input");
+const inputbPaA = document.getElementById("bpa-a-input");
+const inputbPaMd = document.getElementById("bpa-md-input");
+const inputbPaSmd = document.getElementById("bpa-smd-input");
+
+
+// color the left side of slider and set input value to equal slider value
 function slider() {
+  // Year Slider
   valPercent = (yearSlider.value / yearSlider.max) * 100;
   yearSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
   inputYear.value = yearSlider.value;
+
+  // Personal Monthly (mp) Slider
+  valPercent = (pmSlider.value / pmSlider.max) * 100;
+  pmSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputPm.value = formatUserCurrency(pmSlider.value);
+
+  // Monthly Pre-authorized (mpa) Slider
+  valPercent = (mpaSlider.value / mpaSlider.max) * 100;
+  mpaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputMpa.value = formatUserCurrency(mpaSlider.value);
+
+  // Baseshop Monthly Lump Sum - Training Associate
+  valPercent = (bMlsTaSlider.value / bMlsMdSlider.max) * 100;
+  bMlsTaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputBMlsTa.value = formatUserCurrency(bMlsTaSlider.value);
+
+  // Baseshop Monthly Lump Sum - Associate
+  valPercent = (bMlsASlider.value / bMlsASlider.max) * 100;
+  bMlsASlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputBMlsA.value = formatUserCurrency(bMlsASlider.value);
+
+  // Baseshop Monthly Lump Sum - Marketing Director
+  valPercent = (bMlsMdSlider.value / bMlsMdSlider.max) * 100;
+  bMlsMdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputBMlsMd.value = formatUserCurrency(bMlsMdSlider.value);
+
+  // Baseshop Monthly Lump Sum - Senior Marketing Director
+  valPercent = (bMlsSmdSlider.value / bMlsSmdSlider.max) * 100;
+  bMlsSmdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputBMlsSmd.value = formatUserCurrency(bMlsSmdSlider.value);
+
+  // Baseshop Pre-authorized debit - Training Associate
+  valPercent = (bPaTaSlider.value / bPaMdSlider.max) * 100;
+  bPaTaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputbPaTa.value = formatUserCurrency(bPaTaSlider.value);
+
+  // Baseshop Pre-authorized debit - Associate
+  valPercent = (bPaASlider.value / bPaASlider.max) * 100;
+  bPaASlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputbPaA.value = formatUserCurrency(bPaASlider.value);
+
+  // Baseshop Pre-authorized debit - Marketing Director
+  valPercent = (bPaMdSlider.value / bPaMdSlider.max) * 100;
+  bPaMdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputbPaMd.value = formatUserCurrency(bPaMdSlider.value);
+
+  // Baseshop Pre-authorized debit - Senior Marketing Director
+  valPercent = (bPaSmdSlider.value / bPaSmdSlider.max) * 100;
+  bPaSmdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputbPaSmd.value = formatUserCurrency(bPaSmdSlider.value);
 }
 
 slider();
 
-// TODO: check for text entry, allow empty cell for a moment 
+// format input value and set to equal slider value
 function goalInput() {
-  yearSlider.value = inputYear.value
-  slider();
+  // set and format value 
+  yearSlider.value = inputYear.value;
+  pmSlider.value = inputPm.value.replace(/[^0-9.-]+/g, '');
+  mpaSlider.value = inputMpa.value.replace(/[^0-9.-]+/g, '');
+  // baseshop monthly lump sum
+  bMlsTaSlider.value = inputBMlsTa.value.replace(/[^0-9.-]+/g, '');
+  bMlsASlider.value = inputBMlsA.value.replace(/[^0-9.-]+/g, '');
+  bMlsMdSlider.value = inputBMlsMd.value.replace(/[^0-9.-]+/g, '');
+  bMlsSmdSlider.value = inputBMlsSmd.value.replace(/[^0-9.-]+/g, '');
+  // baseshop pre-authorized debit
+  bPaTaSlider.value = inputbPaTa.value.replace(/[^0-9.-]+/g, '');
+  bPaASlider.value = inputbPaA.value.replace(/[^0-9.-]+/g, '');
+  bPaMdSlider.value = inputbPaMd.value.replace(/[^0-9.-]+/g, '');
+  bPaSmdSlider.value = inputbPaSmd.value.replace(/[^0-9.-]+/g, '');
 
+  slider();
 }
 
+///// ADD EVENT LISTENERS TO SLIDERS & INPUT /////
+///// SLIDERS
+// Years Input
+yearSlider.addEventListener('input', function() {
+  valPercent = (yearSlider.value / yearSlider.max) * 100;
+  yearSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputYear.value = yearSlider.value;
+});
+
+// Personal Monthly (mp) Input
+pmSlider.addEventListener('input', function() {
+  valPercent = (pmSlider.value / pmSlider.max) * 100;
+  pmSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputPm.value = formatUserCurrency(pmSlider.value);
+});
+
+// Monthly Pre-authorized Input
+mpaSlider.addEventListener('input', function() {
+  valPercent = (mpaSlider.value / mpaSlider.max) * 100;
+  mpaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputMpa.value = formatUserCurrency(mpaSlider.value);
+});
+
+// Monthly Lump Sum Training Associate 
+bMlsTaSlider.addEventListener('input', function() {
+  valPercent = (bMlsTaSlider.value / bMlsTaSlider.max) * 100;
+  bMlsTaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputBMlsTa.value = formatUserCurrency(bMlsTaSlider.value);
+});
+
+// Monthly Lump Sum  Associate
+bMlsASlider.addEventListener('input', function() {
+  valPercent = (bMlsASlider.value / bMlsASlider.max) * 100;
+  bMlsASlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputBMlsA.value = formatUserCurrency(bMlsASlider.value);
+});
+
+// Monthly Lump Sum Marketing Director 
+bMlsMdSlider.addEventListener('input', function() {
+  valPercent = (bMlsMdSlider.value / bMlsMdSlider.max) * 100;
+  bMlsMdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputBMlsMd.value = formatUserCurrency(bMlsMdSlider.value);
+});
+
+// Monthly Lump Sum Senior Marketing Director
+bMlsSmdSlider.addEventListener('input', function() {
+  valPercent = (bMlsSmdSlider.value / bMlsSmdSlider.max) * 100;
+  bMlsSmdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputBMlsSmd.value = formatUserCurrency(bMlsSmdSlider.value);
+});
+
+// Monthly Pre-authorized Debit Training Associate 
+bPaTaSlider.addEventListener('input', function() {
+  valPercent = (bPaTaSlider.value / bPaTaSlider.max) * 100;
+  bPaTaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputbPaTa.value = formatUserCurrency(bPaTaSlider.value);
+});
+
+// Monthly Pre-authorized Debit  Associate
+bPaASlider.addEventListener('input', function() {
+  valPercent = (bPaASlider.value / bPaASlider.max) * 100;
+  bPaASlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputbPaA.value = formatUserCurrency(bPaASlider.value);
+});
+
+// Monthly Pre-authorized Debit Marketing Director 
+bPaMdSlider.addEventListener('input', function() {
+  valPercent = (bPaMdSlider.value / bPaMdSlider.max) * 100;
+  bPaMdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputbPaMd.value = formatUserCurrency(bPaMdSlider.value);
+});
+
+// Monthly Pre-authorized Debit Senior Marketing Director
+bPaSmdSlider.addEventListener('input', function() {
+  valPercent = (bPaSmdSlider.value / bPaSmdSlider.max) * 100;
+  bPaSmdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  inputbPaSmd.value = formatUserCurrency(bPaSmdSlider.value);
+});
+
+///// INPUTS 
+// Years 
+inputYear.addEventListener('input', function() {
+  yearSlider.value = inputYear.value;
+  slider();
+});
+
+// Personal Monthly (mp) 
+inputPm.addEventListener('input', function() {
+  pmSlider.value = inputPm.value.replace(/[^0-9.-]+/g, '');
+  inputPm.value = formatUserCurrency(pmSlider.value);
+  slider();
+});
+
+//  Monthly Pre-authorized 
+inputMpa.addEventListener('input', function() {
+  mpaSlider.value = inputMpa.value.replace(/[^0-9.-]+/g, '');
+  inputMpa.value = formatUserCurrency(mpaSlider.value);
+  slider();
+});
+
+//  Monthly Lump Sum Training Associate 
+inputBMlsTa.addEventListener('input', function() {
+  mpaSlider.value = inputBMlsTa.value.replace(/[^0-9.-]+/g, '');
+  inputBMlsTa.value = formatUserCurrency(bMlsTaSlider.value);
+  slider();
+});
+
+//  Monthly Lump Sum  Associate 
+inputBMlsA.addEventListener('input', function() {
+  mpaSlider.value = inputBMlsA.value.replace(/[^0-9.-]+/g, '');
+  inputBMlsA.value = formatUserCurrency(bMlsASlider.value);
+  slider();
+});
+
+//  Monthly Lump Sum Training Associate 
+inputBMlsMd.addEventListener('input', function() {
+  mpaSlider.value = inputBMlsMd.value.replace(/[^0-9.-]+/g, '');
+  inputBMlsMd.value = formatUserCurrency(bMlsMdSlider.value);
+  slider();
+});
+
+//  Monthly Lump Sum Training Associate 
+inputBMlsSmd.addEventListener('input', function() {
+  mpaSlider.value = inputBMlsSmd.value.replace(/[^0-9.-]+/g, '');
+  inputBMlsSmd.value = formatUserCurrency(bMlsSmdSlider.value);
+  slider();
+});
+
+
+
+
+
+
+
+
+// take out the function from the forEach so they can be referenced inside both forEach. need to run 
+// sliders function in the sliderInput so it updates the bar progress
 
 // collapsible script
 // todo change to foreach
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate
 var coll = document.getElementsByClassName("collapsible");
-console.log(coll);
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active-collapse");
@@ -597,22 +779,15 @@ for (var i = 0; i < innerColl.length; i++) {
 
 function createCollapseListener(container, index) {
   return function() {
-    console.log('collapseContainer');
-    console.log(container);
-    console.log(`i is ${index}`);
     var parentCollapsable = container.parentElement;
-    console.log('parent container');
-    console.log(parentCollapsable);
     var parentHeight = parentCollapsable.style.maxHeight;
     this.classList.toggle("active-inner-collapse");
     var content = this.nextElementSibling;
     if (content.style.maxHeight) {
       content.style.maxHeight = null;
-      console.log('null');
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
       parentCollapsable.style.maxHeight = parseInt(content.scrollHeight) + parseInt(parentHeight) + "px";
-      console.log(`height is ${parentCollapsable.style.maxHeight}`);
     } 
   };
 }
@@ -630,7 +805,6 @@ function toggle_plus(id) {
 // total Personal AUM update value
 const personalAumInputs = document.getElementsByClassName("personal-aum-input");
 const personalAumTotal = document.getElementById("personal-aum-total");
-console.log(personalAumTotal.textContent);
 const replaceEmpty = (array) => {
   const updateArray = array.map((value) => {
     if (value === "") {
@@ -665,7 +839,6 @@ for (i = 0; i < personalAumInputs.length; i++) {
     const arrayNoEmpty = replaceEmpty(personalAumValues);
     const cleanedPersonalAumValues = arrayNoEmpty.map(cleanCurrency);
     let sum = sumArray(cleanedPersonalAumValues);
-    console.log(sum);
     personalAumTotal.textContent = formatUserCurrency(sum);
     
   });
@@ -698,8 +871,18 @@ for (i = 0; i < baseshopAumInputs.length; i++) {
     const arrayNoEmpty = replaceEmpty(baseshopAumValues);
     const cleanedBaseshopAumValues = arrayNoEmpty.map(cleanCurrency);
     let sum = sumArray(cleanedBaseshopAumValues);
-    console.log(sum);
     baseshopAumTotal.textContent = formatUserCurrency(sum);
     
   });
 }
+
+
+
+
+
+
+
+
+
+// TODO: change all the contribution amount ID names
+// for the baseshop slider and inputs the names are toggle-inner-mls-smd but I should identify it is from baseshop not personal
