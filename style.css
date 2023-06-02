@@ -128,19 +128,24 @@ making tabs appear and disapear
 }
 
 .aum-container, 
-.baseshop-aum-container {
+.baseshop-aum-container,
+.monthly-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .aum-container .container,
-.baseshop-aum-container .container {
+.baseshop-aum-container .container,
+.monthly-container .container,
+.baseshop-monthly-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 1100px;
 }
+
+
 
 .personal-info-container .container h3 {
   /* margin-top: 2.5rem; */
@@ -163,7 +168,9 @@ making tabs appear and disapear
 }
 
 /* todo create a new class for all these h3's */
-.aum-container .container h3 {
+.aum-container .container h3,
+.monthly-container .container h3,
+.baseshop-monthly-container .container h3 {
   align-self: flex-start; 
   /* margin-left: 35px; */
   margin-bottom: -2rem;
@@ -171,6 +178,7 @@ making tabs appear and disapear
   color: var(--primary-blue);
   text-align: center;
 }
+
 
 
 /* INPUT BOXES */
@@ -419,6 +427,7 @@ select:focus + .focus {
   margin-top: 2rem;
   margin-bottom: -1.5rem;
   grid-column: 1/7;
+  /* text-transform: capitalize; */
 }
 
 .active-collapse, .collapsible:hover {
@@ -447,8 +456,23 @@ select:focus + .focus {
   /* gap: 20px; */
   padding: 1rem;
   border-radius: 0 0 5px 5px;
-
 }
+
+.monthly-container .collapsible-content {
+  /* margin-top: -7px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: var(--collapsible);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  justify-items: center;
+  padding: 1rem;
+  border-radius: 0 0 5px 5px; */
+  display: block;
+}
+
 
 .inner-collapsible {
   background-color: var(--primary-blue);
@@ -467,6 +491,8 @@ select:focus + .focus {
   margin-bottom: -1.5rem;
   grid-column: 1/7;
 }
+
+
 
 .active-inner-collapse, .inner-collapsible:hover {
   /* filter: brightness(95%); */
@@ -497,6 +523,10 @@ select:focus + .focus {
   /* padding-bottom: 1rem; */
   border-radius: 0 0 5px 5px;
 
+}
+
+.flex-rows {
+  display: block;
 }
 
 .inputs-container {
@@ -691,7 +721,17 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 } */
 
-#yearInput {
+/* #yearInput {
+  width: 13%;
+  border: 1px solid var(--primary-blue);
+  text-align: center;
+  padding: 10px 0px;
+  border-radius: 5px;
+  color: var(--primary-text);
+} */
+
+/* todo when active change the highlight to look better */
+.slider-input {
   width: 13%;
   border: 1px solid var(--primary-blue);
   text-align: center;
@@ -746,3 +786,50 @@ input[type="range"]:active::-webkit-slider-thumb {
   line-height: 1.8em;
 }
 
+.pm-row {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+}
+
+.pm-row p {
+  margin-top: 10px;
+  /* width: 40px; */
+  color: var(--primary-text);
+
+  
+}
+
+
+.pm-row .slider-container {
+  width: 930px;
+}
+
+.pm-title {
+  margin-top: 40px;
+  margin-bottom: -20px;
+}
+
+#pm-input,
+#mpa-input {
+  font-size: 1.2rem;
+}
+
+.add-height {
+  height: 30px;
+}
+
+/* todo why isn't align-items; center; not working */
+.pm-row .bma-title {
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: center;   <---- NEW    */
+  line-height: 38px;
+  vertical-align: middle;
+  padding-bottom: 2px;
+  margin: 0;
+
+
+}
