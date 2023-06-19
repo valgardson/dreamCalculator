@@ -21,12 +21,25 @@
         <!-- Personal Details -->
         <!-- container-content div might not be necessary... -->
         <div class="container-content">
-          <h3>Tell us about you.</h3>
+          <h3>Tell Us About Yourself</h3>
           <div class="personal-inputs" id="input">
             <!-- Input Boxes for contract, income goals, duration, and additional contributions -->
             <div class="inputBox currency">
               <input type="text" required="required" id="team-name">
               <span>Your Name / Team Name</span>
+            </div>
+            <!-- Custom Drop Down
+            https://www.youtube.com/watch?v=uFIl4BvYne0
+            -->
+            <div class="dropdown">
+              <input type="text" class="textBox"
+                placeholder="WFG contract Level" readonly>
+              <div class="option">
+                <div onclick="show('Training Associate')">Training Associate</div>
+                <div onclick="show('Associate')">Associate</div>
+                <div onclick="show('Marketing Director')">Marketing Director</div>
+                <div onclick="show('Senior Marketing Director')">Senior Marketing Director</div>
+              </div>  
             </div>
             <!-- <label for="contract-select">Select Contract</label>  -->
             <div class="select">
@@ -43,34 +56,6 @@
                 <option value="Executive Vice Chairman">Executive Vice Chairman</option> -->
               </select>
               <span class="focus"></span>
-            </div>
-            <!-- todo: are you a lead adviser checkbox -->
-            <div class="inputBox currency">
-              <input class="currency-input" type="text" required="required" id="interest">
-              <span>Passive Income Goal (dollars)</span>
-            </div>
-            <div class="inputBox">
-              <input type="text" required="required" id="years">
-              <span>Years to Achieve Goal</span>
-            </div>
-            <!-- slider -->
-            <!-- https://www.youtube.com/watch?v=zf_LclaxIHk -->
-            <p class="info-title">How many Years to Achieve Goal?</p>
-            <div class="slider-container">
-              <input 
-                type="range" 
-                id="year-slider"
-                min="1"
-                max="50"
-                value="5"
-                oninput="slider()"
-              >
-              <input 
-                type="text" 
-                class="slider-input"
-                id="year-input" 
-                value="5" 
-                oninput="goalInput()">
             </div>
             <!-- Elite Advisor Radial buttons -->
             <!-- https://codepen.io/phusum/pen/VQrQqy -->
@@ -381,11 +366,11 @@
               Training Associate
             </button>
             <div class="inner-collapsible-content">
-              <div class="grid-group">
+              <div class="grid-group inner-grid-group">
                 <p class="grid-group">Fixed Income</p>
                 <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="grid-group" id="c-9">
+              <div class="grid-group inner-grid-group" id="c-9">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-finl0" type="text" required>
                   <span>NL</span>
@@ -395,7 +380,7 @@
                   <span>NL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-10">
+              <div class="grid-group inner-grid-group" id="c-10">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-finlcb0" type="text" required>
                   <span>NL-CB</span>
@@ -405,7 +390,7 @@
                   <span>NL-CB</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-11">
+              <div class="grid-group inner-grid-group" id="c-11">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-finlcb50" type="text" required>
                   <span>NL-CB5</span>
@@ -415,7 +400,7 @@
                   <span>NL-CB5</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-12">
+              <div class="grid-group inner-grid-group" id="c-12">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-fill0" type="text" required>
                   <span>LL</span>
@@ -425,7 +410,7 @@
                   <span>LL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-13">
+              <div class="grid-group inner-grid-group" id="c-13">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-fidsc0" type="text" required>
                   <span>DSC</span>
@@ -442,11 +427,11 @@
               Associate
             </button>
             <div class="inner-collapsible-content">
-              <div class="grid-group">
+              <div class="grid-group inner-grid-group">
                 <p class="grid-group">Fixed Income</p>
                 <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="grid-group" id="c-9">
+              <div class="grid-group inner-grid-group" id="c-9">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-finl0" type="text" required>
                   <span>NL</span>
@@ -456,7 +441,7 @@
                   <span>NL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-10">
+              <div class="grid-group inner-grid-group" id="c-10">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-finlcb0" type="text" required>
                   <span>NL-CB</span>
@@ -466,7 +451,7 @@
                   <span>NL-CB</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-11">
+              <div class="grid-group inner-grid-group" id="c-11">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-finlcb50" type="text" required>
                   <span>NL-CB5</span>
@@ -476,7 +461,7 @@
                   <span>NL-CB5</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-12">
+              <div class="grid-group inner-grid-group" id="c-12">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-fill0" type="text" required>
                   <span>LL</span>
@@ -486,7 +471,7 @@
                   <span>LL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-13">
+              <div class="grid-group inner-grid-group" id="c-13">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-fidsc0" type="text" required>
                   <span>DSC</span>
@@ -503,11 +488,11 @@
               Marketing Director
             </button>
             <div class="inner-collapsible-content">
-              <div class="grid-group">
+              <div class="grid-group inner-grid-group">
                 <p class="grid-group">Fixed Income</p>
                 <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="grid-group" id="c-9">
+              <div class="grid-group inner-grid-group" id="c-9">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-finl0" type="text" required>
                   <span>NL</span>
@@ -517,7 +502,7 @@
                   <span>NL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-10">
+              <div class="grid-group inner-grid-group" id="c-10">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-finlcb0" type="text" required>
                   <span>NL-CB</span>
@@ -527,7 +512,7 @@
                   <span>NL-CB</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-11">
+              <div class="grid-group inner-grid-group" id="c-11">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-finlcb50" type="text" required>
                   <span>NL-CB5</span>
@@ -537,7 +522,7 @@
                   <span>NL-CB5</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-12">
+              <div class="grid-group inner-grid-group" id="c-12">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-fill0" type="text" required>
                   <span>LL</span>
@@ -547,7 +532,7 @@
                   <span>LL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-13">
+              <div class="grid-group inner-grid-group" id="c-13">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-fidsc0" type="text" required>
                   <span>DSC</span>
@@ -564,11 +549,11 @@
               Senior Marketing Director
             </button>
             <div class="inner-collapsible-content">
-              <div class="grid-group">
+              <div class="grid-group inner-grid-group">
                 <p class="grid-group">Fixed Income</p>
                 <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="grid-group" id="c-9">
+              <div class="grid-group inner-grid-group" id="c-9">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-finl0" type="text" required>
                   <span>NL</span>
@@ -578,7 +563,7 @@
                   <span>NL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-10">
+              <div class="grid-group inner-grid-group" id="c-10">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-finlcb0" type="text" required>
                   <span>NL-CB</span>
@@ -588,7 +573,7 @@
                   <span>NL-CB</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-11">
+              <div class="grid-group inner-grid-group" id="c-11">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-finlcb50" type="text" required>
                   <span>NL-CB5</span>
@@ -598,7 +583,7 @@
                   <span>NL-CB5</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-12">
+              <div class="grid-group inner-grid-group" id="c-12">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-fill0" type="text" required>
                   <span>LL</span>
@@ -608,7 +593,7 @@
                   <span>LL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-13">
+              <div class="grid-group inner-grid-group" id="c-13">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-fidsc0" type="text" required>
                   <span>DSC</span>
@@ -632,11 +617,11 @@
               Training Associate
             </button>
             <div class="inner-collapsible-content">
-              <div class="grid-group">
+              <div class="grid-group inner-grid-group">
                 <p class="grid-group">Fixed Income</p>
                 <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="grid-group" id="c-9">
+              <div class="grid-group inner-grid-group" id="c-9">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-finl13" type="text" required>
                   <span>NL</span>
@@ -646,7 +631,7 @@
                   <span>NL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-10">
+              <div class="grid-group inner-grid-group" id="c-10">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-finlcb13" type="text" required>
                   <span>NL-CB</span>
@@ -656,7 +641,7 @@
                   <span>NL-CB</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-11">
+              <div class="grid-group inner-grid-group" id="c-11">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-finlcb513" type="text" required>
                   <span>NL-CB5</span>
@@ -666,7 +651,7 @@
                   <span>NL-CB5</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-12">
+              <div class="grid-group inner-grid-group" id="c-12">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-fill13" type="text" required>
                   <span>LL</span>
@@ -676,7 +661,7 @@
                   <span>LL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-13">
+              <div class="grid-group inner-grid-group" id="c-13">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsta-fidsc13" type="text" required>
                   <span>DSC</span>
@@ -693,11 +678,11 @@
               Associate
             </button>
             <div class="inner-collapsible-content">
-              <div class="grid-group">
+              <div class="grid-group inner-grid-group">
                 <p class="grid-group">Fixed Income</p>
                 <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="grid-group" id="c-9">
+              <div class="grid-group inner-grid-group" id="c-9">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-finl13" type="text" required>
                   <span>NL</span>
@@ -707,7 +692,7 @@
                   <span>NL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-10">
+              <div class="grid-group inner-grid-group" id="c-10">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-finlcb13" type="text" required>
                   <span>NL-CB</span>
@@ -717,7 +702,7 @@
                   <span>NL-CB</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-11">
+              <div class="grid-group inner-grid-group" id="c-11">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-finlcb513" type="text" required>
                   <span>NL-CB5</span>
@@ -727,7 +712,7 @@
                   <span>NL-CB5</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-12">
+              <div class="grid-group inner-grid-group" id="c-12">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-fill13" type="text" required>
                   <span>LL</span>
@@ -737,7 +722,7 @@
                   <span>LL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-13">
+              <div class="grid-group inner-grid-group" id="c-13">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsa-fidsc13" type="text" required>
                   <span>DSC</span>
@@ -754,11 +739,11 @@
               Marketing Director
             </button>
             <div class="inner-collapsible-content">
-              <div class="grid-group">
+              <div class="grid-group inner-grid-group">
                 <p class="grid-group">Fixed Income</p>
                 <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="grid-group" id="c-9">
+              <div class="grid-group inner-grid-group" id="c-9">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-finl13" type="text" required>
                   <span>NL</span>
@@ -768,7 +753,7 @@
                   <span>NL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-10">
+              <div class="grid-group inner-grid-group" id="c-10">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-finlcb13" type="text" required>
                   <span>NL-CB</span>
@@ -778,7 +763,7 @@
                   <span>NL-CB</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-11">
+              <div class="grid-group inner-grid-group" id="c-11">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-finlcb513" type="text" required>
                   <span>NL-CB5</span>
@@ -788,7 +773,7 @@
                   <span>NL-CB5</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-12">
+              <div class="grid-group inner-grid-group" id="c-12">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-fill13" type="text" required>
                   <span>LL</span>
@@ -798,7 +783,7 @@
                   <span>LL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-13">
+              <div class="grid-group inner-grid-group" id="c-13">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bsmd-fidsc13" type="text" required>
                   <span>DSC</span>
@@ -815,11 +800,11 @@
               Senior Marketing Director
             </button>
             <div class="inner-collapsible-content">
-              <div class="grid-group">
+              <div class="grid-group inner-grid-group">
                 <p class="grid-group">Fixed Income</p>
                 <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="grid-group" id="c-9">
+              <div class="grid-group inner-grid-group" id="c-9">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-finl13" type="text" required>
                   <span>NL</span>
@@ -829,7 +814,7 @@
                   <span>NL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-10">
+              <div class="grid-group inner-grid-group" id="c-10">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-finlcb13" type="text" required>
                   <span>NL-CB</span>
@@ -839,7 +824,7 @@
                   <span>NL-CB</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-11">
+              <div class="grid-group inner-grid-group" id="c-11">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-finlcb513" type="text" required>
                   <span>NL-CB5</span>
@@ -849,7 +834,7 @@
                   <span>NL-CB5</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-12">
+              <div class="grid-group inner-grid-group" id="c-12">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-fill13" type="text" required>
                   <span>LL</span>
@@ -859,7 +844,7 @@
                   <span>LL</span>
                 </div>
               </div>
-              <div class="grid-group" id="c-13">
+              <div class="grid-group inner-grid-group" id="c-13">
                 <div class="sm-box small-input-currency">
                   <input class="small-input bs-aum-input" id="bssmd-fidsc13" type="text" required>
                   <span>DSC</span>
@@ -883,11 +868,11 @@
             Training Associate
           </button>
           <div class="inner-collapsible-content">
-            <div class="grid-group">
+            <div class="grid-group inner-grid-group">
               <p class="grid-group">Fixed Income</p>
               <p class="grid-group">Balanced/Equity</p>
             </div>
-            <div class="grid-group" id="c-9">
+            <div class="grid-group inner-grid-group" id="c-9">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-finl37" type="text" required>
                 <span>NL</span>
@@ -897,7 +882,7 @@
                 <span>NL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-10">
+            <div class="grid-group inner-grid-group" id="c-10">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-finlcb37" type="text" required>
                 <span>NL-CB</span>
@@ -907,7 +892,7 @@
                 <span>NL-CB</span>
               </div>
             </div>
-            <div class="grid-group" id="c-11">
+            <div class="grid-group inner-grid-group" id="c-11">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-finlcb537" type="text" required>
                 <span>NL-CB5</span>
@@ -917,7 +902,7 @@
                 <span>NL-CB5</span>
               </div>
             </div>
-            <div class="grid-group" id="c-12">
+            <div class="grid-group inner-grid-group" id="c-12">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-fill37" type="text" required>
                 <span>LL</span>
@@ -927,7 +912,7 @@
                 <span>LL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-13">
+            <div class="grid-group inner-grid-group" id="c-13">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-fidsc37" type="text" required>
                 <span>DSC</span>
@@ -944,11 +929,11 @@
             Associate
           </button>
           <div class="inner-collapsible-content">
-            <div class="grid-group">
+            <div class="grid-group inner-grid-group">
               <p class="grid-group">Fixed Income</p>
               <p class="grid-group">Balanced/Equity</p>
             </div>
-            <div class="grid-group" id="c-9">
+            <div class="grid-group inner-grid-group" id="c-9">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-finl37" type="text" required>
                 <span>NL</span>
@@ -958,7 +943,7 @@
                 <span>NL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-10">
+            <div class="grid-group inner-grid-group" id="c-10">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-finlcb37" type="text" required>
                 <span>NL-CB</span>
@@ -968,7 +953,7 @@
                 <span>NL-CB</span>
               </div>
             </div>
-            <div class="grid-group" id="c-11">
+            <div class="grid-group inner-grid-group" id="c-11">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-finlcb537" type="text" required>
                 <span>NL-CB5</span>
@@ -978,7 +963,7 @@
                 <span>NL-CB5</span>
               </div>
             </div>
-            <div class="grid-group" id="c-12">
+            <div class="grid-group inner-grid-group" id="c-12">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-fill37" type="text" required>
                 <span>LL</span>
@@ -988,7 +973,7 @@
                 <span>LL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-13">
+            <div class="grid-group inner-grid-group" id="c-13">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-fidsc37" type="text" required>
                 <span>DSC</span>
@@ -1005,11 +990,11 @@
             Marketing Director
           </button>
           <div class="inner-collapsible-content">
-            <div class="grid-group">
+            <div class="grid-group inner-grid-group">
               <p class="grid-group">Fixed Income</p>
               <p class="grid-group">Balanced/Equity</p>
             </div>
-            <div class="grid-group" id="c-9">
+            <div class="grid-group inner-grid-group" id="c-9">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-finl37" type="text" required>
                 <span>NL</span>
@@ -1019,7 +1004,7 @@
                 <span>NL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-10">
+            <div class="grid-group inner-grid-group" id="c-10">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-finlcb37" type="text" required>
                 <span>NL-CB</span>
@@ -1029,7 +1014,7 @@
                 <span>NL-CB</span>
               </div>
             </div>
-            <div class="grid-group" id="c-11">
+            <div class="grid-group inner-grid-group" id="c-11">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-finlcb537" type="text" required>
                 <span>NL-CB5</span>
@@ -1039,7 +1024,7 @@
                 <span>NL-CB5</span>
               </div>
             </div>
-            <div class="grid-group" id="c-12">
+            <div class="grid-group inner-grid-group" id="c-12">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-fill37" type="text" required>
                 <span>LL</span>
@@ -1049,7 +1034,7 @@
                 <span>LL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-13">
+            <div class="grid-group inner-grid-group" id="c-13">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-fidsc37" type="text" required>
                 <span>DSC</span>
@@ -1066,11 +1051,11 @@
           Senior Marketing Director
         </button>
         <div class="inner-collapsible-content">
-          <div class="grid-group">
+          <div class="grid-group inner-grid-group">
             <p class="grid-group">Fixed Income</p>
             <p class="grid-group">Balanced/Equity</p>
           </div>
-          <div class="grid-group" id="c-9">
+          <div class="grid-group inner-grid-group" id="c-9">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-finl37" type="text" required>
               <span>NL</span>
@@ -1080,7 +1065,7 @@
               <span>NL</span>
             </div>
           </div>
-          <div class="grid-group" id="c-10">
+          <div class="grid-group inner-grid-group" id="c-10">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-finlcb37" type="text" required>
               <span>NL-CB</span>
@@ -1090,7 +1075,7 @@
               <span>NL-CB</span>
             </div>
           </div>
-          <div class="grid-group" id="c-11">
+          <div class="grid-group inner-grid-group" id="c-11">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-finlcb537" type="text" required>
               <span>NL-CB5</span>
@@ -1100,7 +1085,7 @@
               <span>NL-CB5</span>
             </div>
           </div>
-          <div class="grid-group" id="c-12">
+          <div class="grid-group inner-grid-group" id="c-12">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-fill37" type="text" required>
               <span>LL</span>
@@ -1110,7 +1095,7 @@
               <span>LL</span>
             </div>
           </div>
-          <div class="grid-group" id="c-13">
+          <div class="grid-group inner-grid-group" id="c-13">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-fidsc37" type="text" required>
               <span>DSC</span>
@@ -1134,11 +1119,11 @@
             Training Associate
           </button>
           <div class="inner-collapsible-content">
-            <div class="grid-group">
+            <div class="grid-group inner-grid-group">
               <p class="grid-group">Fixed Income</p>
               <p class="grid-group">Balanced/Equity</p>
             </div>
-            <div class="grid-group" id="c-9">
+            <div class="grid-group inner-grid-group" id="c-9">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-finl49" type="text" required>
                 <span>NL</span>
@@ -1148,7 +1133,7 @@
                 <span>NL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-10">
+            <div class="grid-group inner-grid-group" id="c-10">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-finlcb49" type="text" required>
                 <span>NL-CB</span>
@@ -1158,7 +1143,7 @@
                 <span>NL-CB</span>
               </div>
             </div>
-            <div class="grid-group" id="c-11">
+            <div class="grid-group inner-grid-group" id="c-11">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-finlcb549" type="text" required>
                 <span>NL-CB5</span>
@@ -1168,7 +1153,7 @@
                 <span>NL-CB5</span>
               </div>
             </div>
-            <div class="grid-group" id="c-12">
+            <div class="grid-group inner-grid-group" id="c-12">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-fill49" type="text" required>
                 <span>LL</span>
@@ -1178,7 +1163,7 @@
                 <span>LL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-13">
+            <div class="grid-group inner-grid-group" id="c-13">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsta-fidsc49" type="text" required>
                 <span>DSC</span>
@@ -1195,11 +1180,11 @@
             Associate
           </button>
           <div class="inner-collapsible-content">
-            <div class="grid-group">
+            <div class="grid-group inner-grid-group">
               <p class="grid-group">Fixed Income</p>
               <p class="grid-group">Balanced/Equity</p>
             </div>
-            <div class="grid-group" id="c-9">
+            <div class="grid-group inner-grid-group" id="c-9">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-finl49" type="text" required>
                 <span>NL</span>
@@ -1209,7 +1194,7 @@
                 <span>NL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-10">
+            <div class="grid-group inner-grid-group" id="c-10">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-finlcb49" type="text" required>
                 <span>NL-CB</span>
@@ -1219,7 +1204,7 @@
                 <span>NL-CB</span>
               </div>
             </div>
-            <div class="grid-group" id="c-11">
+            <div class="grid-group inner-grid-group" id="c-11">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-finlcb549" type="text" required>
                 <span>NL-CB5</span>
@@ -1229,7 +1214,7 @@
                 <span>NL-CB5</span>
               </div>
             </div>
-            <div class="grid-group" id="c-12">
+            <div class="grid-group inner-grid-group" id="c-12">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-fill49" type="text" required>
                 <span>LL</span>
@@ -1239,7 +1224,7 @@
                 <span>LL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-13">
+            <div class="grid-group inner-grid-group" id="c-13">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsa-fidsc49" type="text" required>
                 <span>DSC</span>
@@ -1256,11 +1241,11 @@
             Marketing Director
           </button>
           <div class="inner-collapsible-content">
-            <div class="grid-group">
+            <div class="grid-group inner-grid-group">
               <p class="grid-group">Fixed Income</p>
               <p class="grid-group">Balanced/Equity</p>
             </div>
-            <div class="grid-group" id="c-9">
+            <div class="grid-group inner-grid-group" id="c-9">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-finl49" type="text" required>
                 <span>NL</span>
@@ -1270,7 +1255,7 @@
                 <span>NL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-10">
+            <div class="grid-group inner-grid-group" id="c-10">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-finlcb49" type="text" required>
                 <span>NL-CB</span>
@@ -1280,7 +1265,7 @@
                 <span>NL-CB</span>
               </div>
             </div>
-            <div class="grid-group" id="c-11">
+            <div class="grid-group inner-grid-group" id="c-11">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-finlcb549" type="text" required>
                 <span>NL-CB5</span>
@@ -1290,7 +1275,7 @@
                 <span>NL-CB5</span>
               </div>
             </div>
-            <div class="grid-group" id="c-12">
+            <div class="grid-group inner-grid-group" id="c-12">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-fill49" type="text" required>
                 <span>LL</span>
@@ -1300,7 +1285,7 @@
                 <span>LL</span>
               </div>
             </div>
-            <div class="grid-group" id="c-13">
+            <div class="grid-group inner-grid-group" id="c-13">
               <div class="sm-box small-input-currency">
                 <input class="small-input bs-aum-input" id="bsmd-fidsc49" type="text" required>
                 <span>DSC</span>
@@ -1317,11 +1302,11 @@
           Senior Marketing Director
         </button>
         <div class="inner-collapsible-content">
-          <div class="grid-group">
+          <div class="grid-group inner-grid-group">
             <p class="grid-group">Fixed Income</p>
             <p class="grid-group">Balanced/Equity</p>
           </div>
-          <div class="grid-group" id="c-9">
+          <div class="grid-group inner-grid-group" id="c-9">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-finl49" type="text" required>
               <span>NL</span>
@@ -1331,7 +1316,7 @@
               <span>NL</span>
             </div>
           </div>
-          <div class="grid-group" id="c-10">
+          <div class="grid-group inner-grid-group" id="c-10">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-finlcb49" type="text" required>
               <span>NL-CB</span>
@@ -1341,7 +1326,7 @@
               <span>NL-CB</span>
             </div>
           </div>
-          <div class="grid-group" id="c-11">
+          <div class="grid-group inner-grid-group" id="c-11">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-finlcb549" type="text" required>
               <span>NL-CB5</span>
@@ -1351,7 +1336,7 @@
               <span>NL-CB5</span>
             </div>
           </div>
-          <div class="grid-group" id="c-12">
+          <div class="grid-group inner-grid-group" id="c-12">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-fill49" type="text" required>
               <span>LL</span>
@@ -1361,7 +1346,7 @@
               <span>LL</span>
             </div>
           </div>
-          <div class="grid-group" id="c-13">
+          <div class="grid-group inner-grid-group" id="c-13">
             <div class="sm-box small-input-currency">
               <input class="small-input bs-aum-input" id="bssmd-fidsc49" type="text" required>
               <span>DSC</span>
@@ -1405,44 +1390,49 @@
             <div class="pm-row">
               <p>Contribution Amount</p>
               <div class="sm-box small-input-currency">
-                <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                <input class="small-input personal-aum-input" id="pma-mls-nl" type="text" required>
                 <span>NL</span>
               </div>
               <div class="sm-box small-input-currency">
-                <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                <input class="small-input personal-aum-input" id="pma-mls-nlcb" type="text" required>
                 <span>NL-CB</span>
               </div>
               <div class="sm-box small-input-currency">
-                <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                <input class="small-input personal-aum-input" id="pma-mls-nlcb5" type="text" required>
                 <span>NL-CB5</span>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                <span>LL</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                <span>DSC</span>
+              <p>=</p>
+              <div class="sm-box row-total">
+                <span>Total</span>
+                <p class="row-total-results" id="pma-mls-total">$0</p>
               </div>
             </div>
             <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
             <div class="pm-row">
               <!-- slider -->
               <div class="slider-container">
-                <input 
-                  type="range" 
-                  id="pm-slider"
-                  min="0"
-                  max="100000"
-                  value="10000"
-                  oninput="slider()"
-                >
+                <div class="slider-nums">
+                  <input 
+                    type="range" 
+                    id="pm-slider"
+                    min="0"
+                    max="100"
+                    value="0"
+                    oninput="slider()"
+                  >
+                  <div class="range-values">
+                    <span class="min-value">0%</span>
+                    <span class="max-value">100%</span>
+                  </div>
+                </div>
                 <input 
                   type="text" 
                   class="slider-input"
                   id="pm-input" 
-                  value="10000" 
-                  oninput="goalInput()">
+                  value="0%" 
+                  oninput="goalInput()"
+                  onClick="this.select();"
+                  >
               </div>
             </div>
             <!-- adding height -->
@@ -1459,44 +1449,49 @@
               <div class="pm-row">
                 <p>Contribution Amount</p>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <input class="small-input personal-aum-input" id="pma-mpad-nl" type="text" required>
                   <span>NL</span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <input class="small-input personal-aum-input" id="pma-mpad-nlcb" type="text" required>
                   <span>NL-CB</span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <input class="small-input personal-aum-input" id="pma-mpad-nlcb5" type="text" required>
                   <span>NL-CB5</span>
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                  <span>LL</span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                  <span>DSC</span>
+                <p>=</p>
+                <div class="sm-box row-total">
+                  <span>Total</span>
+                  <p class="row-total-results" id="pma-mpad-total">$0</p>
                 </div>
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider -->
                 <div class="slider-container">
-                  <input 
-                    type="range" 
-                    id="mpa-slider"
-                    min="0"
-                    max="100000"
-                    value="10000"
-                    oninput="slider()"
-                  >
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="mpa-slider"
+                      min="0"
+                      max="100"
+                      value="0"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">100%</span>
+                    </div>
+                  </div>
                   <input 
                     type="text" 
                     class="slider-input"
                     id="mpa-input" 
-                    value="10000" 
-                    oninput="goalInput()">
+                    value="0%" 
+                    oninput="goalInput()"
+                    onClick="this.select();"
+                    >
                 </div>
               </div>
               <!-- adding height -->
@@ -1540,56 +1535,65 @@
             </button>
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
-                <p class="bma-title">Number of Downline Agents</p>
+                <p class="bma-title">Number of Associates on Your Team</p>
                 <!-- bls-ta-agents baseshop lump sum training associate agents -->
                 <input 
                 type="text" 
                 class="slider-input"
                 id="bls-ta-agents"
                 value="0" 
+                onClick="this.select();"
+                onchange="doPmaBma()"
                 >
               </div>
               <div class="pm-row">
-                <p>Contribution Amount</p>
+                <p>Average Contribution Per Associate</p>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-ta-nl" type="text" required>
                   <span>NL</span>
+                  <span class="multiplier-span" id="bs-mls-ta-nl-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-ta-nlcb" type="text" required>
                   <span>NL-CB</span>
+                  <span class="multiplier-span" id="bs-mls-ta-nlcb-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-ta-nlcb5" type="text" required>
                   <span>NL-CB5</span>
+                  <span class="multiplier-span" id="bs-mls-ta-nlcb5-span"></span>
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                  <span>LL</span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                  <span>DSC</span>
-                </div>
+                <p>=</p>
+                <div class="sm-box row-total">
+                  <span>Total</span>
+                  <p class="row-total-results" id="bs-mls-ta-total">$0</p>
+                </div> 
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
-                  <input 
-                    type="range" 
-                    id="mls-ta-slider"
-                    min="0"
-                    max="100000"
-                    value="10000"
-                    oninput="slider()"
-                  >
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="mls-ta-slider"
+                      min="0"
+                      max="100"
+                      value="0"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">100%</span>
+                    </div>
+                  </div>
                   <input 
                     type="text" 
                     class="slider-input"
                     id="mls-ta-input" 
-                    value="10000" 
+                    value="0%" 
                     oninput="goalInput()"
+                    onClick="this.select();"
                   >
                 </div>
               </div>
@@ -1603,55 +1607,64 @@
             </button>
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
-                <p class="bma-title">Number of Downline Agents</p>
+                <p class="bma-title">Number of Associates on Your Team</p>
                 <input 
                 type="text" 
                 class="slider-input"
                 id="bls-a-agents"
-                value="0" 
+                value="0"
+                onClick="this.select();" 
+                onchange="doPmaBma()"
                 >
               </div>
               <div class="pm-row">
-                <p>Contribution Amount</p>
+                <p>Average Contribution Per Associate</p>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-a-nl" type="text" required>
                   <span>NL</span>
+                  <span class="multiplier-span" id="bs-mls-a-nl-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-a-nlcb" type="text" required>
                   <span>NL-CB</span>
+                  <span class="multiplier-span" id="bs-mls-a-nlcb-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-a-nlcb5" type="text" required>
                   <span>NL-CB5</span>
+                  <span class="multiplier-span" id="bs-mls-a-nlcb5-span"></span>
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                  <span>LL</span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                  <span>DSC</span>
-                </div>
+                <p>=</p>
+                <div class="sm-box row-total">
+                  <span>Total</span>
+                  <p class="row-total-results" id="bs-mls-a-total">$0</p>
+                </div> 
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
-                  <input 
-                    type="range" 
-                    id="mls-a-slider"
-                    min="0"
-                    max="100000"
-                    value="10000"
-                    oninput="slider()"
-                  >
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="mls-a-slider"
+                      min="0"
+                      max="100"
+                      value="0"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">100%</span>
+                    </div>
+                  </div>
                   <input 
                     type="text" 
                     class="slider-input"
                     id="mls-a-input" 
-                    value="10000" 
+                    value="0%" 
                     oninput="goalInput()"
+                    onClick="this.select();"
                   >
                 </div>
               </div>
@@ -1665,55 +1678,64 @@
             </button>
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
-                <p class="bma-title">Number of Downline Agents</p>
+                <p class="bma-title">Number of Associates on Your Team</p>
                 <input 
                 type="text" 
                 class="slider-input"
                 id="bls-md-agents"
-                value="0" 
+                value="0"
+                onClick="this.select();"
+                onchange="doPmaBma()"
                 >
               </div>
               <div class="pm-row">
-                <p>Contribution Amount</p>
+                <p>Average Contribution Per Associate</p>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-md-nl" type="text" required>
                   <span>NL</span>
+                  <span class="multiplier-span" id="bs-mls-md-nl-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-md-nlcb" type="text" required>
                   <span>NL-CB</span>
+                  <span class="multiplier-span" id="bs-mls-md-nlcb-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-md-nlcb5" type="text" required>
                   <span>NL-CB5</span>
+                  <span class="multiplier-span" id="bs-mls-md-nlcb5-span"></span>
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                  <span>LL</span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                  <span>DSC</span>
-                </div>
+                <p>=</p>
+                <div class="sm-box row-total">
+                  <span>Total</span>
+                  <p class="row-total-results" id="bs-mls-md-total">$0</p>
+                </div> 
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
-                  <input 
-                    type="range" 
-                    id="mls-md-slider"
-                    min="0"
-                    max="100000"
-                    value="10000"
-                    oninput="slider()"
-                  >
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="mls-md-slider"
+                      min="0"
+                      max="100"
+                      value="0"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">100%</span>
+                    </div>
+                  </div>
                   <input 
                     type="text" 
                     class="slider-input"
                     id="mls-md-input" 
-                    value="10000" 
+                    value="0%" 
                     oninput="goalInput()"
+                    onClick="this.select();"
                   >
                 </div>
               </div>
@@ -1727,55 +1749,64 @@
             </button>
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
-                <p class="bma-title">Number of Downline Agents</p>
+                <p class="bma-title">Number of Associates on Your Team</p>
                 <input 
                 type="text" 
                 class="slider-input"
                 id="bls-smd-agents"
                 value="0" 
+                onClick="this.select();"
+                onchange="doPmaBma()"
                 >
               </div>
               <div class="pm-row">
-                <p>Contribution Amount</p>
+                <p>Average Contribution Per Associate</p>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-smd-nl" type="text" required>
                   <span>NL</span>
+                  <span class="multiplier-span" id="bs-mls-smd-nl-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-smd-nlcb" type="text" required>
                   <span>NL-CB</span>
+                  <span class="multiplier-span" id="bs-mls-smd-nlcb-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mls-smd-nlcb5" type="text" required>
                   <span>NL-CB5</span>
+                  <span class="multiplier-span" id="bs-mls-smd-nlcb5-span"></span>
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                  <span>LL</span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                  <span>DSC</span>
-                </div>
+                <p>=</p>
+                <div class="sm-box row-total">
+                  <span>Total</span>
+                  <p class="row-total-results" id="bs-mls-smd-total">$0</p>
+                </div> 
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
-                  <input 
-                    type="range" 
-                    id="mls-smd-slider"
-                    min="0"
-                    max="100000"
-                    value="10000"
-                    oninput="slider()"
-                  >
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="mls-smd-slider"
+                      min="0"
+                      max="100"
+                      value="0"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">100%</span>
+                    </div>
+                  </div>
                   <input 
                     type="text" 
                     class="slider-input"
                     id="mls-smd-input" 
-                    value="10000" 
+                    value="0%" 
                     oninput="goalInput()"
+                    onClick="this.select();"
                   >
                 </div>
               </div>
@@ -1801,55 +1832,64 @@
             </button>
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
-                <p class="bma-title">Number of Downline Agents</p>
+                <p class="bma-title">Number of Associates on Your Team</p>
                 <input 
                 type="text" 
                 class="slider-input"
                 id="bpa-ta-agents"
                 value="0" 
+                onClick="this.select();"
+                onchange="doPmaBma()"
                 >
               </div>
               <div class="pm-row">
-                <p>Contribution Amount</p>
+                <p>Average Contribution Per Associate</p>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-ta-nl" type="text" required>
                   <span>NL</span>
+                  <span class="multiplier-span" id="bs-mpad-ta-nl-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-ta-nlcb" type="text" required>
                   <span>NL-CB</span>
+                  <span class="multiplier-span" id="bs-mpad-ta-nlcb-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-ta-nlcb5" type="text" required>
                   <span>NL-CB5</span>
+                  <span class="multiplier-span" id="bs-mpad-ta-nlcb5-span"></span>
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                  <span>LL</span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                  <span>DSC</span>
-                </div>
+                <p>=</p>
+                <div class="sm-box row-total">
+                  <span>Total</span>
+                  <p class="row-total-results" id="bs-mpad-ta-total">$0</p>
+                </div> 
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
-                  <input 
-                    type="range" 
-                    id="bpa-ta-slider"
-                    min="0"
-                    max="100000"
-                    value="10000"
-                    oninput="slider()"
-                  >
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="bpa-ta-slider"
+                      min="0"
+                      max="100"
+                      value="0"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">100%</span>
+                    </div>
+                  </div>
                   <input 
                     type="text" 
                     class="slider-input"
                     id="bpa-ta-input" 
-                    value="10000" 
+                    value="0%" 
                     oninput="goalInput()"
+                    onClick="this.select();"
                   >
                 </div>
               </div>
@@ -1863,55 +1903,64 @@
             </button>
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
-                <p class="bma-title">Number of Downline Agents</p>
+                <p class="bma-title">Number of Associates on Your Team</p>
                 <input 
                 type="text" 
                 class="slider-input"
                 id="bpa-a-agents"
                 value="0" 
+                onClick="this.select();"
+                onchange="doPmaBma()"
                 >
               </div>
               <div class="pm-row">
-                <p>Contribution Amount</p>
+                <p>Average Contribution Per Associate</p>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-a-nl" type="text" required>
                   <span>NL</span>
+                  <span class="multiplier-span" id="bs-mpad-a-nl-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-a-nlcb" type="text" required>
                   <span>NL-CB</span>
+                  <span class="multiplier-span" id="bs-mpad-a-nlcb-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-a-nlcb5" type="text" required>
                   <span>NL-CB5</span>
+                  <span class="multiplier-span" id="bs-mpad-a-nlcb5-span"></span>
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                  <span>LL</span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                  <span>DSC</span>
-                </div>
+                <p>=</p>
+                <div class="sm-box row-total">
+                  <span>Total</span>
+                  <p class="row-total-results" id="bs-mpad-a-total">$0</p>
+                </div> 
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
-                  <input 
-                    type="range" 
-                    id="bpa-a-slider"
-                    min="0"
-                    max="100000"
-                    value="10000"
-                    oninput="slider()"
-                  >
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="bpa-a-slider"
+                      min="0"
+                      max="100"
+                      value="0"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">100%</span>
+                    </div>
+                  </div>
                   <input 
                     type="text" 
                     class="slider-input"
                     id="bpa-a-input" 
-                    value="10000" 
+                    value="0%" 
                     oninput="goalInput()"
+                    onClick="this.select();"
                   >
                 </div>
               </div>
@@ -1925,55 +1974,64 @@
             </button>
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
-                <p class="bma-title">Number of Downline Agents</p>
+                <p class="bma-title">Number of Associates on Your Team</p>
                 <input 
                 type="text" 
                 class="slider-input"
                 id="bpa-md-agents"
                 value="0" 
+                onClick="this.select();"
+                onchange="doPmaBma()"
                 >
               </div>
               <div class="pm-row">
-                <p>Contribution Amount</p>
+                <p>Average Contribution Per Associate</p>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-md-nl" type="text" required>
                   <span>NL</span>
+                  <span class="multiplier-span" id="bs-mpad-md-nl-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-md-nlcb" type="text" required>
                   <span>NL-CB</span>
+                  <span class="multiplier-span" id="bs-mpad-md-nlcb-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-md-nlcb5" type="text" required>
                   <span>NL-CB5</span>
+                  <span class="multiplier-span" id="bs-mpad-md-nlcb5-span"></span>
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                  <span>LL</span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                  <span>DSC</span>
-                </div>
+                <p>=</p>
+                <div class="sm-box row-total">
+                  <span>Total</span>
+                  <p class="row-total-results" id="bs-mpad-md-total">$0</p>
+                </div> 
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
-                  <input 
-                    type="range" 
-                    id="bpa-md-slider"
-                    min="0"
-                    max="100000"
-                    value="10000"
-                    oninput="slider()"
-                  >
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="bpa-md-slider"
+                      min="0"
+                      max="100"
+                      value="0"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">100%</span>
+                    </div>
+                  </div>
                   <input 
                     type="text" 
                     class="slider-input"
                     id="bpa-md-input" 
-                    value="10000" 
+                    value="0%" 
                     oninput="goalInput()"
+                    onClick="this.select();"
                   >
                 </div>
               </div>
@@ -1987,55 +2045,68 @@
             </button>
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
-                <p class="bma-title">Number of Downline Agents</p>
+                <p class="bma-title">Number of Associates on Your Team</p>
                 <input 
                 type="text" 
                 class="slider-input"
                 id="bpa-smd-agents"
                 value="0" 
+                onClick="this.select();"
+                onchange="doPmaBma()"
                 >
               </div>
               <div class="pm-row">
-                <p>Contribution Amount</p>
+                <p>Average Contribution Per Associate</p>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finl0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-smd-nl" type="text" required>
                   <span>NL</span>
+                  <span class="multiplier-span" id="bs-mpad-smd-nl-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb0" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-smd-nlcb" type="text" required>
                   <span>NL-CB</span>
+                  <span class="multiplier-span" id="bs-mpad-smd-nlcb-span"></span>
                 </div>
                 <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="finlcb50" type="text" required>
+                  <input class="small-input personal-aum-input" id="bs-mpad-smd-nlcb5" type="text" required>
                   <span>NL-CB5</span>
+                  <span class="multiplier-span" id="bs-mpad-smd-nlcb5-span"></span>
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fill0" type="text" required>
-                  <span>LL</span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="fidsc0" type="text" required>
-                  <span>DSC</span>
-                </div>
+                <p>=</p>
+                <div class="sm-box row-total">
+                  <span>Total</span>
+                  <p class="row-total-results" id="bs-mpad-smd-total">$0</p>
+                </div> 
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
-                <div class="slider-container">
-                  <input 
-                    type="range" 
-                    id="bpa-smd-slider"
-                    min="0"
-                    max="100000"
-                    value="10000"
-                    oninput="slider()"
-                  >
+                <div class="slider-container" list="percent-tickmarks">
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="bpa-smd-slider"
+                      min="0"
+                      max="100"
+                      value="0"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">100%</span>
+                    </div>
+                  </div>
+                  <!-- <datalist id="percent-tickmarks">
+                    <option value="0" label="0"></option>
+                    <option value="100" label="100"></option>
+                  </datalist> -->
                   <input 
                     type="text" 
                     class="slider-input"
                     id="bpa-smd-input" 
-                    value="10000" 
+                    value="0%" 
                     oninput="goalInput()"
+                    onClick="this.select();"
                   >
                 </div>
               </div>
@@ -2050,7 +2121,7 @@
         <button class="btn btn-next" data-tab-target="personal-monthly">
           Previous 
         </button>
-        <button class="btn btn-next" data-tab-target="results">
+        <button class="btn btn-next" data-tab-target="monthly-summary">
           Next 
         </button>
       </div>
@@ -2058,11 +2129,288 @@
   </div>
   </div>
 
-  <div id="results" data-tab-content>
-    <p class="coming-soon">Dashboard coming soon</p>
-    <button class="btn btn-next" data-tab-target="baseshop-monthly">
-      Previous 
-    </button>
+  <div id="monthly-summary" data-tab-content>
+    <div class="summary-container">
+        <h1 class="page-title">Monthly Summary</h1>
+        <div class="container">
+          <!-- <h3>Summary</h3> -->
+          <!-- do i need container-content?
+          <div class="container-content"></div> -->
+          <!-- inputs -->
+          <div class="inputs-container">
+            <div class="summary-totals">
+              <div class="month-points-total">
+                <P>Monthly Points Total</P>
+                <p class="total-numbers" id="monthly-points-payout">0</p>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="month-commission-total">
+                <p>Monthly Commissions Total</p>
+                <p class="total-numbers" id="monthly-commission-payout">0</p>
+              </div>
+            </div>
+           <div class="toggle-container">
+             <p class="toggle-row-title">Add or Remove Attributes from Total Calculations</p>
+             <div class="points-row-toggles">
+               <!-- <div class="summary-toggles active-summary" id="personal-points-baseshop">
+                 <p>Personal AUM</p>
+               </div> -->
+               <div class="summary-toggles active-summary" id="personal-points-baseshop-monthly">
+                 <p>Personal Monthly Activity</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="personal-points-basehop-overrides">
+                 <p>Personal Monthly Trails</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="disabled-div tooltip" id="personal-points-step-up" disabled title="Disabled - Calculated Annually">
+                 <p class="summary-line">Personal</p>
+                 <p class="summary-line">Step Up Your Wealth</p>
+                 <span>Calculated Annually</span>
+               </div>
+             </div>
+             <div class="points-row-toggles">
+               <!-- <div class="summary-toggles active-summary" id="baseshop-points-baseshop">
+                 <p>Baseshop AUM</p>
+               </div> -->
+               <div class="summary-toggles active-summary" id="baseshop-points-baseshop-monthly">
+                <p>Baseshop Monthly Activity</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="baseshop-points-basehop-overrides">
+                 <p>Baseshop Monthly Override Trails</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="disabled-div tooltip" id="baseshop-points-step-up"  disabled title="Disabled - Calculated Annually">
+                <p class="summary-line">Baseshop</p>
+                <p class="summary-line">Step Up Your Wealth</p>
+                <span>Calculated Annually</span>
+              </div>
+             </div>
+
+           </div>
+          </div>
+          <div class="nav-btns" id="monthly-summary-nav-btns">
+            <button class="btn btn-next" data-tab-target="baseshop-monthly">
+              Previous 
+            </button>
+            <button class="btn btn-next" data-tab-target="yearly-summary">
+              Next
+            </button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="yearly-summary" data-tab-content>
+    <div class="summary-container">
+        <h1 class="page-title">Year Summary</h1>
+        <div class="container">
+          <!-- <h3>Summary</h3> -->
+          <!-- do i need container-content?
+          <div class="container-content"></div> -->
+          <!-- inputs -->
+          <div class="inputs-container">
+            <div class="summary-totals">
+              <div class="month-points-total">
+                <P>Yearly Points Total</P>
+                <p class="total-numbers" id="yearly-points-payout">0</p>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="month-commission-total">
+                <p>Yearly Commissions Total</p>
+                <p class="total-numbers" id="yearly-commission-payout">$0</p>
+              </div>
+            </div>
+           <div class="toggle-container">
+             <p class="toggle-row-title">Add or Remove Attributes from Total Calculations</p>
+             <div class="points-row-toggles">
+               <!-- <div class="summary-toggles active-summary" id="personal-points-baseshop-yearly">
+                 <p>Personal AUM</p>
+               </div> -->
+               <div class="summary-toggles active-summary" id="personal-points-baseshop-yearly">
+                 <p>Personal Monthly Activity</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="personal-points-basehop-overrides-yearly">
+                 <p>Personal Trails</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="personal-points-step-up-yearly">
+                 <p>Personal Step Up Your Wealth</p>
+                 <span class="excluded-included"></span>
+               </div>
+             </div>
+             <div class="points-row-toggles">
+               <!-- <div class="summary-toggles active-summary" id="baseshop-points-baseshop-yearly">
+                 <p>Baseshop AUM</p>
+               </div> -->
+               <div class="summary-toggles active-summary" id="baseshop-points-baseshop-yearly">
+                 <p>Baseshop Monthly Activity</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="baseshop-points-basehop-overrides-yearly">
+                 <p>Baseshop Override Trails</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="baseshop-points-step-up-yearly">
+                 <p>Baseshop Step Up Your Wealth</p>
+                 <span class="excluded-included"></span>
+               </div>
+             </div>
+           </div>
+          </div>
+          <div class="nav-btns" id="yearly-summary-nav-btns">
+            <button class="btn btn-next" data-tab-target="monthly-summary">
+              Previous 
+            </button>
+            <button class="btn btn-next" data-tab-target="projections-summary">
+              Next
+            </button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="projections-summary" data-tab-content>
+    <div class="summary-container">
+        <h1 class="page-title">Future Projections</h1>
+        <div class="container">
+          <!-- <h3>Summary</h3> -->
+          <!-- do i need container-content?
+          <div class="container-content"></div> -->
+          <!-- inputs -->
+          <div class="inputs-container">
+            <div class="summary-totals">
+              <div class="month-points-total">
+                <P>Projected Points Total</P>
+                <p class="total-numbers" id="goal-points-payout">0</p>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="month-commission-total">
+                <p>Projected Commissions Total</p>
+                <p class="total-numbers" id="goal-points-payout">$0</p>
+              </div>
+            </div>
+       
+              <div class="inputBox currency">
+                <input class="currency-input" type="text" required="required" id="interest">
+                <span>Passive Income Goal (dollars)</span>
+              </div>
+
+              <div class="all-slider-content">
+                <p class="info-title">How Many Years to Achieve Goal?</p>
+                <div class="slider-container">
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="year-slider"
+                      min="1"
+                      max="50"
+                      value="5"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">1 Year</span>
+                      <span class="max-value">50 Years</span>
+                    </div>
+                  </div>
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="year-input" 
+                    value="5" 
+                    oninput="goalInput()"
+                    onClick="this.select();"
+                    >
+                </div>
+              </div>
+
+              <div class="all-slider-content">
+                <p class="info-title">Expected Average Rate of Return?</p>
+                <div class="slider-container">
+                  <div class="slider-nums">
+                    <input 
+                      type="range" 
+                      id="rate-of-return-slider"
+                      min="0"
+                      max="30"
+                      value="5"
+                      step = "0.1"
+                      oninput="slider()"
+                    >
+                    <div class="range-values">
+                      <span class="min-value">0%</span>
+                      <span class="max-value">30%</span>
+                    </div>
+                  </div>
+                  <input 
+                    type="text" 
+                    class="slider-input"
+                    id="rate-of-return-input" 
+                    value="5" 
+                    oninput="goalInput()"
+                    onClick="this.select();"
+                    >
+                </div>
+              </div>
+
+           <div class="toggle-container">
+             <p class="toggle-row-title projections-title">Add or Remove Attributes from Total Calculations</p>
+             <div class="points-row-toggles">
+               <!-- <div class="summary-toggles active" id="personal-points-baseshop">
+                 <p>Personal AUM</p>
+               </div> -->
+               <div class="summary-toggles active-summary" id="personal-points-baseshop-goal">
+                 <p>Personal Monthly Activity</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="personal-points-basehop-overrides-goal">
+                 <p>Personal Trails</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="personal-points-step-up-goal">
+                 <p>Personal Step Up Your Wealth</p>
+                 <span class="excluded-included"></span>
+               </div>
+             </div>
+             <div class="points-row-toggles">
+               <!-- <div class="summary-toggles active" id="baseshop-points-baseshop">
+                 <p>Baseshop AUM</p>
+               </div> -->
+               <div class="summary-toggles active-summary" id="baseshop-points-baseshop-goal">
+                 <p>Baseshop Monthly Activity</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="baseshop-points-basehop-overrides-goal">
+                 <p>Baseshop Override Trails</p>
+                 <span class="excluded-included"></span>
+               </div>
+               <div class="summary-toggles active-summary" id="baseshop-points-step-up-goal">
+                 <p>Baseshop Step Up Your Wealth</p>
+                 <span class="excluded-included"></span>
+               </div>
+             </div>
+           </div>
+          </div>
+          <div class="nav-btns" id="monthly-summary-nav-btns">
+            <button class="btn btn-next" data-tab-target="yearly-summary">
+              Previous 
+            </button>
+            <!-- <button class="btn btn-next" data-tab-target="projections-summary">
+              Next
+            </button> -->
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="footer">
+    <p id="together">Together</p>
+    <p>Protectecting Today - Preparing Tomorrow<span class="sup">&trade;</span></p>
   </div>
 </body>
 <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -2071,7 +2419,44 @@
 
 
 
+
+
+
+
+
 <!-- TODO -->
-<!-- the following code where there is an id for baseshop AUM the id's are inconsistent or missing, why is 
-the id there? Is it for the inner collapsible? -->
-<!-- <div class="collapsible-content" id="first"></div> -->
+
+
+<!-- RESULTS PAGE
+
+
+-->
+
+<!-- reset button for all pages -->
+
+
+<!-- for the sliders wiht fixed income have 3 boxes. 1 for fixed that moves with above slider add fi and bal/eq and add a 100% box  -->
+
+<!-- add in the step up commisions formulas -- for personal and baseshop this is where the elite yes/no applies -->
+<!-- on the summary pages - uppercase for PERSONAL and BASESHOP -->
+<!-- there is an issue with the points total -->
+<!-- the xagents = total underneath the total is not money formatted. ($ and comma) -->
+<!-- 
+
+  TODO: 
+  - Take out the step up your wealth buttons from the Monthly Summary Page but leave them in for the annual
+  - The annual total poitns is about twice as much as it should be.
+
+ -->
+
+ <!-- 
+  baseshop monthly activity (2) - Annual Baseshop upfront step up your wealth override commissions
+  =IF(D10="No",MIN(75000,(M10+T10)*H10*84%*Y10),MIN(100000,(M10+T10)*H10*84%*Y10))
+
+  do you actually want 
+  =IF(D10="No",MIN(75000,(M10+T10))*H10*84%*Y10),MIN(100000,(M10+T10))*H10*84%*Y10)) 
+  Here we are taking the minimum number of the sum m10+T10 and comparing it to the 75000 and 100000 
+  (which I think are supposed to have 1 more zero on the end). and then taking that smaller number and multiplying it by the rates?
+  but then you would want to put the max number here so for non-elite advisors instead of 75000, it should be 10m, and for 
+  elite advisors it should be 12.5millions
+  -->
