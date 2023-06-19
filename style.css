@@ -5,11 +5,13 @@
 /* #005596; */
   --primary-blue: #005596;  
   --primary-green: #8CC53F;
+  --hover-green: #95cf49;
   --primary-text: rgb(44, 44, 44);
   
   
   /* Colors - Secondary */
-  --light-blue: #429dce;
+  /* --light-blue: #429dce; */
+  --light-blue: #0073b8;
   --dark-blue: #001540;
   --secondary-text: rgb(121, 121, 121);
   --collapsible: #f3f2f2;
@@ -136,16 +138,51 @@ making tabs appear and disapear
 }
 
 .aum-container .container,
-.baseshop-aum-container .container,
-.monthly-container .container,
-.baseshop-monthly-container {
+.baseshop-aum-container .container, 
+.baseshop-monthly-container .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 1100px;
 }
 
+.monthly-container .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 900px;
+}
 
+/* Summary */
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.summary-container .container {
+  width: 840px;
+  display: flex;
+  
+  /* padding: 0px 0px 32px 0px; */
+  padding: 2rem 6rem;
+  /* gap: 2rem; */
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+  
+}
+.summary-container .container .inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.all-slider-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
 
 .personal-info-container .container h3 {
   /* margin-top: 2.5rem; */
@@ -179,7 +216,14 @@ making tabs appear and disapear
   text-align: center;
 }
 
-
+.summary-container .container h3 {
+  align-self: flex-start; 
+  /* margin-left: 35px; */
+  margin-bottom: -2rem;
+  padding: 1rem 0 4rem 0;
+  color: var(--primary-blue);
+  text-align: center;
+}
 
 /* INPUT BOXES */
 .personal-inputs {
@@ -205,10 +249,14 @@ making tabs appear and disapear
   font-size: 1rem;
   transition: 0.5s;
 }
+.inputBox input:focus,
+.sm-box input:focus {
+  outline: 1px solid var(--primary-blue);
+}
 
 .sm-box {
   position: relative;
-  width: 140px;
+  width: 130px;
   font-size: 1rem;
 }
 
@@ -219,7 +267,8 @@ making tabs appear and disapear
 }
 
 .inputBox span,
-.sm-box span {
+.sm-box span, 
+.row-total span {
   position: absolute;
   left: 0;
   padding: 10px;
@@ -230,6 +279,7 @@ making tabs appear and disapear
   transition: 0.5s;
   padding-left: 15px;
 }
+
 
 .inputBox span {
   text-transform: uppercase;
@@ -255,6 +305,27 @@ making tabs appear and disapear
   letter-spacing: 0.2em;
 }
 
+.sm-box input ~ span.multiplier-span {
+  display: none;
+}
+
+.sm-box input:valid ~ span.multiplier-span,
+.sm-box input:focus ~ span.multiplier-span {
+  display: block;
+  background: var(--inner-collapsible);
+  transform: translateX(0px) translateY(1px);
+  border-left: none;
+  border-right: none;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+}
+
+.inputBox input:valid ~ span,
+.sm-box input:focus ~ span {
+  border-left: 2px solid var(--primary-blue);
+  border-right: 2px solid var(--primary-blue);
+}
+
 .inputBox input:valid, 
 .inputBox input:focus,
 .sm-box input:valid,
@@ -273,6 +344,42 @@ making tabs appear and disapear
   font-weight: 700;
   color: var(--primary-blue);
   margin-bottom: 2rem;
+}
+
+.row-total {
+  width: 140px;
+  height: 41px;
+  margin-top: 13px;
+  /* padding-bottom: 15px; */
+  /* background-color: var(--white); */
+  border-radius: 5px;
+  /* border: 1px solid var(--primary-blue); */
+  align-items: center;
+}
+
+/* todo Should I have total like this? */
+.row-total span {
+  color: var(--primary-blue);
+  /* background: var(--white); */
+  /*  transform: translateX(10px) translateY(-7px); */
+  transform: translateX(-10px) translateY(-7px); 
+  /* font-size: 0.65em; */
+  font-size: 0.75em;
+  /* font-weight: 700; */
+  padding: 0 10px;
+  /* border-radius: 5px 5px 0px 0px; */
+  /* border-left: 1px solid var(--primary-blue);
+  border-right: 1px solid var(--primary-blue); */
+  letter-spacing: 0.2em;
+}
+
+.row-total .row-total-results {
+  /* color: var(--primary-text); */
+  /* font-size: 1rem; */
+  /* padding: 0 10px; */
+  margin-top: 8px;
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 
 /***** style the SELECT level/position drop down 
@@ -349,13 +456,17 @@ select:focus + .focus {
 
 /* CSS */
 .nav-btns {
+  width: 100%;
   display: flex;
-  gap: 25px;
+  margin-top: 50px;
+  /* gap: 25px; */
+  justify-content: space-between;
 }
 .btn-next {
   margin-top: 2rem;
-  width: 8rem;
-  padding: 1rem;
+  height: 50px;
+  width: 10rem;
+  padding: 1.25rem;
   align-items: center;
   background-color: var(--primary-green);
   border: 0;
@@ -369,8 +480,10 @@ select:focus + .focus {
   font-weight: 600;
   justify-content: center;
   line-height: 20px;
-  max-width: 480px;
-  min-height: 40px;
+  /* max-width: 480px; */
+  min-width: 160px;
+  /* min-height: 40px; */
+
   min-width: 0px;
   overflow: hidden;
   padding: 0px;
@@ -389,8 +502,7 @@ select:focus + .focus {
 .btn-next:hover,
 .btn-next:focus,
 .btn-next:active { 
-  /* background-color: #16437E; */
-  filter: brightness(95%);
+  background-color: var(--hover-green);
   color: #fff;
 }
 
@@ -430,17 +542,25 @@ select:focus + .focus {
   /* text-transform: capitalize; */
 }
 
-.active-collapse, .collapsible:hover {
+.collapsible:hover {
+  background-color: var(--light-blue);
+}
+
+.active-collapse {
   /* filter: brightness(95%); */
   background-color: var(--light-blue);
   border-radius: 5px 5px 0 0;
 }
 
-.collapsible:hover {
-  /* filter: brightness(95%); */
+.active-collapse:hover {
+  background-color: var(--primary-blue);
+  border-radius: 5px 5px 0 0;
+}
+
+/* .collapsible:hover {
   background-color: var(--light-blue);
   border-radius: 5px;
-}
+} */
 
 .collapsible-content {
   margin-top: -7px;
@@ -451,27 +571,22 @@ select:focus + .focus {
   background-color: var(--collapsible);
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  /* todo: display: flex ... or grid is not actually being applied...  */
   align-items: center;
   justify-items: center;
   /* gap: 20px; */
   padding: 1rem;
+  /* padding-left: 3rem; */
   border-radius: 0 0 5px 5px;
 }
 
-.monthly-container .collapsible-content {
-  /* margin-top: -7px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: var(--collapsible);
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  align-items: center;
-  justify-items: center;
-  padding: 1rem;
-  border-radius: 0 0 5px 5px; */
+
+.monthly-container .collapsible-content,
+.baseshop-monthly-container .collapsible-content {
   display: block;
+  padding: 1rem 3rem;
 }
+
 
 
 .inner-collapsible {
@@ -485,25 +600,24 @@ select:focus + .focus {
   outline: none;
   font-size:1rem;
   border-radius: 5px;
-
   justify-self: flex-start;
   margin-top: 2rem;
   margin-bottom: -1.5rem;
   grid-column: 1/7;
 }
 
+.inner-collapsible:hover {
+  background-color: var(--light-blue);
+}
 
-
-.active-inner-collapse, .inner-collapsible:hover {
-  /* filter: brightness(95%); */
+.active-inner-collapse {
   background-color: var(--light-blue);
   border-radius: 5px 5px 0 0;
 }
 
-.inner-collapsible:hover {
-  /* filter: brightness(95%); */
-  background-color: var(--light-blue);
-  border-radius: 5px;
+.active-inner-collapse:hover {
+  background-color: var(--primary-blue);
+  border-radius: 5px 5px 0 0;
 }
 
 .inner-collapsible-content {
@@ -522,7 +636,12 @@ select:focus + .focus {
   /* padding: 0 1rem; */
   /* padding-bottom: 1rem; */
   border-radius: 0 0 5px 5px;
+}
 
+.baseshop-monthly-container .inner-collapsible-content {
+  width: 100%;
+  /* width:876px; */
+  padding: 0 3rem;
 }
 
 .flex-rows {
@@ -580,16 +699,23 @@ select:focus + .focus {
   display: grid;
   gap: 5px;
   padding-top: 25px;
+  padding-bottom: 10px;
 }
 
 /* todo: might not need this if i get rid of the column with fixed income and other income */
 .grid-group p {
-  /* todo: this is hacky */
   height: 65px;
   font-size: .9rem;
   line-height: 30px;
   padding-left:-32px;
 
+}
+
+.inner-grid-group {
+  display: grid;
+  gap: 5px;
+  padding-top: 15px;
+  padding-bottom: 30px;
 }
 
 .small-input {
@@ -600,7 +726,8 @@ select:focus + .focus {
   border: 1px solid var(--primary-blue);
   background: var(--white);
   border-radius: 5px;
-  outline: none;
+  /* outline: none; */
+  outline: 1px solid var(--primary-blue);
   color: var(--primary-text);
   font-size: .1rem;
   /* what is being transitioned? */
@@ -637,14 +764,14 @@ Do we ever use the passive income goal or time frame?
 */
 
 .info-title {
-  margin-top: 25px;
+  /* margin-top: 25px; */
   margin-bottom: -10px;
   color: var(--primary-text);
 }
 /* slider */
 .slider-container {
   /* background-color: #9fd2fe; */
-  width: 300px;
+  /* width: 300px; */
   /* height: 50px; */
   /* transform: translate(-50%, -50%);
   top: 50%;
@@ -654,7 +781,29 @@ Do we ever use the passive income goal or time frame?
   justify-content: space-between;
   /* padding: 30px 20px; */
   border-radius: 5px;
+  gap: 36px;
 }
+
+.slider-nums {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inner-collapsible-content .slider-nums {
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.range-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  color:rgb(121, 121, 121);
+}
+
 
 input[type="range"]{
   position:relative;
@@ -663,7 +812,7 @@ input[type="range"]{
   /* -webkit-appearance: none; */
   /* -moz-appearance: none; */
   display: block;
-  width: 80%;
+  width: 86%;
   height: 8px;
   background-color: #d5d5d5;
   border-radius: 8px;
@@ -707,6 +856,7 @@ input[type="range"]::-ms-thumb {
 }
 
 input[type="range"]:active::-webkit-slider-thumb {
+  
   background-color: #fff;
   border: 3px solid var(--primary-blue);
 }
@@ -732,12 +882,17 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 /* todo when active change the highlight to look better */
 .slider-input {
-  width: 13%;
+  width: 9%;
   border: 1px solid var(--primary-blue);
   text-align: center;
   padding: 10px 0px;
   border-radius: 5px;
+  font-size:1rem;
   color: var(--primary-text);
+}
+
+.slider-input:focus {
+  outline: 1px solid var(--primary-blue);
 }
 
 /* Radial Buttons for elite advisor */
@@ -802,9 +957,30 @@ input[type="range"]:active::-webkit-slider-thumb {
   
 }
 
-
 .pm-row .slider-container {
-  width: 930px;
+  width: 680px;
+}
+
+/* can i turn this into a class? */
+/* make slider full width */
+#pm-slider,
+#mpa-slider,
+#mls-ta-slider,
+#mls-a-slider,
+#mls-md-slider,
+#mls-smd-slider,
+#bpa-ta-slider,
+#bpa-a-slider,
+#bpa-md-slider,
+#bpa-smd-slider,
+#year-slider,
+#rate-of-return-slider {
+  width:100%;
+}
+
+#year-input,
+#rate-of-return-input {
+  width:15%;
 }
 
 .pm-title {
@@ -812,10 +988,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   margin-bottom: -20px;
 }
 
-#pm-input,
+/* #pm-input,
 #mpa-input {
-  font-size: 1.2rem;
-}
+  font-size: 1rem;
+} */
 
 .add-height {
   height: 30px;
@@ -830,6 +1006,337 @@ input[type="range"]:active::-webkit-slider-thumb {
   vertical-align: middle;
   padding-bottom: 2px;
   margin: 0;
+}
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+  color: red;
+  width: 50%;
+}
+
+.goals-row {
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  gap: 2rem;
+}
+
+.goals-row .all-slider-content {
+  margin-top: -2rem;
+}
+
+.summary-totals {
+  height:200px;
+  /* if I do width 100% of container, but there is padding */
+  width:840px;
+  transform: translate(-6rem, -2rem);
+  background-color: var(--primary-blue);
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--white);
+  font-size: 1.25rem;
+  
+}
+
+.vertical-line {
+  height: 120px;
+  width: 2px;
+  background-color: white;
+
+}
+
+.month-points-total,
+.month-commission-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+}
+
+.total-numbers {
+  margin: 1rem;
+  font-size: 2.5rem;
+}
+
+.toggle-container {
+  margin-top: -100px;
+}
+
+.points-row-toggles {
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: -45px; */
+  margin: 45px 0;
+}
+
+.toggle-row-title {
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+  margin-top: 55px;
+}
+
+.summary-toggles {
+  height: 115px;
+  width: 180px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  display: flex;
+  text-align: center; 
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid var(--primary-blue);
+  background-color: var(--white);
+  color: var(--primary-blue);
+}
+
+.summary-toggles:hover {
+  filter: brightness(95%);
+  cursor: pointer;
+}
 
 
+.summary-toggles:active {
+  transform: translateY(2px);
+}
+
+
+#personal-points-baseshop.active-summary,
+#personal-points-baseshop-monthly.active-summary,
+#personal-points-basehop-overrides.active-summary,
+#personal-points-step-up.active-summary,
+#baseshop-points-baseshop.active-summary,
+#baseshop-points-baseshop-monthly.active-summary,
+#baseshop-points-basehop-overrides.active-summary,
+#baseshop-points-step-up.active-summary,
+
+#personal-points-baseshop-yearly.active-summary,
+#personal-points-baseshop-yearly.active-summary,
+#personal-points-basehop-overrides-yearly.active-summary,
+#personal-points-step-up-yearly.active-summary,
+#baseshop-points-baseshop-yearly.active-summary,
+#baseshop-points-baseshop-yearly.active-summary,
+#baseshop-points-basehop-overrides-yearly.active-summary,
+#baseshop-points-step-up-yearly.active-summary, 
+
+#personal-points-baseshop-goal.active-summary,
+#personal-points-baseshop-goal.active-summary,
+#personal-points-basehop-overrides-goal.active-summary,
+#personal-points-step-up-goal.active-summary,
+#baseshop-points-baseshop-goal.active-summary,
+#baseshop-points-baseshop-goal.active-summary,
+#baseshop-points-basehop-overrides-goal.active-summary,
+#baseshop-points-step-up-goal.active-summary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+/* why doesn't this work instead I have to list them all out */
+/* .summary-toggles.active-summary:hover {
+  background-color: black;
+} */
+
+#personal-points-baseshop.active-summary:hover,
+#personal-points-baseshop-monthly.active-summary:hover,
+#personal-points-basehop-overrides.active-summary:hover,
+#personal-points-step-up.active-summary:hover,
+#baseshop-points-baseshop.active-summary:hover,
+#baseshop-points-baseshop-monthly.active-summary:hover,
+#baseshop-points-basehop-overrides.active-summary:hover,
+#baseshop-points-step-up.active-summary:hover,
+
+#personal-points-baseshop-yearly.active-summary:hover,
+#personal-points-baseshop-yearly.active-summary:hover,
+#personal-points-basehop-overrides-yearly.active-summary:hover,
+#personal-points-step-up-yearly.active-summary:hover,
+#baseshop-points-baseshop-yearly.active-summary:hover,
+#baseshop-points-baseshop-yearly.active-summary:hover,
+#baseshop-points-basehop-overrides-yearly.active-summary:hover,
+#baseshop-points-step-up-yearly.active-summary:hover, 
+
+#personal-points-baseshop-goal.active-summary:hover,
+#personal-points-baseshop-goal.active-summary:hover,
+#personal-points-basehop-overrides-goal.active-summary:hover,
+#personal-points-step-up-goal.active-summary:hover,
+#baseshop-points-baseshop-goal.active-summary:hover,
+#baseshop-points-baseshop-goal.active-summary:hover,
+#baseshop-points-basehop-overrides-goal.active-summary:hover,
+#baseshop-points-step-up-goal.active-summary:hover {
+  background-color: var(--light-blue);
+}
+
+
+
+.summary-toggles .excluded-included {
+  font-size:.85rem;
+  letter-spacing: 1;
+}
+
+.disabled-div {
+  height: 115px;
+  width: 180px;
+  padding: 10px 22px;
+  border-radius: 5px;
+  display: flex;
+  text-align: center; 
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
+  background-color: rgb(189,189,189);
+  color: var(--white);
+}
+
+.disabled-div span {
+  margin-top: 6px;
+  font-size:.8rem;
+  letter-spacing: 1;
+}
+
+.summary-line {
+  display: block;
+}
+
+.disabled-div[disabled] {
+  /* pointer-events: none; Disable pointer events */
+  /* opacity: 0.5; Apply a visual indication of the disabled state */
+  cursor: not-allowed; /* Show a "not-allowed" cursor */
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 100%); 
+  padding: 8px;
+  background-color: #000;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  /* transition: opacity 0.3s ease, visibility 0.3s ease; */
+  width: 91%;
+  height: 91%;
+  border-radius: 5px;
+  background-color: rgb(189,189,189);
+  display: flex;
+  align-items: center;
+  border: none;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+#monthly-summary-nav-btns {
+  margin: 40px 0 20px 0;
+}
+
+
+
+
+
+
+
+.footer {
+  margin-top: -10px;
+  color: var(--primary-blue);
+  font-size: .9rem;
+}
+
+#together {
+  text-align: center;
+  font-weight: 700;
+}
+
+
+/* add TM to bottom of page */
+/* add row below baseshop montly activity to indicate and show multiply by number of associates */
+
+
+.projections-title {
+  margin-top: 100px;
+}
+
+
+
+
+/* custom dropdown */
+.dropdown {
+  position: relative;
+  /* margin-top: 100px; */
+  width:300px;
+  height: 50px;
+}
+
+.dropdown::before {
+  content: '';
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  z-index: 1000;
+  width: 8px;
+  height: 8px;
+  border: 3px solid var(--primary-blue);
+  border-right: 3px solid #fff;
+  border-top: 3px solid #fff;
+  transform: rotate(-45deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.dropdown.active::before {
+  top: 22px;
+  transform: rotate(-225deg);
+}
+.dropdown input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid var(--primary-blue);
+  outline: none;
+  /* box-shadow: 0 5px 20px rgba(0,0,0.05); */
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+.dropdown .option {
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  background-color: #fff;
+  /* box-shadow: 0 30px 30px rgba(0,0,0,0.05); */
+  border: 1px solid var(--primary-blue);
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  z-index: 999;
+}
+
+.dropdown.active .option {
+  display: block;
+}
+
+.dropdown .option div {
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+.dropdown .option div:hover {
+  background: var(--primary-blue);
+  color: #fff;
 }
