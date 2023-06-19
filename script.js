@@ -255,9 +255,124 @@ var bssmdOfll49 = document.getElementById('bssmd-ofll49');
 var bssmdFidsc49 = document.getElementById('bssmd-fidsc49');
 var bssmdOfdsc49 = document.getElementById('bssmd-ofdsc49');
 
+////////////////////////////////////////////
+//////// Personal Monthly Activity ////////
+//////////////////////////////////////////
+
+// Monthly Lump Sum
+var pmaMlsNl = document.getElementById('pma-mls-nl');
+var pmaMlsNlcb = document.getElementById('pma-mls-nlcb');
+var pmaMlsNlcb5 = document.getElementById('pma-mls-nlcb5');
+var pmaMlsTotal = document.getElementById("pma-mls-total");
+
+// Monthly Pre-Authorized Debit
+var pmaMpadNl = document.getElementById('pma-mpad-nl');
+var pmaMpadNlcb = document.getElementById('pma-mpad-nlcb');
+var pmaMpadNlcb5 = document.getElementById('pma-mpad-nlcb5');
+var pmaMpadTotal = document.getElementById("pma-mpad-total");
+
+////////////////////////////////////////////
+//////// Baseshop Monthly Activity ////////
+//////////////////////////////////////////
+
+//// Monthly Lump Sum ////
+// Training Associate
+var bsMlsTaNl = document.getElementById("bs-mls-ta-nl");
+var bsMlsTaNlCb = document.getElementById("bs-mls-ta-nlcb");
+var bsMlsTaNlCb5 = document.getElementById("bs-mls-ta-nlcb5");
+var bsMlsTaNlSpan = document.getElementById("bs-mls-ta-nl-span");
+var bsMlsTaNlCbSpan = document.getElementById("bs-mls-ta-nlcb-span");
+var bsMlsTaNlCb5Span = document.getElementById("bs-mls-ta-nlcb5-span");
+var bsMlsTaTotal = document.getElementById("bs-mls-ta-total");
+
+// Associate
+var bsMlsaNl = document.getElementById("bs-mls-a-nl");
+var bsMlsaNlCb = document.getElementById("bs-mls-a-nlcb");
+var bsMlsaNlCb5 = document.getElementById("bs-mls-a-nlcb5");
+var bsMlsaNlSpan = document.getElementById("bs-mls-a-nl-span");
+var bsMlsaNlCbSpan = document.getElementById("bs-mls-a-nlcb-span");
+var bsMlsaNlCb5Span = document.getElementById("bs-mls-a-nlcb5-span");
+var bsMlsaTotal = document.getElementById("bs-mls-a-total");
+
+// Marketing Director
+var bsMlsMdNl = document.getElementById("bs-mls-md-nl");
+var bsMlsMdNlCb = document.getElementById("bs-mls-md-nlcb");
+var bsMlsMdNlCb5 = document.getElementById("bs-mls-md-nlcb5");
+var bsMlsMdNlSpan = document.getElementById("bs-mls-md-nl-span");
+var bsMlsMdNlCbSpan = document.getElementById("bs-mls-md-nlcb-span");
+var bsMlsMdNlCb5Span = document.getElementById("bs-mls-md-nlcb5-span");
+var bsMlsMdTotal = document.getElementById("bs-mls-md-total");
+
+// Senior Marketing Director
+var bsMlsSmdNl = document.getElementById("bs-mls-smd-nl");
+var bsMlsSmdNlCb = document.getElementById("bs-mls-smd-nlcb");
+var bsMlsSmdNlCb5 = document.getElementById("bs-mls-smd-nlcb5");
+var bsMlsSmdNlSpan = document.getElementById("bs-mls-smd-nl-span");
+var bsMlsSmdNlCbSpan = document.getElementById("bs-mls-smd-nlcb-span");
+var bsMlsSmdNlCb5Span = document.getElementById("bs-mls-smd-nlcb5-span");
+var bsMlsSmdTotal = document.getElementById("bs-mls-smd-total");
+
+//// Monthly Pre-Authorized Debit ////
+// Training Associate
+var bsMpadTaNl = document.getElementById("bs-mpad-ta-nl");
+var bsMpadTaNlCb = document.getElementById("bs-mpad-ta-nlcb");
+var bsMpadTaNlCb5 = document.getElementById("bs-mpad-ta-nlcb5");
+var bsMpadTaNlSpan = document.getElementById("bs-mpad-ta-nl-span");
+var bsMpadTaNlCbSpan = document.getElementById("bs-mpad-ta-nlcb-span");
+var bsMpadTaNlCb5Span = document.getElementById("bs-mpad-ta-nlcb5-span");
+var bsMpadTaTotal = document.getElementById("bs-mpad-ta-total");
+
+// Associate
+var bsMpadaNl = document.getElementById("bs-mpad-a-nl");
+var bsMpadaNlCb = document.getElementById("bs-mpad-a-nlcb");
+var bsMpadaNlCb5 = document.getElementById("bs-mpad-a-nlcb5");
+var bsMpadaNlSpan = document.getElementById("bs-mpad-a-nl-span");
+var bsMpadaNlCbSpan = document.getElementById("bs-mpad-a-nlcb-span");
+var bsMpadaNlCb5Span = document.getElementById("bs-mpad-a-nlcb5-span");
+var bsMpadaTotal = document.getElementById("bs-mpad-a-total");
+
+// Marketing Director
+var bsMpadMdNl = document.getElementById("bs-mpad-md-nl");
+var bsMpadMdNlCb = document.getElementById("bs-mpad-md-nlcb");
+var bsMpadMdNlCb5 = document.getElementById("bs-mpad-md-nlcb5");
+var bsMpadMdNlSpan = document.getElementById("bs-mpad-md-nl-span");
+var bsMpadMdNlCbSpan = document.getElementById("bs-mpad-md-nlcb-span");
+var bsMpadMdNlCb5Span = document.getElementById("bs-mpad-md-nlcb5-span");
+var bsMpadMdTotal = document.getElementById("bs-mpad-md-total");
+
+// Senior Marketing Director
+var bsMpadSmdNl = document.getElementById("bs-mpad-smd-nl");
+var bsMpadSmdNlCb = document.getElementById("bs-mpad-smd-nlcb");
+var bsMpadSmdNlCb5 = document.getElementById("bs-mpad-smd-nlcb5");
+var bsMpadSmdNlSpan = document.getElementById("bs-mpad-smd-nl-span");
+var bsMpadSmdNlCbSpan = document.getElementById("bs-mpad-smd-nlcb-span");
+var bsMpadSmdNlCb5Span = document.getElementById("bs-mpad-smd-nlcb5-span");
+var bsMpadSmdTotal = document.getElementById("bs-mpad-smd-total");
+
+// number of agents inputs
+var blsTaAgents = document.getElementById("bls-ta-agents"); // bpa-a-agents
+var blsAAgents = document.getElementById("bls-a-agents");
+var blsMdAgents = document.getElementById("bls-md-agents");
+var blsSmdAgents = document.getElementById("bls-smd-agents");
+
+var bpaTaAgents = document.getElementById("bpa-ta-agents"); // bpa-a-agents
+var bpaAAgents = document.getElementById("bpa-a-agents");
+var bpaMdAgents = document.getElementById("bpa-md-agents");
+var bpaSmdAgents = document.getElementById("bpa-smd-agents");
 
 
 
+
+///////////////////////////////////////////////////////////
+////////////////  Summary Pages///////////////////////////
+///////////////////////////////////////////////////////////
+var monthlyPointsPayout = document.getElementById("monthly-points-payout");
+var yearlyPointsPayout = document.getElementById("yearly-points-payout");
+var goalPointsPayout = document.getElementById("goal-points-payout");
+
+var monthlyCommissionPayout = document.getElementById('monthly-commission-payout');
+var yearlyCommissionPayout = document.getElementById('yearly-commission-payout');
+var goalCommissionPayout = document.getElementById('goal-commission-payout');
 
 // var aumButton = document.getElementById('aum-button');
 
@@ -316,34 +431,12 @@ const getContractCommission = contract => {
 
 // Upfront Sales Charge
 const nlSc = 0
-const nlCbSc = .035
-const nlCbsSc = .056
+const nlcbSc = .035
+const nlcb5Sc = .056
 
 // update DOM to reflect selected 
 // https://stackoverflow.com/questions/37902166/html-change-text-based-on-input-field
-document.getElementById("contract-select").addEventListener("change", myFunction);
-function myFunction() {
-	var contract= document.getElementById("contract-select").value;
-  var percent = getContractCommission(contract);
-    document.getElementById("contract-level").innerHTML = contract;
-    // todo: this is bad form duck typing... multiplying as if float, then adding as if string
-    document.getElementById("percent").innerHTML = percent * 100 + "% commission rate";
-}
 
-
-// auto formatting currency
-// chatgpt
-// function formatUserCurrency(input) {
-//   if (typeof input !== "string") {
-//     input = input.toString();
-//   }
-//   // remove all non-digit characters
-//   input = input.replace(/\D/g, '');
-//   // convert to number and divide by 100 to get cents (not sure why this works,but its buggy if not included)
-//   input = Number(input)/100;
-//    // format with commas and decimal for cents
-//    return input.toLocaleString("en-US", {style:"currency", currency:"USD"});
-// }
 
 function formatUserCurrency(input) {
   if (typeof input !== "string") {
@@ -353,7 +446,7 @@ function formatUserCurrency(input) {
   input = input.replace(/\D/g, '');
   input = Number(input);
   // format with commas and no decimal for cents
-  return "$ " + input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return "$" + input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 const currencyInputs = [...document.getElementsByClassName('currency-input')];
@@ -377,8 +470,11 @@ const personalAumEls = [
 personalAumEls.forEach((el) => {
   el.addEventListener('input', function() {
     el.value = formatUserCurrency(el.value);
+    calculatePersonalAum();
   })
 });
+
+
 
 const baseshopAumEls = [
   bstaFinl0, bstaOfnl0, bstaFinlcb0, bstaOfnlcb0, bstaFinlcb50, bstaOfnlcb50, bstaFill0, bstaOfll0, bstaFidsc0, bstaOfdsc0,
@@ -406,6 +502,29 @@ baseshopAumEls.forEach((el) => {
 });
 
 
+const personalMonthlyActivityEls = [pmaMlsNl, pmaMlsNlcb, pmaMlsNlcb5, pmaMpadNl, pmaMpadNlcb, pmaMpadNlcb5];
+
+personalMonthlyActivityEls.forEach((el) => {
+  el.addEventListener('input', function() {
+    el.value = formatUserCurrency(el.value);
+  });
+});
+
+const baseshopMonthlyActivityEls = 
+  [
+  bsMlsTaNl, bsMlsTaNlCb, bsMlsTaNlCb5, bsMlsaNl, bsMlsaNlCb, bsMlsaNlCb5, 
+  bsMlsMdNl, bsMlsMdNlCb, bsMlsMdNlCb5, bsMlsSmdNl, bsMlsSmdNlCb, bsMlsSmdNlCb5, 
+  bsMpadTaNl, bsMpadTaNlCb, bsMpadTaNlCb5, bsMpadaNl, bsMpadaNlCb, bsMpadaNlCb5, 
+  bsMpadMdNl, bsMpadMdNlCb, bsMpadMdNlCb5, bsMpadSmdNl, bsMpadSmdNlCb, bsMpadSmdNlCb5
+];
+
+baseshopMonthlyActivityEls.forEach((el) => {
+  el.addEventListener('input', function() {
+    el.value = formatUserCurrency(el.value);
+  });
+});
+
+
 
 const cleanCurrency = input => {
   // Check if the input is a string
@@ -422,11 +541,9 @@ const cleanCurrency = input => {
   }
 };
 
-// aumButton.addEventListener("click", function(e) {
-//   e.preventDefault();
-//   console.log('button pressed');
 
-//   commissionRate = getContractCommission(contractType.value);
+// function calculatePersonalAum() {
+//   
 //   console.log(commissionRate);
 
 //   ///////////// NL ///////////////
@@ -481,14 +598,10 @@ const cleanCurrency = input => {
 //   dscTotalATC37 = (cleanCurrency(fidsc37.value) * fixedMultiply) + (cleanCurrency(ofdsc37.value) * otherMultiply); 
 //   dscTotalATC49 = (cleanCurrency(fidsc49.value) * fixedMultiply) + (cleanCurrency(ofdsc49.value) * otherMultiply); 
 
-//   dscTotal = dscTotalATC0 + dscTotalATC13 + dscTotalATC37+ dscTotalATC49;
-//   console.log(`Total DSC Annual Trailing Comissionsns: ${USDollar.format(dscTotal)}`);
+//   personalDscTotal = dscTotalATC0 + dscTotalATC13 + dscTotalATC37+ dscTotalATC49;
+//   console.log(`Total DSC Annual Trailing Comissionsns: ${USDollar.format(personalDscTotal)}`);
 
-//   // Invoke showChart function
-//   // showChart();
-
-
-// });
+// };
 
 
 
@@ -533,7 +646,9 @@ const inputbPaTa = document.getElementById("bpa-ta-input");
 const inputbPaA = document.getElementById("bpa-a-input");
 const inputbPaMd = document.getElementById("bpa-md-input");
 const inputbPaSmd = document.getElementById("bpa-smd-input");
-
+// projections
+const rateReturnSlider = document.getElementById("rate-of-return-slider");
+const rateReturnInput = document.getElementById("rate-of-return-input");
 
 // color the left side of slider and set input value to equal slider value
 function slider() {
@@ -545,52 +660,58 @@ function slider() {
   // Personal Monthly (mp) Slider
   valPercent = (pmSlider.value / pmSlider.max) * 100;
   pmSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputPm.value = formatUserCurrency(pmSlider.value);
+  // inputPm.value = formatUserCurrency(pmSlider.value);
 
   // Monthly Pre-authorized (mpa) Slider
   valPercent = (mpaSlider.value / mpaSlider.max) * 100;
   mpaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputMpa.value = formatUserCurrency(mpaSlider.value);
+  // inputMpa.value = formatUserCurrency(mpaSlider.value);
 
   // Baseshop Monthly Lump Sum - Training Associate
   valPercent = (bMlsTaSlider.value / bMlsMdSlider.max) * 100;
   bMlsTaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputBMlsTa.value = formatUserCurrency(bMlsTaSlider.value);
+  // inputBMlsTa.value = formatUserCurrency(bMlsTaSlider.value);
 
   // Baseshop Monthly Lump Sum - Associate
   valPercent = (bMlsASlider.value / bMlsASlider.max) * 100;
   bMlsASlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputBMlsA.value = formatUserCurrency(bMlsASlider.value);
+  // inputBMlsA.value = formatUserCurrency(bMlsASlider.value);
 
   // Baseshop Monthly Lump Sum - Marketing Director
   valPercent = (bMlsMdSlider.value / bMlsMdSlider.max) * 100;
   bMlsMdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputBMlsMd.value = formatUserCurrency(bMlsMdSlider.value);
+  // inputBMlsMd.value = formatUserCurrency(bMlsMdSlider.value);
 
   // Baseshop Monthly Lump Sum - Senior Marketing Director
   valPercent = (bMlsSmdSlider.value / bMlsSmdSlider.max) * 100;
   bMlsSmdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputBMlsSmd.value = formatUserCurrency(bMlsSmdSlider.value);
+  // inputBMlsSmd.value = formatUserCurrency(bMlsSmdSlider.value);
 
   // Baseshop Pre-authorized debit - Training Associate
   valPercent = (bPaTaSlider.value / bPaMdSlider.max) * 100;
   bPaTaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputbPaTa.value = formatUserCurrency(bPaTaSlider.value);
+  // inputbPaTa.value = formatUserCurrency(bPaTaSlider.value);
 
   // Baseshop Pre-authorized debit - Associate
   valPercent = (bPaASlider.value / bPaASlider.max) * 100;
   bPaASlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputbPaA.value = formatUserCurrency(bPaASlider.value);
+  // inputbPaA.value = formatUserCurrency(bPaASlider.value);
 
   // Baseshop Pre-authorized debit - Marketing Director
   valPercent = (bPaMdSlider.value / bPaMdSlider.max) * 100;
   bPaMdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputbPaMd.value = formatUserCurrency(bPaMdSlider.value);
+  // inputbPaMd.value = formatUserCurrency(bPaMdSlider.value);
 
   // Baseshop Pre-authorized debit - Senior Marketing Director
   valPercent = (bPaSmdSlider.value / bPaSmdSlider.max) * 100;
   bPaSmdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputbPaSmd.value = formatUserCurrency(bPaSmdSlider.value);
+  // inputbPaSmd.value = formatUserCurrency(bPaSmdSlider.value);
+
+  // projections rate of return slider
+  rateReturnSlider
+  valPercent = (rateReturnSlider.value / rateReturnSlider.max) * 100;
+  rateReturnSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+
 }
 
 slider();
@@ -611,6 +732,8 @@ function goalInput() {
   bPaASlider.value = inputbPaA.value.replace(/[^0-9.-]+/g, '');
   bPaMdSlider.value = inputbPaMd.value.replace(/[^0-9.-]+/g, '');
   bPaSmdSlider.value = inputbPaSmd.value.replace(/[^0-9.-]+/g, '');
+  // projectsions
+  rateReturnSlider.value = rateReturnInput.value;
 
   slider();
 }
@@ -621,77 +744,84 @@ function goalInput() {
 yearSlider.addEventListener('input', function() {
   valPercent = (yearSlider.value / yearSlider.max) * 100;
   yearSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputYear.value = yearSlider.value;
+  inputYear.value = yearSlider.value + " years";
 });
 
 // Personal Monthly (mp) Input
 pmSlider.addEventListener('input', function() {
   valPercent = (pmSlider.value / pmSlider.max) * 100;
   pmSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputPm.value = formatUserCurrency(pmSlider.value);
+  inputPm.value = pmSlider.value + "%";
 });
 
 // Monthly Pre-authorized Input
 mpaSlider.addEventListener('input', function() {
   valPercent = (mpaSlider.value / mpaSlider.max) * 100;
   mpaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputMpa.value = formatUserCurrency(mpaSlider.value);
+  inputMpa.value = mpaSlider.value + "%";
 });
 
 // Monthly Lump Sum Training Associate 
 bMlsTaSlider.addEventListener('input', function() {
   valPercent = (bMlsTaSlider.value / bMlsTaSlider.max) * 100;
   bMlsTaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputBMlsTa.value = formatUserCurrency(bMlsTaSlider.value);
+  inputBMlsTa.value = bMlsTaSlider.value + "%";
 });
 
 // Monthly Lump Sum  Associate
 bMlsASlider.addEventListener('input', function() {
   valPercent = (bMlsASlider.value / bMlsASlider.max) * 100;
   bMlsASlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputBMlsA.value = formatUserCurrency(bMlsASlider.value);
+  inputBMlsA.value = bMlsASlider.value + "%";
 });
 
 // Monthly Lump Sum Marketing Director 
 bMlsMdSlider.addEventListener('input', function() {
   valPercent = (bMlsMdSlider.value / bMlsMdSlider.max) * 100;
   bMlsMdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputBMlsMd.value = formatUserCurrency(bMlsMdSlider.value);
+  inputBMlsMd.value = bMlsMdSlider.value + "%";
 });
 
 // Monthly Lump Sum Senior Marketing Director
 bMlsSmdSlider.addEventListener('input', function() {
   valPercent = (bMlsSmdSlider.value / bMlsSmdSlider.max) * 100;
   bMlsSmdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputBMlsSmd.value = formatUserCurrency(bMlsSmdSlider.value);
+  inputBMlsSmd.value = bMlsSmdSlider.value + "%";
 });
 
 // Monthly Pre-authorized Debit Training Associate 
 bPaTaSlider.addEventListener('input', function() {
   valPercent = (bPaTaSlider.value / bPaTaSlider.max) * 100;
   bPaTaSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputbPaTa.value = formatUserCurrency(bPaTaSlider.value);
+  inputbPaTa.value = bPaTaSlider.value + "%";
 });
 
 // Monthly Pre-authorized Debit  Associate
 bPaASlider.addEventListener('input', function() {
   valPercent = (bPaASlider.value / bPaASlider.max) * 100;
   bPaASlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputbPaA.value = formatUserCurrency(bPaASlider.value);
+  inputbPaA.value = bPaASlider.value + "%";
 });
 
 // Monthly Pre-authorized Debit Marketing Director 
 bPaMdSlider.addEventListener('input', function() {
   valPercent = (bPaMdSlider.value / bPaMdSlider.max) * 100;
   bPaMdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputbPaMd.value = formatUserCurrency(bPaMdSlider.value);
+  inputbPaMd.value = bPaMdSlider.value + "%";
 });
 
 // Monthly Pre-authorized Debit Senior Marketing Director
 bPaSmdSlider.addEventListener('input', function() {
   valPercent = (bPaSmdSlider.value / bPaSmdSlider.max) * 100;
   bPaSmdSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
-  inputbPaSmd.value = formatUserCurrency(bPaSmdSlider.value);
+  inputbPaSmd.value = bPaSmdSlider.value + "%";
+});
+
+// projected rate of return
+rateReturnSlider.addEventListener('input', function() {
+  valPercent = (rateReturnSlider.value / rateReturnSlider.max) * 100;
+  rateReturnSlider.style.background = `linear-gradient(to right, ${primaryBlue} ${valPercent}%, #d5d5d5 ${valPercent}%)`;
+  rateReturnInput.value = rateReturnSlider.value + "%";
 });
 
 ///// INPUTS 
@@ -743,12 +873,12 @@ inputBMlsSmd.addEventListener('input', function() {
   slider();
 });
 
-
-
-
-
-
-
+//  projections rate of return 
+rateReturnInput.addEventListener('input', function() {
+  rateReturnSlider.value = rateReturnInput.value.replace(/[^0-9.-]+/g, '');
+  rateReturnInput.value = formatUserCurrency(rateReturnSlider.value);
+  slider();
+});
 
 // take out the function from the forEach so they can be referenced inside both forEach. need to run 
 // sliders function in the sliderInput so it updates the bar progress
@@ -804,7 +934,7 @@ function toggle_plus(id) {
 
 // total Personal AUM update value
 const personalAumInputs = document.getElementsByClassName("personal-aum-input");
-const personalAumTotal = document.getElementById("personal-aum-total");
+const personalAumSum = document.getElementById("personal-aum-total");
 const replaceEmpty = (array) => {
   const updateArray = array.map((value) => {
     if (value === "") {
@@ -839,7 +969,8 @@ for (i = 0; i < personalAumInputs.length; i++) {
     const arrayNoEmpty = replaceEmpty(personalAumValues);
     const cleanedPersonalAumValues = arrayNoEmpty.map(cleanCurrency);
     let sum = sumArray(cleanedPersonalAumValues);
-    personalAumTotal.textContent = formatUserCurrency(sum);
+    personalAumSum.textContent = formatUserCurrency(sum);
+    calculatePersonalAum(cleanedPersonalAumValues);
     
   });
 }
@@ -867,7 +998,7 @@ for (i = 0; i < baseshopAumInputs.length; i++) {
       bssmdFinl13.value, bssmdOfnl13.value, bssmdFinlcb13.value, bssmdOfnlcb13.value, bssmdFinlcb513.value, bssmdOfnlcb513.value, bssmdFill13.value, bssmdOfll13.value, bssmdFidsc13.value, bssmdOfdsc13.value,
       bssmdFinl37.value, bssmdOfnl37.value, bssmdFinlcb37.value, bssmdOfnlcb37.value, bssmdFinlcb537.value, bssmdOfnlcb537.value, bssmdFill37.value, bssmdOfll37.value, bssmdFidsc37.value, bssmdOfdsc37.value,
       bssmdFinl49.value, bssmdOfnl49.value, bssmdFinlcb49.value, bssmdOfnlcb49.value, bssmdFinlcb549.value, bssmdOfnlcb549.value, bssmdFill49.value, bssmdOfll49.value, bssmdFidsc49.value, bssmdOfdsc49.value,
-    ]
+    ];
     const arrayNoEmpty = replaceEmpty(baseshopAumValues);
     const cleanedBaseshopAumValues = arrayNoEmpty.map(cleanCurrency);
     let sum = sumArray(cleanedBaseshopAumValues);
@@ -876,9 +1007,890 @@ for (i = 0; i < baseshopAumInputs.length; i++) {
   });
 }
 
+// personal monthly activity monthly lump sum & Pre-authorized total and format
+const pmaBmaElements = [pmaMlsNl, pmaMlsNlcb, pmaMlsNlcb5, 
+                        pmaMpadNl, pmaMpadNlcb, pmaMpadNlcb5,
+                        // Baseshop values
+                        bsMlsTaNl, bsMlsTaNlCb, bsMlsTaNlCb5,
+                        bsMlsaNl, bsMlsaNlCb, bsMlsaNlCb5,
+                        bsMlsMdNl, bsMlsMdNlCb, bsMlsMdNlCb5,
+                        
+                        bsMlsSmdNl, bsMlsSmdNlCb, bsMlsSmdNlCb5,
+                        bsMpadTaNl, bsMpadTaNlCb, bsMpadTaNlCb5,
+                        bsMpadaNl, bsMpadaNlCb, bsMpadaNlCb5,
+                        bsMpadMdNl, bsMpadMdNlCb, bsMpadMdNlCb5,
+                        bsMpadSmdNl, bsMpadSmdNlCb, bsMpadSmdNlCb5];
 
 
 
+// todo add event listener to run pmabma stuff (will have to extract everything from for loop and add it to a function and run the function right away
+// and then run it in the for loop)
+// here I am updateing the values under the amount multipley by number of associates
+// function updateMultipliers(inputValue) {
+//   console.log('hi there!')
+//   const agentsInput = document.getElementById('bls-ta-agents');
+//   const multiplierSpans = document.getElementsByClassName('multiplier-mls-ta');
+
+//   const agentCount = parseInt(agentsInput.value);
+
+//   for (let i = 0; i < multiplierSpans.length; i++) {
+//     const multiplierSpan = multiplierSpans[i];
+//     multiplierSpan.textContent = `x${agentCount} = ${agentCounts * inputValue}`;
+//   }
+// }
+
+
+
+// terrible name 
+const doPmaBma = () => { 
+  const pmaBmaValues = pmaBmaElements.map(el => el.value);
+  const arrayNoEmpty = replaceEmpty(pmaBmaValues);
+  const cleanedPmaBmaValues = arrayNoEmpty.map(cleanCurrency);
+  const baseshopMonthlyTotals = [
+    pmaMlsTotal, pmaMpadTotal,
+    bsMlsTaTotal,bsMlsaTotal,bsMlsMdTotal,bsMlsSmdTotal,
+    bsMpadTaTotal,bsMpadaTotal,bsMpadMdTotal,bsMpadSmdTotal
+  ];
+  const multiplierSpans = [      
+    bsMlsTaNlSpan, bsMlsTaNlCbSpan, bsMlsTaNlCb5Span, 
+    bsMlsaNlSpan, bsMlsaNlCbSpan, bsMlsaNlCb5Span, 
+    bsMlsMdNlSpan, bsMlsMdNlCbSpan, bsMlsMdNlCb5Span, 
+    bsMlsSmdNlSpan, bsMlsSmdNlCbSpan, bsMlsSmdNlCb5Span, 
+    bsMpadTaNlSpan, bsMpadTaNlCbSpan, bsMpadTaNlCb5Span, 
+    bsMpadaNlSpan, bsMpadaNlCbSpan, bsMpadaNlCb5Span, 
+    bsMpadMdNlSpan, bsMpadMdNlCbSpan, bsMpadMdNlCb5Span, 
+    bsMpadSmdNlSpan, bsMpadSmdNlCbSpan, bsMpadSmdNlCb5Span
+  ];
+
+  let baseshopMonthlyTotalValues = [];
+    // todo: when the number of associates on your team is updated in the bsma it should rerun all calculations (otherwise on reload if number are entured the totals will just be 0)
+  // I want to keep the groups here so I'm iterating 
+  // and grabbing 3 at a time (nl, nlcb, nlcb5)
+  const onlyBaseshopMonthlyTotals = baseshopMonthlyTotals.slice(2);  // i think i can delete this
+  for (let i = 0; i < cleanedPmaBmaValues.length; i += 3) {
+    
+    const numberAssociatesArray = [1, 1, // for pma 
+      blsTaAgents.value,  blsAAgents.value,  blsMdAgents.value, blsSmdAgents.value, 
+      bpaTaAgents.value, bpaAAgents.value,  bpaMdAgents.value,  bpaSmdAgents.value
+    ]
+    let baseIndex = parseInt(i / 3); // todo? if i > 0 else should cause error on first itter of i = 0
+    let numAssociates = numberAssociatesArray[baseIndex];
+    let firstElement = cleanedPmaBmaValues[i] * numAssociates;
+    let secondElement = cleanedPmaBmaValues[i + 1] * numAssociates;
+    let thirdElement = cleanedPmaBmaValues[i + 2] * numAssociates;
+
+    
+    var sum = sumArray([firstElement, secondElement, thirdElement]);
+    let bsMonthlyTotal = formatUserCurrency(sum)
+    baseshopMonthlyTotalValues.push(bsMonthlyTotal);
+    baseshopMonthlyTotals[baseIndex].textContent = bsMonthlyTotal; 
+
+    // I don't want to include pma elements so I need to skip first 6 itterations 
+    // hence if i is greater than 5 and j -6 to get to index of 0.
+    if (i >= 6) {
+      let j = i - 6;
+      let firstSpan = multiplierSpans[j];
+      let secondSpan = multiplierSpans[j+1];
+      let thirdSpan = multiplierSpans[j+2];
+
+      
+      // this is for the little subscript to indicate what the multiplied value is
+      firstSpan.textContent = `x${numAssociates} = ${firstElement}`;
+      secondSpan.textContent = `x${numAssociates} = ${secondElement}`;
+      thirdSpan.textContent = `x${numAssociates} = ${thirdElement}`;
+    }
+
+
+  }
+  calculateSummaryValues(cleanedPmaBmaValues, baseshopMonthlyTotalValues);
+}
+
+// add doPmaBma to each element
+for (let i=0; i <pmaBmaElements.length; i++) {
+  pmaBmaElements[i].addEventListener("input", function() {
+    doPmaBma();
+  });
+}
+
+// Summary page button toggles
+// let togglePersonalPointsBaseshop = document.getElementById("personal-points-baseshop"); // removed in html
+let togglePersonalPointsBaseshopMonthly = document.getElementById("personal-points-baseshop-monthly");
+let togglePersonalPointsBaseshopOverridesMonthly = document.getElementById("personal-points-basehop-overrides"); // todo: could add -monthly to end of all these
+let togglePersonalPointsBaseshopStepMonthly = document.getElementById("personal-points-step-up");
+// let toggleBaseshopPointsBaseshop = document.getElementById("baseshop-points-baseshop"); // removed in html
+let toggleBaseshopPointsBaseshopMonthly = document.getElementById("baseshop-points-baseshop-monthly");
+let toggleBaseshopPointsBaseshopOverridesMonthly = document.getElementById("baseshop-points-basehop-overrides");
+let toggleBaseshopPointsBaseshopStepMonthly = document.getElementById("baseshop-points-step-up");
+// yearly
+let togglePersonalPointsBaseshopYearly = document.getElementById("personal-points-baseshop-yearly");
+let togglePersonalPointsBaseshopOverridesYearly = document.getElementById("personal-points-basehop-overrides-yearly"); // todo: could add -monthly to end of all these
+let togglePersonalPointsBaseshopStepYearly = document.getElementById("personal-points-step-up-yearly");
+let toggleBaseshopPointsBaseshopYearly = document.getElementById("baseshop-points-baseshop-yearly");
+let toggleBaseshopPointsBaseshopOverridesYearly = document.getElementById("baseshop-points-basehop-overrides-yearly");
+let toggleBaseshopPointsBaseshopStepYearly = document.getElementById("baseshop-points-step-up-yearly");
+// goal
+let togglePersonalPointsBaseshopGoal = document.getElementById("personal-points-baseshop-goal");
+let togglePersonalPointsBaseshopOverridesGoal = document.getElementById("personal-points-basehop-overrides-yearly"); // todo: could add -monthly to end of all these
+let togglePersonalPointsBaseshopStepGoal = document.getElementById("personal-points-step-up-goal");
+let toggleBaseshopPointsBaseshopGoal = document.getElementById("baseshop-points-baseshop-goal");
+let toggleBaseshopPointsBaseshopOverridesGoal = document.getElementById("baseshop-points-basehop-overrides-goal");
+let toggleBaseshopPointsBaseshopStepGoal = document.getElementById("baseshop-points-step-up-goal");
+
+// togglePersonalPointsBaseshop.addEventListener("click", () => {
+//   togglePersonalPointsBaseshop.classList.toggle('inactive');
+// })
+
+var summaryToggles = [...document.getElementsByClassName('summary-toggles')];
+
+// summaryToggles.forEach(summaryToggle => {
+//   summaryToggle.addEventListener('click', () => {
+//     let id = summaryToggle.getAttribute("id");
+//     toggle = document.getElementById(id);
+//     toggle.classList.toggle('active-summary');
+//     doPmaBma();
+//   })
+// }) 
+
+
+summaryToggles.forEach(summaryToggle => {
+  summaryToggle.addEventListener('click', () => {
+    let id = summaryToggle.getAttribute("id");
+    toggle = document.getElementById(id);
+    toggle.classList.toggle('active-summary');
+    doPmaBma();
+
+    // Get the <span> element within the toggle
+    let spanElement = toggle.querySelector('span');
+
+    // Check if the <span> element exists
+    if (spanElement) {
+      // Check if the "active-summary" class is applied
+      if (toggle.classList.contains('active-summary')) {
+        spanElement.textContent = "";
+      } else {
+        spanElement.textContent = "(Excluded)";
+      }
+    } else {
+      // Create a new <span> element and set the text content to "Excluded"
+      spanElement = document.createElement('span');
+      spanElement.textContent = "Excluded";
+      toggle.appendChild(spanElement);
+    }
+  });
+});
+
+
+/////////////////////////////////////////////////
+////////// Formulas and Calculations ///////////
+///////////////////////////////////////////////
+
+
+///////// ELITE ADVISOR /////////////
+// Get all the radio buttons
+var radioButtons = document.querySelectorAll('input[name="elite-advisor"]');
+
+var eliteAdvisor = ''; // elite-yes or elite-no
+// Add event listener to each radio button
+radioButtons.forEach(function(radioButton) {
+  radioButton.addEventListener('change', function() {
+    // Get the selected radio button value
+    eliteAdvisor = document.querySelector('input[name="elite-advisor"]:checked').id;
+  });
+});
+
+/////////////////////////////////////////////////
+/////////////// PERSONAL AUM /////////////////// 
+///////////////////////////////////////////////
+
+// set commissionRate as global variable
+var commissionRate = 0;
+const calculatePersonalAum = (arr) => {
+  const commissionRate = getContractCommission(contractType.value);
+  // const commissionRate = getContractCommission(contractType.value);
+
+  ///////////// 0 - 12 months ///////////////
+  const nlFixedIncomeMultiply = 0.00504 * 0.84 * commissionRate;
+  const nlOtherFundsMultiply = 0.01008 * 0.84 * commissionRate;
+ 
+  // name each element in the array for easier and clearer use
+  const [
+    finl0Value, ofnl0Value, finlcb0Value, ofnlcb0Value, finlcb50Value, ofnlcb50Value, fill0Value, ofll0Value, 
+    fidsc0Value, ofdsc0Value, finl13Value, ofnl13Value, finlcb13Value, ofnlcb13Value, finlcb513Value, 
+    ofnlcb513Value, fill13Value, ofll13Value, fidsc13Value, ofdsc13Value, finl37Value, ofnl37Value, finlcb37Value, 
+    ofnlcb37Value, finlcb537Value, ofnlcb537Value, fill37Value, ofll37Value, fidsc37Value, ofdsc37Value, 
+    finl49Value, ofnl49Value, finlcb49Value, ofnlcb49Value, finlcb549Value, ofnlcb549Value, fill49Value, 
+    ofll49Value, fidsc49Value, ofdsc49Value, 
+  ] = arr;
+
+  const nlTotalAnnualTrailingCommissionsFi = (finl0Value + finl13Value + finl37Value + finl49Value) * nlFixedIncomeMultiply;
+  const nlTotalAnnualTrailingCommissionsOf = (ofnl0Value + ofnl13Value + ofnl37Value + ofnl49Value) * nlOtherFundsMultiply;
+  const personalNlTotal = (nlTotalAnnualTrailingCommissionsFi + nlTotalAnnualTrailingCommissionsOf).toFixed(2);
+
+  //////////// NL-CB ////////////////
+  const nlcbFixedMultiply = 0.00252 * 0.84 * commissionRate;
+  const nlcbOtherMultiply = 0.00504 * 0.84 * commissionRate;
+  
+  const nlcbTotalATC0 = (finlcb0Value * 0 + ofnlcb0Value * 0) * nlcbFixedMultiply;
+  const nlcbTotalATC13 = (finlcb13Value * nlcbFixedMultiply) + (ofnlcb13Value * nlcbOtherMultiply);
+  const nlcbTotalATC37 = (finlcb37Value * nlcbFixedMultiply) + (ofnlcb37Value * nlcbOtherMultiply);
+  const nlcbTotalATC49 = (finlcb49Value * 0.00504 * 0.84 * commissionRate) + (ofnlcb49Value * 0.01008 * 0.84 * commissionRate);
+
+  const personalNlcbTotal = nlcbTotalATC0 + nlcbTotalATC13 + nlcbTotalATC37 + nlcbTotalATC49;
+
+  //////////// NL-CB5 ////////////////
+  const nlcb5TotalATC0 = (finlcb50Value * 0 + ofnlcb0Value * 0) * nlcbFixedMultiply;
+  const nlcb5TotalATC13 = (finlcb513Value * nlcbFixedMultiply) + (ofnlcb513Value * nlcbOtherMultiply);
+  const nlcb5TotalATC37 = (finlcb537Value * nlcbFixedMultiply) + (ofnlcb537Value * nlcbOtherMultiply);
+  const nlcb5TotalATC49 = (finlcb549Value * nlcbFixedMultiply) + (ofnlcb49Value * nlcbOtherMultiply);
+
+  const personalNlcb5Total = nlcb5TotalATC0 + nlcb5TotalATC13 + nlcb5TotalATC37 + nlcb5TotalATC49;
+
+  //////////// LL ////////////////
+  const llTotalATC0 = (fill0Value * nlcbFixedMultiply) + (ofll0Value * nlcbOtherMultiply);
+  const llTotalATC13 = (fill13Value * nlcbFixedMultiply) + (ofll13Value * nlcbOtherMultiply);
+  const llTotalATC37 = (fill37Value * nlcbOtherMultiply) + (ofll37Value * 0.01008 * 0.84 * commissionRate);
+  const llTotalATC49 = (fill49Value * 0.00504 * 0.84 * commissionRate) + (ofll49Value * 0.01008 * 0.84 * commissionRate);
+
+  const personalLlTotal = llTotalATC0 + llTotalATC13 + llTotalATC37 + llTotalATC49;
+
+  //////////// DSC ////////////////
+  const dscTotalATC0 = (fidsc0Value * nlcbFixedMultiply) + (ofdsc0Value * nlcbOtherMultiply);
+  const dscTotalATC13 = (fidsc13Value * nlcbFixedMultiply) + (ofdsc13Value * nlcbOtherMultiply);
+  const dscTotalATC37 = (fidsc37Value * nlcbFixedMultiply) + (ofdsc37Value * nlcbOtherMultiply);
+  const dscTotalATC49 = (fidsc49Value * nlcbFixedMultiply) + (ofdsc49Value * nlcbOtherMultiply);
+
+  const personalDscTotal = dscTotalATC0 + dscTotalATC13 + dscTotalATC37 + dscTotalATC49;
+
+  //////////// Total ////////////////
+  var personalAumTotal = personalNlTotal + personalNlcbTotal + personalNlcb5Total + personalLlTotal + personalDscTotal;
+};
+
+
+//////////////////////////////////////////////////////
+////////////////// BASESHOP AUM /////////////////////
+////////////////////////////////////////////////////
+// TODO: new excel - the commission is the spread (subtract contract level from the drop down level )
+
+
+////////////////////////////////////////////////////////////////
+///////////// PERSONAL & BASESHOP MONTHLY ACTIVITY ////////////
+//////////////////////////////////////////////////////////////
+const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
+  const commissionRate = getContractCommission(contractType.value);
+  const [
+    // Personal MLS
+    pmaMlsNlValue, 
+    pmaMlsNlcbValue, 
+    pmaMlsNlcb5Value,
+    // Personal MPAD
+    pmaMpadNlValue, 
+    pmaMpadNlcbValue, 
+    pmaMpadNlcb5Value,
+    // baseshop Mls
+    bsMlsTaNlValue, bsMlsTaNlcbValue, bsMlsTaNlcb5Value,
+    bsMlsaNlValue, bsMlsaNlcbValue, bsMlsaNlcb5Value,
+    bsMlsMdNlValue, bsMlsMdNlcbValue, bsMlsMdNlcb5Value,
+    bsMlsSmdNlValue, bsMlsSmdNlcbValue, bsMlsSmdNlcb5Value,
+    // baseshop Mpad
+    bsMpadTaNlValue, bsMpadTaNlcbValue, bsMpadTaNlcb5Value,
+    bsMpadaNlValue, bsMpadaNlcbValue, bsMpadaNlcb5Value,
+    bsMpadMdNlValue, bsMpadMdNlcbValue, bsMpadMdNlcb5Value,
+    bsMpadSmdNlValue, bsMpadSmdNlcbValue, bsMpadSmdNlcb5Value
+  ] = arr;
+
+  const [
+    pmaMlsTotalValue, pmaMpadTotalValue,
+    bsMlsTaTotalValue,bsMlsaTotalValue,bsMlsMdTotalValue,bsMlsSmdTotalValue,
+    bsMpadTaTotalValue,bsMpadaTotalValue,bsMpadMdTotalValue,bsMpadSmdTotalValue
+  ] = baseshopMonthlyTotalValues.map(val => cleanCurrency(val)); // to calculate step up wealth
+
+
+
+  ///////////////////
+  ///// Points ///// 
+  /////////////////
+
+  // Total Monthly Personal Upfront Points (personal monthly activity - pma)
+  const pmaNlCalc = Math.ceil((nlSc*pmaMlsNlValue*.84)+(nlSc*pmaMpadNlValue*.84));
+  const pmaNlcbCalc = Math.ceil((nlcbSc*pmaMlsNlcbValue*.84)+(nlcbSc*pmaMpadNlcbValue*.84));
+  const pmaNlcb5Calc = Math.ceil((nlcb5Sc*pmaMlsNlcb5Value*.84)+(nlcb5Sc*pmaMpadNlcb5Value*.84));
+  var totalPmaUpfrontPoints = pmaNlCalc + pmaNlcbCalc + pmaNlcb5Calc; 
+
+  // console.log(`Total Personal Montly Activity ${totalPmaUpfrontPoints}`);
+
+  // Total Monthly Personal Trailing Points (mpa = monthly pre-authorized)
+  const pmSliderDecimal = pmSlider.value / 100;
+  const pmSliderInverse = 1 - pmSliderDecimal;
+  const mpaSliderDecimal = mpaSlider.value / 100;
+  const mpaSliderInverse = 1 - mpaSliderDecimal;
+  const pmaNlTrailingCalc = Math.ceil((pmaMlsNlValue*pmSliderDecimal*0.00504*0.84)+(pmaMpadNlValue*mpaSliderDecimal*0.00504*0.84)+
+                                      (pmaMlsNlValue*pmSliderInverse*0.01008*0.84)+(pmaMpadNlValue*mpaSliderInverse*0.01008*0.84));
+  const pmaNlcbTrailingCalc = Math.ceil((pmaMlsNlcbValue*pmSliderDecimal*0.00504*0.84)+(pmaMpadNlcbValue*mpaSliderDecimal*0.00504*0.84)+
+                                      (pmaMlsNlcbValue*pmSliderInverse*0.01008*0.84)+(pmaMpadNlcbValue*mpaSliderInverse*0.01008*0.84))*0; // times 0
+  const pmaNlcb5TrailingCalc = Math.ceil((pmaMlsNlcb5Value*pmSliderDecimal*0.00504*0.84)+(pmaMpadNlcb5Value*mpaSliderDecimal*0.00504*0.84)+
+                                        (pmaMlsNlcb5Value*pmSliderInverse*0.01008*0.84)+(pmaMpadNlcb5Value*mpaSliderInverse*0.01008*0.84))*0; // times 0
+  var totalPmaTrailingPoints = pmaNlTrailingCalc + pmaNlcbTrailingCalc + pmaNlcb5TrailingCalc;
+
+  // Step Up your Wealth Points
+  const pmaNlStepUp = Math.ceil((pmaMlsNlValue*nlSc*0.84)+(pmaMpadNlValue*nlSc*0.84));
+  const pmaNlcbStepUp = Math.ceil((pmaMlsNlcbValue*nlcbSc*0.84)+(pmaMpadNlcbValue*nlcbSc*0.84));
+  const pmaNlcb5StepUp = Math.ceil((pmaMlsNlcb5Value*nlcb5Sc*0.84)+(pmaMpadNlcb5Value*nlcb5Sc*0.84));
+  var totalPmaStepUp = pmaNlStepUp + pmaNlcbStepUp + pmaNlcb5StepUp;
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////// CALCULATE BASESHOP MONTHLY ACTIVITY POINTS /////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////
+  const numBlsTaAgents = blsTaAgents.value;
+  const numBlsAAgents = blsAAgents.value;
+  const numBlsMdAgents = blsMdAgents.value;
+  const numBlsSmdAgents = blsSmdAgents.value;
+  // TODO: check that the numbers 0.0504 and .84 are the same for TA, A, MD, and SMD
+  ///// Training Associate /////  /
+  // Total monthly baseshop upfront points (baseshop monthly activity = bma)
+  const bsUpfrontNl = Math.ceil(((bsMlsTaNlValue*numBlsTaAgents)*nlSc*0.84)+((bsMpadTaNlValue*numBlsTaAgents)*nlSc*0.84));
+  const bsUpfrontNlcb = Math.ceil(((bsMlsTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84)+((bsMpadTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84));
+  const bsUpfrontNlcb5 = Math.ceil(((bsMlsTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84)+((bsMpadTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84));
+  const bsUpfrontTotal = bsUpfrontNl + bsUpfrontNlcb + bsUpfrontNlcb5;
+
+  // Total monthly baseshop trailing points 
+  const bMlsTaSliderDecimal = bMlsTaSlider.value / 100;
+  const bMlsTaSliderInverse = 1 - bMlsTaSliderDecimal;
+  const bPaTaSliderDecimal = bPaTaSlider.value / 100;
+  const bPaTaSliderInverse = 1 - bPaTaSliderDecimal;
+  const bsTrailingNl = Math.ceil(((bsMlsTaNlValue*numBlsTaAgents)*bMlsTaSliderDecimal*0.00504*0.84)+
+                                 ((bsMpadTaNlValue*numBlsTaAgents)*bPaTaSliderDecimal*0.00504*0.84)+
+                                 ((bsMlsTaNlValue*numBlsTaAgents)*bMlsTaSliderInverse*0.01008*0.84)+
+                                 ((bsMpadTaNlValue*numBlsTaAgents)*bPaTaSliderInverse*0.01008*0.84));
+  const bsTrailingNlcb = Math.ceil(((bsMlsTaNlcbValue*numBlsTaAgents)*bMlsTaSliderDecimal*0.00504*0.84)+
+                                ((bsMpadTaNlcbValue*numBlsTaAgents)*bPaTaSliderDecimal*0.00504*0.84)+
+                                ((bsMlsTaNlcbValue*numBlsTaAgents)*bMlsTaSliderInverse*0.01008*0.84)+
+                                ((bsMpadTaNlcbValue*numBlsTaAgents)*bPaTaSliderInverse*0.01008*0.84))*0; // times 0    
+  const bsTrailingNlcb5 = Math.ceil(((bsMlsTaNlcb5Value*numBlsTaAgents)*bMlsTaSliderDecimal*0.00504*0.84)+
+                                ((bsMpadTaNlcb5Value*numBlsTaAgents)*bPaTaSliderDecimal*0.00504*0.84)+
+                                ((bsMlsTaNlcb5Value*numBlsTaAgents)*bMlsTaSliderInverse*0.01008*0.84)+
+                                ((bsMpadTaNlcb5Value*numBlsTaAgents)*bPaTaSliderInverse*0.01008*0.84))*0; // times 0
+  const bsTrailingTotal = bsTrailingNl + bsTrailingNlcb + bsTrailingNlcb5; 
+
+  // baseshop up your wealth points (only calculated annually)
+  // const bsUpWealthNl = Math.ceil(((bsMlsTaNlValue*numBlsTaAgents)*nlSc*0.84)+((bsMpadTaNlValue*numBlsTaAgents)*nlSc*0.84)); 
+  // const bsUpWealthNlcb = Math.ceil(((bsMlsTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84)+((bsMpadTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84)); 
+  // const bsUpWealthNlcb5 = Math.ceil(((bsMlsTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84)+((bsMpadTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84));
+  // const bsUpWealthTotal = bsUpWealthNl + bsUpWealthNlcb + bsUpWealthNlcb5;
+   
+  ///// Associate /////
+  // Total monthly baseshop upfront points (baseshop monthly activity = bma)
+  const bsUpfrontNlA = Math.ceil((bsMlsaNlValue*numBlsAAgents*nlSc*0.84)+(bsMpadaNlValue*numBlsAAgents*nlSc*0.84));
+  const bsUpfrontNlcbA = Math.ceil((bsMlsaNlcbValue*numBlsAAgents*nlcbSc*0.84)+(bsMpadaNlcbValue*numBlsAAgents*nlcbSc*0.84));
+  const bsUpfrontNlcb5A = Math.ceil((bsMlsaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84)+(bsMpadaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84));
+  const bsUpfrontTotalA = bsUpfrontNlA + bsUpfrontNlcbA + bsUpfrontNlcb5A;
+  
+  // Total monthly baseshop trailing points 
+  const bMlsaSliderDecimal = bMlsASlider.value / 100;
+  const bMlsaSliderInverse = 1 - bMlsaSliderDecimal;
+  const bPaaSliderDecimal = bPaASlider.value / 100;
+  const bPaaSliderInverse = 1 - bPaaSliderDecimal;
+  const bsTrailingNlA = Math.ceil((bsMlsaNlValue*numBlsAAgents*bMlsaSliderDecimal*0.00504*0.84)+
+                                 (bsMpadaNlValue*numBlsAAgents*bPaaSliderDecimal*0.00504*0.84)+
+                                 (bsMlsaNlValue*numBlsAAgents*bMlsaSliderInverse*0.01008*0.84)+
+                                 (bsMpadaNlValue*numBlsAAgents*bPaaSliderInverse*0.01008*0.84));
+  const bsTrailingNlcbA = Math.ceil((bsMlsaNlcbValue*numBlsAAgents*bMlsaSliderDecimal*0.00504*0.84)+
+                                (bsMpadaNlcbValue*numBlsAAgents*bPaaSliderDecimal*0.00504*0.84)+
+                                (bsMlsaNlcbValue*numBlsAAgents*bMlsaSliderInverse*0.01008*0.84)+
+                                (bsMpadaNlcbValue*numBlsAAgents*bPaaSliderInverse*0.01008*0.84))*0; // times 0    
+  const bsTrailingNlcb5A = Math.ceil((bsMlsaNlcb5Value*numBlsAAgents*bMlsaSliderDecimal*0.00504*0.84)+
+                                (bsMpadaNlcb5Value*numBlsAAgents*bPaaSliderDecimal*0.00504*0.84)+
+                                (bsMlsaNlcb5Value*numBlsAAgents*bMlsaSliderInverse*0.01008*0.84)+
+                                (bsMpadaNlcb5Value*numBlsAAgents*bPaaSliderInverse*0.01008*0.84))*0; // times 0
+  const bsTrailingTotalA = bsTrailingNlA + bsTrailingNlcbA + bsTrailingNlcb5A;   
+
+  // baseshop up your wealth points only annually
+  // const bsUpWealthNlA = Math.ceil((bsMlsaNlValue*numBlsAAgents*nlSc*0.84)+(bsMpadaNlValue*numBlsAAgents*nlSc*0.84)); 
+  // const bsUpWealthNlcbA = Math.ceil((bsMlsaNlcbValue*numBlsAAgents*nlcbSc*0.84)+(bsMpadaNlcbValue*numBlsAAgents*nlcbSc*0.84)); 
+  // const bsUpWealthNlcb5A = Math.ceil((bsMlsaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84)+(bsMpadaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84));
+  // const bsUpWealthTotalA = bsUpWealthNlA + bsUpWealthNlcbA + bsUpWealthNlcb5A;
+
+  ///// Marketing Director /////
+  // Total monthly baseshop upfront points (baseshop monthly activity = bma)
+  const bsUpfrontNlMd = Math.ceil((bsMlsMdNlValue*numBlsMdAgents*nlSc*0.84)+(bsMpadMdNlValue*numBlsMdAgents*nlSc*0.84));
+  const bsUpfrontNlcbMd = Math.ceil((bsMlsMdNlcbValue*numBlsMdAgents*nlcbSc*0.84)+(bsMpadMdNlcbValue*numBlsMdAgents*nlcbSc*0.84));
+  const bsUpfrontNlcb5Md = Math.ceil((bsMlsMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84)+(bsMpadMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84));
+  const bsUpfrontTotalMd = bsUpfrontNlMd + bsUpfrontNlcbMd + bsUpfrontNlcb5Md;
+  
+  // Total monthly baseshop trailing points 
+  const bMlsMdSliderDecimal = bMlsMdSlider.value / 100;
+  const bMlsMdSliderInverse = 1 - bMlsMdSliderDecimal;
+  const bPaMdSliderDecimal = bPaMdSlider.value / 100;
+  const bPaMdSliderInverse = 1 - bPaMdSliderDecimal;
+  const bsTrailingNlMd = Math.ceil((bsMlsMdNlValue*numBlsMdAgents*bMlsMdSliderDecimal*0.00504*0.84)+
+                                 (bsMpadMdNlValue*numBlsMdAgents*bPaMdSliderDecimal*0.00504*0.84)+
+                                 (bsMlsMdNlValue*numBlsMdAgents*bMlsMdSliderInverse*0.01008*0.84)+
+                                 (bsMpadMdNlValue*numBlsMdAgents*bPaMdSliderInverse*0.01008*0.84));
+  const bsTrailingNlcbMd = Math.ceil((bsMlsMdNlcbValue*numBlsMdAgents*bMlsMdSliderDecimal*0.00504*0.84)+
+                                (bsMpadMdNlcbValue*numBlsMdAgents*bPaMdSliderDecimal*0.00504*0.84)+
+                                (bsMlsMdNlcbValue*numBlsMdAgents*bMlsMdSliderInverse*0.01008*0.84)+
+                                (bsMpadMdNlcbValue*numBlsMdAgents*bPaMdSliderInverse*0.01008*0.84))*0; // times 0    
+  const bsTrailingNlcb5Md = Math.ceil((bsMlsMdNlcb5Value*numBlsMdAgents*bMlsMdSliderDecimal*0.00504*0.84)+
+                                (bsMpadMdNlcb5Value*numBlsMdAgents*bPaMdSliderDecimal*0.00504*0.84)+
+                                (bsMlsMdNlcb5Value*numBlsMdAgents*bMlsMdSliderInverse*0.01008*0.84)+
+                                (bsMpadMdNlcb5Value*numBlsMdAgents*bPaMdSliderInverse*0.01008*0.84))*0; // times 0
+  const bsTrailingTotalMd = bsTrailingNlMd + bsTrailingNlcbMd + bsTrailingNlcb5Md;   
+  
+  // baseshop up your wealth points
+  // const bsUpWealthNlMd = Math.ceil((bsMlsMdNlValue*numBlsMdAgents*nlSc*0.84)+(bsMpadMdNlValue*numBlsMdAgents*nlSc*0.84));
+  // const bsUpWealthNlcbMd = Math.ceil((bsMlsMdNlcbValue*numBlsMdAgents*nlcbSc*0.84)+(bsMpadMdNlcbValue*numBlsMdAgents*nlcbSc*0.84));
+  // const bsUpWealthNlcb5Md = Math.ceil((bsMlsMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84)+(bsMpadMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84));
+  // const bsUpWealthTotalMd = bsUpWealthNlMd + bsUpWealthNlcbMd + bsUpWealthNlcb5Md;
+
+    ///// Senior Marketing Director /////
+  // Total monthly baseshop upfront points (baseshop monthly activity = bma)
+  const bsUpfrontNlSmd = Math.ceil((bsMlsSmdNlValue*numBlsSmdAgents*nlSc*0.84)+(bsMpadSmdNlValue*numBlsSmdAgents*nlSc*0.84));
+  const bsUpfrontNlcbSmd = Math.ceil((bsMlsSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84)+(bsMpadSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84));
+  const bsUpfrontNlcb5Smd = Math.ceil((bsMlsSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84)+(bsMpadSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84));
+  const bsUpfrontTotalSmd = bsUpfrontNlSmd + bsUpfrontNlcbSmd + bsUpfrontNlcb5Smd;
+
+  // Total monthly baseshop trailing points // todo: this is the spread of your contract level to associates contract level if smd and you are over smd then you get 12% spread
+  const bMlsSmdSliderDecimal = bMlsSmdSlider.value / 100;
+  const bMlsSmdSliderInverse = 1 - bMlsSmdSliderDecimal;
+  const bPaSmdSliderDecimal = bPaSmdSlider.value / 100;
+  const bPaSmdSliderInverse = 1 - bPaSmdSliderDecimal;
+  const bsTrailingNlSmd = Math.ceil((bsMlsSmdNlValue*numBlsSmdAgents*bMlsSmdSliderDecimal*0.00504*0.84)+
+                                 (bsMpadSmdNlValue*numBlsSmdAgents*bPaSmdSliderDecimal*0.00504*0.84)+
+                                 (bsMlsSmdNlValue*numBlsSmdAgents*bMlsSmdSliderInverse*0.01008*0.84)+
+                                 (bsMpadSmdNlValue*numBlsSmdAgents*bPaSmdSliderInverse*0.01008*0.84));
+  const bsTrailingNlcbSmd = Math.ceil((bsMlsSmdNlcbValue*numBlsSmdAgents*bMlsSmdSliderDecimal*0.00504*0.84)+
+                                (bsMpadSmdNlcbValue*numBlsSmdAgents*bPaSmdSliderDecimal*0.00504*0.84)+
+                                (bsMlsSmdNlcbValue*numBlsSmdAgents*bMlsSmdSliderInverse*0.01008*0.84)+
+                                (bsMpadSmdNlcbValue*numBlsSmdAgents*bPaSmdSliderInverse*0.01008*0.84))*0; // times 0   
+  const bsTrailingNlcb5Smd = Math.ceil((bsMlsSmdNlcb5Value*numBlsSmdAgents*bMlsSmdSliderDecimal*0.00504*0.84)+
+                                (bsMpadSmdNlcb5Value*numBlsSmdAgents*bPaSmdSliderDecimal*0.00504*0.84)+
+                                (bsMlsSmdNlcb5Value*numBlsSmdAgents*bMlsSmdSliderInverse*0.01008*0.84)+
+                                (bsMpadSmdNlcb5Value*numBlsSmdAgents*bPaSmdSliderInverse*0.01008*0.84))*0; // times 0
+  const bsTrailingTotalSmd = bsTrailingNlSmd + bsTrailingNlcbSmd + bsTrailingNlcb5Smd;   
+
+  // baseshop up your wealth points
+  // const bsUpWealthNlSmd = Math.ceil((bsMlsSmdNlValue*numBlsSmdAgents*nlSc*0.84)+(bsMpadSmdNlValue*numBlsSmdAgents*nlSc*0.84)); 
+  // const bsUpWealthNlcbSmd = Math.ceil((bsMlsSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84)+(bsMpadSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84)); 
+  // const bsUpWealthNlcb5Smd = Math.ceil((bsMlsSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84)+(bsMpadSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84));
+  // const bsUpWealthTotalSmd = bsUpWealthNlSmd + bsUpWealthNlcbSmd + bsUpWealthNlcb5Smd;
+
+  const bsUpfrontTotalAll = bsUpfrontTotal + bsUpfrontTotalA + bsUpfrontTotalMd + bsUpfrontTotalSmd;
+  const bsTrailingTotalAll = bsTrailingTotal + bsTrailingTotalA + bsTrailingTotalMd + bsTrailingTotalSmd;
+  // const bsUpwealthTotalAll = bsUpWealthTotal + bsUpWealthTotalA + bsUpWealthTotalMd + bsUpWealthTotalSmd;
+ 
+  ////////////////////////////////
+  ///////// Commissions /////////
+  //////////////////////////////
+  // Question: double check - the commision spread is only on trailing commisions not trailing points?
+  // get the spread between commisionRate, if it is a negative number, set it to 0
+  const commissionSpreadTa = Math.max(commissionRate - trainingAssociateCR, 0);
+  const commissionSpreadA = Math.max(commissionRate - associateCR, 0);
+  const commissionSpreadMd = Math.max(commissionRate - marketingDirectorCR, 0);
+  // for senior marketing director if spread is 0 (i.e., they are both smd's then rate is 12%)
+  const commissionSpreadSmd = Math.max(commissionRate - seniorMarketingDirectorCR, 0.12); // todo check to make sure this works
+
+  // Personal Commission - Total monthly personal upfront commissions
+  const pmaNlUpCom = (pmaMlsNlValue * nlSc * 0.84* commissionRate)+(pmaMpadNlValue*nlSc*0.84*commissionRate);
+  const pmaNlcbUpCom = (pmaMlsNlcbValue * nlcbSc * 0.84* commissionRate)+(pmaMpadNlcbValue*nlcbSc*0.84*commissionRate);
+  const pmaNlcb5UpCom = (pmaMlsNlcb5Value * nlcb5Sc * 0.84* commissionRate)+(pmaMpadNlcb5Value*nlcb5Sc*0.84*commissionRate);
+  const pmaTmpUpfrontc = Math.ceil(pmaNlUpCom + pmaNlcbUpCom + pmaNlcb5UpCom);
+
+  // Total Monthly Personal Trailing Commissions
+  const pmaNlTrailCom = (pmaMlsNlValue*pmSliderDecimal*0.00504*0.84*commissionRate)+
+                        (pmaMlsNlValue*pmSliderInverse*0.01008*0.84*commissionRate)+
+                        (pmaMpadNlValue*mpaSliderDecimal*.00504*0.84*commissionRate)+
+                        (pmaMpadNlValue*mpaSliderInverse*0.01008*0.84*commissionRate);
+  const pmaNlcbTrailCom = (pmaMlsNlcbValue*pmSliderDecimal*0.00504*0.84*commissionRate)+
+                          (pmaMlsNlcbValue*pmSliderInverse*0.01008*0.84*commissionRate)+
+                          (pmaMpadNlcbValue*mpaSliderDecimal*.00504*0.84*commissionRate)+
+                          (pmaMpadNlcbValue*mpaSliderInverse*0.01008*0.84*commissionRate);
+  const pmaNlcb55TrailCom = (pmaMlsNlcb5Value*pmSliderDecimal*0.00504*0.84*commissionRate)+
+                            (pmaMlsNlcb5Value*pmSliderInverse*0.01008*0.84*commissionRate)+
+                            (pmaMpadNlcb5Value*mpaSliderDecimal*.00504*0.84*commissionRate)+
+                            (pmaMpadNlcb5Value*mpaSliderInverse*0.01008*0.84*commissionRate);
+  const pmatmpTrailc = Math.ceil(sumArray([pmaNlTrailCom,pmaNlcbTrailCom,pmaNlcb55TrailCom]));
+
+  /////// BASESHOP COMMISSIONS /////////////
+  ////////////// Training Associate /////////////////
+  // total monthly baseshop upfront overide commissions
+  const bsUpfrontNlTaCom = (bsMlsTaNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadTa)+(bsMpadTaNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadTa);
+  const bsUpfrontNlcbTaCom = (bsMlsTaNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadTa)+(bsMpadTaNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadTa);
+  const bsUpfrontNlcb5TaCom = (bsMlsTaNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadTa)+(bsMpadTaNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadTa);
+  const bsUpfrontTaTotalCom = Math.ceil(bsUpfrontNlTaCom + bsUpfrontNlcbTaCom + bsUpfrontNlcb5TaCom);
+  
+  // Total Monthly Baseshop Trailing Override Commissions
+  const bsTrailingNlTaCom = (bsMlsTaNlValue*bMlsTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                            (bsMlsTaNlValue*bMlsTaSliderInverse*0.01008*0.84*commissionSpreadTa)+
+                            (bsMpadTaNlValue*bPaTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                            (bsMpadTaNlValue*bPaTaSliderInverse*0.01008*0.84*commissionSpreadTa);
+  const bsTrailingNlcbTaCom = (bsMlsTaNlcbValue*bMlsTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                              (bsMlsTaNlcbValue*bMlsTaSliderInverse*0.01008*0.84*commissionSpreadTa)+
+                              (bsMpadTaNlcbValue*bPaTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                              (bsMpadTaNlcbValue*bPaTaSliderInverse*0.01008*0.84*commissionSpreadTa);
+  const bsTrailingNlcb5TaCom = (bsMlsTaNlcb5Value*bMlsTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                               (bsMlsTaNlcb5Value*bMlsTaSliderInverse*0.01008*0.84*commissionSpreadTa)+
+                               (bsMpadTaNlcb5Value*bPaTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                               (bsMpadTaNlcb5Value*bPaTaSliderInverse*0.01008*0.84*commissionSpreadTa);
+  const bsTrailingTaTotalCom = Math.ceil(bsTrailingNlTaCom + bsTrailingNlcbTaCom + bsTrailingNlcb5TaCom);
+
+    ////////////// Associate /////////////////
+  // total monthly baseshop upfront overide commissions
+  const bsUpfrontNlaCom = (bsMlsaNlValue*nlSc*0.84*commissionSpreadA)+(bsMpadaNlValue*nlSc*0.84*commissionSpreadA);
+  const bsUpfrontNlcbaCom = (bsMlsaNlcbValue*nlcbSc*0.84*commissionSpreadA)+(bsMpadTaNlcbValue*nlcbSc*0.84*commissionSpreadA);
+  const bsUpfrontNlcb5aCom = (bsMlsaNlcb5Value*nlcb5Sc*0.84*commissionSpreadA)+(bsMpadTaNlcb5Value*nlcb5Sc*0.84*commissionSpreadA);
+  const bsUpfrontaTotalCom = Math.ceil(bsUpfrontNlaCom + bsUpfrontNlcbaCom + bsUpfrontNlcb5aCom);
+
+  // Total Monthly Baseshop Trailing Override Commissions
+  const bsTrailingNlACom = (bsMlsaNlValue*numBlsTaAgents*bMlsaSliderDecimal*.00504*0.84*commissionSpreadA)+
+                            (bsMlsaNlValue*numBlsTaAgents*bMlsaSliderInverse*0.01008*0.84*commissionSpreadA)+
+                            (bsMpadaNlValue*numBlsTaAgents*bPaaSliderDecimal*.00504*0.84*commissionSpreadA)+
+                            (bsMpadaNlValue*numBlsTaAgents*bPaaSliderInverse*0.01008*0.84*commissionSpreadA);
+  const bsTrailingNlcbACom = (bsMlsaNlcbValue*numBlsTaAgents*bMlsaSliderDecimal*.00504*0.84*commissionSpreadA)+
+                              (bsMlsaNlcbValue*numBlsTaAgents*bMlsaSliderInverse*0.01008*0.84*commissionSpreadA)+
+                              (bsMpadaNlcbValue*numBlsTaAgents*bPaaSliderDecimal*.00504*0.84*commissionSpreadA)+
+                              (bsMpadaNlcbValue*numBlsTaAgents*bPaaSliderInverse*0.01008*0.84*commissionSpreadA);
+  const bsTrailingNlcb5ACom = (bsMlsaNlcb5Value*numBlsTaAgents*bMlsaSliderDecimal*.00504*0.84*commissionSpreadA)+
+                               (bsMlsaNlcb5Value*numBlsTaAgents*bMlsaSliderInverse*0.01008*0.84*commissionSpreadA)+
+                               (bsMpadaNlcb5Value*numBlsTaAgents*bPaaSliderDecimal*.00504*0.84*commissionSpreadA)+
+                               (bsMpadaNlcb5Value*numBlsTaAgents*bPaaSliderInverse*0.01008*0.84*commissionSpreadA);
+  const bsTrailingATotalCom = Math.ceil(bsTrailingNlACom + bsTrailingNlcbACom + bsTrailingNlcb5ACom);
+
+    ////////////// Marketing Director /////////////////
+  // total monthly baseshop upfront overide commissions
+  const bsUpfrontNlMdCom = (bsMlsMdNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadMd)+(bsMpadMdNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadMd);
+  const bsUpfrontNlcbMdCom = (bsMlsMdNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadMd)+(bsMpadMdNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadMd);
+  const bsUpfrontNlcb5MdCom = (bsMlsMdNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadMd)+(bsMpadMdNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadMd);
+  const bsUpfrontMdTotalCom = Math.ceil(bsUpfrontNlMdCom + bsUpfrontNlcbMdCom + bsUpfrontNlcb5MdCom);
+
+  // Totol Monthly Baseshop Trailing Override Commissions
+  const bsTrailingNlMdCom = (bsMlsMdNlValue*numBlsTaAgents*bMlsMdSliderDecimal*.00504*0.84*commissionSpreadMd)+
+                            (bsMlsMdNlValue*numBlsTaAgents*bMlsMdSliderInverse*0.01008*0.84*commissionSpreadMd)+
+                            (bsMpadMdNlValue*numBlsTaAgents*bPaMdSliderDecimal*.00504*0.84*commissionSpreadMd)+
+                            (bsMpadMdNlValue*numBlsTaAgents*bPaMdSliderInverse*0.01008*0.84*commissionSpreadMd);
+  const bsTrailingNlcbMdCom = (bsMlsMdNlcbValue*numBlsTaAgents*bMlsMdSliderDecimal*.00504*0.84*commissionSpreadMd)+
+                              (bsMlsMdNlcbValue*numBlsTaAgents*bMlsMdSliderInverse*0.01008*0.84*commissionSpreadMd)+
+                              (bsMpadMdNlcbValue*numBlsTaAgents*bPaMdSliderDecimal*.00504*0.84*commissionSpreadMd)+
+                              (bsMpadMdNlcbValue*numBlsTaAgents*bPaMdSliderInverse*0.01008*0.84*commissionSpreadMd);
+  const bsTrailingNlcb5MdCom = (bsMlsMdNlcb5Value*numBlsTaAgents*bMlsMdSliderDecimal*.00504*0.84*commissionSpreadMd)+
+                               (bsMlsMdNlcb5Value*numBlsTaAgents*bMlsMdSliderInverse*0.01008*0.84*commissionSpreadMd)+
+                               (bsMpadMdNlcb5Value*numBlsTaAgents*bPaMdSliderDecimal*.00504*0.84*commissionSpreadMd)+
+                               (bsMpadMdNlcb5Value*numBlsTaAgents*bPaMdSliderInverse*0.01008*0.84*commissionSpreadMd);
+  const bsTrailingMdTotalCom = Math.ceil(bsTrailingNlMdCom + bsTrailingNlcbMdCom + bsTrailingNlcb5MdCom);
+
+    ////////////// Senior Marketing Director /////////////////
+  // total monthly baseshop upfront overide commissions
+  const bsUpfrontNlSmdCom = (bsMlsSmdNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadSmd)+(bsMpadSmdNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadSmd);
+  const bsUpfrontNlcbSmdCom = (bsMlsSmdNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadSmd)+(bsMpadSmdNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadSmd);
+  const bsUpfrontNlcb5SmdCom = (bsMlsSmdNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadSmd)+(bsMpadSmdNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadSmd);
+  const bsUpfrontSmdTotalCom = Math.ceil(bsUpfrontNlSmdCom + bsUpfrontNlcbSmdCom + bsUpfrontNlcb5SmdCom);
+
+  // Total Monthly Baseshop Trailing Override Commissions
+  const bsTrailingNlSmdCom = (bsMlsSmdNlValue*numBlsTaAgents*bMlsSmdSliderDecimal*.00504*0.84*commissionSpreadSmd)+
+                            (bsMlsSmdNlValue*numBlsTaAgents*bMlsSmdSliderInverse*0.01008*0.84*commissionSpreadSmd)+
+                            (bsMpadSmdNlValue*numBlsTaAgents*bPaSmdSliderDecimal*.00504*0.84*commissionSpreadSmd)+
+                            (bsMpadSmdNlValue*numBlsTaAgents*bPaSmdSliderInverse*0.01008*0.84*commissionSpreadSmd);
+  const bsTrailingNlcbSmdCom = (bsMlsSmdNlcbValue*numBlsTaAgents*bMlsSmdSliderDecimal*.00504*0.84*commissionSpreadSmd)+
+                              (bsMlsSmdNlcbValue*numBlsTaAgents*bMlsSmdSliderInverse*0.01008*0.84*commissionSpreadSmd)+
+                              (bsMpadSmdNlcbValue*numBlsTaAgents*bPaSmdSliderDecimal*.00504*0.84*commissionSpreadSmd)+
+                              (bsMpadSmdNlcbValue*numBlsTaAgents*bPaSmdSliderInverse*0.01008*0.84*commissionSpreadSmd);
+  const bsTrailingNlcb5SmdCom = (bsMlsSmdNlcb5Value*numBlsTaAgents*bMlsSmdSliderDecimal*.00504*0.84*commissionSpreadSmd)+
+                               (bsMlsSmdNlcb5Value*numBlsTaAgents*bMlsSmdSliderInverse*0.01008*0.84*commissionSpreadSmd)+
+                               (bsMpadSmdNlcb5Value*numBlsTaAgents*bPaSmdSliderDecimal*.00504*0.84*commissionSpreadSmd)+
+                               (bsMpadSmdNlcb5Value*numBlsTaAgents*bPaSmdSliderInverse*0.01008*0.84*commissionSpreadSmd);
+  const bsTrailingSmdTotalCom = Math.ceil(bsTrailingNlSmdCom + bsTrailingNlcbSmdCom + bsTrailingNlcb5SmdCom);
+
+  const bsUpfrontComAll = bsUpfrontTaTotalCom + bsUpfrontaTotalCom + bsUpfrontMdTotalCom + bsUpfrontSmdTotalCom;
+  const bsTrailingComAll = bsTrailingTaTotalCom + bsTrailingATotalCom + bsTrailingMdTotalCom + bsTrailingSmdTotalCom;
+
+
+
+
+    /// adding points (provide toggle functionality to turn off or remove certain parts from total)
+    // todo; make sure I'm accounting for the number of associates. currently june 12 I am not accounting for # associates in points calculation
+  // todo: could store monthlyPointsPayout value and rather than rerunning everything, just do this part
+  /////////// MONTHLY SUMMARY PAGE ////////////////// 
+  var monthlyPointsTotal = 0; 
+  var monthlyCommisionTotal = 0;
+  // upfront
+  if (togglePersonalPointsBaseshopMonthly.classList.contains("active-summary")) {
+    monthlyPointsTotal += totalPmaUpfrontPoints;
+    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+
+    monthlyCommisionTotal += pmaTmpUpfrontc;
+    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+  } else {
+    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+  }
+
+  // Trailing
+  if (togglePersonalPointsBaseshopOverridesMonthly.classList.contains("active-summary")) {
+    monthlyPointsTotal += totalPmaTrailingPoints;
+    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+
+    monthlyCommisionTotal += pmatmpTrailc;
+    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+  } else {
+    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+  }
+
+  // // Stepup - stepup is only for annual not for monthly
+  // if (togglePersonalPointsBaseshopStepMonthly.classList.contains("active-summary")) {
+  //   monthlyPointsTotal += totalPmaStepUp;
+  //   monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+  // } else {
+  //   monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+  // }
+  //// BASESHOP /////
+  // upfront
+  if (toggleBaseshopPointsBaseshopMonthly.classList.contains("active-summary")) {
+    monthlyPointsTotal += bsUpfrontTotalAll;
+    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+
+    monthlyCommisionTotal += bsUpfrontComAll;
+    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+  } else {
+    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+  }
+
+  // Trailing
+  if (toggleBaseshopPointsBaseshopOverridesMonthly.classList.contains("active-summary")) {
+    monthlyPointsTotal += bsTrailingTotalAll;
+    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+
+    monthlyCommisionTotal += bsTrailingComAll;
+    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+  } else {
+    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+  }
+
+  // stepup -- stepup is only for annual not monthly
+  // if (toggleBaseshopPointsBaseshopStepMonthly.classList.contains("active-summary")) {
+  //   monthlyPointsTotal += bsUpwealthTotalAll;
+  //   monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+  // } else {
+  //   monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+  // }
+
+ ////////// YEARLY SUMMARY PAGE //////////////////
+  // POINTS
+
+  // todo: are thse suppose to be multiplied by 12 for the year total? or perhaps the total is just multiplied by 12?? this is annual but using month values
+  const personalStepupNlPoints = Math.ceil(((pmaMlsNlValue) * nlSc * 0.84)+((pmaMpadNlValue)*nlSc*0.84));
+  const personalStepupNlcbPoints = Math.ceil(((pmaMlsNlcbValue) * nlcbSc * 0.84)+((pmaMpadNlcbValue)*nlcbSc*0.84));
+  const personalStepupNlcb5Points = Math.ceil(((pmaMlsNlcb5Value) * nlcb5Sc * 0.84)+((pmaMpadNlcb5Value)*nlcb5Sc*0.84));
+  const personalStepupPointsAll = (personalStepupNlPoints + personalStepupNlcbPoints + personalStepupNlcb5Points); 
+
+  // baseshop points
+  // todo: are thse suppose to be multiplied by 12 for the year total? or perhaps the total is just multiplied by 12?? this is annual but using month values
+  const bsStepupPointsNlTa = (bsMlsTaNlValue * nlSc *0.84)+(bsMpadTaNlValue * nlSc * 0.84);
+  const bsStepupPointsNlcbTa = (bsMlsTaNlcbValue * nlcbSc *0.84)+(bsMpadTaNlcbValue * nlcbSc * 0.84);
+  const bsStepupPointsNlcb5Ta = (bsMlsTaNlcb5Value * nlcb5Sc *0.84)+(bsMpadTaNlcb5Value * nlcb5Sc * 0.84);
+
+  const bsStepupPointsNlA = (bsMlsaNlValue * nlSc *0.84)+(bsMpadaNlValue * nlSc * 0.84);
+  const bsStepupPointsNlcbA = (bsMlsaNlcbValue * nlcbSc *0.84)+(bsMpadaNlcbValue * nlcbSc * 0.84);
+  const bsStepupPointsNlcb5A = (bsMlsaNlcb5Value * nlcb5Sc *0.84)+(bsMpadaNlcb5Value * nlSc * 0.84);
+  
+  const bsStepupPointsNlMd = (bsMlsMdNlValue * nlSc *0.84)+(bsMpadMdNlValue * nlSc * 0.84);
+  const bsStepupPointsNlcbMd = (bsMlsMdNlcbValue * nlcbSc *0.84)+(bsMpadMdNlcbValue * nlcbSc * 0.84);
+  const bsStepupPointsNlcb5Md = (bsMlsMdNlcb5Value * nlcb5Sc *0.84)+(bsMpadMdNlcb5Value * nlcb5Sc * 0.84);
+
+
+  const bsStepupPointsNlSmd = (bsMlsSmdNlValue * nlSc *0.84)+(bsMpadSmdNlValue * nlSc * 0.84);
+  const bsStepupPointsNlcbSmd = (bsMlsSmdNlcbValue * nlcbSc *0.84)+(bsMpadSmdNlcbValue * nlcbSc * 0.84);
+  const bsStepupPointsNlcb5Smd = (bsMlsSmdNlcb5Value * nlcb5Sc *0.84)+(bsMpadSmdNlcb5Value * nlcbSc * 0.84);
+
+  const bsStepupPointsAll = Math.ceil(bsStepupPointsNlTa + bsStepupPointsNlcbTa + bsStepupPointsNlcb5Ta + 
+    bsStepupPointsNlA + bsStepupPointsNlcbA + bsStepupPointsNlcb5A +
+    bsStepupPointsNlMd + bsStepupPointsNlcbMd + bsStepupPointsNlcb5Md +
+    bsStepupPointsNlSmd + bsStepupPointsNlcbSmd + bsStepupPointsNlcb5Smd
+    );
+
+  // COMMISSIONS
+  const notEliteBonusRate = {
+    '0.00 - 249999.99': 0.00,
+    '250000.00 - 499999.99': 0.0025,
+    '500000.00 - 749999.99': 0.005,
+    '750000.00 - 10000000': 0.0075
+  };
+
+  const eliteBonusRates = {
+    '0.00 - 249999.99': 0.0,
+    '250000.00 - 499999.99': 0.0025,
+    '500000.00 - 749999.99': 0.0050,
+    '750000.00 - 999999.99': 0.0075, // changed 
+    '1000000 - 10000000': 0.001 // changed 
+  };
+
+  const findBonusRate = (value, bonusrate) => {
+    // if number is larger than 10m use 10 mill to get 10m rate
+    value = Math.min(10_000_000, value)
+    // Iterate over the keys (ranges) of the bonusrate object
+    for (const range in bonusrate) {
+      if (bonusrate.hasOwnProperty(range)) {
+        const [lower, upper] = range.split(' - ');  // Split the range into lower and upper bounds
+        // Convert lower and upper bounds to numbers
+        const lowerBound = Number(lower);
+        const upperBound = Number(upper);
+        // Check if the value is within the range
+        if (value >= lowerBound && value <= upperBound) {
+          return bonusrate[range];
+          break;  // Exit the loop if a match is found
+        }
+      }
+    }
+  }
+
+  // Personal step up your wealth
+  const pmaSumOfLumpSumAndPad = (pmaMlsTotalValue + pmaMpadTotalValue)*12;
+  let pmaBonusRate = 0;
+
+  if (eliteAdvisor === "elite-yes") {
+    pmaBonusRate = findBonusRate(pmaSumOfLumpSumAndPad, eliteBonusRates);
+  } else {
+    pmaBonusRate = findBonusRate(pmaSumOfLumpSumAndPad, notEliteBonusRate);
+  }
+  
+  const pmaYearlyStepUpCommission = Math.ceil(Math.min(10_000_000, pmaSumOfLumpSumAndPad) * pmaBonusRate * 0.84 * commissionRate);
+
+  // BS step up your wealth
+  // total step up your wealth program rate
+  // need to x12 to get total for the year
+  const bsSumOfLumpSumAndPadTa = (bsMlsTaTotalValue + bsMpadTaTotalValue)*12;
+  const bsSumOfLumpSumAndPadA = (bsMlsaTotalValue + bsMpadaTotalValue)*12;
+  const bsSumOfLumpSumAndPadMd = (bsMlsMdTotalValue + bsMpadMdTotalValue)*12;
+  const bsSumOfLumpSumAndPadSmd = (bsMlsSmdTotalValue + bsMpadSmdTotalValue)*12;
+ 
+  let bsBonusRateTa = 0;
+  let bsBonusRateA = 0;
+  let bsBonusRateMd = 0;
+  let bsBonusRateSmd = 0;
+
+  // Step up your wealth personal commission  
+  if (eliteAdvisor === "elite-yes") {
+    bsBonusRateTa = findBonusRate(bsSumOfLumpSumAndPadTa, eliteBonusRates);
+    bsBonusRateA = findBonusRate(bsSumOfLumpSumAndPadA, eliteBonusRates);
+    bsBonusRateMd = findBonusRate(bsSumOfLumpSumAndPadMd, eliteBonusRates);
+    bsBonusRateSmd = findBonusRate(bsSumOfLumpSumAndPadSmd, eliteBonusRates);
+    
+  } else { // todo: if the page is reloaded the button needs to be presseed again if not it is an empty string
+    bsBonusRateTa = findBonusRate(bsSumOfLumpSumAndPadTa, notEliteBonusRate);
+    bsBonusRateA = findBonusRate(bsSumOfLumpSumAndPadA, notEliteBonusRate);
+    bsBonusRateMd = findBonusRate(bsSumOfLumpSumAndPadMd, notEliteBonusRate);
+    bsBonusRateSmd = findBonusRate(bsSumOfLumpSumAndPadSmd, notEliteBonusRate);
+  } 
+
+  const bsYearlyStepUpCommissionTa = Math.min(10_000_000,bsSumOfLumpSumAndPadTa) * bsBonusRateTa * 0.84 * commissionSpreadTa;
+  const bsYearlyStepUpCommissionA = Math.min(10_000_000,bsSumOfLumpSumAndPadA) * bsBonusRateA * 0.84 * commissionSpreadTa;
+  const bsYearlyStepUpCommissionMd = Math.min(10_000_000,bsSumOfLumpSumAndPadMd) * bsBonusRateMd * 0.84 * commissionSpreadTa;
+  const bsYearlyStepUpCommissionSmd = Math.min(10_000_000,bsSumOfLumpSumAndPadSmd) * bsBonusRateSmd * 0.84 * commissionSpreadTa;
+  const bsYearlyStepUpCommissionAll = Math.ceil(bsYearlyStepUpCommissionTa + bsYearlyStepUpCommissionA + bsYearlyStepUpCommissionMd + bsYearlyStepUpCommissionSmd);
+
+
+// TODO step up your wealth baseshop points
+
+ var yearlyPointsTotal = 0; 
+ var yearlyCommisionTotal = 0;
+   /// adding points (provide toggle functionality to turn off or remove certain parts from total)
+   // todo; make sure I'm accounting for the number of associates. currently june 12 I am not accounting for # associates in points calculation
+ // todo: could store monthlyPointsPayout value and rather than rerunning everything, just do this part
+ // todo: it looks like totalPmaUpfrontPoints and totalPmaStepup are not being used... (they are lighter blue)
+  const allMonthlySummaryValues = [totalPmaUpfrontPoints, pmaTmpUpfrontc, pmatmpTrailc,
+    totalPmaStepUp, bsUpfrontTotalAll, bsUpfrontComAll, bsTrailingTotalAll, bsTrailingComAll,
+    ]; 
+  const [
+    totalPmaUpfrontYearlyPoints, pmaTmpUpfrontcYearly, pmatmpTrailcYearly,
+    totalPmaStepUpYearly, bsUpfrontYearlyTotalAll, bsUpfrontYearlyComAll, 
+    bsTrailingYearlyTotalAll, bsTrailingYearlyComAll
+  ] = allMonthlySummaryValues.map(x => x*12);
+ // upfront
+ if (togglePersonalPointsBaseshopYearly.classList.contains("active-summary")) {
+   yearlyPointsTotal += totalPmaUpfrontYearlyPoints;
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+
+   yearlyCommisionTotal += pmaTmpUpfrontcYearly; // pmaTmpUpfrontc is darker blue??
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ } else {
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ }
+
+ // Trailing
+ if (togglePersonalPointsBaseshopOverridesYearly.classList.contains("active-summary")) {
+   yearlyPointsTotal += totalPmaTrailingPoints;
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+
+   yearlyCommisionTotal += pmatmpTrailcYearly; // is darker blue??
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ } else {
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ }
+
+ // Stepup
+ if (togglePersonalPointsBaseshopStepYearly.classList.contains("active-summary")) {
+   yearlyPointsTotal += personalStepupPointsAll;
+   yearlyPointsPayout.textContent = personalStepupPointsAll.toLocaleString();
+   
+   yearlyCommisionTotal += pmaYearlyStepUpCommission;
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ } else {
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   
+ }
+ //// BASESHOP /////
+ // upfront
+ if (toggleBaseshopPointsBaseshopYearly.classList.contains("active-summary")) {
+   yearlyPointsTotal += bsUpfrontYearlyTotalAll;
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+
+   yearlyCommisionTotal += bsUpfrontYearlyComAll;
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ } else {
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ }
+
+ // Trailing
+ if (toggleBaseshopPointsBaseshopOverridesYearly.classList.contains("active-summary")) {
+   yearlyPointsTotal += bsTrailingYearlyTotalAll;
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+
+   yearlyCommisionTotal += bsTrailingYearlyComAll;
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ } else {
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ }
+
+ // stepup
+ if (toggleBaseshopPointsBaseshopStepYearly.classList.contains("active-summary")) {
+   yearlyPointsTotal += bsStepupPointsAll; // bsUpwealthYearlyTotalAll;
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+
+  yearlyCommisionTotal += bsYearlyStepUpCommissionAll;
+  yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ } else {
+   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+  yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+ }
+
+
+}
+
+
+// custom dropdown 
+function show(anything) {
+  document.querySelector('.textBox').value = anything;
+}
+
+let dropdown = document.querySelector('.dropdown');
+dropdown.onclick = function() {
+  dropdown.classList.toggle('active');
+}
 
 
 
@@ -886,3 +1898,13 @@ for (i = 0; i < baseshopAumInputs.length; i++) {
 
 // TODO: change all the contribution amount ID names
 // for the baseshop slider and inputs the names are toggle-inner-mls-smd but I should identify it is from baseshop not personal
+// When getting totals/sums check to see if there are values in the cell. If there are then run the function on startup
+//      if there are no values then wait. Otherwise, on refresh there will be values in input, but the totals won't be correct
+// create a reset button
+
+
+
+
+
+
+// todo; did I miss the personal baseshop calculations?
