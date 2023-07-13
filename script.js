@@ -3,7 +3,9 @@ const tabs = document.querySelectorAll('[data-tab-target]');
 const tabContents = document.querySelectorAll('[data-tab-content');
 
 // Contract type
-var contractType = document.getElementById('contract-select');
+let contractType = ''; // document.getElementById('contract-select');
+
+
 
 // 0 - 12 month inputs
 var finl0 = document.getElementById('finl0');
@@ -360,9 +362,6 @@ var bpaAAgents = document.getElementById("bpa-a-agents");
 var bpaMdAgents = document.getElementById("bpa-md-agents");
 var bpaSmdAgents = document.getElementById("bpa-smd-agents");
 
-
-
-
 ///////////////////////////////////////////////////////////
 ////////////////  Summary Pages///////////////////////////
 ///////////////////////////////////////////////////////////
@@ -373,6 +372,8 @@ var goalPointsPayout = document.getElementById("goal-points-payout");
 var monthlyCommissionPayout = document.getElementById('monthly-commission-payout');
 var yearlyCommissionPayout = document.getElementById('yearly-commission-payout');
 var goalCommissionPayout = document.getElementById('goal-commission-payout');
+
+var passiveIncomeGoalInput = document.getElementById("passive-income-goal");
 
 // var aumButton = document.getElementById('aum-button');
 
@@ -466,13 +467,13 @@ const personalAumEls = [
   finl49, ofnl49, finlcb49, ofnlcb49, finlcb549, ofnlcb549, fill49, 
   ofll49, fidsc49, ofdsc49, 
 ]
-
-personalAumEls.forEach((el) => {
-  el.addEventListener('input', function() {
-    el.value = formatUserCurrency(el.value);
-    calculatePersonalAum();
-  })
-});
+// this is being covered in a for loop that uses personalAumInputs[i].addEventListener("input", function() {
+// personalAumEls.forEach((el) => {
+//   el.addEventListener('input', function() {
+//     el.value = formatUserCurrency(el.value);
+//     calculatePersonalAum();
+//   })
+// });
 
 
 
@@ -955,6 +956,24 @@ const sumArray = (array) => {
 };
 
 // get the sum of all personal AUM input cells
+let cleanedPersonalAumValues = []; // declare outside so it is globally available, 
+const cleanPersonalAumValues = () => {
+  const personalAumValues = [
+    finl0.value, ofnl0.value, finlcb0.value, ofnlcb0.value, finlcb50.value, ofnlcb50.value, fill0.value, ofll0.value, 
+    fidsc0.value, ofdsc0.value, finl13.value, ofnl13.value, finlcb13.value, ofnlcb13.value, finlcb513.value, 
+    ofnlcb513.value, fill13.value, ofll13.value, fidsc13.value, ofdsc13.value, finl37.value, ofnl37.value, finlcb37.value, 
+    ofnlcb37.value, finlcb537.value, ofnlcb537.value, fill37.value, ofll37.value, fidsc37.value, ofdsc37.value, 
+    finl49.value, ofnl49.value, finlcb49.value, ofnlcb49.value, finlcb549.value, ofnlcb549.value, fill49.value, 
+    ofll49.value, fidsc49.value, ofdsc49.value, 
+  ];
+  // this list of arrays must be here to update everytime a input is updated
+  const arrayNoEmpty = replaceEmpty(personalAumValues);
+  cleanedPersonalAumValues = arrayNoEmpty.map(cleanCurrency);
+
+};
+
+cleanPersonalAumValues();
+
 for (i = 0; i < personalAumInputs.length; i++) {
   personalAumInputs[i].addEventListener("input", function() {
     // this list of arrays must be here to update everytime a input is updated
@@ -967,10 +986,10 @@ for (i = 0; i < personalAumInputs.length; i++) {
       ofll49.value, fidsc49.value, ofdsc49.value, 
     ]
     const arrayNoEmpty = replaceEmpty(personalAumValues);
-    const cleanedPersonalAumValues = arrayNoEmpty.map(cleanCurrency);
+    cleanedPersonalAumValues = arrayNoEmpty.map(cleanCurrency);
     let sum = sumArray(cleanedPersonalAumValues);
     personalAumSum.textContent = formatUserCurrency(sum);
-    calculatePersonalAum(cleanedPersonalAumValues);
+    calculatePersonalAum(cleanedPersonalAumValues); // because I declare cleanedPersonalAumValues outside the function I don't need to technically pass it
     
   });
 }
@@ -1205,7 +1224,8 @@ radioButtons.forEach(function(radioButton) {
 // set commissionRate as global variable
 var commissionRate = 0;
 const calculatePersonalAum = (arr) => {
-  const commissionRate = getContractCommission(contractType.value);
+  const commissionRate = getContractCommission(contractType); 
+  console.log(commissionRate, contractType)
   // const commissionRate = getContractCommission(contractType.value);
 
   ///////////// 0 - 12 months ///////////////
@@ -1263,6 +1283,10 @@ const calculatePersonalAum = (arr) => {
 
   //////////// Total ////////////////
   var personalAumTotal = personalNlTotal + personalNlcbTotal + personalNlcb5Total + personalLlTotal + personalDscTotal;
+
+  // Here here
+
+
 };
 
 
@@ -1276,7 +1300,7 @@ const calculatePersonalAum = (arr) => {
 ///////////// PERSONAL & BASESHOP MONTHLY ACTIVITY ////////////
 //////////////////////////////////////////////////////////////
 const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
-  const commissionRate = getContractCommission(contractType.value);
+  const commissionRate = getContractCommission(contractType);
   const [
     // Personal MLS
     pmaMlsNlValue, 
@@ -1878,13 +1902,96 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
  }
 
+  /////////////////////////////////
+  ///// Projections Page /////////
+  ///////////////////////////////
+  const [
+    finl0Value, ofnl0Value, finlcb0Value, ofnlcb0Value, finlcb50Value, ofnlcb50Value, fill0Value, ofll0Value, 
+    fidsc0Value, ofdsc0Value, finl13Value, ofnl13Value, finlcb13Value, ofnlcb13Value, finlcb513Value, 
+    ofnlcb513Value, fill13Value, ofll13Value, fidsc13Value, ofdsc13Value, finl37Value, ofnl37Value, finlcb37Value, 
+    ofnlcb37Value, finlcb537Value, ofnlcb537Value, fill37Value, ofll37Value, fidsc37Value, ofdsc37Value, 
+    finl49Value, ofnl49Value, finlcb49Value, ofnlcb49Value, finlcb549Value, ofnlcb549Value, fill49Value, 
+    ofll49Value, fidsc49Value, ofdsc49Value, 
+  ] = cleanedPersonalAumValues;
+  
+  const pAumFixedNlValues = [finl0Value, finl13Value, finl37Value, finl49Value];
+  const pAumBalancedNlValues = [ofnl0Value, ofnl13Value, ofnl37Value, ofnl49Value];
+  const pAumFixedNlcbValues = [finlcb0Value, finlcb13Value, finlcb37Value, finlcb49Value];
+  const pAumBalancedNlcbValues = [ofnlcb0Value, ofnlcb13Value, ofnlcb37Value, ofnlcb49Value];
+  const pAumFixedNlcb5Values = [finlcb50Value, finlcb513Value, finlcb537Value, finlcb549Value];
+  const pAumBalancedNlcb5Values = [ofnlcb50Value, ofnlcb513Value, ofnlcb537Value, ofnlcb549Value];
+  const pAumFixedLlValues = [fill0Value, fill13Value, fill37Value, fill49Value];
+  const pAumBalancedLlValues = [ofll0Value, ofll13Value, ofll37Value, ofll49Value];
+  const pAumFixedDscValues = [fidsc0Value, fidsc13Value, fidsc37Value, fidsc49Value];
+  const pAumBalancedDscValues = [ofdsc0Value, ofdsc13Value, ofdsc37Value, ofdsc49Value];
+
+  const personalAumArrays = [pAumFixedNlValues, pAumBalancedNlValues, pAumFixedNlcbValues, pAumBalancedNlcbValues,
+    pAumFixedNlcb5Values,pAumBalancedNlcb5Values,pAumFixedLlValues,pAumBalancedLlValues,pAumFixedDscValues,
+    pAumBalancedDscValues
+  ];
+
+
+  // passiveIncomeGoalInput // probably don't need this right away.... 
+  const numberOfPeriods = yearSlider.value;
+  const interestRate = rateReturnSlider.value / 100;
+  const calculateFutureValue = (cashOutflows) => {
+    const futureValue = cashOutflows * Math.pow(1 + interestRate, numberOfPeriods);
+    return futureValue;
+  }
+  
+  let futurePersonalAumValues = [];
+  personalAumArrays.forEach(arr => {
+    const cashOutFlows = sumArray(arr);
+    let futureValue = calculateFutureValue(cashOutFlows).toFixed(2);
+    futurePersonalAumValues.push(futureValue);
+    //todo I'm not going to calc the total for the fixed income and balanced/equity for each group  (i.e., NL). I'll just calc the total of all groups for now
+  });
+  const sumPersonalAumProjectedValues = sumArray(futurePersonalAumValues);
+  // console.log(sumPersonalAumProjectedValues);
+ 
+  // Personal Monthly lump sum activity
+  // pmSliderDecimal //u10
+  // pmSliderInverse //u11
+  // pmaMlsNlValue // j10
+  
+
+  // todo: nl, nlcb, nlcb5? are these added together somewhere?
+  const pmaFixedPresentValueNl = pmaMlsNlValue * pmSliderDecimal * 12;
+  const pmaFixedNlProjectedValue =  parseFloat(calculateFutureValue(pmaFixedPresentValueNl).toFixed(2));
+  const pmaFixedPresentValueNlcb = pmaMlsNlcbValue * pmSliderDecimal * 12;
+  const pmaFixedNlcbProjectedValue =  parseFloat(calculateFutureValue(pmaFixedPresentValueNlcb).toFixed(2));
+  const pmaFixedPresentValueNlcb5 = pmaMlsNlcb5Value * pmSliderDecimal * 12;
+  const pmaFixedNlcb5ProjectedValue =  parseFloat(calculateFutureValue(pmaFixedPresentValueNlcb5).toFixed(2));
+
+  const pmaBalancedPresentValueNl = pmaMlsNlValue * pmSliderInverse * 12;
+  const pmaBalancedNlProjectedValue =  parseFloat(calculateFutureValue(pmaBalancedPresentValueNl).toFixed(2));
+  const pmaBalancedPresentValueNlcb = pmaMlsNlcbValue * pmSliderInverse * 12;
+  const pmaBalancedNlcbProjectedValue =  parseFloat(calculateFutureValue(pmaBalancedPresentValueNlcb).toFixed(2));
+  const pmaBalancedPresentValueNlcb5 = pmaMlsNlcb5Value * pmSliderInverse * 12;
+  const pmaBalancedNlcb5ProjectedValue =  parseFloat(calculateFutureValue(pmaBalancedPresentValueNlcb5).toFixed(2));
+
+ 
+  const pmaFixedProjectedValueAll = pmaFixedNlProjectedValue + pmaFixedNlcbProjectedValue + pmaFixedNlcb5ProjectedValue;
+  const pmaBalancedProjectedValueAll = pmaBalancedNlProjectedValue + pmaBalancedNlcbProjectedValue + pmaBalancedNlcb5ProjectedValue;
+ console.log(pmaFixedNlProjectedValue, pmaFixedNlcbProjectedValue) // todo these are not the correct values
+
+
+  // =FV($G$6,$G$7,(-'Personal Monthly Activity'!J10*'Personal Monthly Activity'!U10*12),0,)
+  // =FV($G$6,$G$7,(-'Personal Monthly Activity'!J10*'Personal Monthly Activity'!U11*12),0,)
+
+  // const cashOutflows = (finl0Value + finl13Value + finl37Value + finl49Value); // does this need to be negative? i.e., subtracting i'm getting correct answer
+
+   
+  // console.log(calculateFutureValue(cashOutflows).toFixed(2));
+ 
 
 }
 
 
 // custom dropdown 
-function show(anything) {
-  document.querySelector('.textBox').value = anything;
+function show(option) {
+  document.querySelector('.textBox').value = option;
+  contractType = option;
 }
 
 let dropdown = document.querySelector('.dropdown');
@@ -1892,9 +1999,174 @@ dropdown.onclick = function() {
   dropdown.classList.toggle('active');
 }
 
+// this runs right after html is loaded so it can grab contract level even if it was already slected
+// and not activated in that particular session
+window.addEventListener('DOMContentLoaded', function() {
+  // Get the first option by default
+  const defaultOption = document.querySelector('.option div:first-child');
+  const selectedOption = defaultOption.textContent;
+  
+  
+  // Set the initial value in the input field
+  const selectedOptionInput = document.getElementById('selectedOption');
+  selectedOptionInput.value = selectedOption;
+
+  // Perform your desired action with the initial value
+  show(selectedOption);
+});
 
 
 
+////////////////////////////
+////// LINE CHART /////////
+//////////////////////////
+// Data
+// console.log('passive income', passiveIncomeGoalInput);
+// console.log('input year', yearSlider);
+// console.log('rate of return', rateReturnSlider)
+let startingValue = 10_000; // Initial investment
+let passiveIncomeGoal = 20_000; // Goal amount
+let years = 10; // Number of years
+let data = [];
+
+// Calculate yearly returns based on interest rate
+function calculateReturns(interestRate) {
+  let value = startingValue;
+  const returns = [value];
+
+  for (let i = 1; i <= years; i++) {
+    value += value * (interestRate / 100);
+    returns.push(value);
+  }
+
+  return returns;
+}
+
+// Slider
+// const rateReturnSlider = document.getElementById('interestRate');
+const interestRateValue = document.getElementById('rate-of-return-slider');
+
+rateReturnSlider.addEventListener('input', function() {
+  const interestRate = +this.value;
+  interestRateValue.textContent = interestRate;
+  const returns = calculateReturns(interestRate);
+  updateChart(returns);
+});
+
+// const yearSlider = document.getElementById('years');
+const yearsSlider = document.getElementById('year-input');
+
+yearSlider.addEventListener('input', function() {
+  years = +this.value;
+  yearsSlider.textContent = years;
+  const returns = calculateReturns(rateReturnSlider.value);
+  updateChart(returns);
+});
+
+// Starting value input
+const startingValueInput = document.getElementById('startingValue');
+
+startingValueInput.addEventListener('input', function() {
+  startingValue = +this.value;
+  const returns = calculateReturns(rateReturnSlider.value);
+  updateChart(returns);
+});
+
+// Goal amount input
+
+
+passiveIncomeGoalInput.addEventListener('input', function() {
+  passiveIncomeGoal = cleanCurrency(this.value);
+  console.log('this', this.value)
+  const returns = calculateReturns(rateReturnSlider.value);
+  updateChart(returns);
+});
+
+// Line Chart
+const svg = d3.select('#chart');
+const margin = { top: 20, right: 30, bottom: 30, left: 95 };
+const width = +svg.attr('width') - margin.left - margin.right;
+const height = +svg.attr('height') - margin.top - margin.bottom;
+
+const xScale = d3.scaleLinear().range([0, width]);
+const yScale = d3.scaleLinear().range([height, 0]);
+
+const xAxis = d3.axisBottom(xScale).tickFormat(d3.format('d')).ticks(years);
+const yAxis = d3.axisLeft(yScale).tickFormat(d3.format('$,'));
+
+const line = d3.line()
+  .x((d, i) => xScale(i))
+  .y(d => yScale(d));
+
+const chart = svg.append('g')
+  .attr('transform', `translate(${margin.left},${margin.top})`);
+
+// Update the chart with new data
+function updateChart(data) {
+  xScale.domain([0, years]);
+  yScale.domain([0, d3.max(data)]);
+
+  chart.selectAll('.line').remove();
+
+  chart.append('path')
+    .datum(data)
+    .attr('class', 'line')
+    .attr('d', line);
+
+  chart.selectAll('.goal-line').remove();
+
+  const goalLineData = data.map(value => Math.min(value, passiveIncomeGoal));
+
+  chart.append('path')
+    .datum(goalLineData)
+    .attr('class', 'goal-line')
+    .attr('d', line);
+
+  chart.selectAll('.axis').remove();
+
+  chart.append('g')
+    .attr('class', 'axis')
+    .attr('transform', `translate(0,${height})`)
+    .call(xAxis)
+    .append('text')
+    .attr('class', 'axis-label')
+    .attr('x', width)
+    .attr('y', -6)
+    .style('text-anchor', 'end')
+    .text('Years')
+    .style('font-size', '16px');
+
+  chart.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+    .append('text')
+    .attr('class', 'axis-label')
+    .attr('transform', 'rotate(-90)')
+    .attr('y', 6)
+    .attr('dy', '0.71em')
+    .style('text-anchor', 'end')
+    .text('Value ($)')
+    .style('font-size', '16px');
+
+  chart.selectAll('.goal-label').remove();
+
+  const goalYear = data.findIndex(d => d >= passiveIncomeGoal);
+
+  if (goalYear !== -1) {
+    chart.append('text')
+      .attr('class', 'goal-label')
+      .attr('x', xScale(goalYear))
+      .attr('y', yScale(passiveIncomeGoal) - 10)
+      .attr('text-anchor', 'end')
+      .style('fill', 'green')
+      .text(`Goal Reached in Year ${goalYear}`)
+      .style('font-size', '16px');
+  }
+}
+
+// Initial chart update
+const initialReturns = calculateReturns(rateReturnSlider.value);
+updateChart(initialReturns);
 
 // TODO: change all the contribution amount ID names
 // for the baseshop slider and inputs the names are toggle-inner-mls-smd but I should identify it is from baseshop not personal
@@ -1908,3 +2180,7 @@ dropdown.onclick = function() {
 
 
 // todo; did I miss the personal baseshop calculations?
+
+
+
+
