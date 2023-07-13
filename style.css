@@ -131,11 +131,14 @@ making tabs appear and disapear
 
 .aum-container, 
 .baseshop-aum-container,
-.monthly-container {
+.monthly-container,
+.dashboard-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+
 
 .aum-container .container,
 .baseshop-aum-container .container, 
@@ -151,6 +154,13 @@ making tabs appear and disapear
   flex-direction: column;
   justify-content: center;
   width: 900px;
+}
+
+.dashboard-container .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1250px;
 }
 
 /* Summary */
@@ -1276,14 +1286,15 @@ datalist {
   position: relative;
   /* margin-top: 100px; */
   width:300px;
-  height: 50px;
+  height: 42px;
+
 }
 
 .dropdown::before {
   content: '';
   position: absolute;
   right: 20px;
-  top: 15px;
+  top: 12px;
   z-index: 1000;
   width: 8px;
   height: 8px;
@@ -1296,7 +1307,7 @@ datalist {
 }
 
 .dropdown.active::before {
-  top: 22px;
+  top: 19px;
   transform: rotate(-225deg);
 }
 .dropdown input {
@@ -1309,9 +1320,10 @@ datalist {
   background: #fff;
   border: 1px solid var(--primary-blue);
   outline: none;
-  /* box-shadow: 0 5px 20px rgba(0,0,0.05); */
-  padding: 12px 20px;
-  border-radius: 10px;
+  color: var(--primary-text);
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .dropdown .option {
@@ -1339,4 +1351,115 @@ datalist {
 .dropdown .option div:hover {
   background: var(--primary-blue);
   color: #fff;
+}
+
+
+
+
+
+
+
+
+
+.inputBox {
+  position: relative;
+  width: 300px;
+  background: var(--white);
+}
+
+/* 
+todo: it would be nice if this happened after aption was selected,
+but I think since I am loading in the selected value right on start up that
+this is not possible. Perhaps, I only run if the wfg Contract level is null "" rather than 
+automatically at start up 
+window.addEventListener('DOMContentLoaded', function() {
+*/
+.dropdown span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 0.85em;
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  transition: 0.5s;
+  padding-left: 15px;
+  color: var(--primary-blue);
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  /* todo color for sm-box */
+  background: #fff;
+  border-left: 1px solid var(--primary-blue);
+  border-right: 1px solid var(--primary-blue);
+  letter-spacing: 0.2em;
+}
+
+/* body {
+  margin-left: 30px;
+} */
+/* .sliderLineGraph {
+  width: 300px;
+  margin-bottom: 20px;
+} */
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2.5;
+}
+
+.goal-line {
+  fill: none;
+  stroke: green;
+  stroke-width: 2.5;
+}
+
+.axis text {
+  font-size: 14px;
+}
+
+.goal-label {
+  font-size: 14px;
+  fill: green;
+}
+
+.grid-container {
+  width: 100%;
+  height: 700px;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(6, 1fr);
+}
+
+.viz-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(244, 244, 244, 0.548);
+  /* background-color: #f6f6f6; */
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+#viz1,
+#viz2,
+#viz3 {
+  grid-column: span 2;
+}
+
+#viz4 {
+  grid-column: span 6;
+  grid-row: span 2;
+}
+
+#viz5 {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+#viz6 {
+  grid-column: span 3;
+  grid-row: span 2;
 }
