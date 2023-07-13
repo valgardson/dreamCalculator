@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <title>Dream Calculator</title>
 </head>
+
 <body>
   <div class="equitable-banner">
     <div class="logo"></div>
@@ -14,8 +16,8 @@
   <div class="title">
     <p>Dream Calculator</p>
   </div>
-  <div class="active"id="personal" data-tab-content>
-    <div class="personal-info-container">  
+  <div class="active" id="personal" data-tab-content>
+    <div class="personal-info-container">
       <h1 class="page-title">Personal Information</h1>
       <div class="container">
         <!-- Personal Details -->
@@ -32,31 +34,18 @@
             https://www.youtube.com/watch?v=uFIl4BvYne0
             -->
             <div class="dropdown">
-              <input type="text" class="textBox"
-                placeholder="WFG contract Level" readonly>
+              <input id="selectedOption" type="text" class="textBox" placeholder="WFG contract Level" readonly>
+              <span>WFG contract Level</span>
               <div class="option">
                 <div onclick="show('Training Associate')">Training Associate</div>
                 <div onclick="show('Associate')">Associate</div>
                 <div onclick="show('Marketing Director')">Marketing Director</div>
                 <div onclick="show('Senior Marketing Director')">Senior Marketing Director</div>
-              </div>  
+              </div>
             </div>
+
             <!-- <label for="contract-select">Select Contract</label>  -->
-            <div class="select">
-              <select name="" id="contract-select" required>
-                <!-- todo: when option is selected WFG contract level should move to the to of input box -->
-                <option hidden="true">WFG Contract Level</option>
-                <option disabled="disabled" default="true">WFG Contract Level</option>
-                <option value="Training Associate">Training Associate</option>
-                <option value="Associate">Associate</option>
-                <option value="Marketing Director">Marketing Director</option>
-                <option value="Senior Marketing Director">Senior Marketing Director</option>
-                <!-- <option value="Executive Marketing Director">Executive Marketing Director</option>
-                <option value="CEO Marketing Director">CEO Marketing Director</option>
-                <option value="Executive Vice Chairman">Executive Vice Chairman</option> -->
-              </select>
-              <span class="focus"></span>
-            </div>
+
             <!-- Elite Advisor Radial buttons -->
             <!-- https://codepen.io/phusum/pen/VQrQqy -->
             <p class="info-title">Are You An Elite Advisor?</p>
@@ -71,7 +60,7 @@
               </div>
             </div>
             <button class="btn btn-next" data-tab-target="aum">
-              Next 
+              Next
             </button>
           </div>
         </div>
@@ -80,7 +69,7 @@
   </div>
   <!-- ----- Personal AUM Tab ----- -->
   <div id="aum" data-tab-content>
-    <div class="aum-container" >
+    <div class="aum-container">
       <h1 class="page-title">Personal Assets Under Management (AUM)</h1>
       <div class="container">
         <h3>Input Your Personal AUM</h3>
@@ -269,7 +258,7 @@
               </div>
             </div>
           </div>
-    
+
           <button class="collapsible" onclick="toggle_plus('toggle28');">
             <span class="show-plus" id="toggle28"></span>
             Deposited 49+ Months
@@ -329,19 +318,19 @@
                 <span>DSC</span>
               </div>
             </div>
-          </div>   
+          </div>
         </div>
         <P class="sum-total">Total Personal AUM</P>
         <p class="sum" id="personal-aum-total">$0</p>
         <div class="nav-btns">
           <button class="btn btn-next" data-tab-target="personal">
-            Previous 
+            Previous
           </button>
           <button class="btn btn-next" data-tab-target="baseshop-aum">
-            Next 
+            Next
           </button>
         </div>
-      
+
       </div>
     </div>
   </div>
@@ -856,517 +845,517 @@
               </div>
             </div>
           </div>
-        <!-- Main Collapsible 3 ... 37 to 48 months -->
-        <button class="collapsible" onclick="toggle_plus('toggle3-1');">
-          <span class="show-plus" id="toggle3-1"></span>
-          Deposited In Last 37 to 48 Months
-        </button>
-        <div class="collapsible-content" id="third">
-          <!-- inner collapsible 3-1 Training Associate -->
-          <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-3-1');">
-            <span class="show-plus" id="toggle-inner-3-1"></span>
-            Training Associate
+          <!-- Main Collapsible 3 ... 37 to 48 months -->
+          <button class="collapsible" onclick="toggle_plus('toggle3-1');">
+            <span class="show-plus" id="toggle3-1"></span>
+            Deposited In Last 37 to 48 Months
           </button>
-          <div class="inner-collapsible-content">
-            <div class="grid-group inner-grid-group">
-              <p class="grid-group">Fixed Income</p>
-              <p class="grid-group">Balanced/Equity</p>
+          <div class="collapsible-content" id="third">
+            <!-- inner collapsible 3-1 Training Associate -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-3-1');">
+              <span class="show-plus" id="toggle-inner-3-1"></span>
+              Training Associate
+            </button>
+            <div class="inner-collapsible-content">
+              <div class="grid-group inner-grid-group">
+                <p class="grid-group">Fixed Income</p>
+                <p class="grid-group">Balanced/Equity</p>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-9">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-finl37" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofnl37" type="text" required>
+                  <span>NL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-10">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-finlcb37" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofnlcb37" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-11">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-finlcb537" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofnlcb537" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-12">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-fill37" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofll37" type="text" required>
+                  <span>LL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-13">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-fidsc37" type="text" required>
+                  <span>DSC</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofdsc37" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
             </div>
-            <div class="grid-group inner-grid-group" id="c-9">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-finl37" type="text" required>
-                <span>NL</span>
+            <!-- inner collapsible 3-2 Associate -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-3-2');">
+              <span class="show-plus" id="toggle-inner-3-2"></span>
+              Associate
+            </button>
+            <div class="inner-collapsible-content">
+              <div class="grid-group inner-grid-group">
+                <p class="grid-group">Fixed Income</p>
+                <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofnl37" type="text" required>
-                <span>NL</span>
+              <div class="grid-group inner-grid-group" id="c-9">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-finl37" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofnl37" type="text" required>
+                  <span>NL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-10">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-finlcb37" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofnlcb37" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-11">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-finlcb537" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofnlcb537" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-12">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-fill37" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofll37" type="text" required>
+                  <span>LL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-13">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-fidsc37" type="text" required>
+                  <span>DSC</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofdsc37" type="text" required>
+                  <span>DSC</span>
+                </div>
               </div>
             </div>
-            <div class="grid-group inner-grid-group" id="c-10">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-finlcb37" type="text" required>
-                <span>NL-CB</span>
+            <!-- inner collapsible 3-3 Marketing Director -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-3-3');">
+              <span class="show-plus" id="toggle-inner-3-3"></span>
+              Marketing Director
+            </button>
+            <div class="inner-collapsible-content">
+              <div class="grid-group inner-grid-group">
+                <p class="grid-group">Fixed Income</p>
+                <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofnlcb37" type="text" required>
-                <span>NL-CB</span>
+              <div class="grid-group inner-grid-group" id="c-9">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-finl37" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofnl37" type="text" required>
+                  <span>NL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-10">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-finlcb37" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofnlcb37" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-11">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-finlcb537" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofnlcb537" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-12">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-fill37" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofll37" type="text" required>
+                  <span>LL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-13">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-fidsc37" type="text" required>
+                  <span>DSC</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofdsc37" type="text" required>
+                  <span>DSC</span>
+                </div>
               </div>
             </div>
-            <div class="grid-group inner-grid-group" id="c-11">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-finlcb537" type="text" required>
-                <span>NL-CB5</span>
+            <!-- inner collapsible 3-4 Senior Marketing Director -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-3-4');">
+              <span class="show-plus" id="toggle-inner-3-4"></span>
+              Senior Marketing Director
+            </button>
+            <div class="inner-collapsible-content">
+              <div class="grid-group inner-grid-group">
+                <p class="grid-group">Fixed Income</p>
+                <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofnlcb537" type="text" required>
-                <span>NL-CB5</span>
+              <div class="grid-group inner-grid-group" id="c-9">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-finl37" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofnl37" type="text" required>
+                  <span>NL</span>
+                </div>
               </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-12">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-fill37" type="text" required>
-                <span>LL</span>
+              <div class="grid-group inner-grid-group" id="c-10">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-finlcb37" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofnlcb37" type="text" required>
+                  <span>NL-CB</span>
+                </div>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofll37" type="text" required>
-                <span>LL</span>
+              <div class="grid-group inner-grid-group" id="c-11">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-finlcb537" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofnlcb537" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
               </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-13">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-fidsc37" type="text" required>
-                <span>DSC</span>
+              <div class="grid-group inner-grid-group" id="c-12">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-fill37" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofll37" type="text" required>
+                  <span>LL</span>
+                </div>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofdsc37" type="text" required>
-                <span>DSC</span>
+              <div class="grid-group inner-grid-group" id="c-13">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-fidsc37" type="text" required>
+                  <span>DSC</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofdsc37" type="text" required>
+                  <span>DSC</span>
+                </div>
               </div>
             </div>
           </div>
-          <!-- inner collapsible 3-2 Associate -->
-          <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-3-2');">
-            <span class="show-plus" id="toggle-inner-3-2"></span>
-            Associate
+          <!-- Main Collapsible 4 ... 49+ months-->
+          <button class="collapsible" onclick="toggle_plus('toggle3-1');">
+            <span class="show-plus" id="toggle3-1"></span>
+            Deposited 49+ Months
           </button>
-          <div class="inner-collapsible-content">
-            <div class="grid-group inner-grid-group">
-              <p class="grid-group">Fixed Income</p>
-              <p class="grid-group">Balanced/Equity</p>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-9">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-finl37" type="text" required>
-                <span>NL</span>
+          <div class="collapsible-content" id="third">
+            <!-- inner collapsible 4-1 Training Associate -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-4-1');">
+              <span class="show-plus" id="toggle-inner-4-1"></span>
+              Training Associate
+            </button>
+            <div class="inner-collapsible-content">
+              <div class="grid-group inner-grid-group">
+                <p class="grid-group">Fixed Income</p>
+                <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofnl37" type="text" required>
-                <span>NL</span>
+              <div class="grid-group inner-grid-group" id="c-9">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-finl49" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofnl49" type="text" required>
+                  <span>NL</span>
+                </div>
               </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-10">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-finlcb37" type="text" required>
-                <span>NL-CB</span>
+              <div class="grid-group inner-grid-group" id="c-10">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-finlcb49" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofnlcb49" type="text" required>
+                  <span>NL-CB</span>
+                </div>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofnlcb37" type="text" required>
-                <span>NL-CB</span>
+              <div class="grid-group inner-grid-group" id="c-11">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-finlcb549" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofnlcb549" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
               </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-11">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-finlcb537" type="text" required>
-                <span>NL-CB5</span>
+              <div class="grid-group inner-grid-group" id="c-12">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-fill49" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofll49" type="text" required>
+                  <span>LL</span>
+                </div>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofnlcb537" type="text" required>
-                <span>NL-CB5</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-12">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-fill37" type="text" required>
-                <span>LL</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofll37" type="text" required>
-                <span>LL</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-13">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-fidsc37" type="text" required>
-                <span>DSC</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofdsc37" type="text" required>
-                <span>DSC</span>
-              </div>
-            </div>
-          </div>
-          <!-- inner collapsible 3-3 Marketing Director -->
-          <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-3-3');">
-            <span class="show-plus" id="toggle-inner-3-3"></span>
-            Marketing Director
-          </button>
-          <div class="inner-collapsible-content">
-            <div class="grid-group inner-grid-group">
-              <p class="grid-group">Fixed Income</p>
-              <p class="grid-group">Balanced/Equity</p>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-9">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-finl37" type="text" required>
-                <span>NL</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofnl37" type="text" required>
-                <span>NL</span>
+              <div class="grid-group inner-grid-group" id="c-13">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-fidsc49" type="text" required>
+                  <span>DSC</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsta-ofdsc49" type="text" required>
+                  <span>DSC</span>
+                </div>
               </div>
             </div>
-            <div class="grid-group inner-grid-group" id="c-10">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-finlcb37" type="text" required>
-                <span>NL-CB</span>
+            <!-- inner collapsible 4-2 Associate -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-4-2');">
+              <span class="show-plus" id="toggle-inner-4-2"></span>
+              Associate
+            </button>
+            <div class="inner-collapsible-content">
+              <div class="grid-group inner-grid-group">
+                <p class="grid-group">Fixed Income</p>
+                <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofnlcb37" type="text" required>
-                <span>NL-CB</span>
+              <div class="grid-group inner-grid-group" id="c-9">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-finl49" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofnl49" type="text" required>
+                  <span>NL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-10">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-finlcb49" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofnlcb49" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-11">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-finlcb549" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofnlcb549" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-12">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-fill49" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofll49" type="text" required>
+                  <span>LL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-13">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-fidsc49" type="text" required>
+                  <span>DSC</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsa-ofdsc49" type="text" required>
+                  <span>DSC</span>
+                </div>
               </div>
             </div>
-            <div class="grid-group inner-grid-group" id="c-11">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-finlcb537" type="text" required>
-                <span>NL-CB5</span>
+            <!-- inner collapsible 4-3 Marketing Director -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-4-3');">
+              <span class="show-plus" id="toggle-inner-4-3"></span>
+              Marketing Director
+            </button>
+            <div class="inner-collapsible-content">
+              <div class="grid-group inner-grid-group">
+                <p class="grid-group">Fixed Income</p>
+                <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofnlcb537" type="text" required>
-                <span>NL-CB5</span>
+              <div class="grid-group inner-grid-group" id="c-9">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-finl49" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofnl49" type="text" required>
+                  <span>NL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-10">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-finlcb49" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofnlcb49" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-11">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-finlcb549" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofnlcb549" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-12">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-fill49" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofll49" type="text" required>
+                  <span>LL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-13">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-fidsc49" type="text" required>
+                  <span>DSC</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bsmd-ofdsc49" type="text" required>
+                  <span>DSC</span>
+                </div>
               </div>
             </div>
-            <div class="grid-group inner-grid-group" id="c-12">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-fill37" type="text" required>
-                <span>LL</span>
+            <!-- inner collapsible 4-4 Senior Marketing Director -->
+            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-4-4');">
+              <span class="show-plus" id="toggle-inner-4-4"></span>
+              Senior Marketing Director
+            </button>
+            <div class="inner-collapsible-content">
+              <div class="grid-group inner-grid-group">
+                <p class="grid-group">Fixed Income</p>
+                <p class="grid-group">Balanced/Equity</p>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofll37" type="text" required>
-                <span>LL</span>
+              <div class="grid-group inner-grid-group" id="c-9">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-finl49" type="text" required>
+                  <span>NL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofnl49" type="text" required>
+                  <span>NL</span>
+                </div>
               </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-13">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-fidsc37" type="text" required>
-                <span>DSC</span>
+              <div class="grid-group inner-grid-group" id="c-10">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-finlcb49" type="text" required>
+                  <span>NL-CB</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofnlcb49" type="text" required>
+                  <span>NL-CB</span>
+                </div>
               </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofdsc37" type="text" required>
-                <span>DSC</span>
+              <div class="grid-group inner-grid-group" id="c-11">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-finlcb549" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofnlcb549" type="text" required>
+                  <span>NL-CB5</span>
+                </div>
               </div>
-            </div>
-          </div>
-         <!-- inner collapsible 3-4 Senior Marketing Director -->
-         <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-3-4');">
-          <span class="show-plus" id="toggle-inner-3-4"></span>
-          Senior Marketing Director
-        </button>
-        <div class="inner-collapsible-content">
-          <div class="grid-group inner-grid-group">
-            <p class="grid-group">Fixed Income</p>
-            <p class="grid-group">Balanced/Equity</p>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-9">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-finl37" type="text" required>
-              <span>NL</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofnl37" type="text" required>
-              <span>NL</span>
-            </div>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-10">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-finlcb37" type="text" required>
-              <span>NL-CB</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofnlcb37" type="text" required>
-              <span>NL-CB</span>
-            </div>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-11">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-finlcb537" type="text" required>
-              <span>NL-CB5</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofnlcb537" type="text" required>
-              <span>NL-CB5</span>
-            </div>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-12">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-fill37" type="text" required>
-              <span>LL</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofll37" type="text" required>
-              <span>LL</span>
-            </div>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-13">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-fidsc37" type="text" required>
-              <span>DSC</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofdsc37" type="text" required>
-              <span>DSC</span>
+              <div class="grid-group inner-grid-group" id="c-12">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-fill49" type="text" required>
+                  <span>LL</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofll49" type="text" required>
+                  <span>LL</span>
+                </div>
+              </div>
+              <div class="grid-group inner-grid-group" id="c-13">
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-fidsc49" type="text" required>
+                  <span>DSC</span>
+                </div>
+                <div class="sm-box small-input-currency">
+                  <input class="small-input bs-aum-input" id="bssmd-ofdsc49" type="text" required>
+                  <span>DSC</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-        <!-- Main Collapsible 4 ... 49+ months-->
-        <button class="collapsible" onclick="toggle_plus('toggle3-1');">
-          <span class="show-plus" id="toggle3-1"></span>
-          Deposited 49+ Months
-        </button>
-        <div class="collapsible-content" id="third">
-          <!-- inner collapsible 4-1 Training Associate -->
-          <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-4-1');">
-            <span class="show-plus" id="toggle-inner-4-1"></span>
-            Training Associate
-          </button>
-          <div class="inner-collapsible-content">
-            <div class="grid-group inner-grid-group">
-              <p class="grid-group">Fixed Income</p>
-              <p class="grid-group">Balanced/Equity</p>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-9">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-finl49" type="text" required>
-                <span>NL</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofnl49" type="text" required>
-                <span>NL</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-10">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-finlcb49" type="text" required>
-                <span>NL-CB</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofnlcb49" type="text" required>
-                <span>NL-CB</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-11">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-finlcb549" type="text" required>
-                <span>NL-CB5</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofnlcb549" type="text" required>
-                <span>NL-CB5</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-12">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-fill49" type="text" required>
-                <span>LL</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofll49" type="text" required>
-                <span>LL</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-13">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-fidsc49" type="text" required>
-                <span>DSC</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsta-ofdsc49" type="text" required>
-                <span>DSC</span>
-              </div>
-            </div>
-          </div>
-          <!-- inner collapsible 4-2 Associate -->
-          <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-4-2');">
-            <span class="show-plus" id="toggle-inner-4-2"></span>
-            Associate
-          </button>
-          <div class="inner-collapsible-content">
-            <div class="grid-group inner-grid-group">
-              <p class="grid-group">Fixed Income</p>
-              <p class="grid-group">Balanced/Equity</p>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-9">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-finl49" type="text" required>
-                <span>NL</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofnl49" type="text" required>
-                <span>NL</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-10">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-finlcb49" type="text" required>
-                <span>NL-CB</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofnlcb49" type="text" required>
-                <span>NL-CB</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-11">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-finlcb549" type="text" required>
-                <span>NL-CB5</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofnlcb549" type="text" required>
-                <span>NL-CB5</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-12">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-fill49" type="text" required>
-                <span>LL</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofll49" type="text" required>
-                <span>LL</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-13">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-fidsc49" type="text" required>
-                <span>DSC</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsa-ofdsc49" type="text" required>
-                <span>DSC</span>
-              </div>
-            </div>
-          </div>
-          <!-- inner collapsible 4-3 Marketing Director -->
-          <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-4-3');">
-            <span class="show-plus" id="toggle-inner-4-3"></span>
-            Marketing Director
-          </button>
-          <div class="inner-collapsible-content">
-            <div class="grid-group inner-grid-group">
-              <p class="grid-group">Fixed Income</p>
-              <p class="grid-group">Balanced/Equity</p>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-9">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-finl49" type="text" required>
-                <span>NL</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofnl49" type="text" required>
-                <span>NL</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-10">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-finlcb49" type="text" required>
-                <span>NL-CB</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofnlcb49" type="text" required>
-                <span>NL-CB</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-11">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-finlcb549" type="text" required>
-                <span>NL-CB5</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofnlcb549" type="text" required>
-                <span>NL-CB5</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-12">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-fill49" type="text" required>
-                <span>LL</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofll49" type="text" required>
-                <span>LL</span>
-              </div>
-            </div>
-            <div class="grid-group inner-grid-group" id="c-13">
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-fidsc49" type="text" required>
-                <span>DSC</span>
-              </div>
-              <div class="sm-box small-input-currency">
-                <input class="small-input bs-aum-input" id="bsmd-ofdsc49" type="text" required>
-                <span>DSC</span>
-              </div>
-            </div>
-          </div>
-         <!-- inner collapsible 4-4 Senior Marketing Director -->
-         <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-4-4');">
-          <span class="show-plus" id="toggle-inner-4-4"></span>
-          Senior Marketing Director
-        </button>
-        <div class="inner-collapsible-content">
-          <div class="grid-group inner-grid-group">
-            <p class="grid-group">Fixed Income</p>
-            <p class="grid-group">Balanced/Equity</p>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-9">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-finl49" type="text" required>
-              <span>NL</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofnl49" type="text" required>
-              <span>NL</span>
-            </div>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-10">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-finlcb49" type="text" required>
-              <span>NL-CB</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofnlcb49" type="text" required>
-              <span>NL-CB</span>
-            </div>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-11">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-finlcb549" type="text" required>
-              <span>NL-CB5</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofnlcb549" type="text" required>
-              <span>NL-CB5</span>
-            </div>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-12">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-fill49" type="text" required>
-              <span>LL</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofll49" type="text" required>
-              <span>LL</span>
-            </div>
-          </div>
-          <div class="grid-group inner-grid-group" id="c-13">
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-fidsc49" type="text" required>
-              <span>DSC</span>
-            </div>
-            <div class="sm-box small-input-currency">
-              <input class="small-input bs-aum-input" id="bssmd-ofdsc49" type="text" required>
-              <span>DSC</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <P class="sum-total">Total Baseshop AUM</P>
-    <p class="sum" id="bs-aum-total">$0</p>
+        <P class="sum-total">Total Baseshop AUM</P>
+        <p class="sum" id="bs-aum-total">$0</p>
         <div class="nav-btns">
           <button class="btn btn-next" data-tab-target="aum">
-            Previous 
+            Previous
           </button>
           <button class="btn btn-next" data-tab-target="personal-monthly">
-            Next 
+            Next
           </button>
         </div>
       </div>
@@ -1412,34 +1401,21 @@
               <!-- slider -->
               <div class="slider-container">
                 <div class="slider-nums">
-                  <input 
-                    type="range" 
-                    id="pm-slider"
-                    min="0"
-                    max="100"
-                    value="0"
-                    oninput="slider()"
-                  >
+                  <input type="range" id="pm-slider" min="0" max="100" value="0" oninput="slider()">
                   <div class="range-values">
                     <span class="min-value">0%</span>
                     <span class="max-value">100%</span>
                   </div>
                 </div>
-                <input 
-                  type="text" 
-                  class="slider-input"
-                  id="pm-input" 
-                  value="0%" 
-                  oninput="goalInput()"
-                  onClick="this.select();"
-                  >
+                <input type="text" class="slider-input" id="pm-input" value="0%" oninput="goalInput()"
+                  onClick="this.select();">
               </div>
             </div>
             <!-- adding height -->
             <div class="add-height"></div>
-            </div>
-            <!-- Second Collapsible -->
-            <div class="container-content">
+          </div>
+          <!-- Second Collapsible -->
+          <div class="container-content">
             <!-- inputs -->
             <button class="collapsible" onclick="toggle_plus('mpa-toggle1');">
               <span class="show-plus" id="mpa-toggle1"></span>
@@ -1471,46 +1447,33 @@
                 <!-- slider -->
                 <div class="slider-container">
                   <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="mpa-slider"
-                      min="0"
-                      max="100"
-                      value="0"
-                      oninput="slider()"
-                    >
+                    <input type="range" id="mpa-slider" min="0" max="100" value="0" oninput="slider()">
                     <div class="range-values">
                       <span class="min-value">0%</span>
                       <span class="max-value">100%</span>
                     </div>
                   </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="mpa-input" 
-                    value="0%" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                    >
+                  <input type="text" class="slider-input" id="mpa-input" value="0%" oninput="goalInput()"
+                    onClick="this.select();">
                 </div>
               </div>
               <!-- adding height -->
               <div class="add-height"></div>
             </div>
           </div>
-          </div>
-          <!-- Nav Buttons -->
-          <div class="nav-btns">
-            <button class="btn btn-next" data-tab-target="baseshop-aum">
-              Previous 
-            </button>
-            <button class="btn btn-next" data-tab-target="baseshop-monthly">
-              Next 
-            </button>
-          </div>
+        </div>
+        <!-- Nav Buttons -->
+        <div class="nav-btns">
+          <button class="btn btn-next" data-tab-target="baseshop-aum">
+            Previous
+          </button>
+          <button class="btn btn-next" data-tab-target="baseshop-monthly">
+            Next
+          </button>
         </div>
       </div>
-    </div> 
+    </div>
+  </div>
   <!----- Baseshop Monthly Activity ----->
   <div id="baseshop-monthly" data-tab-content>
     <div class="baseshop-monthly-container">
@@ -1537,14 +1500,8 @@
               <div class="pm-row">
                 <p class="bma-title">Number of Associates on Your Team</p>
                 <!-- bls-ta-agents baseshop lump sum training associate agents -->
-                <input 
-                type="text" 
-                class="slider-input"
-                id="bls-ta-agents"
-                value="0" 
-                onClick="this.select();"
-                onchange="doPmaBma()"
-                >
+                <input type="text" class="slider-input" id="bls-ta-agents" value="0" onClick="this.select();"
+                  onchange="doPmaBma()">
               </div>
               <div class="pm-row">
                 <p>Average Contribution Per Associate</p>
@@ -1567,34 +1524,21 @@
                 <div class="sm-box row-total">
                   <span>Total</span>
                   <p class="row-total-results" id="bs-mls-ta-total">$0</p>
-                </div> 
+                </div>
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
                   <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="mls-ta-slider"
-                      min="0"
-                      max="100"
-                      value="0"
-                      oninput="slider()"
-                    >
+                    <input type="range" id="mls-ta-slider" min="0" max="100" value="0" oninput="slider()">
                     <div class="range-values">
                       <span class="min-value">0%</span>
                       <span class="max-value">100%</span>
                     </div>
                   </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="mls-ta-input" 
-                    value="0%" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                  >
+                  <input type="text" class="slider-input" id="mls-ta-input" value="0%" oninput="goalInput()"
+                    onClick="this.select();">
                 </div>
               </div>
               <!-- adding height -->
@@ -1608,14 +1552,8 @@
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
                 <p class="bma-title">Number of Associates on Your Team</p>
-                <input 
-                type="text" 
-                class="slider-input"
-                id="bls-a-agents"
-                value="0"
-                onClick="this.select();" 
-                onchange="doPmaBma()"
-                >
+                <input type="text" class="slider-input" id="bls-a-agents" value="0" onClick="this.select();"
+                  onchange="doPmaBma()">
               </div>
               <div class="pm-row">
                 <p>Average Contribution Per Associate</p>
@@ -1638,34 +1576,21 @@
                 <div class="sm-box row-total">
                   <span>Total</span>
                   <p class="row-total-results" id="bs-mls-a-total">$0</p>
-                </div> 
+                </div>
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
                   <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="mls-a-slider"
-                      min="0"
-                      max="100"
-                      value="0"
-                      oninput="slider()"
-                    >
+                    <input type="range" id="mls-a-slider" min="0" max="100" value="0" oninput="slider()">
                     <div class="range-values">
                       <span class="min-value">0%</span>
                       <span class="max-value">100%</span>
                     </div>
                   </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="mls-a-input" 
-                    value="0%" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                  >
+                  <input type="text" class="slider-input" id="mls-a-input" value="0%" oninput="goalInput()"
+                    onClick="this.select();">
                 </div>
               </div>
               <!-- adding height -->
@@ -1679,14 +1604,8 @@
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
                 <p class="bma-title">Number of Associates on Your Team</p>
-                <input 
-                type="text" 
-                class="slider-input"
-                id="bls-md-agents"
-                value="0"
-                onClick="this.select();"
-                onchange="doPmaBma()"
-                >
+                <input type="text" class="slider-input" id="bls-md-agents" value="0" onClick="this.select();"
+                  onchange="doPmaBma()">
               </div>
               <div class="pm-row">
                 <p>Average Contribution Per Associate</p>
@@ -1709,34 +1628,21 @@
                 <div class="sm-box row-total">
                   <span>Total</span>
                   <p class="row-total-results" id="bs-mls-md-total">$0</p>
-                </div> 
+                </div>
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
                   <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="mls-md-slider"
-                      min="0"
-                      max="100"
-                      value="0"
-                      oninput="slider()"
-                    >
+                    <input type="range" id="mls-md-slider" min="0" max="100" value="0" oninput="slider()">
                     <div class="range-values">
                       <span class="min-value">0%</span>
                       <span class="max-value">100%</span>
                     </div>
                   </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="mls-md-input" 
-                    value="0%" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                  >
+                  <input type="text" class="slider-input" id="mls-md-input" value="0%" oninput="goalInput()"
+                    onClick="this.select();">
                 </div>
               </div>
               <!-- adding height -->
@@ -1750,14 +1656,8 @@
             <div class="inner-collapsible-content flex-rows">
               <div class="pm-row">
                 <p class="bma-title">Number of Associates on Your Team</p>
-                <input 
-                type="text" 
-                class="slider-input"
-                id="bls-smd-agents"
-                value="0" 
-                onClick="this.select();"
-                onchange="doPmaBma()"
-                >
+                <input type="text" class="slider-input" id="bls-smd-agents" value="0" onClick="this.select();"
+                  onchange="doPmaBma()">
               </div>
               <div class="pm-row">
                 <p>Average Contribution Per Associate</p>
@@ -1780,34 +1680,21 @@
                 <div class="sm-box row-total">
                   <span>Total</span>
                   <p class="row-total-results" id="bs-mls-smd-total">$0</p>
-                </div> 
+                </div>
               </div>
               <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
               <div class="pm-row">
                 <!-- slider  -->
                 <div class="slider-container">
                   <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="mls-smd-slider"
-                      min="0"
-                      max="100"
-                      value="0"
-                      oninput="slider()"
-                    >
+                    <input type="range" id="mls-smd-slider" min="0" max="100" value="0" oninput="slider()">
                     <div class="range-values">
                       <span class="min-value">0%</span>
                       <span class="max-value">100%</span>
                     </div>
                   </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="mls-smd-input" 
-                    value="0%" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                  >
+                  <input type="text" class="slider-input" id="mls-smd-input" value="0%" oninput="goalInput()"
+                    onClick="this.select();">
                 </div>
               </div>
               <!-- adding height -->
@@ -1818,589 +1705,483 @@
           <!-- Baseshop Monthly Activity Second Collapsible Pre-authorized debit -->
           <!--  -->
           <div class="container-content">
-          <!-- inputs -->
-          <button class="collapsible" onclick="toggle_plus('toggle-inner-bpa');">
-            <span class="show-plus" id="toggle-inner-bpa"></span>
-            Monthly Pre-Authorized Debit
-          </button>
+            <!-- inputs -->
+            <button class="collapsible" onclick="toggle_plus('toggle-inner-bpa');">
+              <span class="show-plus" id="toggle-inner-bpa"></span>
+              Monthly Pre-Authorized Debit
+            </button>
             <!-- not sure if I need the id in the collapsible-content div below -->
-          <div class="collapsible-content" id="bpa-1">
-            <!-- inner collapsible bpa-1 Training Associate (monthly lump sum trainning associate)-->
-            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-ta');">
-              <span class="show-plus" id="toggle-inner-bpa-ta"></span>
-              Training Associate
-            </button>
-            <div class="inner-collapsible-content flex-rows">
-              <div class="pm-row">
-                <p class="bma-title">Number of Associates on Your Team</p>
-                <input 
-                type="text" 
-                class="slider-input"
-                id="bpa-ta-agents"
-                value="0" 
-                onClick="this.select();"
-                onchange="doPmaBma()"
-                >
-              </div>
-              <div class="pm-row">
-                <p>Average Contribution Per Associate</p>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-ta-nl" type="text" required>
-                  <span>NL</span>
-                  <span class="multiplier-span" id="bs-mpad-ta-nl-span"></span>
+            <div class="collapsible-content" id="bpa-1">
+              <!-- inner collapsible bpa-1 Training Associate (monthly lump sum trainning associate)-->
+              <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-ta');">
+                <span class="show-plus" id="toggle-inner-bpa-ta"></span>
+                Training Associate
+              </button>
+              <div class="inner-collapsible-content flex-rows">
+                <div class="pm-row">
+                  <p class="bma-title">Number of Associates on Your Team</p>
+                  <input type="text" class="slider-input" id="bpa-ta-agents" value="0" onClick="this.select();"
+                    onchange="doPmaBma()">
                 </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-ta-nlcb" type="text" required>
-                  <span>NL-CB</span>
-                  <span class="multiplier-span" id="bs-mpad-ta-nlcb-span"></span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-ta-nlcb5" type="text" required>
-                  <span>NL-CB5</span>
-                  <span class="multiplier-span" id="bs-mpad-ta-nlcb5-span"></span>
-                </div>
-                <p>=</p>
-                <div class="sm-box row-total">
-                  <span>Total</span>
-                  <p class="row-total-results" id="bs-mpad-ta-total">$0</p>
-                </div> 
-              </div>
-              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
-              <div class="pm-row">
-                <!-- slider  -->
-                <div class="slider-container">
-                  <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="bpa-ta-slider"
-                      min="0"
-                      max="100"
-                      value="0"
-                      oninput="slider()"
-                    >
-                    <div class="range-values">
-                      <span class="min-value">0%</span>
-                      <span class="max-value">100%</span>
-                    </div>
+                <div class="pm-row">
+                  <p>Average Contribution Per Associate</p>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-ta-nl" type="text" required>
+                    <span>NL</span>
+                    <span class="multiplier-span" id="bs-mpad-ta-nl-span"></span>
                   </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="bpa-ta-input" 
-                    value="0%" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                  >
-                </div>
-              </div>
-              <!-- adding height -->
-              <div class="add-height"></div>
-            </div>
-            <!-- inner collapsible bpa-1  Associate -->
-            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-a');">
-              <span class="show-plus" id="toggle-inner-bpa-a"></span>
-              Associate
-            </button>
-            <div class="inner-collapsible-content flex-rows">
-              <div class="pm-row">
-                <p class="bma-title">Number of Associates on Your Team</p>
-                <input 
-                type="text" 
-                class="slider-input"
-                id="bpa-a-agents"
-                value="0" 
-                onClick="this.select();"
-                onchange="doPmaBma()"
-                >
-              </div>
-              <div class="pm-row">
-                <p>Average Contribution Per Associate</p>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-a-nl" type="text" required>
-                  <span>NL</span>
-                  <span class="multiplier-span" id="bs-mpad-a-nl-span"></span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-a-nlcb" type="text" required>
-                  <span>NL-CB</span>
-                  <span class="multiplier-span" id="bs-mpad-a-nlcb-span"></span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-a-nlcb5" type="text" required>
-                  <span>NL-CB5</span>
-                  <span class="multiplier-span" id="bs-mpad-a-nlcb5-span"></span>
-                </div>
-                <p>=</p>
-                <div class="sm-box row-total">
-                  <span>Total</span>
-                  <p class="row-total-results" id="bs-mpad-a-total">$0</p>
-                </div> 
-              </div>
-              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
-              <div class="pm-row">
-                <!-- slider  -->
-                <div class="slider-container">
-                  <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="bpa-a-slider"
-                      min="0"
-                      max="100"
-                      value="0"
-                      oninput="slider()"
-                    >
-                    <div class="range-values">
-                      <span class="min-value">0%</span>
-                      <span class="max-value">100%</span>
-                    </div>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-ta-nlcb" type="text" required>
+                    <span>NL-CB</span>
+                    <span class="multiplier-span" id="bs-mpad-ta-nlcb-span"></span>
                   </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="bpa-a-input" 
-                    value="0%" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                  >
-                </div>
-              </div>
-              <!-- adding height -->
-              <div class="add-height"></div>
-            </div>
-            <!-- inner collapsible bpa-1  Marketing Director -->
-            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-md');">
-              <span class="show-plus" id="toggle-inner-bpa-md"></span>
-              Marketing Director
-            </button>
-            <div class="inner-collapsible-content flex-rows">
-              <div class="pm-row">
-                <p class="bma-title">Number of Associates on Your Team</p>
-                <input 
-                type="text" 
-                class="slider-input"
-                id="bpa-md-agents"
-                value="0" 
-                onClick="this.select();"
-                onchange="doPmaBma()"
-                >
-              </div>
-              <div class="pm-row">
-                <p>Average Contribution Per Associate</p>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-md-nl" type="text" required>
-                  <span>NL</span>
-                  <span class="multiplier-span" id="bs-mpad-md-nl-span"></span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-md-nlcb" type="text" required>
-                  <span>NL-CB</span>
-                  <span class="multiplier-span" id="bs-mpad-md-nlcb-span"></span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-md-nlcb5" type="text" required>
-                  <span>NL-CB5</span>
-                  <span class="multiplier-span" id="bs-mpad-md-nlcb5-span"></span>
-                </div>
-                <p>=</p>
-                <div class="sm-box row-total">
-                  <span>Total</span>
-                  <p class="row-total-results" id="bs-mpad-md-total">$0</p>
-                </div> 
-              </div>
-              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
-              <div class="pm-row">
-                <!-- slider  -->
-                <div class="slider-container">
-                  <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="bpa-md-slider"
-                      min="0"
-                      max="100"
-                      value="0"
-                      oninput="slider()"
-                    >
-                    <div class="range-values">
-                      <span class="min-value">0%</span>
-                      <span class="max-value">100%</span>
-                    </div>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-ta-nlcb5" type="text" required>
+                    <span>NL-CB5</span>
+                    <span class="multiplier-span" id="bs-mpad-ta-nlcb5-span"></span>
                   </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="bpa-md-input" 
-                    value="0%" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                  >
-                </div>
-              </div>
-              <!-- adding height -->
-              <div class="add-height"></div>
-            </div>
-            <!-- inner collapsible bpa-1 Senior Marketing Director (monthly lump sum Senior Marketing Director)-->
-            <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-smd');">
-              <span class="show-plus" id="toggle-inner-bpa-smd"></span>
-              Senior Marketing Director
-            </button>
-            <div class="inner-collapsible-content flex-rows">
-              <div class="pm-row">
-                <p class="bma-title">Number of Associates on Your Team</p>
-                <input 
-                type="text" 
-                class="slider-input"
-                id="bpa-smd-agents"
-                value="0" 
-                onClick="this.select();"
-                onchange="doPmaBma()"
-                >
-              </div>
-              <div class="pm-row">
-                <p>Average Contribution Per Associate</p>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-smd-nl" type="text" required>
-                  <span>NL</span>
-                  <span class="multiplier-span" id="bs-mpad-smd-nl-span"></span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-smd-nlcb" type="text" required>
-                  <span>NL-CB</span>
-                  <span class="multiplier-span" id="bs-mpad-smd-nlcb-span"></span>
-                </div>
-                <div class="sm-box small-input-currency">
-                  <input class="small-input personal-aum-input" id="bs-mpad-smd-nlcb5" type="text" required>
-                  <span>NL-CB5</span>
-                  <span class="multiplier-span" id="bs-mpad-smd-nlcb5-span"></span>
-                </div>
-                <p>=</p>
-                <div class="sm-box row-total">
-                  <span>Total</span>
-                  <p class="row-total-results" id="bs-mpad-smd-total">$0</p>
-                </div> 
-              </div>
-              <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
-              <div class="pm-row">
-                <!-- slider  -->
-                <div class="slider-container" list="percent-tickmarks">
-                  <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="bpa-smd-slider"
-                      min="0"
-                      max="100"
-                      value="0"
-                      oninput="slider()"
-                    >
-                    <div class="range-values">
-                      <span class="min-value">0%</span>
-                      <span class="max-value">100%</span>
-                    </div>
+                  <p>=</p>
+                  <div class="sm-box row-total">
+                    <span>Total</span>
+                    <p class="row-total-results" id="bs-mpad-ta-total">$0</p>
                   </div>
-                  <!-- <datalist id="percent-tickmarks">
+                </div>
+                <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+                <div class="pm-row">
+                  <!-- slider  -->
+                  <div class="slider-container">
+                    <div class="slider-nums">
+                      <input type="range" id="bpa-ta-slider" min="0" max="100" value="0" oninput="slider()">
+                      <div class="range-values">
+                        <span class="min-value">0%</span>
+                        <span class="max-value">100%</span>
+                      </div>
+                    </div>
+                    <input type="text" class="slider-input" id="bpa-ta-input" value="0%" oninput="goalInput()"
+                      onClick="this.select();">
+                  </div>
+                </div>
+                <!-- adding height -->
+                <div class="add-height"></div>
+              </div>
+              <!-- inner collapsible bpa-1  Associate -->
+              <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-a');">
+                <span class="show-plus" id="toggle-inner-bpa-a"></span>
+                Associate
+              </button>
+              <div class="inner-collapsible-content flex-rows">
+                <div class="pm-row">
+                  <p class="bma-title">Number of Associates on Your Team</p>
+                  <input type="text" class="slider-input" id="bpa-a-agents" value="0" onClick="this.select();"
+                    onchange="doPmaBma()">
+                </div>
+                <div class="pm-row">
+                  <p>Average Contribution Per Associate</p>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-a-nl" type="text" required>
+                    <span>NL</span>
+                    <span class="multiplier-span" id="bs-mpad-a-nl-span"></span>
+                  </div>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-a-nlcb" type="text" required>
+                    <span>NL-CB</span>
+                    <span class="multiplier-span" id="bs-mpad-a-nlcb-span"></span>
+                  </div>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-a-nlcb5" type="text" required>
+                    <span>NL-CB5</span>
+                    <span class="multiplier-span" id="bs-mpad-a-nlcb5-span"></span>
+                  </div>
+                  <p>=</p>
+                  <div class="sm-box row-total">
+                    <span>Total</span>
+                    <p class="row-total-results" id="bs-mpad-a-total">$0</p>
+                  </div>
+                </div>
+                <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+                <div class="pm-row">
+                  <!-- slider  -->
+                  <div class="slider-container">
+                    <div class="slider-nums">
+                      <input type="range" id="bpa-a-slider" min="0" max="100" value="0" oninput="slider()">
+                      <div class="range-values">
+                        <span class="min-value">0%</span>
+                        <span class="max-value">100%</span>
+                      </div>
+                    </div>
+                    <input type="text" class="slider-input" id="bpa-a-input" value="0%" oninput="goalInput()"
+                      onClick="this.select();">
+                  </div>
+                </div>
+                <!-- adding height -->
+                <div class="add-height"></div>
+              </div>
+              <!-- inner collapsible bpa-1  Marketing Director -->
+              <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-md');">
+                <span class="show-plus" id="toggle-inner-bpa-md"></span>
+                Marketing Director
+              </button>
+              <div class="inner-collapsible-content flex-rows">
+                <div class="pm-row">
+                  <p class="bma-title">Number of Associates on Your Team</p>
+                  <input type="text" class="slider-input" id="bpa-md-agents" value="0" onClick="this.select();"
+                    onchange="doPmaBma()">
+                </div>
+                <div class="pm-row">
+                  <p>Average Contribution Per Associate</p>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-md-nl" type="text" required>
+                    <span>NL</span>
+                    <span class="multiplier-span" id="bs-mpad-md-nl-span"></span>
+                  </div>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-md-nlcb" type="text" required>
+                    <span>NL-CB</span>
+                    <span class="multiplier-span" id="bs-mpad-md-nlcb-span"></span>
+                  </div>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-md-nlcb5" type="text" required>
+                    <span>NL-CB5</span>
+                    <span class="multiplier-span" id="bs-mpad-md-nlcb5-span"></span>
+                  </div>
+                  <p>=</p>
+                  <div class="sm-box row-total">
+                    <span>Total</span>
+                    <p class="row-total-results" id="bs-mpad-md-total">$0</p>
+                  </div>
+                </div>
+                <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+                <div class="pm-row">
+                  <!-- slider  -->
+                  <div class="slider-container">
+                    <div class="slider-nums">
+                      <input type="range" id="bpa-md-slider" min="0" max="100" value="0" oninput="slider()">
+                      <div class="range-values">
+                        <span class="min-value">0%</span>
+                        <span class="max-value">100%</span>
+                      </div>
+                    </div>
+                    <input type="text" class="slider-input" id="bpa-md-input" value="0%" oninput="goalInput()"
+                      onClick="this.select();">
+                  </div>
+                </div>
+                <!-- adding height -->
+                <div class="add-height"></div>
+              </div>
+              <!-- inner collapsible bpa-1 Senior Marketing Director (monthly lump sum Senior Marketing Director)-->
+              <button class="inner-collapsible" onclick="toggle_plus('toggle-inner-bpa-smd');">
+                <span class="show-plus" id="toggle-inner-bpa-smd"></span>
+                Senior Marketing Director
+              </button>
+              <div class="inner-collapsible-content flex-rows">
+                <div class="pm-row">
+                  <p class="bma-title">Number of Associates on Your Team</p>
+                  <input type="text" class="slider-input" id="bpa-smd-agents" value="0" onClick="this.select();"
+                    onchange="doPmaBma()">
+                </div>
+                <div class="pm-row">
+                  <p>Average Contribution Per Associate</p>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-smd-nl" type="text" required>
+                    <span>NL</span>
+                    <span class="multiplier-span" id="bs-mpad-smd-nl-span"></span>
+                  </div>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-smd-nlcb" type="text" required>
+                    <span>NL-CB</span>
+                    <span class="multiplier-span" id="bs-mpad-smd-nlcb-span"></span>
+                  </div>
+                  <div class="sm-box small-input-currency">
+                    <input class="small-input personal-aum-input" id="bs-mpad-smd-nlcb5" type="text" required>
+                    <span>NL-CB5</span>
+                    <span class="multiplier-span" id="bs-mpad-smd-nlcb5-span"></span>
+                  </div>
+                  <p>=</p>
+                  <div class="sm-box row-total">
+                    <span>Total</span>
+                    <p class="row-total-results" id="bs-mpad-smd-total">$0</p>
+                  </div>
+                </div>
+                <p class="info-title pm-title">Monthly Contributions Invested in Fixed Income</p>
+                <div class="pm-row">
+                  <!-- slider  -->
+                  <div class="slider-container" list="percent-tickmarks">
+                    <div class="slider-nums">
+                      <input type="range" id="bpa-smd-slider" min="0" max="100" value="0" oninput="slider()">
+                      <div class="range-values">
+                        <span class="min-value">0%</span>
+                        <span class="max-value">100%</span>
+                      </div>
+                    </div>
+                    <!-- <datalist id="percent-tickmarks">
                     <option value="0" label="0"></option>
                     <option value="100" label="100"></option>
                   </datalist> -->
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="bpa-smd-input" 
-                    value="0%" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                  >
+                    <input type="text" class="slider-input" id="bpa-smd-input" value="0%" oninput="goalInput()"
+                      onClick="this.select();">
+                  </div>
                 </div>
+                <!-- adding height -->
+                <div class="add-height"></div>
               </div>
-              <!-- adding height -->
-              <div class="add-height"></div>
             </div>
           </div>
-          </div>
-          </div>
-          <!-- Nav Buttons -->
-      <div class="nav-btns">
-        <button class="btn btn-next" data-tab-target="personal-monthly">
-          Previous 
-        </button>
-        <button class="btn btn-next" data-tab-target="monthly-summary">
-          Next 
-        </button>
+        </div>
+        <!-- Nav Buttons -->
+        <div class="nav-btns">
+          <button class="btn btn-next" data-tab-target="personal-monthly">
+            Previous
+          </button>
+          <button class="btn btn-next" data-tab-target="monthly-summary">
+            Next
+          </button>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 
   <div id="monthly-summary" data-tab-content>
     <div class="summary-container">
-        <h1 class="page-title">Monthly Summary</h1>
-        <div class="container">
-          <!-- <h3>Summary</h3> -->
-          <!-- do i need container-content?
+      <h1 class="page-title">Monthly Summary</h1>
+      <div class="container">
+        <!-- <h3>Summary</h3> -->
+        <!-- do i need container-content?
           <div class="container-content"></div> -->
-          <!-- inputs -->
-          <div class="inputs-container">
-            <div class="summary-totals">
-              <div class="month-points-total">
-                <P>Monthly Points Total</P>
-                <p class="total-numbers" id="monthly-points-payout">0</p>
-              </div>
-              <div class="vertical-line"></div>
-              <div class="month-commission-total">
-                <p>Monthly Commissions Total</p>
-                <p class="total-numbers" id="monthly-commission-payout">0</p>
-              </div>
+        <!-- inputs -->
+        <div class="inputs-container">
+          <div class="summary-totals">
+            <div class="month-points-total">
+              <P>Monthly Points Total</P>
+              <p class="total-numbers" id="monthly-points-payout">0</p>
             </div>
-           <div class="toggle-container">
-             <p class="toggle-row-title">Add or Remove Attributes from Total Calculations</p>
-             <div class="points-row-toggles">
-               <!-- <div class="summary-toggles active-summary" id="personal-points-baseshop">
+            <div class="vertical-line"></div>
+            <div class="month-commission-total">
+              <p>Monthly Commissions Total</p>
+              <p class="total-numbers" id="monthly-commission-payout">0</p>
+            </div>
+          </div>
+          <div class="toggle-container">
+            <p class="toggle-row-title">Add or Remove Attributes from Total Calculations</p>
+            <div class="points-row-toggles">
+              <!-- <div class="summary-toggles active-summary" id="personal-points-baseshop">
                  <p>Personal AUM</p>
                </div> -->
-               <div class="summary-toggles active-summary" id="personal-points-baseshop-monthly">
-                 <p>Personal Monthly Activity</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="personal-points-basehop-overrides">
-                 <p>Personal Monthly Trails</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="disabled-div tooltip" id="personal-points-step-up" disabled title="Disabled - Calculated Annually">
-                 <p class="summary-line">Personal</p>
-                 <p class="summary-line">Step Up Your Wealth</p>
-                 <span>Calculated Annually</span>
-               </div>
-             </div>
-             <div class="points-row-toggles">
-               <!-- <div class="summary-toggles active-summary" id="baseshop-points-baseshop">
+              <div class="summary-toggles active-summary" id="personal-points-baseshop-monthly">
+                <p>Personal Monthly Activity</p>
+                <span class="excluded-included"></span>
+              </div>
+              <div class="summary-toggles active-summary" id="personal-points-basehop-overrides">
+                <p>Personal Monthly Trails</p>
+                <span class="excluded-included"></span>
+              </div>
+              <div class="disabled-div tooltip" id="personal-points-step-up" disabled
+                title="Disabled - Calculated Annually">
+                <p class="summary-line">Personal</p>
+                <p class="summary-line">Step Up Your Wealth</p>
+                <span>Calculated Annually</span>
+              </div>
+            </div>
+            <div class="points-row-toggles">
+              <!-- <div class="summary-toggles active-summary" id="baseshop-points-baseshop">
                  <p>Baseshop AUM</p>
                </div> -->
-               <div class="summary-toggles active-summary" id="baseshop-points-baseshop-monthly">
+              <div class="summary-toggles active-summary" id="baseshop-points-baseshop-monthly">
                 <p>Baseshop Monthly Activity</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="baseshop-points-basehop-overrides">
-                 <p>Baseshop Monthly Override Trails</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="disabled-div tooltip" id="baseshop-points-step-up"  disabled title="Disabled - Calculated Annually">
+                <span class="excluded-included"></span>
+              </div>
+              <div class="summary-toggles active-summary" id="baseshop-points-basehop-overrides">
+                <p>Baseshop Monthly Override Trails</p>
+                <span class="excluded-included"></span>
+              </div>
+              <div class="disabled-div tooltip" id="baseshop-points-step-up" disabled
+                title="Disabled - Calculated Annually">
                 <p class="summary-line">Baseshop</p>
                 <p class="summary-line">Step Up Your Wealth</p>
                 <span>Calculated Annually</span>
               </div>
-             </div>
+            </div>
 
-           </div>
           </div>
-          <div class="nav-btns" id="monthly-summary-nav-btns">
-            <button class="btn btn-next" data-tab-target="baseshop-monthly">
-              Previous 
-            </button>
-            <button class="btn btn-next" data-tab-target="yearly-summary">
-              Next
-            </button>
-          </div>
+        </div>
+        <div class="nav-btns" id="monthly-summary-nav-btns">
+          <button class="btn btn-next" data-tab-target="baseshop-monthly">
+            Previous
+          </button>
+          <button class="btn btn-next" data-tab-target="yearly-summary">
+            Next
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
   <div id="yearly-summary" data-tab-content>
     <div class="summary-container">
-        <h1 class="page-title">Year Summary</h1>
-        <div class="container">
-          <!-- <h3>Summary</h3> -->
-          <!-- do i need container-content?
+      <h1 class="page-title">Year Summary</h1>
+      <div class="container">
+        <!-- <h3>Summary</h3> -->
+        <!-- do i need container-content?
           <div class="container-content"></div> -->
-          <!-- inputs -->
-          <div class="inputs-container">
-            <div class="summary-totals">
-              <div class="month-points-total">
-                <P>Yearly Points Total</P>
-                <p class="total-numbers" id="yearly-points-payout">0</p>
-              </div>
-              <div class="vertical-line"></div>
-              <div class="month-commission-total">
-                <p>Yearly Commissions Total</p>
-                <p class="total-numbers" id="yearly-commission-payout">$0</p>
-              </div>
+        <!-- inputs -->
+        <div class="inputs-container">
+          <div class="summary-totals">
+            <div class="month-points-total">
+              <P>Yearly Points Total</P>
+              <p class="total-numbers" id="yearly-points-payout">0</p>
             </div>
-           <div class="toggle-container">
-             <p class="toggle-row-title">Add or Remove Attributes from Total Calculations</p>
-             <div class="points-row-toggles">
-               <!-- <div class="summary-toggles active-summary" id="personal-points-baseshop-yearly">
+            <div class="vertical-line"></div>
+            <div class="month-commission-total">
+              <p>Yearly Commissions Total</p>
+              <p class="total-numbers" id="yearly-commission-payout">$0</p>
+            </div>
+          </div>
+          <div class="toggle-container">
+            <p class="toggle-row-title">Add or Remove Attributes from Total Calculations</p>
+            <div class="points-row-toggles">
+              <!-- <div class="summary-toggles active-summary" id="personal-points-baseshop-yearly">
                  <p>Personal AUM</p>
                </div> -->
-               <div class="summary-toggles active-summary" id="personal-points-baseshop-yearly">
-                 <p>Personal Monthly Activity</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="personal-points-basehop-overrides-yearly">
-                 <p>Personal Trails</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="personal-points-step-up-yearly">
-                 <p>Personal Step Up Your Wealth</p>
-                 <span class="excluded-included"></span>
-               </div>
-             </div>
-             <div class="points-row-toggles">
-               <!-- <div class="summary-toggles active-summary" id="baseshop-points-baseshop-yearly">
+              <div class="summary-toggles active-summary" id="personal-points-baseshop-yearly">
+                <p>Personal Monthly Activity</p>
+                <span class="excluded-included"></span>
+              </div>
+              <div class="summary-toggles active-summary" id="personal-points-basehop-overrides-yearly">
+                <p>Personal Trails</p>
+                <span class="excluded-included"></span>
+              </div>
+              <div class="summary-toggles active-summary" id="personal-points-step-up-yearly">
+                <p>Personal Step Up Your Wealth</p>
+                <span class="excluded-included"></span>
+              </div>
+            </div>
+            <div class="points-row-toggles">
+              <!-- <div class="summary-toggles active-summary" id="baseshop-points-baseshop-yearly">
                  <p>Baseshop AUM</p>
                </div> -->
-               <div class="summary-toggles active-summary" id="baseshop-points-baseshop-yearly">
-                 <p>Baseshop Monthly Activity</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="baseshop-points-basehop-overrides-yearly">
-                 <p>Baseshop Override Trails</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="baseshop-points-step-up-yearly">
-                 <p>Baseshop Step Up Your Wealth</p>
-                 <span class="excluded-included"></span>
-               </div>
-             </div>
-           </div>
+              <div class="summary-toggles active-summary" id="baseshop-points-baseshop-yearly">
+                <p>Baseshop Monthly Activity</p>
+                <span class="excluded-included"></span>
+              </div>
+              <div class="summary-toggles active-summary" id="baseshop-points-basehop-overrides-yearly">
+                <p>Baseshop Override Trails</p>
+                <span class="excluded-included"></span>
+              </div>
+              <div class="summary-toggles active-summary" id="baseshop-points-step-up-yearly">
+                <p>Baseshop Step Up Your Wealth</p>
+                <span class="excluded-included"></span>
+              </div>
+            </div>
           </div>
-          <div class="nav-btns" id="yearly-summary-nav-btns">
-            <button class="btn btn-next" data-tab-target="monthly-summary">
-              Previous 
-            </button>
-            <button class="btn btn-next" data-tab-target="projections-summary">
-              Next
-            </button>
-          </div>
+        </div>
+        <div class="nav-btns" id="yearly-summary-nav-btns">
+          <button class="btn btn-next" data-tab-target="monthly-summary">
+            Previous
+          </button>
+          <button class="btn btn-next" data-tab-target="projections-summary">
+            Next
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
   <div id="projections-summary" data-tab-content>
     <div class="summary-container">
-        <h1 class="page-title">Future Projections</h1>
-        <div class="container">
-          <!-- <h3>Summary</h3> -->
-          <!-- do i need container-content?
+      <h1 class="page-title">Future Projections</h1>
+      <div class="container">
+        <!-- <h3>Summary</h3> -->
+        <!-- do i need container-content?
           <div class="container-content"></div> -->
-          <!-- inputs -->
-          <div class="inputs-container">
-            <div class="summary-totals">
-              <div class="month-points-total">
-                <P>Projected Points Total</P>
-                <p class="total-numbers" id="goal-points-payout">0</p>
+        <!-- inputs -->
+        <div class="inputs-container">
+          <div class="summary-totals">
+            <div class="month-points-total">
+              <P>Projected Points Total</P>
+              <p class="total-numbers" id="goal-points-payout">0</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="month-commission-total">
+              <p>Projected Commissions Total</p>
+              <p class="total-numbers" id="goal-points-payout">$0</p>
+            </div>
+          </div>
+
+          <div class="inputBox currency">
+            <input class="currency-input" type="text" required="required" id="passive-income-goal">
+            <span>Passive Income Goal (dollars)</span>
+          </div>
+
+          <div class="all-slider-content">
+            <p class="info-title">How Many Years to Achieve Goal?</p>
+            <div class="slider-container">
+              <div class="slider-nums">
+                <input type="range" id="year-slider" min="1" max="30" value="5" oninput="slider()">
+                <div class="range-values">
+                  <span class="min-value">1 Year</span>
+                  <span class="max-value">30 Years</span>
+                </div>
               </div>
-              <div class="vertical-line"></div>
-              <div class="month-commission-total">
-                <p>Projected Commissions Total</p>
-                <p class="total-numbers" id="goal-points-payout">$0</p>
+              <input type="text" class="slider-input" id="year-input" value="5" oninput="goalInput()"
+                onClick="this.select();">
+            </div>
+          </div>
+
+          <div class="all-slider-content">
+            <p class="info-title">Expected Average Rate of Return?</p>
+            <div class="slider-container">
+              <div class="slider-nums">
+                <input type="range" id="rate-of-return-slider" min="0" max="15" value="5" step="0.1" oninput="slider()">
+                <!-- todo: when input it changes to $ not % and
+                    it does not update line chart  -->
+                <div class="range-values">
+                  <span class="min-value">0%</span>
+                  <span class="max-value">15%</span>
+                </div>
+              </div>
+              <input type="text" class="slider-input" id="rate-of-return-input" value="5" oninput="goalInput()"
+                onClick="this.select();">
+            </div>
+          </div>
+          <div class="toggle-container">
+            <p class="toggle-row-title projections-title">Add or Remove Attributes from Total Calculations</p>
+            <div class="points-row-toggles">
+              <div class="summary-toggles active-summary" id="personal-points-baseshop-goal">
+                <p>Personal Monthly Activity</p>
+                <span class="excluded-included"></span>
+              </div>
+              <div class="summary-toggles active-summary" id="personal-points-basehop-overrides-goal">
+                <p>Personal Trails</p>
+                <span class="excluded-included"></span>
+              </div>
+              <div class="summary-toggles active-summary" id="personal-points-step-up-goal">
+                <p>Personal Step Up Your Wealth</p>
+                <span class="excluded-included"></span>
               </div>
             </div>
-       
-              <div class="inputBox currency">
-                <input class="currency-input" type="text" required="required" id="interest">
-                <span>Passive Income Goal (dollars)</span>
+            <div class="points-row-toggles">
+              <div class="summary-toggles active-summary" id="baseshop-points-baseshop-goal">
+                <p>Baseshop Monthly Activity</p>
+                <span class="excluded-included"></span>
               </div>
-
-              <div class="all-slider-content">
-                <p class="info-title">How Many Years to Achieve Goal?</p>
-                <div class="slider-container">
-                  <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="year-slider"
-                      min="1"
-                      max="50"
-                      value="5"
-                      oninput="slider()"
-                    >
-                    <div class="range-values">
-                      <span class="min-value">1 Year</span>
-                      <span class="max-value">50 Years</span>
-                    </div>
-                  </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="year-input" 
-                    value="5" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                    >
-                </div>
+              <div class="summary-toggles active-summary" id="baseshop-points-basehop-overrides-goal">
+                <p>Baseshop Override Trails</p>
+                <span class="excluded-included"></span>
               </div>
-
-              <div class="all-slider-content">
-                <p class="info-title">Expected Average Rate of Return?</p>
-                <div class="slider-container">
-                  <div class="slider-nums">
-                    <input 
-                      type="range" 
-                      id="rate-of-return-slider"
-                      min="0"
-                      max="30"
-                      value="5"
-                      step = "0.1"
-                      oninput="slider()"
-                    >
-                    <div class="range-values">
-                      <span class="min-value">0%</span>
-                      <span class="max-value">30%</span>
-                    </div>
-                  </div>
-                  <input 
-                    type="text" 
-                    class="slider-input"
-                    id="rate-of-return-input" 
-                    value="5" 
-                    oninput="goalInput()"
-                    onClick="this.select();"
-                    >
-                </div>
+              <div class="summary-toggles active-summary" id="baseshop-points-step-up-goal">
+                <p>Baseshop Step Up Your Wealth</p>
+                <span class="excluded-included"></span>
               </div>
-
-           <div class="toggle-container">
-             <p class="toggle-row-title projections-title">Add or Remove Attributes from Total Calculations</p>
-             <div class="points-row-toggles">
-               <!-- <div class="summary-toggles active" id="personal-points-baseshop">
-                 <p>Personal AUM</p>
-               </div> -->
-               <div class="summary-toggles active-summary" id="personal-points-baseshop-goal">
-                 <p>Personal Monthly Activity</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="personal-points-basehop-overrides-goal">
-                 <p>Personal Trails</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="personal-points-step-up-goal">
-                 <p>Personal Step Up Your Wealth</p>
-                 <span class="excluded-included"></span>
-               </div>
-             </div>
-             <div class="points-row-toggles">
-               <!-- <div class="summary-toggles active" id="baseshop-points-baseshop">
-                 <p>Baseshop AUM</p>
-               </div> -->
-               <div class="summary-toggles active-summary" id="baseshop-points-baseshop-goal">
-                 <p>Baseshop Monthly Activity</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="baseshop-points-basehop-overrides-goal">
-                 <p>Baseshop Override Trails</p>
-                 <span class="excluded-included"></span>
-               </div>
-               <div class="summary-toggles active-summary" id="baseshop-points-step-up-goal">
-                 <p>Baseshop Step Up Your Wealth</p>
-                 <span class="excluded-included"></span>
-               </div>
-             </div>
-           </div>
+            </div>
           </div>
-          <div class="nav-btns" id="monthly-summary-nav-btns">
-            <button class="btn btn-next" data-tab-target="yearly-summary">
-              Previous 
-            </button>
-            <!-- <button class="btn btn-next" data-tab-target="projections-summary">
+        </div>
+        <div class="nav-btns" id="monthly-summary-nav-btns">
+          <button class="btn btn-next" data-tab-target="yearly-summary">
+            Previous
+          </button>
+          <button class="btn btn-next" data-tab-target="dashboard">
               Next
-            </button> -->
-          </div>
+            </button>
+        </div>
       </div>
     </div>
   </div>
@@ -2408,6 +2189,36 @@
 
 
 
+
+
+
+
+
+  <div id="dashboard" data-tab-content>
+    <div class="dashboard-container">
+      <h1 class="page-title">Dashboard</h1>
+      <div class="container">
+        <div class="grid-container">
+          <div class="viz-container" id="viz1">Total Earnings</div>
+          <div class="viz-container" id="viz2">Total Contributions</div>
+          <div class="viz-container" id="viz3">Interest Earnings</div>
+          <div class="viz-container" id="viz4">4</div>
+          <div class="viz-container" id="viz5">5</div>
+          <div class="viz-container" id="viz6">6</div>
+
+        </div>
+        <div class="nav-btns" id="monthly-summary-nav-btns">
+          <button class="btn btn-next" data-tab-target="projections-summary">
+            Previous
+          </button>
+          <!-- <button class="btn btn-next" data-tab-target="projections-summary">
+              Next
+            </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="footer">
     <p id="together">Together</p>
     <p>Protectecting Today - Preparing Tomorrow<span class="sup">&trade;</span></p>
@@ -2415,6 +2226,7 @@
 </body>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="./script.js"></script>
+
 </html>
 
 
@@ -2449,7 +2261,7 @@
 
  -->
 
- <!-- 
+<!-- 
   baseshop monthly activity (2) - Annual Baseshop upfront step up your wealth override commissions
   =IF(D10="No",MIN(75000,(M10+T10)*H10*84%*Y10),MIN(100000,(M10+T10)*H10*84%*Y10))
 
