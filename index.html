@@ -2187,30 +2187,149 @@
   </div>
 
 
-
-
-
-
-
-
-
   <div id="dashboard" data-tab-content>
     <div class="dashboard-container">
-      <h1 class="page-title">Dashboard</h1>
+      <!-- <h1 class="page-title" id="dash-title">Dashboard</h1> -->
       <div class="container">
         <div class="grid-container">
-          <div class="viz-container" id="viz1">Total Earnings</div>
-          <div class="viz-container" id="viz2">Total Contributions</div>
-          <div class="viz-container" id="viz3">Interest Earnings</div>
-          <div class="viz-container" id="viz4">4</div>
-          <div class="viz-container" id="viz5">5</div>
-          <div class="viz-container" id="viz6">6</div>
+          <div class="viz-container" id="dt-meta">
+            <div class="dt-meta-data">
+              <p id="dash-title">Dashboard</p>
+              <div id="dt-meta-data-2">
+                  <p id="dt-wfg-contract-level"></p>
+                  <p id="dt-elite-advisor"></p>
+              </div>
+            </div>
+            <div class="agents">
+              <div id="advisor-chart"></div>
+              <!-- <img src="images/people.png" alt="">
+              <div class="icon"></div> -->
+              <!-- <p>10</p> -->
+            </div>
+          </div>
+          <div class="viz-container" id="aum-container">
+            <div class="card-text-content">
+              <p class="card-title">Assets Under Management</p>
+              <div class="card-data-container">
+                <div class="card-data">
+                  <p class="card-subtitle">Personal</p>
+                  <p class="card-stat" id="dt-p-aum">$0</p>
+                </div>
+                <div class="dash-vertical-line"></div>
+                <div class="card-data">
+                  <p class="card-subtitle">Baseshop</p>
+                  <p class="card-stat" id="dt-bs-aum">$0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="viz-container" id="commissions-container">
+            <div class="card-text-content">
+                <!-- JOE: Is commission the right word? Portfolio totals? Team Earnings? -->
+              <p class="card-title">Commissions Earned</p>
+              <div class="card-data-container">
+                <div class="card-data">
+                  <p class="card-subtitle">Monthly</p>
+                  <p class="card-stat" id="dt-monthly-commissions">$0</p>
+                </div>
+                <div class="dash-vertical-line"></div>
+                <div class="card-data">
+                  <p class="card-subtitle">Yearly</p>
+                  <p class="card-stat" id="dt-yearly-commissions">$0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="viz-container" id="points-container">
+            <div class="card-text-content">
+                <!-- JOE: Is commission the right word? Portfolio totals? Team Earnings? -->
+              <p class="card-title">Points Earned</p>
+              <div class="card-data-container">
+                <div class="card-data">
+                  <p class="card-subtitle">Monthly</p>
+                  <p class="card-stat" id="dt-monthly-points">0</p>
+                </div>
+                <div class="dash-vertical-line"></div>
+                <div class="card-data">
+                  <p class="card-subtitle">Yearly</p>
+                  <p class="card-stat" id="dt-yearly-points">0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="viz-container" id="line-chart">
+            <div class="data-text-chart">
+              <div id="chartLine"></div>
+              <div class="three-text-data">
+                <!-- todo: insert the goal number of years in title -->
+                <div class="card-data">
+                  <p class="card-subtitle">Projected Future Value</p>
+                  <p class="card-stat" id="dt-future-value">0</p>
+                </div>
+                <div class="dash-vertical-line"></div>
+                <div class="card-data">
+                  <p class="card-subtitle">Projected Contributions</p>
+                  <p class="card-stat" id="dt-projected-contribtions">0</p>
+                </div>
+                <div class="dash-vertical-line"></div>
+                <div class="card-data">
+                  <!-- JOE: should interest be called commission? i think i'm confusing the terms -->
+                  <p class="card-subtitle">Projected Interest Earned</p>
+                  <p class="card-stat" id="dt-projected-interest">0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="viz-container" id="radial-chart">
+            <div class="radial-container">
+              <div class="radial-data">
+                <p class="card-title">Passive Income Goal</p>
+                <p class="card-stat" id="dt-passive-income-goal">%</p>
+                <p id="dt-total-of-goal">0 of 0</p>
+              </div>
+              <div id="chartProgress"></div>
+            </div>
+          </div>
+
+
+          <div class="viz-container" id="pie-chart">
+            <div class="pie-container">
+              <div class="radial-data">
+                <p class="card-title">Breakdown of Personal and Baseshop Funds</p>
+              </div>
+              <div id="pieChart"></div>
+            </div>
+          </div>
+
+
+          <div class="viz-container" id="bar-chart1">
+            <div id="chartBar"></div>
+          </div>
+          <!-- 
+          <div class="viz-container" id="viz2">Total Contributions<span id="total-contributions">0</span></div>
+          <div class="viz-container" id="viz3">Interest Earnings<span id="interest-earnings">0</span></div>
+          <div class="viz-container" id="viz4">
+            <div id="chartLine"></div>
+          </div>
+          <div class="viz-container" id="baby-viz1">Agents</div>
+          <div class="viz-container" id="baby-viz2">Something</div>
+          <div class="viz-container" id="baby-viz3">Something</div>
+          <div class="viz-container" id="viz5">
+            <div id="chartProgress"></div>
+          </div>
+          <div class="viz-container" id="viz6">
+            <div id="chartBar"></div>
+          </div> -->
 
         </div>
-        <div class="nav-btns" id="monthly-summary-nav-btns">
-          <button class="btn btn-next" data-tab-target="projections-summary">
+        <div class="nav-btns" id="dt-summary-nav-btns">
+          <button class="btn btn-next" id="dt-previous-btn" data-tab-target="projections-summary">
             Previous
           </button>
+          <button class="btn btn-next" id="recalculate">
+              Recalculate
+            </button>
           <!-- <button class="btn btn-next" data-tab-target="projections-summary">
               Next
             </button> -->
@@ -2222,9 +2341,15 @@
   <div class="footer">
     <p id="together">Together</p>
     <p>Protectecting Today - Preparing Tomorrow<span class="sup">&trade;</span></p>
+    <!-- <button class="btn btn-next" data-tab-target="dashboard">
+      Dash
+    </button> -->
   </div>
 </body>
-<script src="https://d3js.org/d3.v7.min.js"></script>
+<!-- load d3 cdn -->
+<!-- <script src="https://d3js.org/d3.v6.min.js"></script> -->
+<!-- load apex chart cdn -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="./script.js"></script>
 
 </html>
@@ -2241,25 +2366,13 @@
 
 <!-- RESULTS PAGE
 
+  printable pdf
 
 -->
 
 <!-- reset button for all pages -->
 
-
-<!-- for the sliders wiht fixed income have 3 boxes. 1 for fixed that moves with above slider add fi and bal/eq and add a 100% box  -->
-
-<!-- add in the step up commisions formulas -- for personal and baseshop this is where the elite yes/no applies -->
-<!-- on the summary pages - uppercase for PERSONAL and BASESHOP -->
-<!-- there is an issue with the points total -->
 <!-- the xagents = total underneath the total is not money formatted. ($ and comma) -->
-<!-- 
-
-  TODO: 
-  - Take out the step up your wealth buttons from the Monthly Summary Page but leave them in for the annual
-  - The annual total poitns is about twice as much as it should be.
-
- -->
 
 <!-- 
   baseshop monthly activity (2) - Annual Baseshop upfront step up your wealth override commissions
@@ -2271,4 +2384,35 @@
   (which I think are supposed to have 1 more zero on the end). and then taking that smaller number and multiplying it by the rates?
   but then you would want to put the max number here so for non-elite advisors instead of 75000, it should be 10m, and for 
   elite advisors it should be 12.5millions
+  -->
+
+  <!-- TODO
+  remove formatCurrency function from the percent boxes
+  
+  pie chart that toggles on and off to show differnt amounts of the your total passive income goal. 
+  
+  -->
+
+  <!-- JOE - is passive income just include the interest earnings? -->
+
+
+
+  <!-- slider percent box - if you enter the hpercent first using teh box it doesn't add the % sign. if you use slider first it will. 
+  ****** !!!! Personal step up toggles are not working for commissions it seems to be working for points for yearly
+  projected values not showing up future projections page
+  pie chart is now working correctly it is showing the trails but not the activity. output needs to be formated. Need to add a title. 
+  
+  -->
+
+
+
+
+  <!-- 
+  Add a personal monthly activity stacked bar chart? 
+  -->
+
+  <!-- if multiple graphs apear recalculate. 
+  if infinity in pogress chart then need to add goal
+  zoom to 67% or 75%
+  
   -->
