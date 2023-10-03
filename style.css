@@ -25,6 +25,13 @@
   --select-border: #777;
   --select-focus: blue;
   --select-arrow: var(--select-border);
+
+  /* Dark Theme (dt) */
+  --dt-color-background: #242424;
+  --dt-color-text: #f9f9f9;
+  --dt-color-card: #1b1b1b;
+  --dt-color-accent: #0784b5;
+  --dt-color-secondary-text: #aaa;
 }
 
 * {
@@ -138,8 +145,6 @@ making tabs appear and disapear
   justify-content: center;
 }
 
-
-
 .aum-container .container,
 .baseshop-aum-container .container, 
 .baseshop-monthly-container .container {
@@ -160,7 +165,14 @@ making tabs appear and disapear
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 1250px;
+  width: 100vw;
+  height: 2000px;
+  /* overlap other Elements to create a fullscreen dashboard*/
+  margin-top: -140px;
+  margin-bottom: -150px;
+  border-radius: 0;
+  /* padding: 1rem; */
+  background-color: var(--dt-color-background);
 }
 
 /* Summary */
@@ -837,7 +849,7 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: var(--primary-blue);
   border-radius: 50%;
   cursor: pointer;
-  margin-top: -6px;
+  /* margin-top: -0px; */
   border: none;
 }
 
@@ -1425,41 +1437,267 @@ window.addEventListener('DOMContentLoaded', function() {
 }
 
 .grid-container {
-  width: 100%;
-  height: 700px;
+  /* margin-top: -360px; */
+  width: 1750px;
+  height: 100%;
+  /* width: 1650px; */
   margin: 0 auto;
   margin-top: 50px;
   display: grid;
-  grid-template: repeat(5, 1fr) / repeat(6, 1fr);
+  /*  rows by columns */
+  grid-template: repeat(12, 1fr) / repeat(12, 1fr); 
 }
 
 .viz-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(244, 244, 244, 0.548);
-  /* background-color: #f6f6f6; */
+  flex-direction: column;
+  background-color: var(--dt-color-card);
   margin: 1rem;
   border-radius: 10px;
-}
-
-#viz1,
-#viz2,
-#viz3 {
-  grid-column: span 2;
-}
-
-#viz4 {
-  grid-column: span 6;
+  color: var(--dt-color-text);
+  padding: 2rem;
+  grid-column: span 12;
   grid-row: span 2;
 }
 
-#viz5 {
-  grid-column: span 3;
-  grid-row: span 2;
+#dt-meta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5rem;
+  align-items: space-between;
+  padding: 4rem;
+
 }
 
-#viz6 {
-  grid-column: span 3;
-  grid-row: span 2;
+#dt-meta-data-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+#dt-meta-data {
+  width: 1200px;
+}
+.flex-container {
+  display: flex;
+  /* flex-direction: column; */
+  width: 100%;
+  justify-content: space-between;
+  justify-items: space-between;
+  font-size: 1.2rem;
+}
+
+#dash-title {
+  font-size: 4rem;
+}
+
+#dt-meta-data-2 {
+  font-size: 1.5rem;
+}
+
+/* AUM Container */
+#aum-container {
+  grid-column: span 4;
+  grid-row: span 1;
+
+}
+
+.card-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: var(--dt-color-secondary-text);
+}
+
+.card-data-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.card-subtitle {
+  color: var(--dt-color-secondary-text);
+}
+
+.card-data {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.dash-vertical-line {
+  height: 100%;
+  width: 2px;
+  background-color: var(--dt-color-text);
+}
+
+
+.card-stat {
+  font-size: 1.75rem;
+  color: var(--dt-color-text);
+}
+
+.pie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  /* width: 100%; */
+} */
+
+.radial-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.radial-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.radial-data .card-title {
+  font-size: 1.5rem;
+}
+
+#dt-total-of-goal {
+  color: var(--dt-color-secondary-text); 
+  font-size: 1.25rem; 
+}
+
+.agents {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#commissions-container, 
+#points-container,
+#aum-container {
+  grid-column: span 4;
+  grid-row: span 1;
+}
+
+#line-chart {
+  grid-column: span 8;
+  grid-row: span 4;
+}
+
+#radial-chart {
+  grid-column: span 4;
+  grid-row: span 4;
+}
+
+#pie-chart {
+  grid-column: span 4;
+  grid-row: span 4;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+#bar-chart1 {
+  grid-column: span 8;
+  grid-row: span 4;
+}
+
+
+/* LINE GRAPH  */
+
+.line {
+  fill: none;
+  stroke: #1f77b4;
+  stroke-width: 2px;
+}
+
+.dot {
+  fill: #1f77b4;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-size: 12px;
+}
+
+/* Line Chart */
+.data-text-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 80px;
+  
+}
+.three-text-data {
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+  font-size: 1rem;
+}
+/* progress chart */
+.chart-text {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  fill: #333;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+ /* CSS styling */
+.bar {
+    fill: steelblue;
+    rx: 8; /* Rounded corner */
+}
+
+.bar-label {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    fill: #333;
+    text-anchor: end;
+    dominant-baseline: middle;
+}
+
+.axis {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+/* .apexcharts-tooltip {
+  background: black;
+  color: orange;
+} */
+
+#advisor-chart {
+  margin-right: -10px;
+}
+
+#dt-previous-btn,
+#recalculate {
+  margin-top: -18rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#dt-summary-nav-btns {
+  /* this needs to be the same width as grid container */
+  max-width: 1750px;
+  display: flex;
+  justify-content: space-between;
 }
