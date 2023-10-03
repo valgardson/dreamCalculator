@@ -1,3 +1,8 @@
+// Colors 
+const dtText = '#f9f9f9';
+const dtAccent = '#0784b5';
+const dtBlue = '#0784b5';
+
 // TABS
 const tabs = document.querySelectorAll('[data-tab-target]');
 const tabContents = document.querySelectorAll('[data-tab-content');
@@ -5,7 +10,14 @@ const tabContents = document.querySelectorAll('[data-tab-content');
 // Contract type
 let contractType = ''; // document.getElementById('contract-select');
 
+// Team Name
+let teamName = document.getElementById('team-name');
 
+// Dashboard 
+let dashboardTitle = document.getElementById('dash-title');
+let dtFutureValue = document.getElementById('dt-future-value');
+let projectedContributions = document.getElementById('dt-projected-contribtions');
+let projectedInterest = document.getElementById('dt-projected-interest');
 
 // 0 - 12 month inputs
 var finl0 = document.getElementById('finl0');
@@ -374,10 +386,28 @@ var yearlyCommissionPayout = document.getElementById('yearly-commission-payout')
 var goalCommissionPayout = document.getElementById('goal-commission-payout');
 
 var passiveIncomeGoalInput = document.getElementById("passive-income-goal");
+var passiveIncomeGoal = document.getElementById("dt-passive-income-goal");
+var totalOfGoal = document.getElementById("dt-total-of-goal");
 
+
+///////////////////////////////////////////////////////////
+////////////////////// Dashboard //////////////////////////
+///////////////////////////////////////////////////////////
+var dtPAum = document.getElementById("dt-p-aum");
+var dtBsAum = document.getElementById("dt-bs-aum");
+var dtMonthlyCommissions = document.getElementById("dt-monthly-commissions");
+var dtYearlyCommissions = document.getElementById("dt-yearly-commissions");
+var dtMonthlyPoints = document.getElementById("dt-monthly-points");
+var dtYearlyPoints = document.getElementById("dt-yearly-points");
+const wfgContractLevel = document.getElementById('dt-wfg-contract-level');
+const dtEliteAdvisor = document.getElementById('dt-elite-advisor');
 // var aumButton = document.getElementById('aum-button');
 
-
+// todo - this will have to happen when I switch to different pages rather than a single page
+// Add team name to dashboard title. 
+teamName.addEventListener('input', () => {
+  dashboardTitle.innerHTML = teamName.value;
+})
 
 // todo: change tabs to nextButtons or changePage buttons - previous and next page
 /////// Tab logic (now next-button logic) ///////
@@ -452,6 +482,7 @@ function formatUserCurrency(input) {
 
 const currencyInputs = [...document.getElementsByClassName('currency-input')];
 currencyInputs.forEach((el) => {
+
   el.addEventListener('input', function() {
     el.value = formatUserCurrency(el.value);
   });
@@ -545,7 +576,6 @@ const cleanCurrency = input => {
 
 // function calculatePersonalAum() {
 //   
-//   console.log(commissionRate);
 
 //   ///////////// NL ///////////////
 //   // todo: can i put the .00504 and 84 into variables? what would they be called?
@@ -556,8 +586,6 @@ const cleanCurrency = input => {
 //   nlTotalAnnualTrailingCommissionsOf = (cleanCurrency(ofnl0.value) + cleanCurrency(ofnl13.value) + cleanCurrency(ofnl37.value) + cleanCurrency(ofnl49.value)) * .01008 * .84 * commissionRate; 
 //   // combined
 //   nlTotalAnnualTrailingCommissions = (nlTotalAnnualTrailingCommissionsFi + nlTotalAnnualTrailingCommissionsOf).toFixed(2);
-
-//   console.log(`Total NL Annual Trailing Commissions: ${USDollar.format(nlTotalAnnualTrailingCommissions)}`);
 
 
 //   //////////// NL-CB ////////////////
@@ -571,8 +599,6 @@ const cleanCurrency = input => {
 //   nlcbTotalATC49 = (cleanCurrency(finlcb49.value) * 0.00504 * .84 * commissionRate) + (cleanCurrency(ofnlcb49.value) * 0.01008 * .84 * commissionRate);
   
 //   nlcbTotal = nlcbTotalATC0 + nlcbTotalATC13 + nlcbTotalATC37+ nlcbTotalATC49;
-//   console.log(`Total NLCB Annual Trailing Comissionsns: ${USDollar.format(nlcbTotal)}`);
-
 
 //   //////////// NL-CB5 ////////////////
 //   nlcb5TotalATC0 = (cleanCurrency(finlcb50.value) * 0 * .84 * commissionRate) + (cleanCurrency(ofnlcb0.value) * 0 * .84 * commissionRate);
@@ -581,7 +607,6 @@ const cleanCurrency = input => {
 //   nlcb5TotalATC49 = (cleanCurrency(finlcb549.value) * fixedMultiply) + (cleanCurrency(ofnlcb49.value) * otherMultiply); // todo: this does not follow the pattern
 
 //   nlcb5Total = nlcb5TotalATC0 + nlcb5TotalATC13 + nlcb5TotalATC37+ nlcb5TotalATC49;
-//   console.log(`Total NLCB5 Annual Trailing Comissionsns: ${USDollar.format(nlcb5Total)}`);
 
   
 //   //////////// LL ////////////////
@@ -591,7 +616,6 @@ const cleanCurrency = input => {
 //   llTotalATC49 = (cleanCurrency(fill49.value) * 0.00504 * .84 * commissionRate) + (cleanCurrency(ofll49.value) * 0.01008 * .84 * commissionRate); 
 
 //   llTotal = llTotalATC0 + llTotalATC13 + llTotalATC37+ llTotalATC49;
-//   console.log(`Total LL Annual Trailing Comissionsns: ${USDollar.format(llTotal)}`);
 
 //   //////////// DSC ////////////////
 //   dscTotalATC0 = (cleanCurrency(fidsc0.value) * fixedMultiply) + (cleanCurrency(ofdsc0.value) * otherMultiply);
@@ -600,7 +624,6 @@ const cleanCurrency = input => {
 //   dscTotalATC49 = (cleanCurrency(fidsc49.value) * fixedMultiply) + (cleanCurrency(ofdsc49.value) * otherMultiply); 
 
 //   personalDscTotal = dscTotalATC0 + dscTotalATC13 + dscTotalATC37+ dscTotalATC49;
-//   console.log(`Total DSC Annual Trailing Comissionsns: ${USDollar.format(personalDscTotal)}`);
 
 // };
 
@@ -835,49 +858,49 @@ inputYear.addEventListener('input', function() {
 // Personal Monthly (mp) 
 inputPm.addEventListener('input', function() {
   pmSlider.value = inputPm.value.replace(/[^0-9.-]+/g, '');
-  inputPm.value = formatUserCurrency(pmSlider.value);
+  inputPm.value = pmSlider.value + "%";
   slider();
 });
 
 //  Monthly Pre-authorized 
 inputMpa.addEventListener('input', function() {
   mpaSlider.value = inputMpa.value.replace(/[^0-9.-]+/g, '');
-  inputMpa.value = formatUserCurrency(mpaSlider.value);
+  inputMpa.value = mpaSlider.value + "%";
   slider();
 });
 
 //  Monthly Lump Sum Training Associate 
 inputBMlsTa.addEventListener('input', function() {
   mpaSlider.value = inputBMlsTa.value.replace(/[^0-9.-]+/g, '');
-  inputBMlsTa.value = formatUserCurrency(bMlsTaSlider.value);
+  inputBMlsTa.value = bMlsTaSlider.value + "%";
   slider();
 });
 
 //  Monthly Lump Sum  Associate 
 inputBMlsA.addEventListener('input', function() {
   mpaSlider.value = inputBMlsA.value.replace(/[^0-9.-]+/g, '');
-  inputBMlsA.value = formatUserCurrency(bMlsASlider.value);
+  inputBMlsA.value = bMlsASlider.value + "%";
   slider();
 });
 
 //  Monthly Lump Sum Training Associate 
 inputBMlsMd.addEventListener('input', function() {
   mpaSlider.value = inputBMlsMd.value.replace(/[^0-9.-]+/g, '');
-  inputBMlsMd.value = formatUserCurrency(bMlsMdSlider.value);
+  inputBMlsMd.value = bMlsMdSlider.value + "%";
   slider();
 });
 
 //  Monthly Lump Sum Training Associate 
 inputBMlsSmd.addEventListener('input', function() {
   mpaSlider.value = inputBMlsSmd.value.replace(/[^0-9.-]+/g, '');
-  inputBMlsSmd.value = formatUserCurrency(bMlsSmdSlider.value);
+  inputBMlsSmd.value = bMlsSmdSlider.value + "%";
   slider();
 });
 
 //  projections rate of return 
 rateReturnInput.addEventListener('input', function() {
   rateReturnSlider.value = rateReturnInput.value.replace(/[^0-9.-]+/g, '');
-  rateReturnInput.value = formatUserCurrency(rateReturnSlider.value);
+  rateReturnInput.value = rateReturnSlider.value + "%";
   slider();
 });
 
@@ -975,7 +998,8 @@ const cleanPersonalAumValues = () => {
 cleanPersonalAumValues();
 
 for (i = 0; i < personalAumInputs.length; i++) {
-  personalAumInputs[i].addEventListener("input", function() {
+  let selectedInput = personalAumInputs[i];
+  selectedInput.addEventListener("input", function() {
     // this list of arrays must be here to update everytime a input is updated
     const personalAumValues = [
       finl0.value, ofnl0.value, finlcb0.value, ofnlcb0.value, finlcb50.value, ofnlcb50.value, fill0.value, ofll0.value, 
@@ -985,10 +1009,12 @@ for (i = 0; i < personalAumInputs.length; i++) {
       finl49.value, ofnl49.value, finlcb49.value, ofnlcb49.value, finlcb549.value, ofnlcb549.value, fill49.value, 
       ofll49.value, fidsc49.value, ofdsc49.value, 
     ]
+    selectedInput.value = formatUserCurrency(selectedInput.value)
     const arrayNoEmpty = replaceEmpty(personalAumValues);
     cleanedPersonalAumValues = arrayNoEmpty.map(cleanCurrency);
-    let sum = sumArray(cleanedPersonalAumValues);
-    personalAumSum.textContent = formatUserCurrency(sum);
+    let sum = formatUserCurrency(sumArray(cleanedPersonalAumValues));
+    personalAumSum.textContent = sum;
+    dtPAum.textContent = sum;
     calculatePersonalAum(cleanedPersonalAumValues); // because I declare cleanedPersonalAumValues outside the function I don't need to technically pass it
     
   });
@@ -1020,9 +1046,10 @@ for (i = 0; i < baseshopAumInputs.length; i++) {
     ];
     const arrayNoEmpty = replaceEmpty(baseshopAumValues);
     const cleanedBaseshopAumValues = arrayNoEmpty.map(cleanCurrency);
-    let sum = sumArray(cleanedBaseshopAumValues);
-    baseshopAumTotal.textContent = formatUserCurrency(sum);
-    
+    let sum = formatUserCurrency(sumArray(cleanedBaseshopAumValues));
+    baseshopAumTotal.textContent = sum;
+    dtBsAum.textContent = sum;
+    //
   });
 }
 
@@ -1046,7 +1073,6 @@ const pmaBmaElements = [pmaMlsNl, pmaMlsNlcb, pmaMlsNlcb5,
 // and then run it in the for loop)
 // here I am updateing the values under the amount multipley by number of associates
 // function updateMultipliers(inputValue) {
-//   console.log('hi there!')
 //   const agentsInput = document.getElementById('bls-ta-agents');
 //   const multiplierSpans = document.getElementsByClassName('multiplier-mls-ta');
 
@@ -1087,11 +1113,15 @@ const doPmaBma = () => {
   // and grabbing 3 at a time (nl, nlcb, nlcb5)
   const onlyBaseshopMonthlyTotals = baseshopMonthlyTotals.slice(2);  // i think i can delete this
   for (let i = 0; i < cleanedPmaBmaValues.length; i += 3) {
-    
     const numberAssociatesArray = [1, 1, // for pma 
       blsTaAgents.value,  blsAAgents.value,  blsMdAgents.value, blsSmdAgents.value, 
       bpaTaAgents.value, bpaAAgents.value,  bpaMdAgents.value,  bpaSmdAgents.value
     ]
+
+    // pass dashboard agent bar chart values to the function
+    updateAgentBarChart(numberAssociatesArray.slice(2,6));
+
+
     let baseIndex = parseInt(i / 3); // todo? if i > 0 else should cause error on first itter of i = 0
     let numAssociates = numberAssociatesArray[baseIndex];
     let firstElement = cleanedPmaBmaValues[i] * numAssociates;
@@ -1111,12 +1141,11 @@ const doPmaBma = () => {
       let firstSpan = multiplierSpans[j];
       let secondSpan = multiplierSpans[j+1];
       let thirdSpan = multiplierSpans[j+2];
-
       
       // this is for the little subscript to indicate what the multiplied value is
-      firstSpan.textContent = `x${numAssociates} = ${firstElement}`;
-      secondSpan.textContent = `x${numAssociates} = ${secondElement}`;
-      thirdSpan.textContent = `x${numAssociates} = ${thirdElement}`;
+      firstSpan.textContent = `x${numAssociates} = ${formatUserCurrency(firstElement)}`; // format the currancy 
+      secondSpan.textContent = `x${numAssociates} = ${formatUserCurrency(secondElement)}`;
+      thirdSpan.textContent = `x${numAssociates} = ${formatUserCurrency(thirdElement)}`;
     }
 
 
@@ -1214,6 +1243,10 @@ radioButtons.forEach(function(radioButton) {
   radioButton.addEventListener('change', function() {
     // Get the selected radio button value
     eliteAdvisor = document.querySelector('input[name="elite-advisor"]:checked').id;
+    // set dashboard elite advisor value if elite advisor is yes
+    if (eliteAdvisor === 'elite-yes') {
+      dtEliteAdvisor.textContent = 'Elite Advisor';
+    }
   });
 });
 
@@ -1225,7 +1258,6 @@ radioButtons.forEach(function(radioButton) {
 var commissionRate = 0;
 const calculatePersonalAum = (arr) => {
   const commissionRate = getContractCommission(contractType); 
-  console.log(commissionRate, contractType)
   // const commissionRate = getContractCommission(contractType.value);
 
   ///////////// 0 - 12 months ///////////////
@@ -1234,13 +1266,16 @@ const calculatePersonalAum = (arr) => {
  
   // name each element in the array for easier and clearer use
   const [
-    finl0Value, ofnl0Value, finlcb0Value, ofnlcb0Value, finlcb50Value, ofnlcb50Value, fill0Value, ofll0Value, 
+    finl0Value, ofnl0Value, finlcb0Value, ofnlcb0Value, finlcb50Value, ofnlcb50Value, fill0Value, ofll0Value, // why is ofnlcb50Value light gray
     fidsc0Value, ofdsc0Value, finl13Value, ofnl13Value, finlcb13Value, ofnlcb13Value, finlcb513Value, 
     ofnlcb513Value, fill13Value, ofll13Value, fidsc13Value, ofdsc13Value, finl37Value, ofnl37Value, finlcb37Value, 
     ofnlcb37Value, finlcb537Value, ofnlcb537Value, fill37Value, ofll37Value, fidsc37Value, ofdsc37Value, 
     finl49Value, ofnl49Value, finlcb49Value, ofnlcb49Value, finlcb549Value, ofnlcb549Value, fill49Value, 
     ofll49Value, fidsc49Value, ofdsc49Value, 
   ] = arr;
+
+  const PersonalAumSummed = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  
 
   const nlTotalAnnualTrailingCommissionsFi = (finl0Value + finl13Value + finl37Value + finl49Value) * nlFixedIncomeMultiply;
   const nlTotalAnnualTrailingCommissionsOf = (ofnl0Value + ofnl13Value + ofnl37Value + ofnl49Value) * nlOtherFundsMultiply;
@@ -1258,10 +1293,10 @@ const calculatePersonalAum = (arr) => {
   const personalNlcbTotal = nlcbTotalATC0 + nlcbTotalATC13 + nlcbTotalATC37 + nlcbTotalATC49;
 
   //////////// NL-CB5 ////////////////
-  const nlcb5TotalATC0 = (finlcb50Value * 0 + ofnlcb0Value * 0) * nlcbFixedMultiply;
+  const nlcb5TotalATC0 = (finlcb50Value * 0 + ofnlcb50Value * 0) * nlcbFixedMultiply;
   const nlcb5TotalATC13 = (finlcb513Value * nlcbFixedMultiply) + (ofnlcb513Value * nlcbOtherMultiply);
   const nlcb5TotalATC37 = (finlcb537Value * nlcbFixedMultiply) + (ofnlcb537Value * nlcbOtherMultiply);
-  const nlcb5TotalATC49 = (finlcb549Value * nlcbFixedMultiply) + (ofnlcb49Value * nlcbOtherMultiply);
+  const nlcb5TotalATC49 = (finlcb549Value * nlcbFixedMultiply) + (ofnlcb549Value * nlcbOtherMultiply);
 
   const personalNlcb5Total = nlcb5TotalATC0 + nlcb5TotalATC13 + nlcb5TotalATC37 + nlcb5TotalATC49;
 
@@ -1282,7 +1317,7 @@ const calculatePersonalAum = (arr) => {
   const personalDscTotal = dscTotalATC0 + dscTotalATC13 + dscTotalATC37 + dscTotalATC49;
 
   //////////// Total ////////////////
-  var personalAumTotal = personalNlTotal + personalNlcbTotal + personalNlcb5Total + personalLlTotal + personalDscTotal;
+  var personalAumTotal = personalNlTotal + personalNlcbTotal + personalNlcb5Total  + personalLlTotal + personalDscTotal; // ll and DSC?
 
   // Here here
 
@@ -1301,6 +1336,7 @@ const calculatePersonalAum = (arr) => {
 //////////////////////////////////////////////////////////////
 const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   const commissionRate = getContractCommission(contractType);
+
   const [
     // Personal MLS
     pmaMlsNlValue, 
@@ -1335,30 +1371,37 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   /////////////////
 
   // Total Monthly Personal Upfront Points (personal monthly activity - pma)
-  const pmaNlCalc = Math.ceil((nlSc*pmaMlsNlValue*.84)+(nlSc*pmaMpadNlValue*.84));
-  const pmaNlcbCalc = Math.ceil((nlcbSc*pmaMlsNlcbValue*.84)+(nlcbSc*pmaMpadNlcbValue*.84));
-  const pmaNlcb5Calc = Math.ceil((nlcb5Sc*pmaMlsNlcb5Value*.84)+(nlcb5Sc*pmaMpadNlcb5Value*.84));
+  const pmaNlCalc = (nlSc*pmaMlsNlValue*.84)+(nlSc*pmaMpadNlValue*.84);
+  const pmaNlcbCalc = (nlcbSc*pmaMlsNlcbValue*.84)+(nlcbSc*pmaMpadNlcbValue*.84);
+  const pmaNlcb5Calc = (nlcb5Sc*pmaMlsNlcb5Value*.84)+(nlcb5Sc*pmaMpadNlcb5Value*.84);
   var totalPmaUpfrontPoints = pmaNlCalc + pmaNlcbCalc + pmaNlcb5Calc; 
 
-  // console.log(`Total Personal Montly Activity ${totalPmaUpfrontPoints}`);
 
   // Total Monthly Personal Trailing Points (mpa = monthly pre-authorized)
   const pmSliderDecimal = pmSlider.value / 100;
   const pmSliderInverse = 1 - pmSliderDecimal;
   const mpaSliderDecimal = mpaSlider.value / 100;
   const mpaSliderInverse = 1 - mpaSliderDecimal;
-  const pmaNlTrailingCalc = Math.ceil((pmaMlsNlValue*pmSliderDecimal*0.00504*0.84)+(pmaMpadNlValue*mpaSliderDecimal*0.00504*0.84)+
-                                      (pmaMlsNlValue*pmSliderInverse*0.01008*0.84)+(pmaMpadNlValue*mpaSliderInverse*0.01008*0.84));
-  const pmaNlcbTrailingCalc = Math.ceil((pmaMlsNlcbValue*pmSliderDecimal*0.00504*0.84)+(pmaMpadNlcbValue*mpaSliderDecimal*0.00504*0.84)+
+  const pmaNlTrailingCalc = (pmaMlsNlValue*pmSliderDecimal*0.00504*0.84)+(pmaMpadNlValue*mpaSliderDecimal*0.00504*0.84)+
+                                      (pmaMlsNlValue*pmSliderInverse*0.01008*0.84)+(pmaMpadNlValue*mpaSliderInverse*0.01008*0.84);
+  const pmaNlcbTrailingCalc = ((pmaMlsNlcbValue*pmSliderDecimal*0.00504*0.84)+(pmaMpadNlcbValue*mpaSliderDecimal*0.00504*0.84)+
                                       (pmaMlsNlcbValue*pmSliderInverse*0.01008*0.84)+(pmaMpadNlcbValue*mpaSliderInverse*0.01008*0.84))*0; // times 0
-  const pmaNlcb5TrailingCalc = Math.ceil((pmaMlsNlcb5Value*pmSliderDecimal*0.00504*0.84)+(pmaMpadNlcb5Value*mpaSliderDecimal*0.00504*0.84)+
+  const pmaNlcb5TrailingCalc = ((pmaMlsNlcb5Value*pmSliderDecimal*0.00504*0.84)+(pmaMpadNlcb5Value*mpaSliderDecimal*0.00504*0.84)+
                                         (pmaMlsNlcb5Value*pmSliderInverse*0.01008*0.84)+(pmaMpadNlcb5Value*mpaSliderInverse*0.01008*0.84))*0; // times 0
   var totalPmaTrailingPoints = pmaNlTrailingCalc + pmaNlcbTrailingCalc + pmaNlcb5TrailingCalc;
 
+
+  // =ROUNDUP((J10*U10*0.504%*84%)+(Q10*U10*0.504%*84%)+(J10*U11*1.008%*84%)+(Q10*U11*1.008%*84%),0)
+  // j10 = 20,000 nl total monthly lump sum
+  // u10 = slider 70%
+  // q10 = 100 total monthly PAD
+  // u11 = slider inverse 30%
+
+
   // Step Up your Wealth Points
-  const pmaNlStepUp = Math.ceil((pmaMlsNlValue*nlSc*0.84)+(pmaMpadNlValue*nlSc*0.84));
-  const pmaNlcbStepUp = Math.ceil((pmaMlsNlcbValue*nlcbSc*0.84)+(pmaMpadNlcbValue*nlcbSc*0.84));
-  const pmaNlcb5StepUp = Math.ceil((pmaMlsNlcb5Value*nlcb5Sc*0.84)+(pmaMpadNlcb5Value*nlcb5Sc*0.84));
+  const pmaNlStepUp = (pmaMlsNlValue*nlSc*0.84)+(pmaMpadNlValue*nlSc*0.84);
+  const pmaNlcbStepUp = (pmaMlsNlcbValue*nlcbSc*0.84)+(pmaMpadNlcbValue*nlcbSc*0.84);
+  const pmaNlcb5StepUp = (pmaMlsNlcb5Value*nlcb5Sc*0.84)+(pmaMpadNlcb5Value*nlcb5Sc*0.84);
   var totalPmaStepUp = pmaNlStepUp + pmaNlcbStepUp + pmaNlcb5StepUp;
 
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -1371,41 +1414,41 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   // TODO: check that the numbers 0.0504 and .84 are the same for TA, A, MD, and SMD
   ///// Training Associate /////  /
   // Total monthly baseshop upfront points (baseshop monthly activity = bma)
-  const bsUpfrontNl = Math.ceil(((bsMlsTaNlValue*numBlsTaAgents)*nlSc*0.84)+((bsMpadTaNlValue*numBlsTaAgents)*nlSc*0.84));
-  const bsUpfrontNlcb = Math.ceil(((bsMlsTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84)+((bsMpadTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84));
-  const bsUpfrontNlcb5 = Math.ceil(((bsMlsTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84)+((bsMpadTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84));
+  const bsUpfrontNl = ((bsMlsTaNlValue*numBlsTaAgents)*nlSc*0.84)+((bsMpadTaNlValue*numBlsTaAgents)*nlSc*0.84);
+  const bsUpfrontNlcb = ((bsMlsTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84)+((bsMpadTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84);
+  const bsUpfrontNlcb5 = ((bsMlsTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84)+((bsMpadTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84);
   const bsUpfrontTotal = bsUpfrontNl + bsUpfrontNlcb + bsUpfrontNlcb5;
-
+  
   // Total monthly baseshop trailing points 
   const bMlsTaSliderDecimal = bMlsTaSlider.value / 100;
   const bMlsTaSliderInverse = 1 - bMlsTaSliderDecimal;
   const bPaTaSliderDecimal = bPaTaSlider.value / 100;
   const bPaTaSliderInverse = 1 - bPaTaSliderDecimal;
-  const bsTrailingNl = Math.ceil(((bsMlsTaNlValue*numBlsTaAgents)*bMlsTaSliderDecimal*0.00504*0.84)+
-                                 ((bsMpadTaNlValue*numBlsTaAgents)*bPaTaSliderDecimal*0.00504*0.84)+
-                                 ((bsMlsTaNlValue*numBlsTaAgents)*bMlsTaSliderInverse*0.01008*0.84)+
-                                 ((bsMpadTaNlValue*numBlsTaAgents)*bPaTaSliderInverse*0.01008*0.84));
-  const bsTrailingNlcb = Math.ceil(((bsMlsTaNlcbValue*numBlsTaAgents)*bMlsTaSliderDecimal*0.00504*0.84)+
-                                ((bsMpadTaNlcbValue*numBlsTaAgents)*bPaTaSliderDecimal*0.00504*0.84)+
-                                ((bsMlsTaNlcbValue*numBlsTaAgents)*bMlsTaSliderInverse*0.01008*0.84)+
-                                ((bsMpadTaNlcbValue*numBlsTaAgents)*bPaTaSliderInverse*0.01008*0.84))*0; // times 0    
-  const bsTrailingNlcb5 = Math.ceil(((bsMlsTaNlcb5Value*numBlsTaAgents)*bMlsTaSliderDecimal*0.00504*0.84)+
-                                ((bsMpadTaNlcb5Value*numBlsTaAgents)*bPaTaSliderDecimal*0.00504*0.84)+
-                                ((bsMlsTaNlcb5Value*numBlsTaAgents)*bMlsTaSliderInverse*0.01008*0.84)+
-                                ((bsMpadTaNlcb5Value*numBlsTaAgents)*bPaTaSliderInverse*0.01008*0.84))*0; // times 0
-  const bsTrailingTotal = bsTrailingNl + bsTrailingNlcb + bsTrailingNlcb5; 
+  const bsTrailingNl = ((bsMlsTaNlValue * numBlsTaAgents) * bMlsTaSliderDecimal * 0.00504 * 0.84)+ 
+                       ((bsMpadTaNlValue * numBlsTaAgents) * bPaTaSliderDecimal * 0.00504 * 0.84)+ 
+                       ((bsMlsTaNlValue * numBlsTaAgents) * bMlsTaSliderInverse * 0.01008 * 0.84)+ // DEBUG: inverse slider is .30000000000000004 rather than .3
+                       ((bsMpadTaNlValue * numBlsTaAgents) * bPaTaSliderInverse * 0.01008 * 0.84); // DEBUG: inverse slider is .30000000000000004 rather than .3
+  const bsTrailingNlcb = (((bsMlsTaNlcbValue*numBlsTaAgents)*bMlsTaSliderDecimal*0.00504*0.84)+
+                         ((bsMpadTaNlcbValue*numBlsTaAgents)*bPaTaSliderDecimal*0.00504*0.84)+
+                         ((bsMlsTaNlcbValue*numBlsTaAgents)*bMlsTaSliderInverse*0.01008*0.84)+
+                         ((bsMpadTaNlcbValue*numBlsTaAgents)*bPaTaSliderInverse*0.01008*0.84)) * 0;     
+  const bsTrailingNlcb5 = (((bsMlsTaNlcb5Value*numBlsTaAgents)*bMlsTaSliderDecimal*0.00504*0.84)+
+                          ((bsMpadTaNlcb5Value*numBlsTaAgents)*bPaTaSliderDecimal*0.00504*0.84)+
+                          ((bsMlsTaNlcb5Value*numBlsTaAgents)*bMlsTaSliderInverse*0.01008*0.84)+
+                          ((bsMpadTaNlcb5Value*numBlsTaAgents)*bPaTaSliderInverse*0.01008*0.84)) * 0; 
+  const bsTrailingTotal = bsTrailingNl + bsTrailingNlcb + bsTrailingNlcb5;
 
   // baseshop up your wealth points (only calculated annually)
-  // const bsUpWealthNl = Math.ceil(((bsMlsTaNlValue*numBlsTaAgents)*nlSc*0.84)+((bsMpadTaNlValue*numBlsTaAgents)*nlSc*0.84)); 
-  // const bsUpWealthNlcb = Math.ceil(((bsMlsTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84)+((bsMpadTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84)); 
-  // const bsUpWealthNlcb5 = Math.ceil(((bsMlsTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84)+((bsMpadTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84));
+  // const bsUpWealthNl = Math.round(((bsMlsTaNlValue*numBlsTaAgents)*nlSc*0.84)+((bsMpadTaNlValue*numBlsTaAgents)*nlSc*0.84)); 
+  // const bsUpWealthNlcb = Math.round(((bsMlsTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84)+((bsMpadTaNlcbValue*numBlsTaAgents)*nlcbSc*0.84)); 
+  // const bsUpWealthNlcb5 = Math.round(((bsMlsTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84)+((bsMpadTaNlcb5Value*numBlsTaAgents)*nlcb5Sc*0.84));
   // const bsUpWealthTotal = bsUpWealthNl + bsUpWealthNlcb + bsUpWealthNlcb5;
    
   ///// Associate /////
   // Total monthly baseshop upfront points (baseshop monthly activity = bma)
-  const bsUpfrontNlA = Math.ceil((bsMlsaNlValue*numBlsAAgents*nlSc*0.84)+(bsMpadaNlValue*numBlsAAgents*nlSc*0.84));
-  const bsUpfrontNlcbA = Math.ceil((bsMlsaNlcbValue*numBlsAAgents*nlcbSc*0.84)+(bsMpadaNlcbValue*numBlsAAgents*nlcbSc*0.84));
-  const bsUpfrontNlcb5A = Math.ceil((bsMlsaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84)+(bsMpadaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84));
+  const bsUpfrontNlA = (bsMlsaNlValue*numBlsAAgents*nlSc*0.84)+(bsMpadaNlValue*numBlsAAgents*nlSc*0.84);
+  const bsUpfrontNlcbA = (bsMlsaNlcbValue*numBlsAAgents*nlcbSc*0.84)+(bsMpadaNlcbValue*numBlsAAgents*nlcbSc*0.84);
+  const bsUpfrontNlcb5A = (bsMlsaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84)+(bsMpadaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84);
   const bsUpfrontTotalA = bsUpfrontNlA + bsUpfrontNlcbA + bsUpfrontNlcb5A;
   
   // Total monthly baseshop trailing points 
@@ -1413,31 +1456,31 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   const bMlsaSliderInverse = 1 - bMlsaSliderDecimal;
   const bPaaSliderDecimal = bPaASlider.value / 100;
   const bPaaSliderInverse = 1 - bPaaSliderDecimal;
-  const bsTrailingNlA = Math.ceil((bsMlsaNlValue*numBlsAAgents*bMlsaSliderDecimal*0.00504*0.84)+
+  const bsTrailingNlA = (bsMlsaNlValue*numBlsAAgents*bMlsaSliderDecimal*0.00504*0.84)+
                                  (bsMpadaNlValue*numBlsAAgents*bPaaSliderDecimal*0.00504*0.84)+
                                  (bsMlsaNlValue*numBlsAAgents*bMlsaSliderInverse*0.01008*0.84)+
-                                 (bsMpadaNlValue*numBlsAAgents*bPaaSliderInverse*0.01008*0.84));
-  const bsTrailingNlcbA = Math.ceil((bsMlsaNlcbValue*numBlsAAgents*bMlsaSliderDecimal*0.00504*0.84)+
+                                 (bsMpadaNlValue*numBlsAAgents*bPaaSliderInverse*0.01008*0.84);
+  const bsTrailingNlcbA = ((bsMlsaNlcbValue*numBlsAAgents*bMlsaSliderDecimal*0.00504*0.84)+
                                 (bsMpadaNlcbValue*numBlsAAgents*bPaaSliderDecimal*0.00504*0.84)+
                                 (bsMlsaNlcbValue*numBlsAAgents*bMlsaSliderInverse*0.01008*0.84)+
-                                (bsMpadaNlcbValue*numBlsAAgents*bPaaSliderInverse*0.01008*0.84))*0; // times 0    
-  const bsTrailingNlcb5A = Math.ceil((bsMlsaNlcb5Value*numBlsAAgents*bMlsaSliderDecimal*0.00504*0.84)+
+                                (bsMpadaNlcbValue*numBlsAAgents*bPaaSliderInverse*0.01008*0.84)) * 0; // ?? times 0    
+  const bsTrailingNlcb5A = ((bsMlsaNlcb5Value*numBlsAAgents*bMlsaSliderDecimal*0.00504*0.84)+
                                 (bsMpadaNlcb5Value*numBlsAAgents*bPaaSliderDecimal*0.00504*0.84)+
                                 (bsMlsaNlcb5Value*numBlsAAgents*bMlsaSliderInverse*0.01008*0.84)+
-                                (bsMpadaNlcb5Value*numBlsAAgents*bPaaSliderInverse*0.01008*0.84))*0; // times 0
+                                (bsMpadaNlcb5Value*numBlsAAgents*bPaaSliderInverse*0.01008*0.84)) * 0; // ?? times 0
   const bsTrailingTotalA = bsTrailingNlA + bsTrailingNlcbA + bsTrailingNlcb5A;   
 
   // baseshop up your wealth points only annually
-  // const bsUpWealthNlA = Math.ceil((bsMlsaNlValue*numBlsAAgents*nlSc*0.84)+(bsMpadaNlValue*numBlsAAgents*nlSc*0.84)); 
-  // const bsUpWealthNlcbA = Math.ceil((bsMlsaNlcbValue*numBlsAAgents*nlcbSc*0.84)+(bsMpadaNlcbValue*numBlsAAgents*nlcbSc*0.84)); 
-  // const bsUpWealthNlcb5A = Math.ceil((bsMlsaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84)+(bsMpadaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84));
+  // const bsUpWealthNlA = Math.round((bsMlsaNlValue*numBlsAAgents*nlSc*0.84)+(bsMpadaNlValue*numBlsAAgents*nlSc*0.84)); 
+  // const bsUpWealthNlcbA = Math.round((bsMlsaNlcbValue*numBlsAAgents*nlcbSc*0.84)+(bsMpadaNlcbValue*numBlsAAgents*nlcbSc*0.84)); 
+  // const bsUpWealthNlcb5A = Math.round((bsMlsaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84)+(bsMpadaNlcb5Value*numBlsAAgents*nlcb5Sc*0.84));
   // const bsUpWealthTotalA = bsUpWealthNlA + bsUpWealthNlcbA + bsUpWealthNlcb5A;
 
   ///// Marketing Director /////
   // Total monthly baseshop upfront points (baseshop monthly activity = bma)
-  const bsUpfrontNlMd = Math.ceil((bsMlsMdNlValue*numBlsMdAgents*nlSc*0.84)+(bsMpadMdNlValue*numBlsMdAgents*nlSc*0.84));
-  const bsUpfrontNlcbMd = Math.ceil((bsMlsMdNlcbValue*numBlsMdAgents*nlcbSc*0.84)+(bsMpadMdNlcbValue*numBlsMdAgents*nlcbSc*0.84));
-  const bsUpfrontNlcb5Md = Math.ceil((bsMlsMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84)+(bsMpadMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84));
+  const bsUpfrontNlMd = (bsMlsMdNlValue*numBlsMdAgents*nlSc*0.84)+(bsMpadMdNlValue*numBlsMdAgents*nlSc*0.84);
+  const bsUpfrontNlcbMd = (bsMlsMdNlcbValue*numBlsMdAgents*nlcbSc*0.84)+(bsMpadMdNlcbValue*numBlsMdAgents*nlcbSc*0.84);
+  const bsUpfrontNlcb5Md = (bsMlsMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84)+(bsMpadMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84);
   const bsUpfrontTotalMd = bsUpfrontNlMd + bsUpfrontNlcbMd + bsUpfrontNlcb5Md;
   
   // Total monthly baseshop trailing points 
@@ -1445,31 +1488,31 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   const bMlsMdSliderInverse = 1 - bMlsMdSliderDecimal;
   const bPaMdSliderDecimal = bPaMdSlider.value / 100;
   const bPaMdSliderInverse = 1 - bPaMdSliderDecimal;
-  const bsTrailingNlMd = Math.ceil((bsMlsMdNlValue*numBlsMdAgents*bMlsMdSliderDecimal*0.00504*0.84)+
+  const bsTrailingNlMd = (bsMlsMdNlValue*numBlsMdAgents*bMlsMdSliderDecimal*0.00504*0.84)+
                                  (bsMpadMdNlValue*numBlsMdAgents*bPaMdSliderDecimal*0.00504*0.84)+
                                  (bsMlsMdNlValue*numBlsMdAgents*bMlsMdSliderInverse*0.01008*0.84)+
-                                 (bsMpadMdNlValue*numBlsMdAgents*bPaMdSliderInverse*0.01008*0.84));
-  const bsTrailingNlcbMd = Math.ceil((bsMlsMdNlcbValue*numBlsMdAgents*bMlsMdSliderDecimal*0.00504*0.84)+
+                                 (bsMpadMdNlValue*numBlsMdAgents*bPaMdSliderInverse*0.01008*0.84);
+  const bsTrailingNlcbMd = (bsMlsMdNlcbValue*numBlsMdAgents*bMlsMdSliderDecimal*0.00504*0.84)+
                                 (bsMpadMdNlcbValue*numBlsMdAgents*bPaMdSliderDecimal*0.00504*0.84)+
                                 (bsMlsMdNlcbValue*numBlsMdAgents*bMlsMdSliderInverse*0.01008*0.84)+
-                                (bsMpadMdNlcbValue*numBlsMdAgents*bPaMdSliderInverse*0.01008*0.84))*0; // times 0    
-  const bsTrailingNlcb5Md = Math.ceil((bsMlsMdNlcb5Value*numBlsMdAgents*bMlsMdSliderDecimal*0.00504*0.84)+
+                                (bsMpadMdNlcbValue*numBlsMdAgents*bPaMdSliderInverse*0.01008*0.84) *0; //  ?? times 0 
+  const bsTrailingNlcb5Md = (bsMlsMdNlcb5Value*numBlsMdAgents*bMlsMdSliderDecimal*0.00504*0.84)+
                                 (bsMpadMdNlcb5Value*numBlsMdAgents*bPaMdSliderDecimal*0.00504*0.84)+
                                 (bsMlsMdNlcb5Value*numBlsMdAgents*bMlsMdSliderInverse*0.01008*0.84)+
-                                (bsMpadMdNlcb5Value*numBlsMdAgents*bPaMdSliderInverse*0.01008*0.84))*0; // times 0
+                                (bsMpadMdNlcb5Value*numBlsMdAgents*bPaMdSliderInverse*0.01008*0.84)*0; // ??
   const bsTrailingTotalMd = bsTrailingNlMd + bsTrailingNlcbMd + bsTrailingNlcb5Md;   
   
   // baseshop up your wealth points
-  // const bsUpWealthNlMd = Math.ceil((bsMlsMdNlValue*numBlsMdAgents*nlSc*0.84)+(bsMpadMdNlValue*numBlsMdAgents*nlSc*0.84));
-  // const bsUpWealthNlcbMd = Math.ceil((bsMlsMdNlcbValue*numBlsMdAgents*nlcbSc*0.84)+(bsMpadMdNlcbValue*numBlsMdAgents*nlcbSc*0.84));
-  // const bsUpWealthNlcb5Md = Math.ceil((bsMlsMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84)+(bsMpadMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84));
+  // const bsUpWealthNlMd = Math.round((bsMlsMdNlValue*numBlsMdAgents*nlSc*0.84)+(bsMpadMdNlValue*numBlsMdAgents*nlSc*0.84));
+  // const bsUpWealthNlcbMd = Math.round((bsMlsMdNlcbValue*numBlsMdAgents*nlcbSc*0.84)+(bsMpadMdNlcbValue*numBlsMdAgents*nlcbSc*0.84));
+  // const bsUpWealthNlcb5Md = Math.round((bsMlsMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84)+(bsMpadMdNlcb5Value*numBlsMdAgents*nlcb5Sc*0.84));
   // const bsUpWealthTotalMd = bsUpWealthNlMd + bsUpWealthNlcbMd + bsUpWealthNlcb5Md;
 
     ///// Senior Marketing Director /////
   // Total monthly baseshop upfront points (baseshop monthly activity = bma)
-  const bsUpfrontNlSmd = Math.ceil((bsMlsSmdNlValue*numBlsSmdAgents*nlSc*0.84)+(bsMpadSmdNlValue*numBlsSmdAgents*nlSc*0.84));
-  const bsUpfrontNlcbSmd = Math.ceil((bsMlsSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84)+(bsMpadSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84));
-  const bsUpfrontNlcb5Smd = Math.ceil((bsMlsSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84)+(bsMpadSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84));
+  const bsUpfrontNlSmd = (bsMlsSmdNlValue*numBlsSmdAgents*nlSc*0.84)+(bsMpadSmdNlValue*numBlsSmdAgents*nlSc*0.84);
+  const bsUpfrontNlcbSmd = (bsMlsSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84)+(bsMpadSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84);
+  const bsUpfrontNlcb5Smd = (bsMlsSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84)+(bsMpadSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84);
   const bsUpfrontTotalSmd = bsUpfrontNlSmd + bsUpfrontNlcbSmd + bsUpfrontNlcb5Smd;
 
   // Total monthly baseshop trailing points // todo: this is the spread of your contract level to associates contract level if smd and you are over smd then you get 12% spread
@@ -1477,28 +1520,32 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   const bMlsSmdSliderInverse = 1 - bMlsSmdSliderDecimal;
   const bPaSmdSliderDecimal = bPaSmdSlider.value / 100;
   const bPaSmdSliderInverse = 1 - bPaSmdSliderDecimal;
-  const bsTrailingNlSmd = Math.ceil((bsMlsSmdNlValue*numBlsSmdAgents*bMlsSmdSliderDecimal*0.00504*0.84)+
+  const bsTrailingNlSmd = (bsMlsSmdNlValue*numBlsSmdAgents*bMlsSmdSliderDecimal*0.00504*0.84)+
                                  (bsMpadSmdNlValue*numBlsSmdAgents*bPaSmdSliderDecimal*0.00504*0.84)+
                                  (bsMlsSmdNlValue*numBlsSmdAgents*bMlsSmdSliderInverse*0.01008*0.84)+
-                                 (bsMpadSmdNlValue*numBlsSmdAgents*bPaSmdSliderInverse*0.01008*0.84));
-  const bsTrailingNlcbSmd = Math.ceil((bsMlsSmdNlcbValue*numBlsSmdAgents*bMlsSmdSliderDecimal*0.00504*0.84)+
+                                 (bsMpadSmdNlValue*numBlsSmdAgents*bPaSmdSliderInverse*0.01008*0.84);
+  const bsTrailingNlcbSmd = (bsMlsSmdNlcbValue*numBlsSmdAgents*bMlsSmdSliderDecimal*0.00504*0.84)+
                                 (bsMpadSmdNlcbValue*numBlsSmdAgents*bPaSmdSliderDecimal*0.00504*0.84)+
                                 (bsMlsSmdNlcbValue*numBlsSmdAgents*bMlsSmdSliderInverse*0.01008*0.84)+
-                                (bsMpadSmdNlcbValue*numBlsSmdAgents*bPaSmdSliderInverse*0.01008*0.84))*0; // times 0   
-  const bsTrailingNlcb5Smd = Math.ceil((bsMlsSmdNlcb5Value*numBlsSmdAgents*bMlsSmdSliderDecimal*0.00504*0.84)+
+                                (bsMpadSmdNlcbValue*numBlsSmdAgents*bPaSmdSliderInverse*0.01008*0.84)*0; // times 0   
+  const bsTrailingNlcb5Smd = (bsMlsSmdNlcb5Value*numBlsSmdAgents*bMlsSmdSliderDecimal*0.00504*0.84)+
                                 (bsMpadSmdNlcb5Value*numBlsSmdAgents*bPaSmdSliderDecimal*0.00504*0.84)+
                                 (bsMlsSmdNlcb5Value*numBlsSmdAgents*bMlsSmdSliderInverse*0.01008*0.84)+
-                                (bsMpadSmdNlcb5Value*numBlsSmdAgents*bPaSmdSliderInverse*0.01008*0.84))*0; // times 0
+                                (bsMpadSmdNlcb5Value*numBlsSmdAgents*bPaSmdSliderInverse*0.01008*0.84)*0; // times 0
   const bsTrailingTotalSmd = bsTrailingNlSmd + bsTrailingNlcbSmd + bsTrailingNlcb5Smd;   
 
   // baseshop up your wealth points
-  // const bsUpWealthNlSmd = Math.ceil((bsMlsSmdNlValue*numBlsSmdAgents*nlSc*0.84)+(bsMpadSmdNlValue*numBlsSmdAgents*nlSc*0.84)); 
-  // const bsUpWealthNlcbSmd = Math.ceil((bsMlsSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84)+(bsMpadSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84)); 
-  // const bsUpWealthNlcb5Smd = Math.ceil((bsMlsSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84)+(bsMpadSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84));
+  // const bsUpWealthNlSmd = Math.round((bsMlsSmdNlValue*numBlsSmdAgents*nlSc*0.84)+(bsMpadSmdNlValue*numBlsSmdAgents*nlSc*0.84)); 
+  // const bsUpWealthNlcbSmd = Math.round((bsMlsSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84)+(bsMpadSmdNlcbValue*numBlsSmdAgents*nlcbSc*0.84)); 
+  // const bsUpWealthNlcb5Smd = Math.round((bsMlsSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84)+(bsMpadSmdNlcb5Value*numBlsSmdAgents*nlcb5Sc*0.84));
   // const bsUpWealthTotalSmd = bsUpWealthNlSmd + bsUpWealthNlcbSmd + bsUpWealthNlcb5Smd;
-
+ 
   const bsUpfrontTotalAll = bsUpfrontTotal + bsUpfrontTotalA + bsUpfrontTotalMd + bsUpfrontTotalSmd;
-  const bsTrailingTotalAll = bsTrailingTotal + bsTrailingTotalA + bsTrailingTotalMd + bsTrailingTotalSmd;
+  const bsTrailingTotalAll = bsTrailingTotal + bsTrailingTotalA + bsTrailingTotalMd + bsTrailingTotalSmd; // these are for points
+
+
+
+
   // const bsUpwealthTotalAll = bsUpWealthTotal + bsUpWealthTotalA + bsUpWealthTotalMd + bsUpWealthTotalSmd;
  
   ////////////////////////////////
@@ -1516,22 +1563,38 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   const pmaNlUpCom = (pmaMlsNlValue * nlSc * 0.84* commissionRate)+(pmaMpadNlValue*nlSc*0.84*commissionRate);
   const pmaNlcbUpCom = (pmaMlsNlcbValue * nlcbSc * 0.84* commissionRate)+(pmaMpadNlcbValue*nlcbSc*0.84*commissionRate);
   const pmaNlcb5UpCom = (pmaMlsNlcb5Value * nlcb5Sc * 0.84* commissionRate)+(pmaMpadNlcb5Value*nlcb5Sc*0.84*commissionRate);
-  const pmaTmpUpfrontc = Math.ceil(pmaNlUpCom + pmaNlcbUpCom + pmaNlcb5UpCom);
+  const pmaTmpUpfrontc = Math.round(pmaNlUpCom + pmaNlcbUpCom + pmaNlcb5UpCom);
 
   // Total Monthly Personal Trailing Commissions
   const pmaNlTrailCom = (pmaMlsNlValue*pmSliderDecimal*0.00504*0.84*commissionRate)+
                         (pmaMlsNlValue*pmSliderInverse*0.01008*0.84*commissionRate)+
                         (pmaMpadNlValue*mpaSliderDecimal*.00504*0.84*commissionRate)+
                         (pmaMpadNlValue*mpaSliderInverse*0.01008*0.84*commissionRate);
-  const pmaNlcbTrailCom = (pmaMlsNlcbValue*pmSliderDecimal*0.00504*0.84*commissionRate)+
+  const pmaNlcbTrailCom = ((pmaMlsNlcbValue*pmSliderDecimal*0.00504*0.84*commissionRate)+
                           (pmaMlsNlcbValue*pmSliderInverse*0.01008*0.84*commissionRate)+
                           (pmaMpadNlcbValue*mpaSliderDecimal*.00504*0.84*commissionRate)+
-                          (pmaMpadNlcbValue*mpaSliderInverse*0.01008*0.84*commissionRate);
-  const pmaNlcb55TrailCom = (pmaMlsNlcb5Value*pmSliderDecimal*0.00504*0.84*commissionRate)+
+                          (pmaMpadNlcbValue*mpaSliderInverse*0.01008*0.84*commissionRate))*0;
+  const pmaNlcb55TrailCom = ((pmaMlsNlcb5Value*pmSliderDecimal*0.00504*0.84*commissionRate)+
                             (pmaMlsNlcb5Value*pmSliderInverse*0.01008*0.84*commissionRate)+
                             (pmaMpadNlcb5Value*mpaSliderDecimal*.00504*0.84*commissionRate)+
-                            (pmaMpadNlcb5Value*mpaSliderInverse*0.01008*0.84*commissionRate);
-  const pmatmpTrailc = Math.ceil(sumArray([pmaNlTrailCom,pmaNlcbTrailCom,pmaNlcb55TrailCom]));
+                            (pmaMpadNlcb5Value*mpaSliderInverse*0.01008*0.84*commissionRate))*0;
+  
+  const personalAumValues = [
+    finl0.value, ofnl0.value, finlcb0.value, ofnlcb0.value, finlcb50.value, ofnlcb50.value, fill0.value, ofll0.value, 
+    fidsc0.value, ofdsc0.value, finl13.value, ofnl13.value, finlcb13.value, ofnlcb13.value, finlcb513.value, 
+    ofnlcb513.value, fill13.value, ofll13.value, fidsc13.value, ofdsc13.value, finl37.value, ofnl37.value, finlcb37.value, 
+    ofnlcb37.value, finlcb537.value, ofnlcb537.value, fill37.value, ofll37.value, fidsc37.value, ofdsc37.value, 
+    finl49.value, ofnl49.value, finlcb49.value, ofnlcb49.value, finlcb549.value, ofnlcb549.value, fill49.value, 
+    ofll49.value, fidsc49.value, ofdsc49.value, 
+  ];
+  // this list of arrays must be here to update everytime a input is updated
+  const arrayNoEmpty = replaceEmpty(personalAumValues);
+  const PersonalAumSum = sumArray(arrayNoEmpty.map(cleanCurrency));
+            
+                    // todo: I created a sumArray function but in other places I use the js reduce function
+  let pmatmpTrailc = Math.round(sumArray([pmaNlTrailCom,pmaNlcbTrailCom,pmaNlcb55TrailCom, PersonalAumSum])); // JOE: I'm adding in perosnal monthly AUM to personal monthly trail commision total
+
+ 
 
   /////// BASESHOP COMMISSIONS /////////////
   ////////////// Training Associate /////////////////
@@ -1539,29 +1602,30 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   const bsUpfrontNlTaCom = (bsMlsTaNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadTa)+(bsMpadTaNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadTa);
   const bsUpfrontNlcbTaCom = (bsMlsTaNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadTa)+(bsMpadTaNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadTa);
   const bsUpfrontNlcb5TaCom = (bsMlsTaNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadTa)+(bsMpadTaNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadTa);
-  const bsUpfrontTaTotalCom = Math.ceil(bsUpfrontNlTaCom + bsUpfrontNlcbTaCom + bsUpfrontNlcb5TaCom);
+  const bsUpfrontTaTotalCom = bsUpfrontNlTaCom + bsUpfrontNlcbTaCom + bsUpfrontNlcb5TaCom;
   
   // Total Monthly Baseshop Trailing Override Commissions
-  const bsTrailingNlTaCom = (bsMlsTaNlValue*bMlsTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
-                            (bsMlsTaNlValue*bMlsTaSliderInverse*0.01008*0.84*commissionSpreadTa)+
-                            (bsMpadTaNlValue*bPaTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
-                            (bsMpadTaNlValue*bPaTaSliderInverse*0.01008*0.84*commissionSpreadTa);
-  const bsTrailingNlcbTaCom = (bsMlsTaNlcbValue*bMlsTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
-                              (bsMlsTaNlcbValue*bMlsTaSliderInverse*0.01008*0.84*commissionSpreadTa)+
-                              (bsMpadTaNlcbValue*bPaTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
-                              (bsMpadTaNlcbValue*bPaTaSliderInverse*0.01008*0.84*commissionSpreadTa);
-  const bsTrailingNlcb5TaCom = (bsMlsTaNlcb5Value*bMlsTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
-                               (bsMlsTaNlcb5Value*bMlsTaSliderInverse*0.01008*0.84*commissionSpreadTa)+
-                               (bsMpadTaNlcb5Value*bPaTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
-                               (bsMpadTaNlcb5Value*bPaTaSliderInverse*0.01008*0.84*commissionSpreadTa);
-  const bsTrailingTaTotalCom = Math.ceil(bsTrailingNlTaCom + bsTrailingNlcbTaCom + bsTrailingNlcb5TaCom);
+  const bsTrailingNlTaCom = (bsMlsTaNlValue*numBlsTaAgents*bMlsTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                            (bsMlsTaNlValue*numBlsTaAgents*bMlsTaSliderInverse*0.01008*0.84*commissionSpreadTa)+
+                            (bsMpadTaNlValue*numBlsTaAgents*bPaTaSliderDecimal*.00504*0.84*commissionSpreadTa)+ // TODO when coming from PAD do we still want numBlsTaAgents or is there a PAD specific numbe
+                            (bsMpadTaNlValue*numBlsTaAgents*bPaTaSliderInverse*0.01008*0.84*commissionSpreadTa);
+  const bsTrailingNlcbTaCom = ((bsMlsTaNlcbValue*numBlsTaAgents*bMlsTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                              (bsMlsTaNlcbValue*numBlsTaAgents*bMlsTaSliderInverse*0.01008*0.84*commissionSpreadTa)+
+                              (bsMpadTaNlcbValue*numBlsTaAgents*bPaTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                              (bsMpadTaNlcbValue*numBlsTaAgents*bPaTaSliderInverse*0.01008*0.84*commissionSpreadTa))*0;
+  const bsTrailingNlcb5TaCom = ((bsMlsTaNlcb5Value*numBlsTaAgents*bMlsTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                               (bsMlsTaNlcb5Value*numBlsTaAgents*bMlsTaSliderInverse*0.01008*0.84*commissionSpreadTa)+
+                               (bsMpadTaNlcb5Value*numBlsTaAgents*bPaTaSliderDecimal*.00504*0.84*commissionSpreadTa)+
+                               (bsMpadTaNlcb5Value*numBlsTaAgents*bPaTaSliderInverse*0.01008*0.84*commissionSpreadTa))*0;
+  const bsTrailingTaTotalCom = bsTrailingNlTaCom + bsTrailingNlcbTaCom + bsTrailingNlcb5TaCom;
+
 
     ////////////// Associate /////////////////
   // total monthly baseshop upfront overide commissions
   const bsUpfrontNlaCom = (bsMlsaNlValue*nlSc*0.84*commissionSpreadA)+(bsMpadaNlValue*nlSc*0.84*commissionSpreadA);
   const bsUpfrontNlcbaCom = (bsMlsaNlcbValue*nlcbSc*0.84*commissionSpreadA)+(bsMpadTaNlcbValue*nlcbSc*0.84*commissionSpreadA);
   const bsUpfrontNlcb5aCom = (bsMlsaNlcb5Value*nlcb5Sc*0.84*commissionSpreadA)+(bsMpadTaNlcb5Value*nlcb5Sc*0.84*commissionSpreadA);
-  const bsUpfrontaTotalCom = Math.ceil(bsUpfrontNlaCom + bsUpfrontNlcbaCom + bsUpfrontNlcb5aCom);
+  const bsUpfrontaTotalCom = bsUpfrontNlaCom + bsUpfrontNlcbaCom + bsUpfrontNlcb5aCom;
 
   // Total Monthly Baseshop Trailing Override Commissions
   const bsTrailingNlACom = (bsMlsaNlValue*numBlsTaAgents*bMlsaSliderDecimal*.00504*0.84*commissionSpreadA)+
@@ -1576,14 +1640,14 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
                                (bsMlsaNlcb5Value*numBlsTaAgents*bMlsaSliderInverse*0.01008*0.84*commissionSpreadA)+
                                (bsMpadaNlcb5Value*numBlsTaAgents*bPaaSliderDecimal*.00504*0.84*commissionSpreadA)+
                                (bsMpadaNlcb5Value*numBlsTaAgents*bPaaSliderInverse*0.01008*0.84*commissionSpreadA);
-  const bsTrailingATotalCom = Math.ceil(bsTrailingNlACom + bsTrailingNlcbACom + bsTrailingNlcb5ACom);
+  const bsTrailingATotalCom = bsTrailingNlACom + bsTrailingNlcbACom + bsTrailingNlcb5ACom;
 
     ////////////// Marketing Director /////////////////
   // total monthly baseshop upfront overide commissions
   const bsUpfrontNlMdCom = (bsMlsMdNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadMd)+(bsMpadMdNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadMd);
   const bsUpfrontNlcbMdCom = (bsMlsMdNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadMd)+(bsMpadMdNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadMd);
   const bsUpfrontNlcb5MdCom = (bsMlsMdNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadMd)+(bsMpadMdNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadMd);
-  const bsUpfrontMdTotalCom = Math.ceil(bsUpfrontNlMdCom + bsUpfrontNlcbMdCom + bsUpfrontNlcb5MdCom);
+  const bsUpfrontMdTotalCom = bsUpfrontNlMdCom + bsUpfrontNlcbMdCom + bsUpfrontNlcb5MdCom;
 
   // Totol Monthly Baseshop Trailing Override Commissions
   const bsTrailingNlMdCom = (bsMlsMdNlValue*numBlsTaAgents*bMlsMdSliderDecimal*.00504*0.84*commissionSpreadMd)+
@@ -1598,14 +1662,14 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
                                (bsMlsMdNlcb5Value*numBlsTaAgents*bMlsMdSliderInverse*0.01008*0.84*commissionSpreadMd)+
                                (bsMpadMdNlcb5Value*numBlsTaAgents*bPaMdSliderDecimal*.00504*0.84*commissionSpreadMd)+
                                (bsMpadMdNlcb5Value*numBlsTaAgents*bPaMdSliderInverse*0.01008*0.84*commissionSpreadMd);
-  const bsTrailingMdTotalCom = Math.ceil(bsTrailingNlMdCom + bsTrailingNlcbMdCom + bsTrailingNlcb5MdCom);
+  const bsTrailingMdTotalCom = bsTrailingNlMdCom + bsTrailingNlcbMdCom + bsTrailingNlcb5MdCom;
 
     ////////////// Senior Marketing Director /////////////////
   // total monthly baseshop upfront overide commissions
   const bsUpfrontNlSmdCom = (bsMlsSmdNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadSmd)+(bsMpadSmdNlValue*numBlsTaAgents*nlSc*0.84*commissionSpreadSmd);
   const bsUpfrontNlcbSmdCom = (bsMlsSmdNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadSmd)+(bsMpadSmdNlcbValue*numBlsTaAgents*nlcbSc*0.84*commissionSpreadSmd);
   const bsUpfrontNlcb5SmdCom = (bsMlsSmdNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadSmd)+(bsMpadSmdNlcb5Value*numBlsTaAgents*nlcb5Sc*0.84*commissionSpreadSmd);
-  const bsUpfrontSmdTotalCom = Math.ceil(bsUpfrontNlSmdCom + bsUpfrontNlcbSmdCom + bsUpfrontNlcb5SmdCom);
+  const bsUpfrontSmdTotalCom = bsUpfrontNlSmdCom + bsUpfrontNlcbSmdCom + bsUpfrontNlcb5SmdCom;
 
   // Total Monthly Baseshop Trailing Override Commissions
   const bsTrailingNlSmdCom = (bsMlsSmdNlValue*numBlsTaAgents*bMlsSmdSliderDecimal*.00504*0.84*commissionSpreadSmd)+
@@ -1620,10 +1684,34 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
                                (bsMlsSmdNlcb5Value*numBlsTaAgents*bMlsSmdSliderInverse*0.01008*0.84*commissionSpreadSmd)+
                                (bsMpadSmdNlcb5Value*numBlsTaAgents*bPaSmdSliderDecimal*.00504*0.84*commissionSpreadSmd)+
                                (bsMpadSmdNlcb5Value*numBlsTaAgents*bPaSmdSliderInverse*0.01008*0.84*commissionSpreadSmd);
-  const bsTrailingSmdTotalCom = Math.ceil(bsTrailingNlSmdCom + bsTrailingNlcbSmdCom + bsTrailingNlcb5SmdCom);
+  const bsTrailingSmdTotalCom = bsTrailingNlSmdCom + bsTrailingNlcbSmdCom + bsTrailingNlcb5SmdCom;
 
+  // need this to get the baseshop activity sum to add to the baseshop trailing total
+  const baseshopAumNoEmpty = replaceEmpty([
+    bstaFinl0.value, bstaOfnl0.value, bstaFinlcb0.value, bstaOfnlcb0.value, bstaFinlcb50.value, bstaOfnlcb50.value, bstaFill0.value, bstaOfll0.value, bstaFidsc0.value, bstaOfdsc0.value,
+    bstaFinl13.value, bstaOfnl13.value, bstaFinlcb13.value, bstaOfnlcb13.value, bstaFinlcb513.value, bstaOfnlcb513.value, bstaFill13.value, bstaOfll13.value, bstaFidsc13.value, bstaOfdsc13.value,
+    bstaFinl37.value, bstaOfnl37.value, bstaFinlcb37.value, bstaOfnlcb37.value, bstaFinlcb537.value, bstaOfnlcb537.value, bstaFill37.value, bstaOfll37.value, bstaFidsc37.value, bstaOfdsc37.value,
+    bstaFinl49.value, bstaOfnl49.value, bstaFinlcb49.value, bstaOfnlcb49.value, bstaFinlcb549.value, bstaOfnlcb549.value, bstaFill49.value, bstaOfll49.value, bstaFidsc49.value, bstaOfdsc49.value,
+    bsaFinl0.value, bsaOfnl0.value, bsaFinlcb0.value, bsaOfnlcb0.value, bsaFinlcb50.value, bsaOfnlcb50.value, bsaFill0.value, bsaOfll0.value, bsaFidsc0.value, bsaOfdsc0.value,
+    bsaFinl13.value, bsaOfnl13.value, bsaFinlcb13.value, bsaOfnlcb13.value, bsaFinlcb513.value, bsaOfnlcb513.value, bsaFill13.value, bsaOfll13.value, bsaFidsc13.value, bsaOfdsc13.value,
+    bsaFinl37.value, bsaOfnl37.value, bsaFinlcb37.value, bsaOfnlcb37.value, bsaFinlcb537.value, bsaOfnlcb537.value, bsaFill37.value, bsaOfll37.value, bsaFidsc37.value, bsaOfdsc37.value,
+    bsaFinl49.value, bsaOfnl49.value, bsaFinlcb49.value, bsaOfnlcb49.value, bsaFinlcb549.value, bsaOfnlcb549.value, bsaFill49.value, bsaOfll49.value, bsaFidsc49.value, bsaOfdsc49.value,
+    bsmdFinl0.value, bsmdOfnl0.value, bsmdFinlcb0.value, bsmdOfnlcb0.value, bsmdFinlcb50.value, bsmdOfnlcb50.value, bsmdFill0.value, bsmdOfll0.value, bsmdFidsc0.value, bsmdOfdsc0.value,
+    bsmdFinl13.value, bsmdOfnl13.value, bsmdFinlcb13.value, bsmdOfnlcb13.value, bsmdFinlcb513.value, bsmdOfnlcb513.value, bsmdFill13.value, bsmdOfll13.value, bsmdFidsc13.value, bsmdOfdsc13.value,
+    bsmdFinl37.value, bsmdOfnl37.value, bsmdFinlcb37.value, bsmdOfnlcb37.value, bsmdFinlcb537.value, bsmdOfnlcb537.value, bsmdFill37.value, bsmdOfll37.value, bsmdFidsc37.value, bsmdOfdsc37.value,
+    bsmdFinl49.value, bsmdOfnl49.value, bsmdFinlcb49.value, bsmdOfnlcb49.value, bsmdFinlcb549.value, bsmdOfnlcb549.value, bsmdFill49.value, bsmdOfll49.value, bsmdFidsc49.value, bsmdOfdsc49.value,
+    bssmdFinl0.value, bssmdOfnl0.value, bssmdFinlcb0.value, bssmdOfnlcb0.value, bssmdFinlcb50.value, bssmdOfnlcb50.value, bssmdFill0.value, bssmdOfll0.value, bssmdFidsc0.value, bssmdOfdsc0.value,
+    bssmdFinl13.value, bssmdOfnl13.value, bssmdFinlcb13.value, bssmdOfnlcb13.value, bssmdFinlcb513.value, bssmdOfnlcb513.value, bssmdFill13.value, bssmdOfll13.value, bssmdFidsc13.value, bssmdOfdsc13.value,
+    bssmdFinl37.value, bssmdOfnl37.value, bssmdFinlcb37.value, bssmdOfnlcb37.value, bssmdFinlcb537.value, bssmdOfnlcb537.value, bssmdFill37.value, bssmdOfll37.value, bssmdFidsc37.value, bssmdOfdsc37.value,
+    bssmdFinl49.value, bssmdOfnl49.value, bssmdFinlcb49.value, bssmdOfnlcb49.value, bssmdFinlcb549.value, bssmdOfnlcb549.value, bssmdFill49.value, bssmdOfll49.value, bssmdFidsc49.value, bssmdOfdsc49.value,
+  ]);
+
+  const baseshopAumSum = sumArray(baseshopAumNoEmpty.map(cleanCurrency));
+
+  // console.log(bsUpfrontTaTotalCom, bsUpfrontaTotalCom, bsUpfrontMdTotalCom, bsUpfrontSmdTotalCom)
   const bsUpfrontComAll = bsUpfrontTaTotalCom + bsUpfrontaTotalCom + bsUpfrontMdTotalCom + bsUpfrontSmdTotalCom;
-  const bsTrailingComAll = bsTrailingTaTotalCom + bsTrailingATotalCom + bsTrailingMdTotalCom + bsTrailingSmdTotalCom;
+  const bsTrailingComAll = bsTrailingTaTotalCom + bsTrailingATotalCom + bsTrailingMdTotalCom + bsTrailingSmdTotalCom + baseshopAumSum; // here here joe: adding baseshop monthly activity to bs monthly trails
+  
 
 
 
@@ -1631,33 +1719,39 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
     /// adding points (provide toggle functionality to turn off or remove certain parts from total)
     // todo; make sure I'm accounting for the number of associates. currently june 12 I am not accounting for # associates in points calculation
   // todo: could store monthlyPointsPayout value and rather than rerunning everything, just do this part
+  /////////////////// dashboard points update ///////////
+  var dtMonthlyPointsTotal = sumArray([totalPmaUpfrontPoints, totalPmaTrailingPoints, bsUpfrontTotalAll, bsTrailingTotalAll,]);
+  dtMonthlyPoints.textContent = Math.round(dtMonthlyPointsTotal);
+  
+
+
   /////////// MONTHLY SUMMARY PAGE ////////////////// 
   var monthlyPointsTotal = 0; 
   var monthlyCommisionTotal = 0;
   // upfront
   if (togglePersonalPointsBaseshopMonthly.classList.contains("active-summary")) {
     monthlyPointsTotal += totalPmaUpfrontPoints;
-    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+    monthlyPointsPayout.textContent = Math.round(monthlyPointsTotal).toLocaleString();
 
     monthlyCommisionTotal += pmaTmpUpfrontc;
-    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + Math.round(monthlyCommisionTotal).toLocaleString();
   } else {
-    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
-    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+    monthlyPointsPayout.textContent = Math.round(monthlyPointsTotal).toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + Math.round(monthlyCommisionTotal).toLocaleString();
   }
 
   // Trailing
   if (togglePersonalPointsBaseshopOverridesMonthly.classList.contains("active-summary")) {
     monthlyPointsTotal += totalPmaTrailingPoints;
-    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+    monthlyPointsPayout.textContent = Math.round(monthlyPointsTotal).toLocaleString();
 
-    monthlyCommisionTotal += pmatmpTrailc;
-    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+    monthlyCommisionTotal += pmatmpTrailc; // trails
+    monthlyCommissionPayout.textContent = '$' + Math.round(monthlyCommisionTotal).toLocaleString();
   } else {
-    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
-    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+    monthlyPointsPayout.textContent = Math.round(monthlyPointsTotal).toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + Math.round(monthlyCommisionTotal).toLocaleString();
   }
-
+  
   // // Stepup - stepup is only for annual not for monthly
   // if (togglePersonalPointsBaseshopStepMonthly.classList.contains("active-summary")) {
   //   monthlyPointsTotal += totalPmaStepUp;
@@ -1666,28 +1760,32 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   //   monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
   // }
   //// BASESHOP /////
+
   // upfront
   if (toggleBaseshopPointsBaseshopMonthly.classList.contains("active-summary")) {
     monthlyPointsTotal += bsUpfrontTotalAll;
-    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+    monthlyPointsPayout.textContent = Math.round(monthlyPointsTotal).toLocaleString();
 
     monthlyCommisionTotal += bsUpfrontComAll;
-    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
-  } else {
-    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
-    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + Math.round(monthlyCommisionTotal).toLocaleString();
+    
+    } else {
+    monthlyPointsPayout.textContent = Math.round(monthlyPointsTotal).toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + Math.round(monthlyCommisionTotal).toLocaleString();
   }
+
 
   // Trailing
   if (toggleBaseshopPointsBaseshopOverridesMonthly.classList.contains("active-summary")) {
     monthlyPointsTotal += bsTrailingTotalAll;
-    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
+    monthlyPointsPayout.textContent = Math.round(monthlyPointsTotal).toLocaleString();
 
     monthlyCommisionTotal += bsTrailingComAll;
-    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + Math.round(monthlyCommisionTotal).toLocaleString();
+
   } else {
-    monthlyPointsPayout.textContent = monthlyPointsTotal.toLocaleString();
-    monthlyCommissionPayout.textContent = '$' + monthlyCommisionTotal.toLocaleString();
+    monthlyPointsPayout.textContent = Math.round(monthlyPointsTotal).toLocaleString();
+    monthlyCommissionPayout.textContent = '$' + Math.round(monthlyCommisionTotal).toLocaleString();
   }
 
   // stepup -- stepup is only for annual not monthly
@@ -1702,9 +1800,9 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   // POINTS
 
   // todo: are thse suppose to be multiplied by 12 for the year total? or perhaps the total is just multiplied by 12?? this is annual but using month values
-  const personalStepupNlPoints = Math.ceil(((pmaMlsNlValue) * nlSc * 0.84)+((pmaMpadNlValue)*nlSc*0.84));
-  const personalStepupNlcbPoints = Math.ceil(((pmaMlsNlcbValue) * nlcbSc * 0.84)+((pmaMpadNlcbValue)*nlcbSc*0.84));
-  const personalStepupNlcb5Points = Math.ceil(((pmaMlsNlcb5Value) * nlcb5Sc * 0.84)+((pmaMpadNlcb5Value)*nlcb5Sc*0.84));
+  const personalStepupNlPoints = ((pmaMlsNlValue) * nlSc * 0.84)+((pmaMpadNlValue)*nlSc*0.84);
+  const personalStepupNlcbPoints = ((pmaMlsNlcbValue) * nlcbSc * 0.84)+((pmaMpadNlcbValue)*nlcbSc*0.84);
+  const personalStepupNlcb5Points = ((pmaMlsNlcb5Value) * nlcb5Sc * 0.84)+((pmaMpadNlcb5Value)*nlcb5Sc*0.84);
   const personalStepupPointsAll = (personalStepupNlPoints + personalStepupNlcbPoints + personalStepupNlcb5Points); 
 
   // baseshop points
@@ -1726,7 +1824,7 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   const bsStepupPointsNlcbSmd = (bsMlsSmdNlcbValue * nlcbSc *0.84)+(bsMpadSmdNlcbValue * nlcbSc * 0.84);
   const bsStepupPointsNlcb5Smd = (bsMlsSmdNlcb5Value * nlcb5Sc *0.84)+(bsMpadSmdNlcb5Value * nlcbSc * 0.84);
 
-  const bsStepupPointsAll = Math.ceil(bsStepupPointsNlTa + bsStepupPointsNlcbTa + bsStepupPointsNlcb5Ta + 
+  const bsStepupPointsAll = (bsStepupPointsNlTa + bsStepupPointsNlcbTa + bsStepupPointsNlcb5Ta + 
     bsStepupPointsNlA + bsStepupPointsNlcbA + bsStepupPointsNlcb5A +
     bsStepupPointsNlMd + bsStepupPointsNlcbMd + bsStepupPointsNlcb5Md +
     bsStepupPointsNlSmd + bsStepupPointsNlcbSmd + bsStepupPointsNlcb5Smd
@@ -1777,7 +1875,7 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
     pmaBonusRate = findBonusRate(pmaSumOfLumpSumAndPad, notEliteBonusRate);
   }
   
-  const pmaYearlyStepUpCommission = Math.ceil(Math.min(10_000_000, pmaSumOfLumpSumAndPad) * pmaBonusRate * 0.84 * commissionRate);
+  const pmaYearlyStepUpCommission = Math.round(Math.min(10_000_000, pmaSumOfLumpSumAndPad) * pmaBonusRate * 0.84 * commissionRate);
 
   // BS step up your wealth
   // total step up your wealth program rate
@@ -1810,7 +1908,7 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   const bsYearlyStepUpCommissionA = Math.min(10_000_000,bsSumOfLumpSumAndPadA) * bsBonusRateA * 0.84 * commissionSpreadTa;
   const bsYearlyStepUpCommissionMd = Math.min(10_000_000,bsSumOfLumpSumAndPadMd) * bsBonusRateMd * 0.84 * commissionSpreadTa;
   const bsYearlyStepUpCommissionSmd = Math.min(10_000_000,bsSumOfLumpSumAndPadSmd) * bsBonusRateSmd * 0.84 * commissionSpreadTa;
-  const bsYearlyStepUpCommissionAll = Math.ceil(bsYearlyStepUpCommissionTa + bsYearlyStepUpCommissionA + bsYearlyStepUpCommissionMd + bsYearlyStepUpCommissionSmd);
+  const bsYearlyStepUpCommissionAll = (bsYearlyStepUpCommissionTa + bsYearlyStepUpCommissionA + bsYearlyStepUpCommissionMd + bsYearlyStepUpCommissionSmd);
 
 
 // TODO step up your wealth baseshop points
@@ -1829,28 +1927,56 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
     totalPmaStepUpYearly, bsUpfrontYearlyTotalAll, bsUpfrontYearlyComAll, 
     bsTrailingYearlyTotalAll, bsTrailingYearlyComAll
   ] = allMonthlySummaryValues.map(x => x*12);
+
+    // update the dashboard values todo: is ther ea better spot for this?
+    dtMonthlyCommissions.textContent =  formatUserCurrency(
+      Math.round(
+        sumArray([pmaTmpUpfrontc, pmatmpTrailc, bsUpfrontComAll,  bsTrailingComAll,
+          ])
+      ));
+    dtYearlyCommissions.textContent = formatUserCurrency(
+      Math.round(
+        sumArray([pmaTmpUpfrontcYearly, pmatmpTrailcYearly, pmaYearlyStepUpCommission, // totalPmaStepUpYearly,  // what is totalPmaStepUpYearly??
+      bsUpfrontYearlyComAll, bsTrailingYearlyComAll, bsYearlyStepUpCommissionAll // todo: the stepup commission doesn't seem to be doing anything. I need to check into this more
+      ])
+    ));
+
+    // Create Pi Chart of Yearly Commission Breakdown
+    ['Personal Activity', 'Personal Trails', 'Personal Step Up',
+        'Baseshop Activity', 'Baseshop Trails', 'Baseshop Step Up'],
+    updatePieChart([pmaTmpUpfrontcYearly, pmatmpTrailcYearly, pmaYearlyStepUpCommission, // totalPmaStepUpYearly,  // what is totalPmaStepUpYearly??
+        bsUpfrontYearlyComAll, bsTrailingYearlyComAll, bsYearlyStepUpCommissionAll]) 
+
+    // console.log(pmaTmpUpfrontcYearly, pmatmpTrailcYearly, pmaYearlyStepUpCommission, 
+    //   bsUpfrontYearlyComAll, bsTrailingYearlyComAll, bsYearlyStepUpCommissionAll);
+
+    // dashboard yearly points payout
+  var dtYearlyPointsTotal = Math.round(sumArray([totalPmaUpfrontYearlyPoints, totalPmaTrailingPoints, personalStepupPointsAll, 
+    bsUpfrontYearlyTotalAll, bsTrailingYearlyTotalAll, bsStepupPointsAll]));
+  dtYearlyPoints.textContent = dtYearlyPointsTotal;
+
  // upfront
  if (togglePersonalPointsBaseshopYearly.classList.contains("active-summary")) {
    yearlyPointsTotal += totalPmaUpfrontYearlyPoints;
-   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+   yearlyPointsPayout.textContent = Math.round(yearlyPointsTotal).toLocaleString();
 
    yearlyCommisionTotal += pmaTmpUpfrontcYearly; // pmaTmpUpfrontc is darker blue??
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  } else {
-   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyPointsPayout.textContent = Math.round(yearlyPointsTotal).toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  }
 
  // Trailing
  if (togglePersonalPointsBaseshopOverridesYearly.classList.contains("active-summary")) {
    yearlyPointsTotal += totalPmaTrailingPoints;
-   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+   yearlyPointsPayout.textContent = Math.round(yearlyPointsTotal).toLocaleString();
 
    yearlyCommisionTotal += pmatmpTrailcYearly; // is darker blue??
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  } else {
-   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyPointsPayout.textContent = Math.round(yearlyPointsTotal).toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  }
 
  // Stepup
@@ -1859,10 +1985,10 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
    yearlyPointsPayout.textContent = personalStepupPointsAll.toLocaleString();
    
    yearlyCommisionTotal += pmaYearlyStepUpCommission;
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  } else {
-   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyPointsPayout.textContent = Math.round(yearlyPointsTotal).toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
    
  }
  //// BASESHOP /////
@@ -1872,34 +1998,34 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
    yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
 
    yearlyCommisionTotal += bsUpfrontYearlyComAll;
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  } else {
    yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  }
 
  // Trailing
  if (toggleBaseshopPointsBaseshopOverridesYearly.classList.contains("active-summary")) {
    yearlyPointsTotal += bsTrailingYearlyTotalAll;
-   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+   yearlyPointsPayout.textContent = Math.round(yearlyPointsTotal).toLocaleString();
 
    yearlyCommisionTotal += bsTrailingYearlyComAll;
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  } else {
-   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
-   yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyPointsPayout.textContent = Math.round(yearlyPointsTotal).toLocaleString();
+   yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  }
 
  // stepup
  if (toggleBaseshopPointsBaseshopStepYearly.classList.contains("active-summary")) {
    yearlyPointsTotal += bsStepupPointsAll; // bsUpwealthYearlyTotalAll;
-   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
+   yearlyPointsPayout.textContent = Math.round(yearlyPointsTotal).toLocaleString();
 
   yearlyCommisionTotal += bsYearlyStepUpCommissionAll;
-  yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+  yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  } else {
-   yearlyPointsPayout.textContent = yearlyPointsTotal.toLocaleString();
-  yearlyCommissionPayout.textContent = '$' + yearlyCommisionTotal.toLocaleString();
+   yearlyPointsPayout.textContent = Math.round(yearlyPointsTotal).toLocaleString();
+  yearlyCommissionPayout.textContent = '$' + Math.round(yearlyCommisionTotal).toLocaleString();
  }
 
   /////////////////////////////////
@@ -1925,35 +2051,137 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   const pAumFixedDscValues = [fidsc0Value, fidsc13Value, fidsc37Value, fidsc49Value];
   const pAumBalancedDscValues = [ofdsc0Value, ofdsc13Value, ofdsc37Value, ofdsc49Value];
 
-  const personalAumArrays = [pAumFixedNlValues, pAumBalancedNlValues, pAumFixedNlcbValues, pAumBalancedNlcbValues,
-    pAumFixedNlcb5Values,pAumBalancedNlcb5Values,pAumFixedLlValues,pAumBalancedLlValues,pAumFixedDscValues,
-    pAumBalancedDscValues
-  ];
+  
+// https://www.wallstreetmojo.com/fv-function-in-excel/
+  function calculateFutureValue(pv, rate, nper, pmt) {
+    // pv = present value
+    // rate = interest rate
+    // nper = number of periods
 
+    // Convert the annual interest rate to a monthly rate and convert the number of years to months
+    const r = rate / 12;
+    const n = nper * 12;
 
-  // passiveIncomeGoalInput // probably don't need this right away.... 
-  const numberOfPeriods = yearSlider.value;
-  const interestRate = rateReturnSlider.value / 100;
-  const calculateFutureValue = (cashOutflows) => {
-    const futureValue = cashOutflows * Math.pow(1 + interestRate, numberOfPeriods);
-    return futureValue;
+    // Calculate the future value using the formula
+    const fv = pv * Math.pow(1 + r, n) + pmt * ((Math.pow(1 + r, n) - 1) / r);
+    
+    return fv;
   }
-  
-  let futurePersonalAumValues = [];
-  personalAumArrays.forEach(arr => {
-    const cashOutFlows = sumArray(arr);
-    let futureValue = calculateFutureValue(cashOutFlows).toFixed(2);
-    futurePersonalAumValues.push(futureValue);
-    //todo I'm not going to calc the total for the fixed income and balanced/equity for each group  (i.e., NL). I'll just calc the total of all groups for now
-  });
-  const sumPersonalAumProjectedValues = sumArray(futurePersonalAumValues);
-  // console.log(sumPersonalAumProjectedValues);
- 
-  // Personal Monthly lump sum activity
-  // pmSliderDecimal //u10
-  // pmSliderInverse //u11
-  // pmaMlsNlValue // j10
-  
+
+  const initialInvestment = 0; // TODO: add option for current investments or current amount invested.
+  const numberOfYears = yearSlider.value;
+  const annualInterestRate = rateReturnSlider.value / 100;
+  const monthlyContributionNl = pmaMlsNlValue; // JOE: do we sum nl, nlcb, nlcb5 together? 
+  const monthlyContributionNlcb = pmaMlsNlcbValue; 
+  const monthlyContributionNlcb5 = pmaMlsNlcb5Value; // todo: what do we do with nlcb nlcb5
+  const allPersonalMonthlyContributions = sumArray([monthlyContributionNl, monthlyContributionNlcb, monthlyContributionNlcb5]);
+
+  const futureValueResults = calculateYearlyFutureValue(initialInvestment, annualInterestRate, numberOfYears, allPersonalMonthlyContributions);
+
+  const fvSum = futureValueResults.yearlyFVs.slice(-1)//reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  const contributionSum = futureValueResults.yearlyContributions.slice(-1)//.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  const interestEarningsSum = futureValueResults.yearlyInterestEarnings.slice(-1)//.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+  // Update line chart summary stats
+  const formattedFvSum = formatUserCurrency(fvSum);
+  dtFutureValue.textContent = formattedFvSum;
+  const formattedContributionSum = formatUserCurrency(contributionSum);
+  projectedContributions.textContent = formattedContributionSum;
+  const formattedInterestEarningsSum = formatUserCurrency(interestEarningsSum);
+  projectedInterest.textContent = formattedInterestEarningsSum;
+
+  // create line chart
+  createLineChart(futureValueResults.yearlyFVs, futureValueResults.yearlyContributions, futureValueResults.yearlyInterestEarnings, futureValueResults.yearsArray);
+
+  // create radial chart / goal progress chart
+  //if passiveIncomeGoalInput.value is null or empty string, then set goalValue to 0
+  // todo - if no goal is added then i should say please enter a goal
+  if (passiveIncomeGoalInput.value === null || passiveIncomeGoalInput.value === "") {
+    passiveIncomeGoalInput.value = 0;
+  } 
+
+  passiveIncomeGoalValue = passiveIncomeGoalInput.value;
+  let goalValue = parseInt(passiveIncomeGoalValue.replace(/[^0-9]/g, '')); // remove $ and commas
+  let percentComplete = Math.round((fvSum / goalValue) * 100);
+  // todo: when I reload the page the chart percent does not update correctly
+  updateRadialChart(percentComplete); 
+  passiveIncomeGoal.textContent = percentComplete +'%';
+  totalOfGoal.textContent = formatUserCurrency(fvSum) + ' of ' + passiveIncomeGoalValue;
+  // Bar Chart for baseshop Monthly Activity
+  // let yaxisLabels = ['Training Associate - Fixed','Training Associate - Balanced','Associate - Balanced', 'Associate - Fixed',
+  //                    'Marketing Director - Fixed','Marketing Director - Balanced','Senior Marketing Director - Fixed','Senior Marketing Director - Balanced',];
+  let dataArrayBar = [
+    {
+      name: 'NL',
+      data: [
+        sumArray(replaceEmpty([bstaFinl0.value, bstaFinl13.value, bstaFinl37.value,bstaFinl49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bstaOfnl0.value,  bstaOfnl13.value,bstaOfnl37.value,bstaOfnl49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaFinl0.value, bsaFinl13.value, bsaFinl37.value,bsaFinl49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaOfnl0.value, bsaOfnl13.value, bsaOfnl37.value,bsaOfnl49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdFinl0.value, bsmdFinl13.value, bsmdFinl37.value,bsmdFinl49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdOfnl0.value, bsmdOfnl13.value, bsmdOfnl37.value,bsmdOfnl49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdFinl0.value, bssmdFinl13.value, bssmdFinl37.value,bssmdFinl49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdOfnl0.value, bssmdOfnl13.value, bssmdOfnl37.value,bssmdOfnl49.value,]).map(cleanCurrency)),
+      ],
+    },
+    {
+      name: 'NLCB',
+      data: [
+        sumArray(replaceEmpty([bstaFinlcb0.value, bstaFinlcb13.value, bstaFinlcb37.value,bstaFinlcb49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bstaOfnlcb0.value, bstaOfnlcb13.value, bstaOfnlcb37.value,bstaOfnlcb49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaFinlcb0.value, bsaFinlcb13.value, bsaFinlcb37.value,bsaFinlcb49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaOfnlcb0.value, bsaOfnlcb13.value, bsaOfnlcb37.value,bsaOfnlcb49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdFinlcb0.value, bsmdFinlcb13.value, bsmdFinlcb37.value,bsmdFinlcb49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdOfnlcb0.value, bsmdOfnlcb13.value, bsmdOfnlcb37.value,bsmdOfnlcb49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdFinlcb0.value, bssmdFinlcb13.value, bssmdFinlcb37.value,bssmdFinlcb49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdOfnlcb0.value, bssmdOfnlcb13.value, bssmdOfnlcb37.value,bssmdOfnlcb49.value,]).map(cleanCurrency)),
+      ],
+    },
+    {
+      name: 'NLCB5',
+      data: [
+        sumArray(replaceEmpty([bstaFinlcb50.value, bstaFinlcb513.value, bstaFinlcb537.value,bstaFinlcb549.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bstaOfnlcb50.value, bstaOfnlcb513.value, bstaOfnlcb537.value,bstaOfnlcb549.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaFinlcb50.value, bsaFinlcb513.value, bsaFinlcb537.value,bsaFinlcb549.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaOfnlcb50.value, bsaOfnlcb513.value, bsaOfnlcb537.value,bsaOfnlcb549.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdFinlcb50.value, bsmdFinlcb513.value, bsmdFinlcb537.value,bsmdFinlcb549.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdOfnlcb50.value, bsmdOfnlcb513.value, bsmdOfnlcb537.value,bsmdOfnlcb549.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdFinlcb50.value, bssmdFinlcb513.value, bssmdFinlcb537.value,bssmdFinlcb549.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdOfnlcb50.value, bssmdOfnlcb513.value, bssmdOfnlcb537.value,bssmdOfnlcb549.value,]).map(cleanCurrency)),
+      ],
+    },
+    {
+      name: 'LL',
+      data: [
+        sumArray(replaceEmpty([bstaFill0.value, bstaFill13.value, bstaFill37.value,bstaFill49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bstaOfll0.value, bstaOfll13.value, bstaOfll37.value,bstaOfll49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaFill0.value, bsaFill13.value, bsaFill37.value,bsaFill49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaOfll0.value, bsaOfll13.value, bsaOfll37.value,bsaOfll49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdFill0.value, bsmdFill13.value, bsmdFill37.value,bsmdFill49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdOfll0.value, bsmdOfll13.value, bsmdOfll37.value,bsmdOfll49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdFill0.value, bssmdFill13.value, bssmdFill37.value,bssmdFill49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdOfll0.value, bssmdOfll13.value, bssmdOfll37.value,bssmdOfll49.value,]).map(cleanCurrency)),
+      ],
+    },
+    {
+      name: 'DSC',
+      data: [
+        sumArray(replaceEmpty([bstaFidsc0.value, bstaFidsc13.value, bstaFidsc37.value,bstaFidsc49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bstaOfdsc0.value, bstaOfdsc13.value, bstaOfdsc37.value,bstaOfdsc49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaFidsc0.value, bsaFidsc13.value, bsaFidsc37.value,bsaFidsc49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsaOfdsc0.value, bsaOfdsc13.value, bsaOfdsc37.value,bsaOfdsc49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdFidsc0.value, bsmdFidsc13.value, bsmdFidsc37.value,bsmdFidsc49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bsmdOfdsc0.value, bsmdOfdsc13.value, bsmdOfdsc37.value,bsmdOfdsc49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdFidsc0.value, bssmdFidsc13.value, bssmdFidsc37.value,bssmdFidsc49.value,]).map(cleanCurrency)),
+        sumArray(replaceEmpty([bssmdOfdsc0.value, bssmdOfdsc13.value, bssmdOfdsc37.value,bssmdOfdsc49.value,]).map(cleanCurrency)),
+      ]
+    }  
+  ];
+  let yaxisLabels =  [['Training Associate', 'Fixed'],['Training Associate', 'Balanced'],['Associate', 'Balanced'], ['Associate','Fixed'],
+  ['Marketing Director','Fixed'],['Marketing Director','Balanced'],['Senior Marketing Director','Fixed'],['Senior Marketing Director','Balanced']];
+
+  updateBarChart(dataArrayBar, yaxisLabels);
+
 
   // todo: nl, nlcb, nlcb5? are these added together somewhere?
   const pmaFixedPresentValueNl = pmaMlsNlValue * pmSliderDecimal * 12;
@@ -1973,8 +2201,6 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
  
   const pmaFixedProjectedValueAll = pmaFixedNlProjectedValue + pmaFixedNlcbProjectedValue + pmaFixedNlcb5ProjectedValue;
   const pmaBalancedProjectedValueAll = pmaBalancedNlProjectedValue + pmaBalancedNlcbProjectedValue + pmaBalancedNlcb5ProjectedValue;
- console.log(pmaFixedNlProjectedValue, pmaFixedNlcbProjectedValue) // todo these are not the correct values
-
 
   // =FV($G$6,$G$7,(-'Personal Monthly Activity'!J10*'Personal Monthly Activity'!U10*12),0,)
   // =FV($G$6,$G$7,(-'Personal Monthly Activity'!J10*'Personal Monthly Activity'!U11*12),0,)
@@ -1982,7 +2208,6 @@ const calculateSummaryValues = (arr, baseshopMonthlyTotalValues) => {
   // const cashOutflows = (finl0Value + finl13Value + finl37Value + finl49Value); // does this need to be negative? i.e., subtracting i'm getting correct answer
 
    
-  // console.log(calculateFutureValue(cashOutflows).toFixed(2));
  
 
 }
@@ -2005,7 +2230,9 @@ window.addEventListener('DOMContentLoaded', function() {
   // Get the first option by default
   const defaultOption = document.querySelector('.option div:first-child');
   const selectedOption = defaultOption.textContent;
-  
+
+  // set dashboard wfg contract level
+  wfgContractLevel.textContent = selectedOption;
   
   // Set the initial value in the input field
   const selectedOptionInput = document.getElementById('selectedOption');
@@ -2015,158 +2242,595 @@ window.addEventListener('DOMContentLoaded', function() {
   show(selectedOption);
 });
 
+///////////////////////////////////////
+////// Future Value Function /////////
+/////////////////////////////////////
+
+// move this function outside of this larger function
+// after 5 years the rate changes from .5... to 1.008%. 
+// Get Joe to sent me the rate changes on Sept 3 to email
+// todo: need to add the rate changes to the calculation
+// there would be the nubmer of agents (i.e 10) times number of months (60 if 5 years) times 3 (nl, nlcb, nlcb5)
+function calculateYearlyFutureValue(pv, rate, nper, monthlyPayment) {
+  // pv = present value
+  // rate = annual interest rate
+  // nper = number of years
+
+  const r = rate / 12; // Convert annual rate to monthly rate
+  const nMonths = nper * 12; // Total number of months
+  const yearlyFV = [];
+
+  let currentPV = pv; // this use to be pv instead of 0, but are we starting with current funds or from
+  let totalContribution = 0;
+  let totalInterestEarnings = 0;
+  
+  let yearlyFVs = [];
+  let yearlyContributions = [];
+  let yearlyInterestEarnings = [];
+
+  for (let year = 1; year <= nper; year++) {
+      // Calculate the future value for the current year
+      let yearlyFV = 0;
+      let yearlyContribution = 0;        
+      let yearlyInterestEarning = 0;
+
+      for (let month = 1; month <= 12; month++) {
+
+          // Calculate interest for the current month & add to the Yearly Interest
+          const interest = currentPV * r;
+          yearlyInterestEarning += interest;
+          totalInterestEarnings += interest;
+          
+          // Calculate current present value - monthly payment is after interest is calculated
+          currentPV +=  (interest + monthlyPayment);
+           
+          // calculate total contributions
+          totalContribution += monthlyPayment;
+
+      }
+      // Store the result for this year
+      yearlyFVs.push(Math.round(currentPV));
+      yearlyContributions.push(Math.round(totalContribution));
+      // yearlyInterestEarnings.push(Math.round(yearlyInterestEarning));
+      yearlyInterestEarnings.push(Math.round(totalInterestEarnings));
+
+  }
+
+  // Get the current year
+  var currentYear = new Date().getFullYear();
+
+  // Create an array to store the years
+  var yearsArray = [];
+
+  // Add the current year and the next x-1 years to the array
+  for (var i = 0; i < nper; i++) {
+    yearsArray.push(currentYear + i);
+  }
+
+  return {
+    yearlyFVs,
+    yearlyContributions,
+    yearlyInterestEarnings,
+    yearsArray
+  }
+}
+
+/////////////////////////////////////
+/////// Advisors Bar Chart ///////// 
+///////////////////////////////////
+var advisorChart;
+
+function createAgentBarChart(agentArray) { 
+  console.log('agentArray', agentArray); 
+  var options = {
+    series: [{
+      data: agentArray,
+    }],
+    chart: {
+      type: 'bar',
+      height: 200,
+      width: 400,
+      toolbar: {
+        show: false // Hide the chart toolbar
+      }
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+        dataLabels: {
+          position: 'top',
+        }
+      }
+    },
+    dataLabels: {
+      enabled: true,
+      offsetX: -5,
+    },
+    title: {
+      text: 'Number of Advisors',
+      offsetY: 25,
+      style: {
+        fontSize: "16px",
+        color: dtText
+      },
+    },
+    xaxis: {
+      categories: ['Training Associate', 'Associate', 'Marketing Director', 'Senior Marketing Director'],
+      labels: {
+        show: false // Hide x-axis labels
+      },
+      axisBorder: {
+        show: false // Hide the x-axis line
+      },
+      axisTicks: {
+        show: false // Hide x-axis tick marks
+      }
+    },
+    yaxis: {
+      show: true, // Hide y-axis
+      labels: {
+        style: {
+          colors: dtText,
+          fontSize: '14px'
+        }
+      }
+    },
+    grid: {
+      show: false // Hide grid lines
+    },
+    tooltip: {
+      theme: 'dark', // set dark theme
+    },
+  };
+
+  advisorChart = new ApexCharts(document.querySelector("#advisor-chart"), options);
+  advisorChart.render();
+}
+
+createAgentBarChart([0,0,0,0]);
+
+function updateAgentBarChart(agentArray) {
+  console.log('agentArray', agentArray);
+  if (advisorChart) {
+    // Convert each element to a number
+    agentArray = agentArray.map(Number);
+
+    // Update the chart's series with the new data
+    advisorChart.updateSeries([{
+      data: agentArray,
+    }]);
+  }
+}
+
 
 
 ////////////////////////////
 ////// LINE CHART /////////
 //////////////////////////
-// Data
-// console.log('passive income', passiveIncomeGoalInput);
-// console.log('input year', yearSlider);
-// console.log('rate of return', rateReturnSlider)
-let startingValue = 10_000; // Initial investment
-let passiveIncomeGoal = 20_000; // Goal amount
-let years = 10; // Number of years
-let data = [];
 
-// Calculate yearly returns based on interest rate
-function calculateReturns(interestRate) {
-  let value = startingValue;
-  const returns = [value];
+function createLineChart(yearlyFVs, yearlyContributions, yearlyInterestEarnings, yearsArray) {
+  // yearlyFVs = yearlyFVs.map(formatUserCurrency);
+  // yearlyContributions = yearlyContributions.map(formatUserCurrency);
+  // yearlyInterestEarnings = yearlyInterestEarnings.map(formatUserCurrency);
 
-  for (let i = 1; i <= years; i++) {
-    value += value * (interestRate / 100);
-    returns.push(value);
+  var options = {
+    series: [{
+      name: "Total combined",
+      data: yearlyFVs
+    },
+    {
+      name: "Total Contributions",
+      data: yearlyContributions
+    },
+    {
+      name: 'Total Interest',
+      data: yearlyInterestEarnings
+    }
+  ],
+    chart: {
+    height: 320,
+    width: 1000,
+    type: 'line',
+    zoom: {
+      enabled: false
+    },
+    // padding: {
+    //   top: 40,
+    //   right: 20,
+    //   bottom: 40,
+    //   left: 60,
+    // },
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    width: 3, //[5, 7, 5],
+    curve: 'straight',
+    // dashArray: [0, 18, 5]
+  },
+  title: {
+    text: 'Projected Future Value, Contributions, and Interest Earnings',
+    align: 'left',
+    style: {
+      fontSize: "24px",
+      color: dtText
+    }
+  },
+  legend: {
+    offsetY: 15,
+    position: 'right',
+    labels: {
+      colors: dtText
+    },
+    onItemClick: {
+      toggleDataSeries: true // Enable series toggling on legend click
+    }
+  },
+  markers: {
+    size: 3,
+    hover: {
+      sizeOffset: 2
+    }
+  },
+  xaxis: {
+    labels: {
+      style: {
+        colors: dtText,
+        fontSize: '18px'
+      }
+    },
+    categories: yearsArray,
+  },
+  yaxis: {
+    labels: {
+      formatter: function (value) {
+        // Format the value as currency with commas and dollar signs
+        return "$" + Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      },
+      style: {
+        colors: dtText,
+        fontSize: '18px'
+      }
+    }
+  },
+  tooltip: {
+    theme: 'dark', // set dark theme
+    y: [
+      {
+        title: {
+          formatter: function (val) {
+            return 'Total';
+          }
+        }
+      },
+
+      {
+        title: {
+          formatter: function (val) {
+            return val;
+          }
+        }
+      },
+      {
+        title: {
+          formatter: function (val) {
+            return val;
+          }
+        }
+      }
+    ]
+  },
+  grid: {
+    borderColor: '#f1f1f1',
+  },
+  export: {
+    enabled: false // disable the export menu
   }
+  // colors: ['#fff', '#33FF57', '#5733FF']
+  };
 
-  return returns;
+  var chartLine = new ApexCharts(document.querySelector("#chartLine"), options);
+  chartLine.render();
 }
 
-// Slider
-// const rateReturnSlider = document.getElementById('interestRate');
-const interestRateValue = document.getElementById('rate-of-return-slider');
 
-rateReturnSlider.addEventListener('input', function() {
-  const interestRate = +this.value;
-  interestRateValue.textContent = interestRate;
-  const returns = calculateReturns(interestRate);
-  updateChart(returns);
-});
+////////////////////////////////////////
+///////////// Progress Chart //////////
+//////////////////////////////////////
+// Declare chartProgress in a higher scope
+var chartProgress;
 
-// const yearSlider = document.getElementById('years');
-const yearsSlider = document.getElementById('year-input');
+function createRadialChart(percentComplete) {
+  var options = {
+    series: [percentComplete],
+    chart: {
+      height: 375,
+      type: 'radialBar',
+    },
+    colors: [dtBlue],
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          size: '60%',
 
-yearSlider.addEventListener('input', function() {
-  years = +this.value;
-  yearsSlider.textContent = years;
-  const returns = calculateReturns(rateReturnSlider.value);
-  updateChart(returns);
-});
+        },
+        track: {
+          strokeWidth: '100%',
+          background: '#f2f2f2',
 
-// Starting value input
-const startingValueInput = document.getElementById('startingValue');
+        },
+        dataLabels: {
+          name: {
+            show: false,
+            fontSize: '18',
+            offsetY: '-9',
+          },
+          value: {
+            // show: false,
+            fontSize: '32',
+            // offsetY: '2',
+            color: dtText,
+          },
+        },
+      },
+    },
+    stroke: {
+      lineCap: 'round', // This will round the edges of the radial bar
+    },
+    labels: ['Percent Achieved'],
+  }; 
 
-startingValueInput.addEventListener('input', function() {
-  startingValue = +this.value;
-  const returns = calculateReturns(rateReturnSlider.value);
-  updateChart(returns);
-});
+  chartProgress = new ApexCharts(document.querySelector("#chartProgress"), options);
+  chartProgress.render();
+}
 
-// Goal amount input
+// Create the chart initially
+createRadialChart(0);
 
-
-passiveIncomeGoalInput.addEventListener('input', function() {
-  passiveIncomeGoal = cleanCurrency(this.value);
-  console.log('this', this.value)
-  const returns = calculateReturns(rateReturnSlider.value);
-  updateChart(returns);
-});
-
-// Line Chart
-const svg = d3.select('#chart');
-const margin = { top: 20, right: 30, bottom: 30, left: 95 };
-const width = +svg.attr('width') - margin.left - margin.right;
-const height = +svg.attr('height') - margin.top - margin.bottom;
-
-const xScale = d3.scaleLinear().range([0, width]);
-const yScale = d3.scaleLinear().range([height, 0]);
-
-const xAxis = d3.axisBottom(xScale).tickFormat(d3.format('d')).ticks(years);
-const yAxis = d3.axisLeft(yScale).tickFormat(d3.format('$,'));
-
-const line = d3.line()
-  .x((d, i) => xScale(i))
-  .y(d => yScale(d));
-
-const chart = svg.append('g')
-  .attr('transform', `translate(${margin.left},${margin.top})`);
-
-// Update the chart with new data
-function updateChart(data) {
-  xScale.domain([0, years]);
-  yScale.domain([0, d3.max(data)]);
-
-  chart.selectAll('.line').remove();
-
-  chart.append('path')
-    .datum(data)
-    .attr('class', 'line')
-    .attr('d', line);
-
-  chart.selectAll('.goal-line').remove();
-
-  const goalLineData = data.map(value => Math.min(value, passiveIncomeGoal));
-
-  chart.append('path')
-    .datum(goalLineData)
-    .attr('class', 'goal-line')
-    .attr('d', line);
-
-  chart.selectAll('.axis').remove();
-
-  chart.append('g')
-    .attr('class', 'axis')
-    .attr('transform', `translate(0,${height})`)
-    .call(xAxis)
-    .append('text')
-    .attr('class', 'axis-label')
-    .attr('x', width)
-    .attr('y', -6)
-    .style('text-anchor', 'end')
-    .text('Years')
-    .style('font-size', '16px');
-
-  chart.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-    .append('text')
-    .attr('class', 'axis-label')
-    .attr('transform', 'rotate(-90)')
-    .attr('y', 6)
-    .attr('dy', '0.71em')
-    .style('text-anchor', 'end')
-    .text('Value ($)')
-    .style('font-size', '16px');
-
-  chart.selectAll('.goal-label').remove();
-
-  const goalYear = data.findIndex(d => d >= passiveIncomeGoal);
-
-  if (goalYear !== -1) {
-    chart.append('text')
-      .attr('class', 'goal-label')
-      .attr('x', xScale(goalYear))
-      .attr('y', yScale(passiveIncomeGoal) - 10)
-      .attr('text-anchor', 'end')
-      .style('fill', 'green')
-      .text(`Goal Reached in Year ${goalYear}`)
-      .style('font-size', '16px');
+function updateRadialChart(newPercentComplete) {
+  if (chartProgress) {
+    // Check if chartProgress is defined before attempting to update
+    chartProgress.updateSeries([newPercentComplete]);
   }
 }
+
+
+////////////////////////////////////////
+////////// horizontal bar chart ////////
+////////////////////////////////////////
+function createBarChart(dataArray, yaxisLabels) {
+  var options = {
+    series: dataArray,
+    chart: {
+    type: 'bar',
+    height: 525,
+    width: 950,
+    stacked: true,
+  },
+   // Adjust the margin to allow more space for labels
+    // You can increase the right margin value as needed
+    // to ensure the labels are fully visible
+    margin: {
+      // top: 20,
+      // right: 100, // Adjust this value
+      // bottom: 50,
+      left: 250,
+    },
+  plotOptions: {
+    bar: {
+      horizontal: true,
+      borderRadius: 4, // todo: not working - might not work with 
+      dataLabels: {
+        total: {
+          enabled: true,
+          offsetX: 0,
+          style: {
+            fontSize: '18px',
+            fontWeight: 900,
+            color: dtText
+          }
+        }
+      }
+    },
+  },
+  stroke: {
+    width: 0,
+    colors: ['#fff']
+  },
+  title: {
+    text: 'Baseshop Monthly Activity',
+    align: 'left',
+    style: {
+      fontSize: "24px",
+      color: dtText,
+    }
+  },
+  xaxis: {
+    categories: yaxisLabels,
+    labels: {
+      style: {
+        colors: dtText,
+        fontSize: '18px'
+      },
+      formatter: function (val) {
+        val = parseInt(val);
+        
+        if (val >= 1000) {
+          return "$" + parseInt(val/1000) + "K"
+      } else {
+        return "$" + val
+        }
+      }
+    }
+  },
+  yaxis: {
+    labels: {
+      style: {
+        colors: dtText,
+        fontSize: '16px'
+      },
+    },
+    title: {
+      text: undefined
+    },
+  },
+  tooltip: {
+    theme: 'dark', // set dark theme
+    y: {
+      formatter: function (val) {
+        if (val >= 1000) {
+          console.log(typeof(val));
+        return parseInt(val/1000) + "K"
+        } else {
+          return val
+        }
+      }
+    }
+  },
+  grid: {
+    show: false,
+    xaxis: {
+      lines: {
+          show: false
+      }
+  },   
+  yaxis: {
+      lines: {
+          show: false
+      }
+  },  
+  },
+  fill: {
+    opacity: 1
+  },
+  legend: {
+    position: 'top',
+    horizontalAlign: 'left',
+    offsetX: 40,
+    labels: {
+      colors: dtText,
+      fontSize: '18px'
+    },
+  }
+  };
+
+  const chartBar = new ApexCharts(document.querySelector("#chartBar"), options);
+  chartBar.render();
+}
+
+
+// Data to initialize the chart with
+let yaxisLabels = [['Training Associate', 'Fixed'],['Training Associate', 'Balanced'],['Associate', 'Balanced'], ['Associate','Fixed'],
+['Marketing Director','Fixed'],['Marketing Director','Balanced'],['Senior Marketing Director','Fixed'],['Senior Marketing Director','Balanced']];
+
+let dataArray = [
+  {
+  name: 'NL',
+  data: [0,5,0,0,0,0,0,0],
+  },
+  {
+  name: 'NLCB',
+  data: [0,7,0,0,0,0,0,0],
+  },
+  {
+  name: 'NLCB5',
+  data: [0,0,0,0,0,0,0,0],
+  },
+  {
+  name: 'LL',
+  data: [0,0,0,0,0,0,0,0],
+  },
+  {
+  name: 'DSC',
+  data: [0,0,0,0,0,0,0,0],
+  }  
+];
+
+createBarChart(dataArray, yaxisLabels);
+
+function updateBarChart(dataArray, yaxisLabels) {
+  if (chartBar) {
+    // Check if chartProgress is defined before attempting to update
+    document.querySelector('#chartBar').innerHTML = '';
+    createBarChart(dataArray, yaxisLabels);
+  }
+}
+
+//// create pie chart function ////
+let pieChart;
+
+function createPieChart(pieArray) {
+  var options = {
+    series: pieArray,
+    chart: {
+      width: 380,
+      type: 'pie',
+    },
+    dataLabels: {
+      enabled: true,
+      style: {
+        fontSize: "20px",
+        colors: [dtText]
+      },
+      offsettX: -90, // todo: not working. need to move labels inward 
+    },
+    labels: ['Personal Activity', 'Personal Trails', 'Personal Step Up',
+      'Baseshop Activity', 'Baseshop Trails', 'Baseshop Step Up'],
+    legend: {
+      position: 'bottom', // Set the legend position here
+      fontSize: '16px',
+      labels: {
+        colors: [dtText,dtText,dtText,dtText,dtText,dtText],
+    },
+    },
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200
+        },
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }]
+  };
+
+  pieChart = new ApexCharts(document.querySelector("#pieChart"), options);
+  pieChart.render();
+}
+
+
+// Create the chart initially
+createPieChart([0,0,0,0,0,0]);
+
+function updatePieChart(newPieArray) {
+  if (pieChart) {
+    // Check if chartProgress is defined before attempting to update
+    pieChart.updateSeries(newPieArray);
+  }
+}
+
+// const toggleSwitch = document.getElementById("toggleSwitch");
+// let isSwitchOn = false;
+
+// toggleSwitch.addEventListener("click", () => {
+//     isSwitchOn = !isSwitchOn;
+//     toggleSwitch.classList.toggle("on", isSwitchOn);
+//     toggleSwitch.classList.toggle("off", !isSwitchOn);
+// });
 
 // Initial chart update
-const initialReturns = calculateReturns(rateReturnSlider.value);
-updateChart(initialReturns);
+// const initialReturns = calculateReturns(rateReturnSlider.value);
+// updateChart(initialReturns);
+
+
+
+
+
+
 
 // TODO: change all the contribution amount ID names
 // for the baseshop slider and inputs the names are toggle-inner-mls-smd but I should identify it is from baseshop not personal
@@ -2184,3 +2848,25 @@ updateChart(initialReturns);
 
 
 
+
+
+
+
+
+
+
+
+// major todo: recalculate creates a new clone of chart instance of chart (i.e., it keeps adding more charts to the page not replacing it)
+
+
+
+
+
+const recalculate = document.getElementById('recalculate');
+
+// add event listener to recalculate button
+recalculate.addEventListener('click', function() {
+  doPmaBma();
+});  
+
+// Joe: is yearly commissions everything earned including contributions or literally just the commissions?
